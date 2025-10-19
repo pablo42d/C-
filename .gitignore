@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/C-/CopilotIndices/17.14.1290.42047/SemanticSymbols.db
+/.vs/C-/FileContentIndex/7e182d8d-15d9-4ecb-abf7-83d7f983d44c.vsidx
+/.vs/C-/v17/.wsuo
+/.vs/C-/v17/DocumentLayout.backup.json
+/.vs/C-/v17/DocumentLayout.json
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/CodeChunks.db
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/CodeChunks.db-shm
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/CodeChunks.db-wal
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/SemanticSymbols.db
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/SemanticSymbols.db-shm
+/Lab01/.vs/Lab01/CopilotIndices/17.14.1290.42047/SemanticSymbols.db-wal
+/Lab01/.vs/Lab01/FileContentIndex/366f6c81-eb22-44a2-a023-e3a585d30100.vsidx
+/Lab01/.vs/Lab01/v17/.suo
+/Lab01/.vs/Lab01/v17/DocumentLayout.json
