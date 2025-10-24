@@ -1,5 +1,6 @@
 ﻿using CourseW3S;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace CourseW3S
@@ -283,6 +284,7 @@ namespace CourseW3S
             RandomNumbers();
 
         }
+        //--------String Formatting------
         private void StringFormatting()
         {
             Console.WriteLine("-------String Formatting-----");
@@ -305,7 +307,7 @@ namespace CourseW3S
             // To concat strings
             string lastName = "Doe";
             Console.WriteLine(String.Concat(name, " ", lastName, "I'm", age, "old year")); // John Doe I'm 30 old year
-            
+
             string x = "10";
             string y = "20";
             string z = x + y;  // z will be 1020 (a string)
@@ -316,16 +318,139 @@ namespace CourseW3S
 
             // To find a substring, replace a substring, or get a character at a specific index
             string myString = "Hello, World!";
-            Console.WriteLine(myString.IndexOf("World")); //7
+            // Location of letter W
+            Console.WriteLine(myString.IndexOf("W")); //7
+            // Get last word from position 7
+            int charPos = myString.IndexOf("W");
+            string lastWord = myString.Substring(charPos);
+            Console.WriteLine(lastWord); //World!
+            // Replace World with C#
             Console.WriteLine(myString.Replace("World", "C#")); //Hello, C#!
+            // Get character at index 0
             Console.WriteLine(myString[0]); // H
 
+            // Special characters
+            // New line \n, Tab \t, Double Quote \", Backslash \\
+            string specialString = "Hello,\nWorld!\tThis is a \"special\" string with a backslash \\";  //Hello,//World!   This is a "special" string with a backslash \
+            Console.WriteLine(specialString);
+            // The sequence \'  inserts a single quote in a string
+            string singleQuoteString = "It\'s a beautiful day!";
+            Console.WriteLine(singleQuoteString);
+            // The sequence \\  inserts a single backslash in a string:
+            string backslashString = "This is a backslash: \\";
+            Console.WriteLine(backslashString);
+            // The sequence \n  inserts a new line in a string:
+            string newLineString = "Hello World!\nWelcome to C# programming.";
+            Console.WriteLine(newLineString);
+            // The sequence \t  inserts a tab in a string:
+            string tabString = "Name:\tJohn Doe";
+            Console.WriteLine(singleQuoteString);
 
+            Console.WriteLine(newLineString);   //Hello World!
+                                                //Welcome to C# programming.
+            Console.WriteLine(tabString);   //Name:   John Doe
 
+            // boolean methods for strings
 
+            int myAge = Convert.ToInt32(Console.ReadLine()); // why I have to convert it to int?
+            int votingAge = 18;
 
-
+            if (myAge >= votingAge)
+            {
+                Console.WriteLine("Old enough to vote!");
+            }
+            else
+            {
+                Console.WriteLine("Not old enough to vote.");
+            }
 
         }
+        public void RunStringFormatting()
+        {
+            StringFormatting();
+        }
+        //--------Conditionals Example------
+
+        private void ConditionalsExample()
+        {
+            Console.WriteLine("-------Conditionals Example-----");
+            
+            
+            int number = 10;
+            // If-Else statement
+            if (number > 0)
+            {
+                Console.WriteLine(number + " is a positive number.");
+            }
+            else if (number < 0)
+            {
+                Console.WriteLine(number + " is a negative number.");
+            }
+            else
+            {
+                Console.WriteLine("The number is zero.");
+            }
+
+            // Switch statement
+            Console.WriteLine("Choose a day (1-7):");
+            int day = Console.ReadLine() != null ? Convert.ToInt32(Console.ReadLine()) : 0; // 1-7  
+            switch (day)
+            {
+                case 1:
+                    Console.WriteLine("Monday");
+                    break;
+                case 2:
+                    Console.WriteLine("Tuesday");
+                    break;
+                case 3:
+                    Console.WriteLine("Wednesday");
+                    break;
+                case 4:
+                    Console.WriteLine("Thursday");
+                    break;
+                case 5:
+                    Console.WriteLine("Friday");
+                    break;
+                case 6:
+                    Console.WriteLine("Saturday");
+                    break;
+                case 7:
+                    Console.WriteLine("Sunday");
+                    break;
+                default:
+                    Console.WriteLine("Invalid day");
+                    break;
+            }
+        }
+
+
+        private void ArraysExample()
+        {
+            Console.WriteLine("-------Arrays Example-----");
+            // Declare and initialize an array of integers
+            int[] numbers = { 10, 20, 30, 40, 50 };
+            // Access and print elements of the array
+            Console.WriteLine("First element: " + numbers[0]); // 10
+            Console.WriteLine("Second element: " + numbers[1]); // 20
+            // Modify an element in the array
+            numbers[2] = 35;
+            Console.WriteLine("Modified third element: " + numbers[2]); // 35
+            // Get the length of the array
+            Console.WriteLine("Array length: " + numbers.Length); // 5
+            // Iterate through the array using a for loop
+            Console.WriteLine("Array elements:");
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(numbers[i]);
+            }
+        }
+        public void RunArraysExample()
+        {
+            ArraysExample();
+        }
+
+
+
     }
+    
 }
