@@ -1,4 +1,5 @@
 ﻿using CourseW3S;
+using System.Runtime.CompilerServices;
 
 
 namespace CourseW3S
@@ -69,6 +70,44 @@ namespace CourseW3S
         public void RunDataTypesSizes()
         {
             DataTypesSizes();
+        }
+        private void operators()
+        {
+            Console.WriteLine("-------Operators-----");
+            int a = 10;
+            int b = 5;
+            // Arithmetic Operators
+            Console.WriteLine("Addition: " + (a + b));          // 15
+            Console.WriteLine("Subtraction: " + (a - b));       // 5
+            Console.WriteLine("Multiplication: " + (a * b));    // 50
+            Console.WriteLine("Division: " + (a / b));          // 2
+            Console.WriteLine("Modulus: " + (a % b));           // 0
+            Console.WriteLine("Increment: " + (++a));              // 11
+            Console.WriteLine("Decrement: " + (--b));              // 4
+            Console.WriteLine(" " + (b = b | 3));     // 7
+            Console.WriteLine(" " + (b = b & 2));     // 2
+            Console.WriteLine(" " + (b = b ^ 5));     // 7 
+
+            // Comparison Operators
+            Console.WriteLine("Equal: " + (a == b));           // False
+            Console.WriteLine("Not Equal: " + (a != b));       // True
+            Console.WriteLine("Greater Than: " + (a > b));      // True
+            Console.WriteLine("Less Than: " + (a < b));         // False
+            Console.WriteLine("Greater Than or Equal: " + (a >= b)); // True
+            Console.WriteLine("Less Than or Equal: " + (a <= b));    // False
+            Console.WriteLine(" " + (b <<= 1));   // 4
+            Console.WriteLine(" " + (b >>= 2));   // 1
+
+            // Logical Operators
+            bool x = true;
+            bool y = false;
+            Console.WriteLine("Logical AND: " + (x && y));      // False
+            Console.WriteLine("Logical OR: " + (x || y));       // True
+            Console.WriteLine("Logical NOT: " + (!x));          // False
+        }
+        public void RunOperators()
+        {
+            operators();
         }
 
 
@@ -193,16 +232,100 @@ namespace CourseW3S
             Console.WriteLine("Enter your age:");
             int age = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Your age is: " + age);
-        } 
+        }
         public void RunGetUserInput()
         {
             getUserInput();
         }
 
+        private void MathMethods()
+        {
+            Console.WriteLine("-------Math Methods-----");
+            int num1 = -10;
+            double num2 = 5.75;
+            double num3 = 4.3;
+            // Absolute value
+            Console.WriteLine("Absolute value of " + num1 + " is: " + Math.Abs(num1));  // 10
+            // Power
+            Console.WriteLine(num2 + " raised to the power of 2 is: " + Math.Pow(num2, 3)); // 190.109375 5,75x5,75x5,75 
+            // Square root
+            Console.WriteLine("Square root of " + num3 + " is: " + Math.Sqrt(num3));    // 2.0736
+            Console.WriteLine("Square root of 64 is: " + Math.Sqrt(64));    // 8
+            // Maximum
+            Console.WriteLine("Maximum of " + num2 + " and " + num3 + " is: " + Math.Max(num2, num3));  // 6.75
+            // Minimum
+            Console.WriteLine("Minimum of " + num2 + " and " + num3 + " is: " + Math.Min(num2, num3));  // 4.3
+            // Rounding
+            Console.WriteLine(num2 + " rounded is: " + Math.Round(num2)); // 6
+        }
+        public void RunMathMethods()
+        {
+            MathMethods();
+        }
 
-       
+        private void RandomNumbers()
+        {
+            Console.WriteLine("-------Random Numbers-----");
+            //Create an instance of the Random class
+            Random random = new Random();
+            //Generate a random integer between 0 and 100
+            int randomInt = random.Next(0, 101);
+            Console.WriteLine("Random Integer: " + randomInt);
+            //Generate a random double between 0.0 and 1.0
+            double randomDouble = random.NextDouble();
+            Console.WriteLine("Random Double: " + randomDouble);
+            //Generate a random integer within a specified range (e.g., 50 to 150)
+            int randomRangeInt = random.Next(50, 151);
+            Console.WriteLine("Random Integer (50-150): " + randomRangeInt);
+        }
+        public void RunRandomNumbers()
+        {
+            RandomNumbers();
+
+        }
+        private void StringFormatting()
+        {
+            Console.WriteLine("-------String Formatting-----");
+            string name = "John";
+            int age = 30;
+            // Using String.Format
+            string formattedString1 = String.Format("My name is {0} and I am {1} years old.", name, age);
+            Console.WriteLine(formattedString1);
+            // Using Interpolated Strings
+            string formattedString2 = $"My name is {name} and I am {age} years old.";
+            Console.WriteLine(formattedString2);
+            // Using Composite Formatting
+            Console.WriteLine("My name is {0} and I am {1} years old.", name, age);
+            // To count length of string
+            Console.WriteLine(name.Length); //4
+            // To uppercase
+            Console.WriteLine(name.ToUpper()); //JOHN
+            // To lowercase
+            Console.WriteLine(name.ToLower()); //john
+            // To concat strings
+            string lastName = "Doe";
+            Console.WriteLine(String.Concat(name, " ", lastName, "I'm", age, "old year")); // John Doe I'm 30 old year
+            
+            string x = "10";
+            string y = "20";
+            string z = x + y;  // z will be 1020 (a string)
+
+            Console.WriteLine(z);
+
+            int v = Convert.ToInt32(x) + Convert.ToInt32(y); // z will be 30 (an integer/number)
+
+            // To find a substring, replace a substring, or get a character at a specific index
+            string myString = "Hello, World!";
+            Console.WriteLine(myString.IndexOf("World")); //7
+            Console.WriteLine(myString.Replace("World", "C#")); //Hello, C#!
+            Console.WriteLine(myString[0]); // H
 
 
 
+
+
+
+
+        }
     }
 }
