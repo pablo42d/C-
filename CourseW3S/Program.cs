@@ -2,7 +2,9 @@
 
 
 using CourseW3S;
+using System.Linq.Expressions;
 Class1 class1 = new Class1();
+/*
 //class1.VariableTypes();
 class1.RunVariableTypes();
 //class1.Operators();
@@ -25,6 +27,8 @@ class1.RunLoopsExample();
 class1.RunArraysExample();
 //class1.RandomNumbers();
 class1.RunRandomNumbers();
+*/
+class1.Run();
 
 
 

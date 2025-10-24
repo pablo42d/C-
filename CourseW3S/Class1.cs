@@ -431,8 +431,8 @@ namespace CourseW3S
         private void ConditionalsExample()
         {
             Console.WriteLine("-------Conditionals Example-----");
-            
-            
+
+
             int number = 10;
             // If-Else statement
             if (number > 0)
@@ -608,9 +608,23 @@ namespace CourseW3S
         {
             ArraysExample();
         }
+        public void Run()
+        {
+            //RunVariableTypes();
+            //RunDataTypesSizes();
+            //RunOperators();
+            //RunSomeMethod();
+            //RunGetUserInput();
+            //RunMathMethods();
+            //RunStringFormatting();
+            //RunConditionalsExample();
+            //RunLoopsExample();
+            //RunArraysExample();
+            //RunRandomNumbers();
+            LoopsExample();
 
 
 
+        }
     }
-    
 }
