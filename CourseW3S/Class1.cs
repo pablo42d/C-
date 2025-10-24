@@ -1,4 +1,5 @@
 ﻿using CourseW3S;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -370,6 +371,62 @@ namespace CourseW3S
             StringFormatting();
         }
         //--------Conditionals Example------
+        /*
+        1. If Statement:
+        if (condition) 
+        {
+            // block of code to be executed if the condition is True
+        }
+        2. If-Else Statement:
+        if (condition) 
+        {
+            // block of code to be executed if the condition is True
+        } 
+        else 
+        {
+            // block of code to be executed if the condition is False
+        }
+        3. Else-If Ladder:
+        if (condition1) 
+        {
+            // block of code to be executed if condition1 is True
+        } 
+        else if (condition2) 
+        {
+            // block of code to be executed if condition2 is True
+        } 
+        else 
+        {
+            // block of code to be executed if both condition1 and condition2 are False
+        }
+        4. Switch Statement:
+        switch (expression) 
+        {
+            case value1:
+                // block of code to be executed if expression equals value1
+                break;
+            case value2:
+                // block of code to be executed if expression equals value2
+                break;
+            ...
+            default:
+                // block of code to be executed if expression doesn't match any case
+                break;
+        }
+        5. Ternary Operator:
+        variable = (condition) ? expressionTrue :  expressionFalse;
+
+
+        6. Nested If Statements:
+        if (condition1) 
+        {
+            if (condition2) 
+            {
+                // block of code to be executed if both condition1 and condition2 are True
+            }
+        }
+     
+        */
 
         private void ConditionalsExample()
         {
@@ -391,7 +448,20 @@ namespace CourseW3S
                 Console.WriteLine("The number is zero.");
             }
 
-            // Switch statement
+            /* Switch statement
+            switch (expression)
+            {
+                case x:
+                    // code block
+                    break;
+                case y:
+                    // code block
+                    break;
+                default:
+                    // code block
+                    break;
+            }*/
+
             Console.WriteLine("Choose a day (1-7):");
             int day = Console.ReadLine() != null ? Convert.ToInt32(Console.ReadLine()) : 0; // 1-7  
             switch (day)
@@ -420,7 +490,97 @@ namespace CourseW3S
                 default:
                     Console.WriteLine("Invalid day");
                     break;
+
+
             }
+
+            /*5.Ternary Operator:
+            //variable = (condition) ? expressionTrue : expressionFalse;
+            int time = 20;
+            if (time < 18)
+            {
+                Console.WriteLine("Good day.");
+            }
+            else
+            {
+                Console.WriteLine("Good evening.");
+            }*/
+
+            int time = 20;
+            string result = (time < 18) ? "Good day." : "Good evening.";
+            Console.WriteLine(result);  // Good evening.
+
+        }
+        public void RunConditionalsExample()
+        {
+            ConditionalsExample();
+        }
+
+        //--------Loops Example------
+        /*
+         * while (condition) 
+        {
+            // code block to be executed
+        }
+         */
+
+        private void LoopsExample()
+        {
+            Console.WriteLine("-------Loops Example-----");
+
+            //In the example below, the code in the loop will run, over and over again, as long as a variable (z) is less than 5:
+
+            int z = 0;
+            while (z < 5)
+            {
+                Console.WriteLine(z);
+                z++;
+            }
+
+            //The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+            /* 
+             do 
+            {
+                // code block to be executed
+             }
+                while (condition);
+            The example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+
+             */
+
+            int m = 0;
+            do
+            {
+                Console.WriteLine(m);
+                m++;
+            } while (m < 5);
+
+            // For loop
+            Console.WriteLine("For Loop:");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Iteration: " + i);
+            }
+            // While loop
+            Console.WriteLine("While Loop:");
+            int j = 0;
+            while (j < 5)
+            {
+                Console.WriteLine("Iteration: " + j);
+                j++;
+            }
+            // Do-While loop
+            Console.WriteLine("Do-While Loop:");
+            int k = 0;
+            do
+            {
+                Console.WriteLine("Iteration: " + k);
+                k++;
+            } while (k < 5);
+        }
+        public void RunLoopsExample()
+        {
+            LoopsExample();
         }
 
 
