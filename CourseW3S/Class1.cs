@@ -1,5 +1,6 @@
 ﻿using CourseW3S;
 using System.Linq.Expressions;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -556,11 +557,60 @@ namespace CourseW3S
             } while (m < 5);
 
             // For loop
+            //for (statement 1; statement 2; statement 3)
+            //{
+            //    // code block to be executed
+            //}
+            //Statement 1 is executed(one time) before the execution of the code block.
+            //Statement 2 defines the condition for executing the code block.
+            //Statement 3 is executed(every time) after the code block has been executed.
+            //The example below will print the numbers 0 to 4:
             Console.WriteLine("For Loop:");
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("Iteration: " + i);
             }
+            /*
+            Example explained
+            Statement 1 sets a variable before the loop starts (int i = 0).
+            Statement 2 defines the condition for the loop to run (i must be less than 5). If the condition is true, the loop will start over again, if it is false, the loop will end.
+            Statement 3 increases a value (i++) each time the code block in the loop has been executed
+            */
+            for (int i = 0; i <= 10; i = i + 2)
+            {
+                Console.WriteLine(i);
+            }
+            // nasted loops
+
+            Console.WriteLine("Nested Loops:");
+            // Outer loop
+            for (int i = 1; i <= 2; ++i)
+            {
+                Console.WriteLine("Outer: " + i);  // Executes 2 times
+
+                // Inner loop
+                for (int l = 1; l <= 3; l++)
+                {
+                    Console.WriteLine(" Inner: " + l); // Executes 6 times (2 * 3)
+                }
+            }
+            // Foreach loop
+            // The foreach loop is used to iterate through a collection (like an array or a list) without needing to manage the loop counter manually.
+            /*
+            foreach (type variableName in arrayName)
+            {
+                // code block to be executed
+            }
+            */
+            Console.WriteLine("Foreach Loop:");
+
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            foreach (string i in cars)
+            {
+                Console.WriteLine(i);
+            }
+
+
             // While loop
             Console.WriteLine("While Loop:");
             int j = 0;
@@ -610,17 +660,17 @@ namespace CourseW3S
         }
         public void Run()
         {
-            //RunVariableTypes();
-            //RunDataTypesSizes();
-            //RunOperators();
-            //RunSomeMethod();
-            //RunGetUserInput();
-            //RunMathMethods();
-            //RunStringFormatting();
-            //RunConditionalsExample();
-            //RunLoopsExample();
-            //RunArraysExample();
-            //RunRandomNumbers();
+            //VariableTypes();
+            //DataTypesSizes();
+            //Operators();
+            //SomeMethod();
+            //GetUserInput();
+            //MathMethods();
+            //StringFormatting();
+            //ConditionalsExample();
+            //LoopsExample();
+            //ArraysExample();
+            //RandomNumbers();
             LoopsExample();
 
 
