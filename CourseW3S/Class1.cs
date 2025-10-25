@@ -607,7 +607,46 @@ namespace CourseW3S
             string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
             foreach (string i in cars)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i);   // Output: Volvo, BMW, Ford, Mazda
+            }
+
+            //Brakek i continue
+            //Brak statement
+            Console.WriteLine("Brake:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 4)
+                {
+                    Console.WriteLine("Breaking the loop at i = " + i);
+                    break; // Exit the loop when i is 4
+                }
+                Console.WriteLine("Current value of i: " + i);  // Output will be 0,1,2,3
+            }
+            //Continue statement
+            Console.WriteLine("Continue:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 4)
+                {
+                    continue;
+                }
+                Console.WriteLine(i);   // Skip the rest of the loop when i is 4 so the output will be 0,1,2,3,5,6,7,8,9
+            }
+            //Combined Break and Continue
+            Console.WriteLine("Break and Continue:");
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 4)
+                {
+                    Console.WriteLine("Breaking the loop at i = " + i); // Print message before breaking the loop score will be 0,1,2,3
+                    break; // Exit the loop when i is 4
+                }
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine("Skipping even number: " + i);
+                    continue; // Skip the rest of the loop for even numbers
+                }
+                Console.WriteLine("Current value of i: " + i);  // Only odd numbers will be printed example 1,3
             }
 
 
@@ -636,6 +675,32 @@ namespace CourseW3S
 
         private void ArraysExample()
         {
+            /*
+            If you are familiar with C#, you might have seen arrays created with the new keyword, and perhaps you have seen arrays with a specified size as well. In C#, there are different ways to create an array:
+            // Create an array of four elements, and add values later
+            string[] cars = new string[4];
+
+            // Create an array of four elements and add values right away 
+            string[] cars = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements without specifying the size 
+            string[] cars = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements, omitting the new keyword, and without specifying the size
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            It is up to you which option you choose.In our tutorial, we will often use the last option, as it is faster and easier to read.
+
+            However, you should note that if you declare an array and initialize it later, you have to use the new keyword:
+            
+            // Declare an array
+            string[] cars;
+
+            // Add values, using new
+            cars = new string[] { "Volvo", "BMW", "Ford" };
+
+            // Add values without using new (this will cause an error)
+            cars = { "Volvo", "BMW", "Ford"};
+            */
             Console.WriteLine("-------Arrays Example-----");
             // Declare and initialize an array of integers
             int[] numbers = { 10, 20, 30, 40, 50 };
@@ -651,9 +716,168 @@ namespace CourseW3S
             Console.WriteLine("Array elements:");
             for (int i = 0; i < numbers.Length; i++)
             {
-                Console.WriteLine(numbers[i]);
+                Console.WriteLine(numbers[i]);  // 10, 20, 35, 40, 50
             }
+            // Iterate through the array using a foreach loop
+            Console.WriteLine("Array elements (using foreach):");
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);  // 10, 20, 35, 40, 50
+            }
+            // Sort a string
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            Array.Sort(cars);
+            foreach (string i in cars)
+            {
+                Console.WriteLine(i);   // BMW, Ford, Mazda, Volvo
+            }
+            // Sort an int
+            int[] myNumbers = { 5, 1, 8, 9 };
+            Array.Sort(myNumbers);
+            foreach (int i in myNumbers)
+            {
+                Console.WriteLine(i);
+            }
+
+            // Multi-dimensional array (2D array)
+
+            int[,] numbers2D = { { 1, 4, 2 }, { 3, 6, 8 } };
+            Console.WriteLine(numbers2D[0, 2]);  // outputs 2
+
+            int[,] matrix = {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+            };
+            Console.WriteLine("Element at (1,2): " + matrix[1, 2]); // 6
+            // Iterate through the 2D array
+            Console.WriteLine("2D Array elements:");
+            for (int i = 0; i < matrix.GetLength(0); i++) // GetLength(0) returns number of rows
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++) // GetLength(1) returns number of columns
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            // Jagged array (array of arrays)
+            int[][] jaggedArray = new int[3][];
+            jaggedArray[0] = new int[] { 1, 2 };
+            jaggedArray[1] = new int[] { 3, 4, 5 };
+            jaggedArray[2] = new int[] { 6, 7, 8, 9 };
+            Console.WriteLine("Jagged Array elements:");
+            for (int i = 0; i < jaggedArray.Length; i++)
+            {
+                for (int j = 0; j < jaggedArray[i].Length; j++)
+                {
+                    Console.Write(jaggedArray[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+            // 3D array
+            int[,,] threeDArray = {
+                {
+                    {1, 2}, {3, 4}
+                },
+                {
+                    {5, 6}, {7, 8}
+                }
+            };
+            Console.WriteLine("Element at (1,0,1): " + threeDArray[1, 0, 1]); // 6
+            // Iterate through the 3D array
+            Console.WriteLine("3D Array elements:");
+            for (int i = 0; i < threeDArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < threeDArray.GetLength(1); j++)
+                {
+                    for (int k = 0; k < threeDArray.GetLength(2); k++)
+                    {
+                        Console.Write(threeDArray[i, j, k] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+            // Array methods
+            Array.Sort(numbers);
+            Console.WriteLine("Sorted array:");
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);  // 10, 20, 35, 40, 50
+            }
+            // Find index of an element
+            int index = Array.IndexOf(numbers, 35);
+            Console.WriteLine("Index of 35: " + index); // 2
+            // Resize the array
+            Array.Resize(ref numbers, 7);
+            numbers[5] = 60;
+            numbers[6] = 70;
+            Console.WriteLine("Resized array:");
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);  // 10, 20, 35, 40, 50, 60, 70
+            }
+            // Clear elements in the array
+            Array.Clear(numbers, 0, numbers.Length);
+            Console.WriteLine("Cleared array:");
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);  // 0, 0, 0, 0, 0, 0, 0
+            }
+            // Copy array
+            int[] copyArray = new int[5];
+            Array.Copy(numbers, copyArray, 5);
+            Console.WriteLine("Copied array:");
+            foreach (int num in copyArray)
+            {
+                Console.WriteLine(num);  // 0, 0, 0, 0, 0
+            }
+            // Reverse array
+            Array.Reverse(copyArray);
+            Console.WriteLine("Reversed copied array:");
+            foreach (int num in copyArray)
+            {
+                Console.WriteLine(num);  // 0, 0, 0, 0, 0
+            }
+            // LINQ methods (if using System.Linq)
+            int[] linqArray = { 5, 10, 15, 20, 25 };
+            var evenNumbers = linqArray.Where(n => n % 2 == 0);
+            Console.WriteLine("Even numbers using LINQ:");
+            foreach (int num in evenNumbers)
+            {
+                Console.WriteLine(num);  // 10, 20
+            }
+            // Sum of elements
+            int sum = linqArray.Sum();
+            Console.WriteLine("Sum of elements using LINQ: " + sum); // 75
+            // Generate array using Enumerable.Range
+            int[] rangeArray = Enumerable.Range(1, 10).ToArray();   // Array with numbers from 1 to 10
+            Console.WriteLine("Array generated using Enumerable.Range:");
+            foreach (int num in rangeArray)
+            {
+                Console.WriteLine(num);  // 1, 2, 3, ..., 10
+            }
+            // Convert array to list
+            var numberList = numbers.ToList();  //Requires using System.Linq
+            Console.WriteLine("Array converted to List:");
+            foreach (int num in numberList)
+            {
+                Console.WriteLine(num);  // 0, 0, 0, 0, 0, 0, 0
+            }
+            //get array from user input
+            Console.WriteLine("Enter 5 numbers separated by spaces:");
+            string input = Console.ReadLine();
+            string[] inputArray = input.Split(' ');
+            int[] userNumbers = Array.ConvertAll(inputArray, int.Parse);
+            Console.WriteLine("You entered:");
+            foreach (int num in userNumbers)
+            {
+                Console.WriteLine(num);
+            }
+           
+
         }
+
         public void RunArraysExample()
         {
             ArraysExample();
