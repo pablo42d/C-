@@ -874,10 +874,29 @@ namespace CourseW3S
             {
                 Console.WriteLine(num);
             }
-           
 
+            // tablice wielowymiarowe
+            int[,] numbers1 = { { 1, 4, 2 }, { 3, 6, 8 } };
+            Console.WriteLine(numbers1[0, 2]); // outputs 2
+            numbers1[0, 0] = 5; // Change value to 5
+            Console.WriteLine(numbers1[0, 0]); // Outputs 5 instead of 1
+
+            Console.WriteLine("2D Array elements:");
+            foreach (int i in numbers)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < numbers1.GetLength(0); i++)
+            {
+                for (int j = 0; j < numbers1.GetLength(1); j++)
+                {
+                    Console.Write(numbers1[i, j] + " ");
+
+                }
+                Console.WriteLine();
+            }
         }
-
         public void RunArraysExample()
         {
             ArraysExample();
