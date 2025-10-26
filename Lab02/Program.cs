@@ -23,12 +23,11 @@ internal class Program
         {   personValue.View(); }
 
 
-        //{
-        //    person.View();
+        
         //    //Parallel.For(0, people.Length, i =>
         //    //{
         //    //    people[i].View();
         //    //});
-        //}
+        
     }
 }
