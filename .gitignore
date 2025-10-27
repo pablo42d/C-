@@ -50,3 +50,5 @@
 *.db
 *.v2
 *.bin
+*.db-shm
+*.db-wal
