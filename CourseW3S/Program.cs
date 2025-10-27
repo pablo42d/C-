@@ -1,7 +1,7 @@
 ﻿using CourseW3S;
-using System;
-using System.ComponentModel.Design;
-using System.Linq.Expressions;
+//using System;
+//using System.ComponentModel.Design;
+//using System.Linq.Expressions;
 
 
 Toturial toturial = new Toturial();
@@ -32,7 +32,7 @@ toturial.RunRandomNumbers();
 //toturial.Run();
 
 
-
+/*
 //wywołanie metody w głowym programie Main
 Main(args);
 //deklaracja metody wraz z ciałem metody
@@ -138,7 +138,11 @@ Methods methods = new Methods();
 Console.WriteLine("suma liczb zadeklarowanych {0} + {1} = {2}", a, b, methods.sum1(a, b));
 Console.WriteLine("Delta dla równania kwadratowego o współczynnikach a=1, b=5, c=6 wynosi: " + methods.ObliczDelta(1, 5, 6));
 Console.WriteLine("Wylosowana liczba z przedziału 1.5 do 4.5: " + methods.LosujLiczbe());
+*/
 
+/// <summary> 
+Car car = new Car(); // creating an object of the Car class
+Console.WriteLine("Samochod kolor: " + car.color + " rocznik: " + car.rok);
 
 
 
