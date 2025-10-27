@@ -46,3 +46,7 @@
 /.vs/C-/FileContentIndex/fb6d08f9-d8a3-41fd-b736-fa48865024bd.vsidx
 /.vs/C-/FileContentIndex/084b3e44-ec13-4514-9be0-f42b2a9aff6b.vsidx
 *.vsidx
+/.vs/C-/copilot-chat/8d82c7df/sessions/a5ba8266-d228-4c07-adf1-df67354e78b0
+*.db
+*.v2
+*.bin
