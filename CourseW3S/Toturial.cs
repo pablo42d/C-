@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace CourseW3S
 {
-    internal class Class1
+    internal class Toturial
     {
         private readonly Random _rng = new Random();
 
