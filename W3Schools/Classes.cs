@@ -31,6 +31,24 @@ namespace W3Schools
 
     }
 
+    // Multiple Objects
+    class MultipleObjects   // Create a class called MultipleObjects where we will create multiple objects from the Car class
+    {
+        public void Run()
+        {
+            Car myObj1 = new Car(); // Create the first myCar object
+            Car myObj2 = new Car(); // Create another myCar object
+            // Call the FullThrottle method on the first car object
+            myObj1.FullThrottle();
+            // Display the value of the color field (attribute) and rok field of the first car object
+            Console.WriteLine(myObj1.color + " " + myObj1.rok);
+            // Display the value of the color field (attribute) and rok field of the second car object
+            Console.WriteLine(myObj2.color + " " + myObj2.rok);
+        }
+    }
+
+
+
 
 
 }

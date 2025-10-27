@@ -3,8 +3,8 @@
 
 using W3Schools;
 
-Toturial toturial = new Toturial();
 /*
+Toturial toturial = new Toturial();
 //toturial.VariableTypes();
 toturial.RunVariableTypes();
 //toturial.Operators();
@@ -139,9 +139,48 @@ Console.WriteLine("Delta dla równania kwadratowego o współczynnikach a=1, b=5
 Console.WriteLine("Wylosowana liczba z przedziału 1.5 do 4.5: " + methods.LosujLiczbe());
 */
 
-/// <summary> 
+
+///Using Classes and Objects
+
+/// Creating objects from a class 
 Car car = new Car(); // creating an object of the Car class
 Console.WriteLine("Samochod kolor: " + car.color + " rocznik: " + car.rok);
+
+// displaying the values of the attributes color and rok
+car = new Car();    // creating another object of the Car class
+car.color = "blue"; // changing the color attribute of the
+car.rok = 2022;     // changing the rok attribute of the car object
+Console.WriteLine("Samochod kolor: " + car.color + " rocznik: " + car.rok); // displaying the values of the attributes color and rok
+car.FullThrottle(); // calling the method FullThrottle on the car object
+
+//Multiple Objects run
+Console.WriteLine("Multiple Object");
+MultipleObjects multipleObjects = new MultipleObjects();
+multipleObjects.Run();
+
+
+
+/// Accessing Attributes
+static void Main(string[] args)
+{
+    Car car = new Car();
+    Console.WriteLine(car.color);
+}
+
+Main(args);
+
+// Output: red
+// Explanation: In the Main method, we create an object of the Car class named car. We then access the color attribute of the car object using dot notation (car.color) and print its value to the console. The output will be "red" since that is the default value assigned to the color attribute in the Car class.
+// Accessing Methods
+static void Main2(string[] args)
+{   Car car = new Car();
+    car.FullThrottle();
+}
+Main2(args);
+// Output: The car is going as fast as it can!
+
+
+
 
 
 
