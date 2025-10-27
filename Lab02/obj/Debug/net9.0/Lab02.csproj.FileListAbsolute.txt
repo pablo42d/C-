@@ -1,0 +1,15 @@
+E:\Git_Project\C-\Lab02\bin\Debug\net9.0\Lab02.exe
+E:\Git_Project\C-\Lab02\bin\Debug\net9.0\Lab02.deps.json
+E:\Git_Project\C-\Lab02\bin\Debug\net9.0\Lab02.runtimeconfig.json
+E:\Git_Project\C-\Lab02\bin\Debug\net9.0\Lab02.dll
+E:\Git_Project\C-\Lab02\bin\Debug\net9.0\Lab02.pdb
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.AssemblyInfoInputs.cache
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.AssemblyInfo.cs
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.sourcelink.json
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.dll
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\refint\Lab02.dll
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.pdb
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\Lab02.genruntimeconfig.cache
+E:\Git_Project\C-\Lab02\obj\Debug\net9.0\ref\Lab02.dll
