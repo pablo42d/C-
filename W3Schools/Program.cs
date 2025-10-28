@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 
+using System.Xml;
 using W3Schools;
 
 /*
@@ -139,7 +140,7 @@ Console.WriteLine("Delta dla równania kwadratowego o współczynnikach a=1, b=5
 Console.WriteLine("Wylosowana liczba z przedziału 1.5 do 4.5: " + methods.LosujLiczbe());
 */
 
-
+/*
 ///Using Classes and Objects
 
 /// Creating objects from a class 
@@ -178,6 +179,51 @@ static void Main2(string[] args)
 }
 Main2(args);
 // Output: The car is going as fast as it can!
+*/
+
+//Accessing to the object method and field myCar using MyClass
+Console.WriteLine("Accessing to the object method using MyClass:");
+
+MyClass myCar = new MyClass(); // Create an object (myCar) of MyClass
+myCar.fullThrottle(); // Call the fullThrottle method on the myCar object
+// Output: The car is going as fast as it can!
+myCar.color = "blue"; // Change the value of the color field
+Console.WriteLine(myCar.color); // Output the value of the color field
+// Output: blue
+myCar.maxSpeed = 250; // Change the value of the maxSpeed field 
+Console.WriteLine(myCar.maxSpeed); // Output the value of the maxSpeed field
+// Output: 250
+myCar.model = "Mitsubishi"; // Assign a value to the model field without making it empty
+Console.WriteLine(myCar.model); // Output the value of the model field
+                                // Output: Mitsubishi
+
+MyClass Ford = new MyClass();
+Ford.model = "Mustang";
+Ford.color = "red";
+Ford.year = 1969;
+
+MyClass Opel = new MyClass();
+Opel.model = "Astra";
+Opel.color = "white";
+Opel.year = 2005;
+Console.WriteLine(Ford.model + " " + Ford.color + " " + Ford.year);
+Console.WriteLine(Opel.model + " " + Opel.color + " " + Opel.year);
+Console.WriteLine(myCar.model + " " + myCar.color + "year is not assigned, so it will output " + myCar.year); // year is not assigned, so it will output 0 (Mitsubishi blue 0)
+
+// Constructors
+MyClass Car = new MyClass();    // Create an object of the Car Class (this will call the constructor)
+Console.WriteLine("Constructor example:");
+Console.WriteLine(Car.model + " " + Car.maxSpeed + " is Electric: " + Car.isElectric); // Print the value of model, maxSpeed, isElectric, Output: Toyota 100 is Electric: False
+
+//Create another object of the MyClass with different parameter
+Console.WriteLine("Constructor with parameter example:");
+
+MyClass Renault = new MyClass("Trafic", "Yellow", 2020,"NO");
+Console.WriteLine(Renault.model + " " + Renault.color + " " + Renault.year + " Damage condytion " + Renault.demaged);
+
+MyClass Honda = new MyClass("Civic", "Black", 2018,"YES");
+Console.WriteLine(Honda.model + " " + Honda.color + " " + Honda.year + " Damage condytion " + Honda.demaged);
+
 
 
 
