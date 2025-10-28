@@ -56,6 +56,7 @@ namespace W3Schools
         public int maxSpeed = 200;          // field
         public string model;                // You can also leave the fields blank, and modify them when creating the object
         public bool isElectric = false;     // Declare at class level
+        private int speed = 0;              // private field is available only within the class
 
         // Create a class constructor for the MyClass class
         public MyClass()
@@ -67,7 +68,7 @@ namespace W3Schools
 
         // Create a class constructor with a parameter
         public string demaged;
-        public MyClass( string modelName, string modelColor, int modelYear, string condition)
+        public MyClass(string modelName, string modelColor, int modelYear, string condition)
         {
             model = modelName;
             color = modelColor;
@@ -80,5 +81,52 @@ namespace W3Schools
         {
             Console.WriteLine("The car is going as fast as it can!");
         }
+
+
+
     }
+
+
+     /*
+        // Access Modifiers
+
+        //public	    The code is accessible for all classes
+        //private	    The code is only accessible within the same class
+        //protected	The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
+        //internal	The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
+        //There's also two combinations: protected internal and private protected.
+
+        //For now, lets focus on public and private modifiers.
+     */
+
+
+    class Fruit
+    {
+        private string type = "Apple"; // private field
+        
+        public void displayType()       // public method to display the private field
+        {
+            Console.WriteLine("Fruit type: " + type);
+            //string result = "Fruit type: " + type;
+            //Console.WriteLine(result);
+            //return result;
+        }
+
+
+    }
+
+    //C# Properties (Get and Set)
+    
+    class Person
+    {
+        // private field
+        private string name;
+        // property
+        public string Name
+        {
+            get { return name; }          // get method
+            set { name = value; }         // set method
+        }
+    }
+
 }
