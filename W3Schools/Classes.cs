@@ -211,5 +211,28 @@ namespace W3Schools
         }
     }
 
+    /* Abstract Classes and Methods
+     * 
+     * 
+     */
+    abstract class Shape  // abstract base class (parent)
+    {
+        public abstract void animalSound(); // abstract method (does not have a body)
+        // regular method
+        public void sleep()
+        {
+            Console.WriteLine("Zzz");
+        }
+    }
+    // Derived class (inherit from Shape)
+    class Lion : Shape  // derived class (child)
+    {
+        public override void animalSound()          // method in the derived class
+        {
+            Console.WriteLine("The lion says: roarrr");
+        }
+    }
+
+
 
 }

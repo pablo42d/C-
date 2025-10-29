@@ -315,6 +315,31 @@ myPig.animalSound();    // Call the method on the Pig class
 myDog.animalSound();    // Call the method on the Dog class
 myBear.animalSound();    // Call the method on the Bear class
 
+/* Abstract Classes and Methods
+ * 
+ * Data abstraction is the process of hiding certain details and showing only essential information to the user.
+ * The abstract keyword is used for classes and methods:
+    * Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+    * Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
+ * 
+ * 
+ * Abstract classes are classes that contain one or more abstract methods. An abstract method is a method that is declared, but contains no implementation.
+ * Abstract classes cannot be used to create objects (to access an abstract class, it must be inherited from another class). 
+ * The body of an abstract method is provided by the derived class (inherited from).
+ * 
+ * In the example below, we have an abstract class called Animal that has an abstract method called animalSound(). The Dog class inherits from the Animal class and provides an implementation of the animalSound() method:
+ * 
+ * Why And When To Use Abstract Classes and Methods?
+ * To achieve security - hide certain details and only show the important details of an object.
+
+ * Note: Abstraction can also be achieved with Interfaces, which you will learn more about in the next chapter.
+ */
+// Abstract class Shape
+Lion myLion = new Lion(); // Create a Lion object
+Console.WriteLine("Abstract Classes and Methods example:");
+myLion.animalSound(); // Call the abstract method
+myLion.sleep(); // Call the regular method
+
 
 
 // End of W3Schools/Program.cs
