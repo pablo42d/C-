@@ -280,6 +280,43 @@ person.Age = 42; // Set the value of the Age property
 Console.WriteLine("Person Age: " + person.Age); // Get the value of the Age property
 Console.WriteLine("Twoje imię to: " + person.Name + " i masz " + person.Age + " lata");
 
+/* Inheritance (Derived and Base Class)
+ * Inheritance is a way to form new classes using classes that have already been defined. 
+ * We group the "inheritance concept" into two categories:
+
+    Derived Class (child) - the class that inherits from another class
+    Base Class (parent) - the class being inherited from
+    To inherit from a class, use the : symbol.
+
+ *  In the example below, the Car class (child) inherits the fields and methods from the Vehicle class (parent):
+ * 
+ */
+Car2 myCar2 = new Car2(); // Create a Car object
+Console.WriteLine("Inheritance example:");
+myCar2.honk(); // Call the honk method (from the Vehicle class)
+Console.WriteLine(myCar2.brand + " " + myCar2.modelName);
+
+Vehicle vehicle = new Vehicle(); // Create a Vehicle object
+Console.WriteLine("Inheritance example:");
+vehicle.honk(); // Call the honk method (from the Vehicle class)
+
+/*
+ * Polymorphism and Overriding Methods
+ * Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+ * For example, think of a base class called Animal that has a method called animalSound(). Derived classes of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+ */
+Animal myAnimal = new Animal();  // Create an Animal object
+Animal myPig = new Pig();  // Create a Pig object
+Animal myDog = new Dog();  // Create a Dog object
+Animal myBear = new Bear();  // Create a Bear object
+Console.WriteLine("Polymorphism and Overriding Methods example:");
+myAnimal.animalSound(); // Call the method on the Animal class
+myPig.animalSound();    // Call the method on the Pig class
+myDog.animalSound();    // Call the method on the Dog class
+myBear.animalSound();    // Call the method on the Bear class
+
+
+
 // End of W3Schools/Program.cs
 
 

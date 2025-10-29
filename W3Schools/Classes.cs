@@ -87,23 +87,23 @@ namespace W3Schools
     }
 
 
-     /*
-        // Access Modifiers
+    /*
+       // Access Modifiers
 
-        //public	    The code is accessible for all classes
-        //private	    The code is only accessible within the same class
-        //protected	The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
-        //internal	The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
-        //There's also two combinations: protected internal and private protected.
+       //public	    The code is accessible for all classes
+       //private	    The code is only accessible within the same class
+       //protected	The code is accessible within the same class, or in a class that is inherited from that class. You will learn more about inheritance in a later chapter
+       //internal	The code is only accessible within its own assembly, but not from another assembly. You will learn more about this in a later chapter
+       //There's also two combinations: protected internal and private protected.
 
-        //For now, lets focus on public and private modifiers.
-     */
+       //For now, lets focus on public and private modifiers.
+    */
 
 
     class Fruit
     {
         private string type = "Apple"; // private field
-        
+
         public void displayType()       // public method to display the private field
         {
             Console.WriteLine("Fruit type: " + type);
@@ -143,5 +143,73 @@ namespace W3Schools
 
         // Automatic Properties (Short Hand)
         public int Age { get; set; } // Automatic property, Age is the property 
+    }
+
+    // Inheritance (dziedziczenie)
+    class Vehicle  // base class (parent)
+    {
+        public string brand = "Ford";  // Vehicle field
+        public void honk()              // Vehicle method
+        {
+            Console.WriteLine("Tuut, tuut!");
+        }
+    }
+    class Car2 : Vehicle  // derived class (child)
+    {
+        public string modelName = "Mustang";  // Car field
+    }
+
+    /* If you don't want other classes to inherit from a class, use the sealed keyword
+     * If you try to access a sealed class, C# will generate an error:
+
+    sealed class Vehicle 
+    {
+    ...
+    }
+
+    class Car : Vehicle 
+    {
+    ...
+    }
+    The error message will be something like this:
+
+    'Car': cannot derive from sealed type 'Vehicle'
+    */
+
+    // Polymorphism and Overriding Methods
+    // C# provides an option to override the base class method, by adding the virtual keyword to the method inside the base class, and by using the override keyword for each derived class methods
+
+    class Animal  // base class (parent)
+    {
+        public virtual void animalSound()          // method in the base class
+        {
+            Console.WriteLine("The animal makes a sound");
+        }
+    }
+    class Pig : Animal  // derived class (child)
+    {
+        public override void animalSound()          // method in the derived class
+        {
+            Console.WriteLine("The pig says: wee wee");
+        }
+    }
+
+    class Dog : Animal  // derived class (child)
+    {
+        public override void animalSound()          // method in the derived class
+        {
+            Console.WriteLine("The dog says: bow wow");
+        }
+
+    }
+
+    class Bear : Animal  // derived class (child)
+    {
+        public override void animalSound()          // method in the derived class
+        {
+            Console.WriteLine("The bear says: roaar");
+        }
+    }
+
 
 }
