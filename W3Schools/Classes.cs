@@ -232,7 +232,62 @@ namespace W3Schools
             Console.WriteLine("The lion says: roarrr");
         }
     }
+    /* Interfaces
+     * 
+     */
+    interface IAnimal
+    {
+        void animalSound(); // interface method (does not have a body)
+        void run(); // interface method (does not have a body)
+    }
+    /*
+     * It is considered good practice to start with the letter "I" at the beginning of an interface, as it makes it easier for yourself and others to remember that it is an interface and not a class.
+     * By default, members of an interface are abstract and public.
+     *
+     * Note: Interfaces can contain properties and methods, but not fields.
+     *
+     * To access the interface methods, the interface must be "implemented" (kinda like inherited) by another class. To implement an interface, use the : symbol (just like with inheritance). The body of the interface method is provided by the "implement" class. Note that you do not have to use the override keyword when implementing an interface:
 
+     */
 
+    // Implement the IAnimal interface
+    class Rabbit : IAnimal
+    {
+        // The body of animalSound() is provided here
+        public void animalSound()          // method in the Rabbit class
+        {
+            Console.WriteLine("The rabbit says: snif snif");
+        }
+        public void run()                  // method in the Rabbit class
+        {
+            Console.WriteLine("The rabbit is running");
+        }
+
+    }
+
+    // Implement multiple interfaces
+
+    interface IFirstInterface
+    {
+        void myMethod1(); // interface method
+    }
+
+    interface ISecondInterface
+    {
+        void myOtherMethod(); // interface method
+    }
+
+    // Implement multiple interfaces
+    class DemoClass : IFirstInterface, ISecondInterface
+    {
+        public void myMethod1()
+        {
+            Console.WriteLine("Some text..");
+        }
+        public void myOtherMethod()
+        {
+            Console.WriteLine("Some other text...");
+        }
+    }
 
 }
