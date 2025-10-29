@@ -256,10 +256,29 @@ class Car
  */
 
 /*
- * C# Properties (Get and Set)
+//C# Properties (Get and Set)
 
- * 
- */
+Encapsulation, is to make sure that "sensitive" data is hidden from users.To achieve this, you must:
+
+* declare fields/variables as private
+* provide public get and set methods, through properties, to access and update the value of a private field
+* 
+* Why Encapsulation?
+Better control of class members (reduce the possibility of yourself (or others) to mess up the code)
+Fields can be made read-only (if you only use the get method), or write-only (if you only use the set method)
+Flexible: the programmer can change one part of the code without affecting other parts
+Increased security of data
+*/
+Person person = new Person();
+person.Name = "John"; // Set the value of the Name property
+Console.WriteLine("C# Properties (Get and Set) example:");
+Console.WriteLine("Person Name: " + person.Name); // Get the value of the Name property
+Console.WriteLine("Wpisz swoje imię: ");
+Console.WriteLine(person.Name = Console.ReadLine());
+// Automatic Properties (Short Hand)
+person.Age = 42; // Set the value of the Age property
+Console.WriteLine("Person Age: " + person.Age); // Get the value of the Age property
+Console.WriteLine("Twoje imię to: " + person.Name + " i masz " + person.Age + " lata");
 
 // End of W3Schools/Program.cs
 

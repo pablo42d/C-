@@ -114,19 +114,34 @@ namespace W3Schools
 
 
     }
-
+    /*
     //C# Properties (Get and Set)
-    
+
+    Encapsulation, is to make sure that "sensitive" data is hidden from users.To achieve this, you must:
+
+    declare fields/variables as private
+    provide public get and set methods, through properties, to access and update the value of a private field
+
+    */
+
+
     class Person
     {
         // private field
-        private string name;
+        private string name;    // private field
         // property
-        public string Name
+        public string Name  // property
         {
             get { return name; }          // get method
             set { name = value; }         // set method
         }
-    }
+        /*
+         * The Name property is associated with the name field. It is a good practice to use the same name for both the property and the private field, but with an uppercase first letter.
+         * The get method returns the value of the variable name.
+         * The set method assigns a value to the name variable. The value keyword represents the value we assign to the property.
+         */
+
+        // Automatic Properties (Short Hand)
+        public int Age { get; set; } // Automatic property, Age is the property 
 
 }
