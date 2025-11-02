@@ -3,6 +3,8 @@
 
 using System.Xml;
 using W3Schools;
+using System.IO; // namespace for File class
+
 
 /*
 Toturial toturial = new Toturial();
@@ -398,6 +400,130 @@ Console.WriteLine("Another Enums example:");
 Months today = Months.April;
 Console.WriteLine("Month is: " + today);
 
+/* Files
+ * Working With Files
+ * The File class from the System.IO namespace, allows us to work with files:
+ * Method	    Description
+AppendText()	Appends text at the end of an existing file
+Copy()	        Copies a file
+Create()	    Creates or overwrites a file
+Delete()	    Deletes a file
+Exists()	    Tests whether the file exists
+ReadAllText()	Reads the contents of a file
+Replace()	    Replaces the contents of a file with the contents of another file
+WriteAllText()	Creates a new file and writes the contents to it. If the file already exists, it will be overwritten.
+
+For a full list of File methods, go to Microsoft .Net File Class Reference.
+ 
+ * In the following example, we use the WriteAllText() method to create a file named "filename.txt" and write some content to it. Then we use the ReadAllText() method to read the contents of the file:
+ 
+ */
+
+Console.WriteLine("Write To a File and Read It");
+
+
+string writeText = "Hello World!";  // Create a text string
+File.WriteAllText("filename.txt", writeText);  // Create a file and write the content of writeText to it
+
+string readText = File.ReadAllText("filename.txt");  // Read the contents of the file
+Console.WriteLine(readText);  // Output the content
+
+/*
+ * Exceptions - Try..Catch
+ * When executing C# code, different errors can occur: coding errors made by the programmer, errors due to wrong input, or other unforeseeable things.
+
+ * When an error occurs, C# will normally stop and generate an error message. The technical term for this is: C# will throw an exception (throw an error).
+ * 
+ */
+
+/* Exception Handling using Try...Catch
+The try statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The try and catch keywords come in pairs:
+
+try 
+{
+  //  Block of code to try
+}
+catch (Exception e)
+{
+  //  Block of code to handle errors
+}
+*/
+Console.WriteLine("Exceptions - Try..Catch example:");
+try
+{
+  int[] myNumbers = {1, 2, 3};
+  Console.WriteLine(myNumbers[10]);
+}
+catch (Exception e)
+{
+  Console.WriteLine("Something went wrong.");
+}
+// Output: Something went wrong.
+
+Console.WriteLine("Exceptions - Try..Catch with specific exception example:");
+
+try
+{
+    Console.WriteLine("Wpisz liczbę całkowitą:");
+    int num1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Wpisz drugą liczbę całkowitą:");
+    int num2 = Convert.ToInt32(Console.ReadLine());
+    int result = num1 / num2;
+    Console.WriteLine("Wynik dzielenia: " + result);
+}
+catch (DivideByZeroException e)
+{
+    Console.WriteLine("Błąd: Nie można dzielić przez zero.");
+}
+catch (FormatException e)
+{
+    Console.WriteLine("Błąd: Nieprawidłowy format liczby.");
+}
+catch (Exception e)
+{
+    Console.WriteLine("Wystąpił błąd: " + e.Message);
+}
+
+// Finally Block
+//The finally statement lets you execute code, after try...catch, regardless of the result:
+
+try
+{
+    int[] myNumbers2 = { 1, 2, 3 };
+    Console.WriteLine(myNumbers2[10]);
+}
+catch (Exception e)
+{
+    Console.WriteLine("Something went wrong.");
+}
+finally
+{
+    Console.WriteLine("The 'try catch' is finished.");
+}
+
+//The throw Statement
+//The throw statement allows you to create a custom error.
+// The throw statement is used together with an exception class. There are many exception classes available in C#: ArithmeticException, FileNotFoundException, IndexOutOfRangeException, TimeOutException, etc:
+
+Console.WriteLine("The throw Statement example:");
+static void checkAge(int age)
+{
+    if (age < 18)
+    {
+        throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+    }
+    else
+    {
+        Console.WriteLine("Access granted - You are old enough!");
+    }
+}
+
+checkAge(15); // This will throw an exception. ArithmeticException: Access denied - You must be at least 18 years old.
+checkAge(20); // This will not throw an exception. Output: Access granted - You are old enough!
 
 
 // End of W3Schools/Program.cs
