@@ -372,8 +372,31 @@ Console.WriteLine("Multiple Interfaces example: ");
 myDemo.myMethod1(); // Call the method of IFirstInterface
 myDemo.myOtherMethod(); // Call the method of ISecondInterface
 
+/* Enums
+ * An enum (short for "enumeration") is a special "class" that represents a group of constants (unchangeable/read-only variables).
+ * To declare an enum, use the enum keyword (instead of class or struct), and give it a name. By convention, enum names start with an uppercase letter. The list of constants should be separated by commas. 
+ * An enum is a special "class" that represents a group of constants (unchangeable/read-only variables).
+ * 
+ */
+Console.WriteLine("Enums example:");
+Level myVar = Level.Medium;
+switch (myVar)
+{
+    case Level.Low:
+        Console.WriteLine("Low level");
+        break;
+    case Level.Medium:
+        Console.WriteLine("Medium level");
+        break;
+    case Level.High:
+        Console.WriteLine("High level");
+        break;
+}
+Console.WriteLine("My level is: " + myVar);
+Console.WriteLine("Another Enums example:");
 
-
+Months today = Months.April;
+Console.WriteLine("Month is: " + today);
 
 
 
