@@ -1,5 +1,4 @@
-﻿
-using Lab01;
+﻿using Lab01;
 
 namespace Lab01
 {
@@ -12,7 +11,7 @@ namespace Lab01
 
     /// <remarks>
 
-    /// Autor: Jan Kowalski
+    /// Autor: Paweł Drąg
 
     /// data: 12.10.2025
 
@@ -118,7 +117,11 @@ namespace Lab01
 
             //Zadanie1();
 
-            Zadanie2();
+            //Zadanie2();
+
+            //LosujLiczbeOdUzytkownika();
+
+            Zadanie3();
 
         }
 
@@ -130,11 +133,12 @@ namespace Lab01
 
 
 
-            //for (int i = 0; i < liczby.Length; i++) {
+            //for (int i = 0; i < liczby.Length; i++)
+            //{
 
             //    Console.WriteLine($"Podaj liczbę nr {i + 1}");
 
-            //    liczby[i]= Convert.ToDouble(Console.ReadLine());
+            //    liczby[i] = Convert.ToDouble(Console.ReadLine());
 
             //}
 
@@ -195,52 +199,63 @@ namespace Lab01
 
 
             double[] liczby = LosujTabliceDouble(n, min, max);
-
-
-
-
-
-
-
-        }// koniec zadani 2
-
-
-
-        private double LosujLiczbeOdUzytkownika()
-
-        {
-
-            Console.Write("Podaj dolną granicę przedziału (min): ");
-
-            double min = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Podaj górną granicę przedziału (max): ");
-
-            double max = Convert.ToDouble(Console.ReadLine());
-
-            if (min > max)
-
+            Console.WriteLine("Wylosowane liczby:");
+            for (int i = 0; i < liczby.Length; i++)
             {
+                Console.WriteLine($"Liczba nr {i + 1}: {liczby[i]:F2}");
+                Console.WriteLine($"Suma elementów w tablicy: {liczby.Sum():F2}");
+                Console.WriteLine($"Średnia arytmetyczna elementów w tablicy: {liczby.Average():F2}");
+                Console.WriteLine($"Wartość minimalna w tablicy: {liczby.Min():F2}");
+                Console.WriteLine($"Wartość maksymalna w tablicy: {liczby.Max():F2}");
+                Console.WriteLine($"Iloczyn elementów w tablicy: {liczby.Aggregate(1.0, (acc, val) => acc * val):F2}");
 
-                double temp = min;
-
-                min = max;
-
-                max = temp;
-
-                Console.WriteLine($"Zamieniono granice. Nowy przedział: [{min}, {max}]");
 
             }
 
-            Random rng = new Random();
-
-            double wynik = min + rng.NextDouble() * (max - min);
-
-            Console.WriteLine($"Wylosowana liczba: {wynik:F2}");
-
-            return wynik;
-
         }
+
+
+
+
+        // koniec zadani 2
+
+
+
+        //private double LosujLiczbeOdUzytkownika()
+
+        //{
+
+        //    Console.Write("Podaj dolną granicę przedziału (min): ");
+
+        //    double min = Convert.ToDouble(Console.ReadLine());
+
+        //    Console.Write("Podaj górną granicę przedziału (max): ");
+
+        //    double max = Convert.ToDouble(Console.ReadLine());
+
+        //    if (min > max)
+
+        //    {
+
+        //        double temp = min;
+
+        //        min = max;
+
+        //        max = temp;
+
+        //        Console.WriteLine($"Zamieniono granice. Nowy przedział: [{min}, {max}]");
+
+        //    }
+
+        //    Random rng = new Random();
+
+        //    double wynik = min + rng.NextDouble() * (max - min);
+
+        //    Console.WriteLine($"Wylosowana liczba: {wynik:F2}");
+
+        //    return wynik;
+
+        //}
 
         private double[] LosujTabliceDouble(int n, double min, double max)
 
@@ -262,7 +277,54 @@ namespace Lab01
 
         }
 
-    }
+        private void Zadanie3()
+        {
+            /*
+            Napisz program wyświetlający liczby od 20 - 0, z wyłączeniem liczb { 2,6,9,15,19}. Do realizacji zadania wyłączenia użyj instrukcji continue;
+            */
+
+            for (int a = 20; a >= 0; a--)
+            {
+                if (a == 2 || a == 6 || a == 9 || a == 15 || a == 19)
+                {
+                    continue;
+                }
+                Console.WriteLine(" Liczby od 20-0: " + a);
+            }
+        }
+
+        private void Zadanie4()
+        {
+            // do zrobienia
+            /* Napisz program, który w nieskończoność pyta użytkownika o liczby całkowite. Pętla nieskończona powinna się zakończyć gdy użytkownik wprowadzi liczbę mniejszą od zera. Do
+               opuszczenia pętli nieskończonej użyj instrukcji break. Pętle nieskończoną realizuje się następującymi konstrukcjami:
+                while(true)
+                    { ciało pętli }
+                lub
+                for(;;)
+                    { ciało pętli }
+            */
+
+            while (true)
+            {
+                Console.WriteLine("Podaj liczbę całkowitą (liczba mniejsza od zera kończy program): ");
+                int liczba = Convert.ToInt32(Console.ReadLine());
+                if (liczba < 0)
+                {
+                    break;
+                }
+            }
+
+            for (;;)
+            {
+                Console.WriteLine("Podaj liczbę całkowitą (liczba mniejsza od zera kończy program): ");
+                int liczba = Convert.ToInt32(Console.ReadLine());
+                if (liczba < 0)
+                {
+                    break;
+                }
+            }
+
+        }
 
 }
-

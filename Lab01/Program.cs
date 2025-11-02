@@ -3,4 +3,5 @@
 
 using Lab01;
 TasksLab1 tasksLab1 = new TasksLab1();
+//tasksLab1.Zadanie1();
 tasksLab1.Run();
