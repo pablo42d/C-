@@ -1,0 +1,11 @@
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.csproj.AssemblyReference.cache
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.Form1.resources
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.Properties.Resources.resources
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.csproj.GenerateResource.cache
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\TestSQL\bin\Debug\TestSQL.exe.config
+E:\Git_Project\C-\TestSQL\bin\Debug\TestSQL.exe
+E:\Git_Project\C-\TestSQL\bin\Debug\TestSQL.pdb
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.exe
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.pdb
+E:\Git_Project\C-\TestSQL\obj\Debug\TestSQL.exe.config
