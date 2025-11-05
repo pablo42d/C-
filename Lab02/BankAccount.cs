@@ -6,14 +6,14 @@ namespace Lab02
     {
         // Zaimplementuj właściwości Saldo (publiczne, tylko do odczytu) oraz Właściciel (publiczne, tylko do odczytu) i Właściciel.
 
-        private decimal Saldo;
-        private readonly string Wlasciciel;
+        private decimal SaldoPoczatkowe;
+        public readonly string Wlasciciel;
 
         // Metoda Wplata(decimal kwota), która pozwala na zwiększenie salda,
         public BankAccount(string wlasciciel, decimal saldoPoczatkowe) // konstruktor z parametrami
         {
             this.Wlasciciel = wlasciciel;
-            this.Saldo = saldoPoczatkowe;
+            this.SaldoPoczatkowe = saldoPoczatkowe;
         }
         public void Wplata(decimal kwota)
         {
@@ -21,7 +21,7 @@ namespace Lab02
             {
                 throw new ArgumentException("Kwota wpłaty musi być większa od zera.");
             }
-            Saldo += kwota;
+            SaldoPoczatkowe += kwota;
         }
 
         // Metoda Wyplata(decimal kwota), która sprawdzi, czy jest wystarczająca ilość środków, a następnie odejmie odpowiednią kwotę.
@@ -31,22 +31,22 @@ namespace Lab02
             {
                 throw new ArgumentException("Kwota wypłaty musi być większa od zera.");
             }
-            if (kwota > Saldo)
+            if (kwota > SaldoPoczatkowe)
             {
                 throw new InvalidOperationException("Niewystarczające środki na koncie.");
             }
-            Saldo -= kwota;
+            SaldoPoczatkowe -= kwota;
         }
 
         // Użyj operatorów dostępu, aby zabezpieczyć saldo przed bezpośrednią modyfikacją.
         public decimal Saldo
         {
-            get { return saldo; }
+            get { return SaldoPoczatkowe; }
         }
-        public string Wlasciciel
-        {
-            get { return wlasciciel; }
-        }
+        //public string Wlasciciel
+        //{
+        //    get { return wlasciciel; }
+        //}
 
 
 

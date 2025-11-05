@@ -1,0 +1,5 @@
+E:\Git_Project\C-\Lab02\obj\Release\net9.0\Lab02.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\Lab02\obj\Release\net9.0\Lab02.AssemblyInfoInputs.cache
+E:\Git_Project\C-\Lab02\obj\Release\net9.0\Lab02.AssemblyInfo.cs
+E:\Git_Project\C-\Lab02\obj\Release\net9.0\Lab02.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\Lab02\obj\Release\net9.0\Lab02.sourcelink.json
