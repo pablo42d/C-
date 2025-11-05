@@ -25,6 +25,12 @@ internal class Program
 
         Console.WriteLine("Zad.2");
 
+        // Przykład użycia:
+        BankAccount konto = new BankAccount("Jan Kowalski", 1000);
+        konto.Wplata(500);
+        konto.Wyplata(200);
+        Console.WriteLine($"Saldo: {konto.Saldo}");
+        Console.WriteLine("Właściciel: " + konto.Wlasciciel + " a jego saldo konta to kwota: " + konto.Saldo);
 
     }
 }
