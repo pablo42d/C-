@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PhoneBookApp
 {
-    public partial class Form1 : Form
+    public partial class LogForm : Form
     {
-        public Form1()
+        public LogForm()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

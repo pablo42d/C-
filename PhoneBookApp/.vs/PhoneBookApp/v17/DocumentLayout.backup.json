@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\PhoneBookApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
@@ -23,19 +19,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T12:59:41.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
