@@ -104,7 +104,7 @@
             this.Controls.Add(this.Password);
             this.Controls.Add(this.login);
             this.Name = "LogForm";
-            this.Text = "Form1";
+            this.Text = "Logowanie do książki telefonicznej";
             this.ResumeLayout(false);
             this.PerformLayout();
 
