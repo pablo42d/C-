@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\PhoneBookApp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\PhoneBookApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,9 +30,9 @@
               "Title": "LogForm.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
               "RelativeDocumentMoniker": "LogForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
-              "RelativeToolTip": "LogForm.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs*",
+              "RelativeToolTip": "LogForm.cs*",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T21:07:08.46Z",
               "EditorCaption": ""
@@ -60,8 +60,8 @@
               "Title": "LogForm.cs [Design]",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
               "RelativeDocumentMoniker": "LogForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs [Design]",
-              "RelativeToolTip": "LogForm.cs [Design]",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs [Design]*",
+              "RelativeToolTip": "LogForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T12:59:33.41Z",
               "EditorCaption": " [Design]"

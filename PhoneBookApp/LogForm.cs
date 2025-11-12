@@ -21,5 +21,22 @@ namespace PhoneBookApp
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void textPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
