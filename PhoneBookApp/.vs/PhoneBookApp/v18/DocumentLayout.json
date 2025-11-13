@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\PhoneBookApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\PhoneBookApp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\accesuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:accesuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\logform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|e:\\git_project\\c-\\phonebookapp\\accesuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:accesuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\PhoneBookApp\\logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|solutionrelative:logform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C61B5E2C-95BC-41AE-88E0-4C6F189546B7}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\PhoneBookApp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AccesUser.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\AccesUser.cs",
+              "RelativeDocumentMoniker": "AccesUser.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\AccesUser.cs",
+              "RelativeToolTip": "AccesUser.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAvwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T20:12:35.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "LogForm.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
               "RelativeDocumentMoniker": "LogForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
-              "RelativeToolTip": "LogForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCIAAAAJAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs*",
+              "RelativeToolTip": "LogForm.cs*",
+              "ViewState": "AgIAAEoAAAAAAAAAAAASwGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T21:07:08.46Z",
               "EditorCaption": ""
@@ -44,6 +69,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LogForm.Designer.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs",
+              "RelativeDocumentMoniker": "LogForm.Designer.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs",
+              "RelativeToolTip": "LogForm.Designer.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T20:52:37.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccesUser.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\AccesUser.cs",
+              "RelativeDocumentMoniker": "AccesUser.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\AccesUser.cs [Design]",
+              "RelativeToolTip": "AccesUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-12T20:10:33.638Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LogForm.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
+              "RelativeDocumentMoniker": "LogForm.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs [Design]*",
+              "RelativeToolTip": "LogForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T12:59:33.41Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -53,18 +115,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T12:59:41.622Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LogForm.cs [Design]",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
-              "RelativeDocumentMoniker": "LogForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs [Design]",
-              "RelativeToolTip": "LogForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T12:59:33.41Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

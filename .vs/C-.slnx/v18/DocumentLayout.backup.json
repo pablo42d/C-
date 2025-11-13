@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneBookApp\\LogForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\PhoneBookApp\\ConnectionToSQL.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneBookApp\\ConnectionToSQL.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,8 +11,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneBookApp\\LogForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneBookApp\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhoneBookApp\\LogForm.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,51 +25,34 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs",
-              "RelativeDocumentMoniker": "PhoneBookApp\\Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\Program.cs",
-              "RelativeToolTip": "PhoneBookApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-12T18:59:13.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LogForm.Designer.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs",
               "RelativeDocumentMoniker": "PhoneBookApp\\LogForm.Designer.cs",
               "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.Designer.cs",
               "RelativeToolTip": "PhoneBookApp\\LogForm.Designer.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T18:14:00.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "LogForm.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
               "RelativeDocumentMoniker": "PhoneBookApp\\LogForm.cs",
               "ToolTip": "E:\\Git_Project\\C-\\PhoneBookApp\\LogForm.cs",
               "RelativeToolTip": "PhoneBookApp\\LogForm.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-12T18:13:47.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ConnectionToSQL.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\PhoneBookApp\\ConnectionToSQL.cs",
               "RelativeDocumentMoniker": "PhoneBookApp\\ConnectionToSQL.cs",

@@ -8,3 +8,4 @@ E:\Git_Project\C-\PhoneBookApp\bin\Debug\PhoneBookApp.pdb
 E:\Git_Project\C-\PhoneBookApp\obj\Debug\PhoneBookApp.exe
 E:\Git_Project\C-\PhoneBookApp\obj\Debug\PhoneBookApp.pdb
 E:\Git_Project\C-\PhoneBookApp\obj\Debug\PhoneBookApp.LogForm.resources
+E:\Git_Project\C-\PhoneBookApp\obj\Debug\PhoneBookApp.AccesUser.resources

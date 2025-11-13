@@ -49,6 +49,7 @@
             this.login.Size = new System.Drawing.Size(65, 25);
             this.login.TabIndex = 0;
             this.login.Text = "Login";
+            this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // Password
             // 
@@ -71,6 +72,7 @@
             this.textLogin.Name = "textLogin";
             this.textLogin.Size = new System.Drawing.Size(169, 30);
             this.textLogin.TabIndex = 2;
+            this.textLogin.TextChanged += new System.EventHandler(this.textLogin_TextChanged);
             // 
             // textPassword
             // 
@@ -95,6 +97,7 @@
             this.zaloguj.TabIndex = 4;
             this.zaloguj.Text = "Zaloguj";
             this.zaloguj.UseVisualStyleBackColor = false;
+            this.zaloguj.Click += new System.EventHandler(this.zaloguj_Click);
             // 
             // checkBox1
             // 
@@ -121,6 +124,7 @@
             this.wyjdz.TabIndex = 6;
             this.wyjdz.Text = "Wyjdź";
             this.wyjdz.UseVisualStyleBackColor = false;
+            this.wyjdz.Click += new System.EventHandler(this.wyjdz_Click);
             // 
             // LogForm
             // 
