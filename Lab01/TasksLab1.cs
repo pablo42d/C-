@@ -315,7 +315,7 @@ namespace Lab01
                 }
             }
 
-            for (;;)
+            for (; ; )
             {
                 Console.WriteLine("Podaj liczbę całkowitą (liczba mniejsza od zera kończy program): ");
                 int liczba = Convert.ToInt32(Console.ReadLine());
@@ -324,7 +324,51 @@ namespace Lab01
                     break;
                 }
             }
-
         }
+
+        private void Zadanie5()
+        {
+            // do zrobienia
+            /* Napisz program umożliwiający wprowadzanie n liczb oraz sortujący te liczby metodą bąbelkową lub wstawiania. Wyniki wyświetlaj na konsoli.
+            */
+            while (true)
+            {
+                Console.WriteLine("Podaj liczbę elementów do posortowania: ");
+                int n = Convert.ToInt32(Console.ReadLine());
+                if (n <= 0)
+                {
+                    Console.WriteLine("Liczba elementów musi być większa od zera.");
+                    continue;
+                }
+                int[] liczby = new int[n];
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine($"Podaj liczbę nr {i + 1}: ");
+                    liczby[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                // Sortowanie bąbelkowe
+                for (int i = 0; i < n - 1; i++)
+                {
+                    for (int j = 0; j < n - i - 1; j++)
+                    {
+                        if (liczby[j] > liczby[j + 1])
+                        {
+                            // Zamiana miejscami
+                            int temp = liczby[j];
+                            liczby[j] = liczby[j + 1];
+                            liczby[j + 1] = temp;
+                        }
+                    }
+                }
+                Console.WriteLine("Posortowane liczby:");
+                foreach (var liczba in liczby)
+                {
+                    Console.WriteLine(liczba);
+                }
+                break;
+
+            }
+        }
+    }
 
 }
