@@ -32,5 +32,16 @@ internal class Program
         Console.WriteLine($"Saldo: {konto.Saldo}");
         Console.WriteLine("Właściciel: " + konto.Wlasciciel + " a jego saldo konta to kwota: " + konto.Saldo);
 
+        Console.WriteLine("Zad.3");
+        // Przykład użycia:
+        Student student = new Student("Anna", "Nowak", 4);
+        student.DodajOcene(5);
+        student.DodajOcene(4);       
+        student.View(); // Wyświetla informacje o studencie wraz ze średnią ocen 4.333333
+        Student student2 = new Student("Marek", "Kowalski", 2);
+        student2.DodajOcene(3); 
+        student2.DodajOcene(4);
+        student2.View();
+
     }
 }
