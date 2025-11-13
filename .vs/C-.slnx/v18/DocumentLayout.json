@@ -7,14 +7,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Sumator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Sumator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Licz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Licz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,6 +17,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\intro_Lab2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\intro_Lab2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Sumator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab02\\Sumator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\BankAccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,7 +46,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Licz.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Licz.cs",
+              "RelativeDocumentMoniker": "Lab02\\Licz.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Licz.cs",
+              "RelativeToolTip": "Lab02\\Licz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T16:44:50.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Program.cs",
+              "RelativeDocumentMoniker": "Lab02\\Program.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Program.cs",
+              "RelativeToolTip": "Lab02\\Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAASwC8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T13:42:43.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Sumator.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Sumator.cs",
               "RelativeDocumentMoniker": "Lab02\\Sumator.cs",
@@ -60,19 +86,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Licz.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Licz.cs",
-              "RelativeDocumentMoniker": "Lab02\\Licz.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Licz.cs",
-              "RelativeToolTip": "Lab02\\Licz.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T16:44:50.867Z",
+              "Title": "intro_Lab2.txt",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\intro_Lab2.txt",
+              "RelativeDocumentMoniker": "Lab02\\intro_Lab2.txt",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\intro_Lab2.txt",
+              "RelativeToolTip": "Lab02\\intro_Lab2.txt",
+              "ViewState": "AgIAAFYBAAAAAAAAAAAAAGQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-13T16:37:44.997Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Student.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Student.cs",
               "RelativeDocumentMoniker": "Lab02\\Student.cs",
@@ -85,20 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "intro_Lab2.txt",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\intro_Lab2.txt",
-              "RelativeDocumentMoniker": "Lab02\\intro_Lab2.txt",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\intro_Lab2.txt",
-              "RelativeToolTip": "Lab02\\intro_Lab2.txt",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAAAFwBAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-11-13T16:37:44.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Person.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Person.cs",
               "RelativeDocumentMoniker": "Lab02\\Person.cs",
@@ -120,19 +133,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T16:20:20.164Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Program.cs",
-              "RelativeDocumentMoniker": "Lab02\\Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab02\\Program.cs",
-              "RelativeToolTip": "Lab02\\Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAASwCgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T13:42:43.644Z",
               "EditorCaption": ""
             }
           ]

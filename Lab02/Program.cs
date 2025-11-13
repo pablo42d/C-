@@ -43,5 +43,27 @@ internal class Program
         student2.DodajOcene(4);
         student2.View();
 
+        Console.WriteLine("Zad.4");
+        Licz licz = new Licz(40);
+        Licz licz2 = new Licz(20);
+        licz.Dodaj(10);
+        licz.Odejmij(3);
+        //licz.Wynik = 20; // Ustawienie wyniku bezpośrednio
+        Console.WriteLine($"Wartość licz: {licz.Wynik}, wartość licz2: {licz.Wynik}");
+
+        //// Przykład użycia bez konstruktora:
+        //Licz liczbk = new Licz();
+        //liczbk.Dodaj(7);
+        //liczbk.Odejmij(2);
+        //Licz.PokazWyrazenie(liczbk.Wynik); // Wyświetli: "Wynik wyrażenia: 11" z konstruktorem i dodaniem parametru seter Wynik wyrażenia:0
+        ////Przykład użycia z konstruktorem:
+        //Licz liczzk = new Licz(10);
+        //liczzk.Dodaj(5);
+        //liczzk.Odejmij(3);
+        //Licz.PokazWyrazenie(liczzk.Wynik); // Wyświetli: "Wynik wyrażenia: 12"
+
+
+        Console.WriteLine("Koniec programu.");
+
     }
 }
