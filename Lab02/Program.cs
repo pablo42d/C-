@@ -22,6 +22,7 @@ internal class Program
         // wywoływanie metody View() dla każdego obiektu w tablicy
         foreach (Person personValue in people)
         {   personValue.View(); }
+        Console.WriteLine("________________________________");
 
         Console.WriteLine("Zad.2");
 
@@ -31,6 +32,7 @@ internal class Program
         konto.Wyplata(200);
         Console.WriteLine($"Saldo: {konto.Saldo}");
         Console.WriteLine("Właściciel: " + konto.Wlasciciel + " a jego saldo konta to kwota: " + konto.Saldo);
+        Console.WriteLine("________________________________");
 
         Console.WriteLine("Zad.3");
         // Przykład użycia:
@@ -42,14 +44,16 @@ internal class Program
         student2.DodajOcene(3); 
         student2.DodajOcene(4);
         student2.View();
+        Console.WriteLine("________________________________");
 
         Console.WriteLine("Zad.4");
         Licz licz = new Licz(40);
         Licz licz2 = new Licz(20);
         licz.Dodaj(10);
-        licz.Odejmij(3);
-        //licz.Wynik = 20; // Ustawienie wyniku bezpośrednio
-        Console.WriteLine($"Wartość licz: {licz.Wynik}, wartość licz2: {licz.Wynik}");
+        licz.Odejmij(3);        
+        licz2.Dodaj(15);
+        licz2.Odejmij(5);       
+        Console.WriteLine($"Wartość licz: {licz.Wynik}, wartość licz2: {licz2.Wynik}");  // Wyświetli: Wartość licz: 47, wartość licz2: 30
 
         //// Przykład użycia bez konstruktora:
         //Licz liczbk = new Licz();
@@ -61,8 +65,21 @@ internal class Program
         //liczzk.Dodaj(5);
         //liczzk.Odejmij(3);
         //Licz.PokazWyrazenie(liczzk.Wynik); // Wyświetli: "Wynik wyrażenia: 12"
+        Console.WriteLine("________________________________");
 
-
+        Console.WriteLine("Zad.5");
+        Sumator sumator = new Sumator(new int[] {10,20,30,1,50,7});
+        sumator.WypiszElementy();
+        Console.WriteLine($"Suma wartości w tablicy: {sumator.Suma()}"); // Wyświetli: Suma wartości w tablicy: 118 
+        Console.WriteLine($"Suma liczb podzielnych przez 2 w tablicy: {sumator.SumaPodziel2()}"); // Wyświetli: Średnia wartość w tablicy: 110
+        Console.WriteLine($"Suma elementów sumatora: {sumator.IleElementow()}");    // Wyświetli: Suma elementów sumatora: 6
+        sumator.WypiszElementy();   // Wypisze wszystkie elementy tablicy
+        Console.WriteLine("Wypisz o indexach: ");
+        sumator.WypiszElementyZakres(0, 2); // Wypisze elementy tablicy od indexu 0 do 2
+        Console.WriteLine($"Suma wartości w tablicy: {sumator.Suma()}"); // Wyświetli: Suma wartości w tablicy: 60
+        Console.WriteLine($"Średnia wartość w tablicy: {sumator.SumaPodziel2()}"); // Wyświetli: Średnia wartość w tablicy: 20
+        
+        Console.WriteLine("________________________________");
         Console.WriteLine("Koniec programu.");
 
     }
