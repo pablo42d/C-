@@ -8,41 +8,46 @@ namespace Lab02
 {
     internal class Person
     {
+        //pola prywatne klasy Person
         private string firstName, lastName;
         private int age;
 
+        //konstruktor bezparametrowy domyślny
         //public Person()
         //{
         //}
 
+        //konstruktor parametrowy
         public Person(string firstName, string lastName, int age)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.age = age;
         }
-
+        //metoda View() wyświetlająca dane osoby
         public void View()
         {
             Console.WriteLine($"First Name: {firstName}, Last Name: {lastName}, Age: {age}");
         }
-
+        // właściwości klasy Person
         public string FirstName
         {
-            get
+            get // akcesor get
             {
-                return firstName;
+                return firstName;   // zwraca wartość pola firstName
             }
-            set
+            set // akcesor set
             {
-                if (string.IsNullOrWhiteSpace(value) || value.Length < 2)
+                // walidacja wartości przed przypisaniem
+                if (string.IsNullOrWhiteSpace(value) || value.Length < 2)   // sprawdza czy wartość jest pusta lub krótsza niż 2 znaki
                 {
                     throw new ArgumentException("First name must be at least 2 characters long and cannot be empty.");
                 }
 
-                firstName = value;
+                firstName = value;  // przypisuje wartość do pola firstName
             }
         }
+        // właściwość LastName z walidacją
         public string LastName
         {
             get
@@ -59,10 +64,13 @@ namespace Lab02
                 lastName = value;
             }
         }
-
+        // właściwość Age z walidacją
         public int Age
         {
-            get { return Age; }
+            get 
+            { 
+                return age;
+            }
             set
             {
                 if (value < 0)
