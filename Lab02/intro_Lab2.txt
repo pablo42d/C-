@@ -1,0 +1,372 @@
+PROGRAMOWANIE OBIEKTOWE C#
+1
+LABORATORIUM 2
+TREŒCI KSZTA£CENIA: DEFINIOWANIE KLAS I OBIEKTÓW
+Spis treœci
+Definicja klasy.......................................................................................................................................... 2
+Operatory dostêpu .................................................................................................................................. 4
+Modyfikatory dostêpu............................................................................................................................. 5
+Konstruktory............................................................................................................................................ 5
+gettery settery C# .................................................................................................................................... 7
+Zadania do samodzielnego rozwi¹zania .................................................................................................. 9
+PROGRAMOWANIE OBIEKTOWE C#
+2
+Programowanie obiektowe – OOP Object-Oriented Programming.
+Programowanie proceduralne polega na pisaniu procedur lub metod, które wykonuj¹ operacje na
+danych, podczas gdy programowanie obiektowe polega na tworzeniu obiektów, które zawieraj¹
+zarówno dane, jak i metody.
+Programowanie obiektowe ma kilka zalet w porównaniu z programowaniem proceduralnym:
+• OOP jest szybsze i ³atwiejsze do wykonania
+• OOP zapewnia przejrzyst¹ strukturê dla programów
+• OOP pomaga utrzymaæ kod C# DRY "Don't Repeat Yourself" i sprawia, ¿e kod jest ³atwiejszy w
+utrzymaniu, modyfikacji i debugowaniu
+• OOP umo¿liwia tworzenie pe³nych aplikacji wielokrotnego u¿ytku z mniejsz¹ iloœci¹ kodu i
+krótszym czasem programowania.
+Zasada "Don't Repeat Yourself" (DRY) polega na ograniczeniu powtarzalnoœci kodu. Tworz¹c kod
+programu nale¿y wyodrêbniæ kody, które s¹ wspólne dla aplikacji i umieœciæ je w jednym miejscu i
+ponownie wykorzystaæ zamiast powtarzaæ.
+Czym jest klasa i obiekt
+Definicja klasy
+modyfikator_dostepu class nazwa_klasy
+{
+ // pola klasy
+ modyfikator_dostepu typ_danych zmienna1;
+ modyfikator_dostepu typ_danych zmienna2;
+ ...
+ modyfikator_dostepu typ_danych zmiennaN;
+ // metody klasy
+ modyfikator_dostepu zwracany_typ metoda1(lista_parametrow)
+ {
+ wnetrze_metody
+ }
+ modyfikator_dostepu zwracany_typ metoda2(lista_parametrow)
+ {
+ wnetrze_metody
+ }
+ ...
+ modyfikator_dostepu zwracany_typ metodaN(lista_parametrow)
+ {
+ wnetrze_metody
+ }
+}
+namespace SharpLab
+{
+PROGRAMOWANIE OBIEKTOWE C#
+3
+ public class Car
+ {
+ //pola klasy
+ public string color = "red";
+ public int rok = 2023;
+ }
+}
+Tworzenie obiektu
+using SharpLab;
+Car car = new Car(); // tworzenie obiektu klasy
+Console.WriteLine("Samochod kolor: " + car.color + " rocznik: " + car.rok);
+Metody:
+namespace SharpLab
+{
+ public class Car
+ {
+ //pola klasy
+ public string color = "red";
+ public int rok = 2023;
+ //metody
+ public void view() {
+ Console.WriteLine("Samochod kolor: " + color + " rocznik: " + rok);
+ }
+ }
+}
+using SharpLab;
+Car car = new Car(); // tworzenie obiektu klasy
+car.view();
+//zmiana parametrów
+car.rok = 2021;
+car.color = "niebieski";
+//wywo³anie metody
+car.view();
+Konstruktor
+namespace SharpLab
+{
+ public class Car
+ {
+ //pola klasy
+ public string color;
+ public int rok;
+ //metody
+ //konstruktory
+ // konstruktor domyœlny bezparametrowy
+ public Car() {
+ color = "red";
+ rok= 100;
+ }
+ //konstruktor z parametrami
+ public Car(string color) {
+PROGRAMOWANIE OBIEKTOWE C#
+4
+ this.color = color;
+ }
+ public Car(string color, int rok) {
+ this.color = color;
+ this.rok = rok;
+ }
+ public void view() {
+ Console.WriteLine("Samochod kolor: " + color + " rocznik: " + rok);
+ }
+ }
+}
+using SharpLab;
+Car car = new Car(); // tworzenie obiektu klasy
+car.view();
+Car car1 = new Car("niebieski");
+car1.view();
+Car car2 = new Car("czarny", 2020);
+car2.view();
+//tworzenie tablicy obiektów i ich wyœwietlanie
+// I sposoób
+Car[] arrayCar = new Car[5];
+arrayCar[0] = new Car("Czerwony", 2023);
+arrayCar[1] = new Car("Niebieski", 2021);
+arrayCar[2] = new Car("Zielony", 1999);
+arrayCar[3] = new Car("Czarny", 2015);
+arrayCar[4] = new Car("Niebieski", 2019);
+foreach (Car item in arrayCar)
+{
+ item.view();
+}
+// II sposób
+Car[] arrayCar2 = new Car[] {
+ new Car("Czerwony", 2023),
+ new Car("Niebieski", 2021),
+ new Car("Zielony", 1999)
+};
+//III sposob
+Car[] cars = new Car[3];
+string[] color = { "Niebieski", "Czerwony", "Czarny" };
+int[] rok = {2023, 2022,2021 };
+for (int i = 0; i < cars.Length; i++)
+{
+ cars[i] = new Car(color[i], rok[i]);
+}
+Operatory dostêpu
+C# oferuje kilka operatorów dostêpu, które s³u¿¹ do manipulowania cz³onkami klas (polami,
+w³aœciwoœciami, metodami).
+• . (kropka) - Operator dostêpu do elementów klasy/obiektu.
+PROGRAMOWANIE OBIEKTOWE C#
+5
+• this - S³u¿y do odwo³ania siê do bie¿¹cej instancji klasy (obiektu).
+Modyfikatory dostêpu
+• public: Dostêp z dowolnego miejsca w programie.
+• private: Dostêp tylko wewn¹trz tej samej klasy.
+• protected: Dostêp wewn¹trz klasy i klas pochodnych.
+• internal: Dostêp w obrêbie tego samego zestawu (assembly).
+Konstruktory
+W C# istnieje kilka rodzajów konstruktorów, które mo¿na zdefiniowaæ w klasie w zale¿noœci od potrzeb,
+wœród nich wyró¿niamy konstruktor:
+• domyœlny,
+• parametryczny,
+• kopiuj¹cy,
+• statyczny,
+• prywatny,
+• bazowy.
+Ka¿dy z tych konstruktorów s³u¿y ró¿nym celom i pozwala na elastyczn¹ inicjalizacjê obiektów w ró¿nych
+scenariuszach programistycznych.
+1. Konstruktor domyœlny
+Konstruktor domyœlny to konstruktor, który nie przyjmuje ¿adnych argumentów i jest automatycznie
+generowany przez kompilator, jeœli nie zdefiniujesz ¿adnego innego konstruktora w klasie. Mo¿na go
+tak¿e zdefiniowaæ rêcznie.
+public class Car
+{
+ public Car() // Konstruktor domyœlny
+ {
+ Console.WriteLine("Domyœlny konstruktor zosta³ wywo³any.");
+ }
+}
+2. Konstruktor parametryczny
+Konstruktor parametryczny przyjmuje argumenty, które s¹ wykorzystywane do inicjalizacji obiektu.
+Pozwala to na przypisanie wartoœci polom lub w³aœciwoœciom obiektu ju¿ w momencie tworzenia
+instancji.
+public class Car
+{
+ public string Marka;
+ public string Model;
+ public Car(string marka, string model) // Konstruktor parametryczny
+ {
+ Marka = marka;
+ Model = model;
+ }
+}
+3. Konstruktor kopiuj¹cy
+PROGRAMOWANIE OBIEKTOWE C#
+6
+Konstruktor kopiuj¹cy s³u¿y do tworzenia nowego obiektu na podstawie ju¿ istniej¹cego obiektu tego
+samego typu. Umo¿liwia to klonowanie obiektów.
+public class Car
+{
+ public string Marka;
+ public string Model;
+ // Konstruktor parametryczny
+ public Car(string marka, string model)
+ {
+ Marka = marka;
+ Model = model;
+ }
+ // Konstruktor kopiuj¹cy
+ public Car(Car innySamochod)
+ {
+ Marka = innySamochod.Marka;
+ Model = innySamochod.Model;
+ }
+}
+4. Konstruktor statyczny
+Konstruktor statyczny jest wywo³ywany tylko raz dla klasy (nie dla obiektu) i s³u¿y do inicjalizacji pól
+statycznych tej klasy. Nie przyjmuje ¿adnych argumentów i nie mo¿na go wywo³aæ rêcznie.
+public class Car
+{
+ public static int LiczbaSamochodow;
+ // Konstruktor statyczny
+ static Car()
+ {
+ LiczbaSamochodow = 0;
+ Console.WriteLine("Konstruktor statyczny zosta³ wywo³any.");
+ }
+ public Car()
+ {
+ LiczbaSamochodow++;
+ }
+}
+5. Konstruktor prywatny
+Konstruktor prywatny nie mo¿e byæ u¿ywany do tworzenia instancji obiektu na zewn¹trz klasy. Jest
+przydatny w implementacji wzorców projektowych, takich jak Singleton, gdzie chcemy kontrolowaæ
+liczbê instancji klasy.
+public class Singleton
+{
+ private static Singleton instancja;
+ // Prywatny konstruktor
+ private Singleton()
+ {
+ }
+PROGRAMOWANIE OBIEKTOWE C#
+7
+ public static Singleton PobierzInstancje()
+ {
+ if (instancja == null)
+ {
+ instancja = new Singleton();
+ }
+ return instancja;
+ }
+}
+6. Konstruktor bazowy (wywo³anie konstruktora klasy bazowej)
+Konstruktor klasy pochodnej mo¿e wywo³ywaæ konstruktor klasy bazowej przy u¿yciu s³owa kluczowego
+base. Pozwala to na inicjalizacjê pól klasy bazowej.
+public class Pojazd
+{
+ public Pojazd()
+ {
+ Console.WriteLine("Konstruktor klasy bazowej Pojazd.");
+ }
+}
+public class Samochod : Pojazd
+{
+ public Samochod() : base() // Wywo³anie konstruktora bazowego
+ {
+ Console.WriteLine("Konstruktor klasy pochodnej Samochod.");
+ }
+}
+7. Konstruktor z inicjalizacj¹ w³aœciwoœci
+Konstruktor mo¿e byæ u¿yty w po³¹czeniu z inicjalizacj¹ w³aœciwoœci obiektu, aby zainicjalizowaæ
+niektóre lub wszystkie pola/w³aœciwoœci obiektu.
+public class Car
+{
+ public string Marka { get; set; }
+ public string Model { get; set; }
+ public Car() { }
+ public Car(string marka) : this() // Konstruktor z inicjalizacj¹
+ {
+ Marka = marka;
+ }
+}
+gettery settery C#
+W C#, s³owa kluczowe get i set s¹ u¿ywane do definiowania tzw. w³aœciwoœci (properties) w klasach.
+W³aœciwoœci pozwalaj¹ na kontrolowany dostêp do pól prywatnych klasy, umo¿liwiaj¹c ich odczyt lub
+modyfikacjê. S¹ one czêsto u¿ywane do enkapsulacji (ukrycia) wewnêtrznych danych, oferuj¹c
+jednoczeœnie interfejs do zarz¹dzania nimi.
+Sk³adnia w³aœciwoœci:
+PROGRAMOWANIE OBIEKTOWE C#
+8
+• get: U¿ywany do pobierania wartoœci w³aœciwoœci.
+• set: U¿ywany do ustawiania wartoœci w³aœciwoœci.
+public class Car
+{
+ // Pole prywatne
+ private string marka;
+ // W³aœciwoœæ z get i set
+ public string Marka
+ {
+ get
+ {
+ return marka; // Zwraca wartoœæ pola 'marka'
+ }
+ set
+ {
+ marka = value; // Ustawia wartoœæ pola 'marka'
+ }
+ }
+}
+W tym przyk³adzie w³aœciwoœæ Marka pozwala na uzyskiwanie i ustawianie wartoœci pola marka, które
+jest prywatne. Dziêki temu mo¿liwa jest kontrola nad dostêpem do tego pola z zewn¹trz.
+Car samochod = new Car();
+samochod.Marka = "Toyota"; // U¿ycie settera
+Console.WriteLine(samochod.Marka); // U¿ycie gettera
+PROGRAMOWANIE OBIEKTOWE C#
+9
+Zadania do samodzielnego rozwi¹zania
+Zadanie 1.
+Napisz klasê Osoba, która bêdzie przechowywaæ informacje o imieniu, nazwisku oraz wieku osoby.
+• Zaimplementuj konstruktor, który bêdzie przyjmowa³ wszystkie trzy wartoœci.
+• U¿yj w³aœciwoœci Imie, Nazwisko, Wiek, z walidacj¹:
+o Imiê i Nazwisko musz¹ mieæ co najmniej 2 znaki.
+o Wiek musi byæ liczb¹ dodatni¹.
+• Zaimplementuj metodê WyswietlInformacje(), która wyœwietli informacje o osobie.
+Zadanie 2.
+Napisz klasê BankAccount, która bêdzie symulowa³a konto bankowe.
+• Zaimplementuj w³aœciwoœci Saldo (publiczne, tylko do odczytu) i Wlasciciel.
+• Dodaj metodê Wplata(decimal kwota), która pozwala na zwiêkszenie salda, oraz metodê
+Wyplata(decimal kwota), która sprawdzi, czy jest wystarczaj¹ca iloœæ œrodków, a nastêpnie
+odejmie odpowiedni¹ kwotê.
+• U¿yj operatorów dostêpu, aby zabezpieczyæ saldo przed bezpoœredni¹ modyfikacj¹.
+Przyk³ad u¿ycia:
+BankAccount konto = new BankAccount("Jan Kowalski", 1000);
+konto.Wplata(500);
+konto.Wyplata(200);
+Console.WriteLine($"Saldo: {konto.Saldo}");
+Zadanie 3.
+Napisz klasê Student, która bêdzie przechowywa³a imiê, nazwisko i tablicê ocen.
+• Zaimplementuj w³aœciwoœæ SredniaOcen, która obliczy i zwróci œredni¹ ocen.
+• Dodaj metodê DodajOcene(int ocena), która doda now¹ ocenê do tablicy.
+• Zaimplementuj konstruktor inicjuj¹cy imiê i nazwisko studenta.
+Zadanie 4.
+Stwórz klasê Licz z:
+• publicznym polem value przechowuj¹cym wartoœæ liczbow¹.
+• metod¹ Dodaj przyjmuj¹c¹ jeden parametr i dodaj¹c¹ przekazan¹ wartoœæ do wartoœci
+trzymanej w polu value.
+• analogiczn¹ operacjê odejmij
+W Main utwórz kilka obiektów klasy Licz i wykonaj ró¿ne operacje.
+Do klasy Licz dodaj konstruktor z jednym parametrem - który inicjuje pole wartoœæ na liczbê przekazan¹
+w parametrze.
+Zmieñ widocznoœæ pola na private i dodaj funkcjê wypisuj¹c¹ stan obiektu (pole value).
+Zadanie 5.
+PROGRAMOWANIE OBIEKTOWE C#
+10
+Stwórz klasê Sumator z:
+• publicznym polem Liczby bêd¹cym tablic¹ liczb
+• metod¹ Suma zwracaj¹c¹ sumê liczb z pola Liczby
+• metodê SumaPodziel2 zwracaj¹c¹ sumê liczb z tablicy, które s¹ podzielne przez 2
+Zmieñ widocznoœæ pola Liczby na private oraz dodaj konstruktor.
+Dodaj metodê: int IleElementów () zwracaj¹cej liczbê elementów na w tablicy
+Dodaj metodê wypisuj¹c¹ wszystkie elementy tablicy
+Dodaj metodê przyjmuj¹c¹ dwa parametry: lowIndex oraz highIndex, która wypisze elementy o
+indeksach >= lowIndex oraz <= highIndex. Metoda powinna zadzia³aæ poprawnie, gdy lowIndex lub
+highIndex wykraczaj¹ poza zakres tablicy (pomin¹æ te elementy).
