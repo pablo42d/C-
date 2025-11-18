@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9EE005DA-F966-49D7-8368-45F2C9F8645B}|CompanyPhoneBook.csproj|e:\\git_project\\c-\\nc#\\c-\\companyphonebook\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9EE005DA-F966-49D7-8368-45F2C9F8645B}|CompanyPhoneBook.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|e:\\git_project\\c-\\nc#\\c-\\companyphonebook\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|solutionrelative:adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|e:\\git_project\\c-\\nc#\\c-\\companyphonebook\\employeepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|solutionrelative:employeepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|e:\\git_project\\c-\\nc#\\c-\\companyphonebook\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{886A0DB4-32A0-9FB9-8FEF-033A30AD3B68}|CompanyPhoneBook.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,12 +30,36 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeePanel.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\EmployeePanel.cs",
+              "RelativeDocumentMoniker": "EmployeePanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\EmployeePanel.cs [Design]",
+              "RelativeToolTip": "EmployeePanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:59:55.07Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
+              "Title": "AdminPanel.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\AdminPanel.cs",
+              "RelativeDocumentMoniker": "AdminPanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\AdminPanel.cs [Design]",
+              "RelativeToolTip": "AdminPanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T21:58:28.738Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginForm.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\LoginForm.cs",
+              "RelativeDocumentMoniker": "LoginForm.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\CompanyPhoneBook\\LoginForm.cs [Design]",
+              "RelativeToolTip": "LoginForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T22:38:14.028Z",
               "EditorCaption": " [Design]"
