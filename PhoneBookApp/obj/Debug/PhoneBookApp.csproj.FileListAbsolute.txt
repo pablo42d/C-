@@ -1,0 +1,7 @@
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.csproj.AssemblyReference.cache
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Properties.Resources.resources
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.csproj.GenerateResource.cache
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.AdminPanel.resources
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.LoginForm.resources
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.UserPanel.resources

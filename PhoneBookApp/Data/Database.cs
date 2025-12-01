@@ -5,11 +5,17 @@ namespace PhoneBookApp.Data
 {
     public class Database
     {
+        // Testowa linia do sprawdzenia łańcucha połączenia
+        //MessageBox.Show(ConfigurationManager.ConnectionStrings["PhoneBookDb"].ConnectionString);
+
         // Łańcuch połączenia pobierany z App.config
         private readonly string _connectionString =
             System.Configuration.ConfigurationManager.ConnectionStrings["PhoneBookDb"].ConnectionString;
 
         // Metoda do stworzenia i zwrócenia nowego połączenia SQL
+        // Każde wywołanie tworzy nowe połączenie
+        // Dzięki temu nie trzymamy otwartego połączenia cały czas
+
         public SqlConnection GetConnection()
         {
             SqlConnection connection = new SqlConnection(_connectionString);
