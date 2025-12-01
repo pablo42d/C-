@@ -1,121 +1,92 @@
-﻿namespace PhoneBookApp.Forms
+﻿// Dodano w celu obsługi logowania użytkownika w aplikacji PhoneBookApp.
+using PhoneBookApp.Data;
+using PhoneBookApp.Models;
+using System.Configuration;
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PhoneBookApp.Forms
 {
-    partial class LoginForm
+    public partial class LoginForm : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private readonly EmployeeRepository _employeeRepo = new EmployeeRepository();
+        private readonly Database _db = new Database();
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        public LoginForm()
         {
-            if (disposing && (components != null))
+            InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            lblError.Text = ""; // czyścimy komunikaty
+
+            // 1. Walidacja pustych pól
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
-                components.Dispose();
+                lblError.Text = "Please enter your username.";
+                return;
             }
-            base.Dispose(disposing);
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                lblError.Text = "Please enter your password.";
+                return;
+            }
+
+            // 2. Test połączenia do bazy SQL
+            if (!_db.TestConnection())
+            {
+                lblError.Text = "Cannot connect to SQL Server database!";
+                return;
+            }
+
+            // 3. Pobierz użytkownika po loginie
+            Employee emp = _employeeRepo.GetEmployeeByUsername(txtUsername.Text);
+
+            if (emp == null)
+            {
+                lblError.Text = "Invalid username or password.";
+                return;
+            }
+
+            // 4. Sprawdzenie hasła (na razie plaintext – później zrobimy SHA256)
+            if (emp.PasswordHash != txtPassword.Text)
+            {
+                lblError.Text = "Invalid username or password.";
+                return;
+            }
+
+            // 5. Logowanie poprawne → otwieramy odpowiedni panel
+            lblError.Text = "Login successful.";
+
+            // Admin?
+            if (emp.Role != null && emp.Role.ToLower() == "admin")
+            {
+                AdminPanel admin = new AdminPanel(emp);
+                admin.Show();
+                this.Hide();
+            }
+            else
+            {
+                UserPanel user = new UserPanel(emp);
+                user.Show();
+                this.Hide();
+            }
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+        private void LoginForm_Load(object sender, EventArgs e)
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.lblError = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "USERNAME:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "PASSWORD:";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(189, 63);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(159, 22);
-            this.txtUsername.TabIndex = 2;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(189, 133);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(159, 22);
-            this.txtPassword.TabIndex = 3;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(273, 189);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(54, 345);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(12, 16);
-            this.lblError.TabIndex = 5;
-            this.lblError.Text = "\"";
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblError);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "LoginForm";
-            this.Text = "LoginForm";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            // opcjonalnie: fokus na username
+            txtUsername.Focus();
         }
-
-        #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label lblError;
     }
 }

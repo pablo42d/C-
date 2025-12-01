@@ -5,3 +5,8 @@ E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.Forms.UserPanel.r
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.Properties.Resources.resources
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.csproj.GenerateResource.cache
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\PhoneBookApp.exe.config
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\PhoneBookApp.exe
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\PhoneBookApp.pdb
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.exe
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.pdb

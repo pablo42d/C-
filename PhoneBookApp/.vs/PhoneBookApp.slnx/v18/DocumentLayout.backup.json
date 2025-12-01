@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\loginform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -15,8 +23,12 @@
       "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:data\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,44 +47,82 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginForm.cs",
+              "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs",
               "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs*",
-              "RelativeToolTip": "Forms\\LoginForm.cs*",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwDUAAAAXAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs [Design]",
+              "RelativeToolTip": "Forms\\LoginForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T22:44:45.79Z",
+              "WhenOpened": "2025-12-01T23:32:31.487Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginForm.Designer.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.Designer.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.Designer.cs",
+              "RelativeToolTip": "Forms\\LoginForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T23:30:14.881Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoginForm.cs [Design]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T23:25:45.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserPanel.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeToolTip": "Forms\\UserPanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T23:06:09.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginForm.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs",
               "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs [Design]*",
-              "RelativeToolTip": "Forms\\LoginForm.cs [Design]*",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "Forms\\LoginForm.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAcwJUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T21:50:32.118Z",
+              "WhenOpened": "2025-12-01T23:02:24.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserPanel.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs [Design]",
+              "RelativeToolTip": "Forms\\UserPanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T22:21:21.571Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Database.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\Database.cs",
-              "RelativeDocumentMoniker": "Data\\Database.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\Database.cs",
-              "RelativeToolTip": "Data\\Database.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T10:57:43.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "AdminPanel.cs [Design]",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
               "RelativeDocumentMoniker": "Forms\\AdminPanel.cs",
