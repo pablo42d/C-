@@ -2,7 +2,6 @@
 using PhoneBookApp.Data;
 using PhoneBookApp.Models;
 using System.Configuration;
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
