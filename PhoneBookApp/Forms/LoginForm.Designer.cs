@@ -1,91 +1,126 @@
-﻿// Dodano w celu obsługi logowania użytkownika w aplikacji PhoneBookApp.
-using PhoneBookApp.Data;
-using PhoneBookApp.Models;
-using System.Configuration;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PhoneBookApp.Forms
+﻿namespace PhoneBookApp.Forms
 {
-    public partial class LoginForm : Form
+    partial class LoginForm
     {
-        private readonly EmployeeRepository _employeeRepo = new EmployeeRepository();
-        private readonly Database _db = new Database();
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-        public LoginForm()
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            InitializeComponent();
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
         {
-            lblError.Text = ""; // czyścimy komunikaty
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblError = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(317, 203);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 0;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(87, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Username:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(87, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Password:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(217, 80);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(175, 22);
+            this.txtUsername.TabIndex = 3;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(217, 144);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(175, 22);
+            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.BackColor = System.Drawing.Color.White;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(105, 349);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(15, 16);
+            this.lblError.TabIndex = 5;
+            this.lblError.Text = "``";
+            this.lblError.UseMnemonic = false;
+            this.lblError.Click += new System.EventHandler(this.lblError_Click);
+            // 
+            // LoginForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+            this.Name = "LoginForm";
+            this.Text = "LoginForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-            // 1. Walidacja pustych pól
-            if (string.IsNullOrWhiteSpace(txtUsername.Text))
-            {
-                lblError.Text = "Please enter your username.";
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                lblError.Text = "Please enter your password.";
-                return;
-            }
-
-            // 2. Test połączenia do bazy SQL
-            if (!_db.TestConnection())
-            {
-                lblError.Text = "Cannot connect to SQL Server database!";
-                return;
-            }
-
-            // 3. Pobierz użytkownika po loginie
-            Employee emp = _employeeRepo.GetEmployeeByUsername(txtUsername.Text);
-
-            if (emp == null)
-            {
-                lblError.Text = "Invalid username or password.";
-                return;
-            }
-
-            // 4. Sprawdzenie hasła (na razie plaintext – później zrobimy SHA256)
-            if (emp.PasswordHash != txtPassword.Text)
-            {
-                lblError.Text = "Invalid username or password.";
-                return;
-            }
-
-            // 5. Logowanie poprawne → otwieramy odpowiedni panel
-            lblError.Text = "Login successful.";
-
-            // Admin?
-            if (emp.Role != null && emp.Role.ToLower() == "admin")
-            {
-                AdminPanel admin = new AdminPanel(emp);
-                admin.Show();
-                this.Hide();
-            }
-            else
-            {
-                UserPanel user = new UserPanel(emp);
-                user.Show();
-                this.Hide();
-            }
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-            // opcjonalnie: fokus na username
-            txtUsername.Focus();
-        }
+        #endregion
+
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblError;
     }
 }

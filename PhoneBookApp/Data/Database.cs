@@ -1,28 +1,34 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Configuration; // Wymaga pakietu NuGet: System.Configuration.ConfigurationManager
 
 namespace PhoneBookApp.Data
 {
     public class Database
     {
-        // Testowa linia do sprawdzenia łańcucha połączenia
-        //MessageBox.Show(ConfigurationManager.ConnectionStrings["PhoneBookDb"].ConnectionString);
-
         // Łańcuch połączenia pobierany z App.config
-        private readonly string _connectionString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["PhoneBookDb"].ConnectionString;
+        private readonly string _connectionString;
 
-        // Metoda do stworzenia i zwrócenia nowego połączenia SQL
-        // Każde wywołanie tworzy nowe połączenie
-        // Dzięki temu nie trzymamy otwartego połączenia cały czas
-
-        public SqlConnection GetConnection()
+        public Database()
         {
-            SqlConnection connection = new SqlConnection(_connectionString);
-            return connection;
+            try
+            {
+                _connectionString = ConfigurationManager.ConnectionStrings["PhoneBookDb"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                // Lepiej zgłosić wyjątek w przypadku problemów z konfiguracją
+                throw new InvalidOperationException("Connection string 'PhoneBookDb' is missing in App.config.", ex);
+            }
         }
 
-        // Prosty test połączenia – sprawdzimy na formularzu logowania
+        // Zwraca nowe połączenie SQL
+        public SqlConnection GetConnection()
+        {
+            return new SqlConnection(_connectionString);
+        }
+
+        // Testuje połączenie z bazą danych
         public bool TestConnection()
         {
             try
@@ -30,16 +36,18 @@ namespace PhoneBookApp.Data
                 using (SqlConnection conn = GetConnection())
                 {
                     conn.Open();
-                    return true; // połączenie działa
+                    return true;
                 }
             }
             catch (Exception)
             {
-                return false; // połączenie nie działa
+                // Można tutaj logować wyjątek, jeśli potrzebne
+                return false;
             }
         }
     }
 }
+
 /*
  3. Wyjaśnienie linia po linii
 🔹 using System.Data.SqlClient;

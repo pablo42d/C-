@@ -10,3 +10,6 @@ E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\PhoneBookApp.exe
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\PhoneBookApp.pdb
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.exe
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBookApp.pdb
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\System.Configuration.ConfigurationManager.dll
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Release\System.Configuration.ConfigurationManager.xml
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Release\PhoneBoo.A1C0B163.Up2Date
