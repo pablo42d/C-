@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\DepartmentRepository.cs" />
     <Compile Include="Data\EmployeeRepository.cs" />
     <Compile Include="Forms\AdminPanel.cs">
       <SubType>Form</SubType>
