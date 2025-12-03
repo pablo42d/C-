@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WSIZRzeszow.DAL;
+using System.Net;   // Wymagane do użycia HttpStatusCodeaby obsłużyć błędy (np. NotFound)
+using System.Data.Entity; // Wymagane do użycia EntityState
 
 namespace WSIZRzeszow.Controllers
 {
@@ -52,12 +54,43 @@ namespace WSIZRzeszow.Controllers
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            // 1. Sprawdzamy, czy id jest poprawne
+            if (id <= 0)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            // 2. Pobieramy studenta z bazy danych
+            var student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            // 3. Sprawdzamy, czy student o danym ID istnieje
+
+            // 4. Przekazujemy studenta do widoku, aby go edytować
+            return View(student);
         }
 
         // POST: Student/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken] // Zapobiega atakom CSRF
+        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,EnrollmentDate")] Student student)
+        {
+            // Sprawdzamy, czy dane z formularza są poprawne (walidacja modelu)
+            if (ModelState.IsValid)
+            {
+                // 1. Oznaczamy encję jako zmodyfikowaną stan obiektu w kontekście jako Modified
+                // Powoduje to, że Entity Framework wygeneruje odpowiednie zapytanie UPDATE w bazie danych
+                db.Entry(student).State = EntityState.Modified;
+                // 2. Zapisujemy zmiany w bazie danych
+                db.SaveChanges();
+                // 3. Przekierowujemy do akcji Index do listy studentów
+                return RedirectToAction("Index");
+            }
+            // Jeśli model jest nieprawidłowy, zwracamy widok z modelem do poprawy (wróć do formularz z błedem)
+            return View(student);
+        }
+        //public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {

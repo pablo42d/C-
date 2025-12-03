@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\dal\\universityinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:dal\\universityinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\dal\\universitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:dal\\universitycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,45 +27,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Web.config",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-12-03T22:48:56.317Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Student\\Edit.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Student\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T23:52:22.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UniversityContext.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\DAL\\UniversityContext.cs",
-              "RelativeDocumentMoniker": "DAL\\UniversityContext.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\DAL\\UniversityContext.cs",
-              "RelativeToolTip": "DAL\\UniversityContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Student\\Index.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Index.cshtml",
+              "RelativeToolTip": "Views\\Student\\Index.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-03T23:03:14.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAEYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T22:35:05.799Z",
+              "WhenOpened": "2025-12-03T23:00:55.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UniversityInitializer.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\DAL\\UniversityInitializer.cs",
-              "RelativeDocumentMoniker": "DAL\\UniversityInitializer.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\DAL\\UniversityInitializer.cs",
-              "RelativeToolTip": "DAL\\UniversityInitializer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-03T20:03:16.911Z",
-              "EditorCaption": ""
             }
           ]
         }
