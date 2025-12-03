@@ -5,3 +5,11 @@ E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.csproj.CoreCompileI
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.AdminPanel.resources
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.LoginForm.resources
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.UserPanel.resources
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\PhoneBookApp.exe.config
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\PhoneBookApp.exe
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\PhoneBookApp.pdb
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBoo.A1C0B163.Up2Date
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.exe
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.pdb
