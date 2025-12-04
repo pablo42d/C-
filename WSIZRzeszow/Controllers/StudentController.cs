@@ -53,24 +53,48 @@ namespace WSIZRzeszow.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
-            return View();
+            // Po prostu zwracamy widok z formularzem do tworzenia nowego studenta
+            return View(new Student());
+        }
+
+        public UniversityContext GetDb()
+        {
+            return db;
         }
 
         // POST: Student/Create
+        // Ta akcja odbiera dane przesłane z formularza w widoku Create.cshtml i zapisuje je do bazy danych za pomocą Entity Framework.Aby zabezpieczyć się przed atakami CSRF, dodajemy atrybut ValidateAntiForgeryToken
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken] // Standardowe zabezpieczenie przed atakami CSRF
+        public ActionResult Create([Bind(Include = "LastName, FirstMidName, EnrollmentDate")] Student student)
         {
-            try
+            // 1. Sprawdzamy, czy dane z formularza są poprawne (walidacja modelu)
+            // Walidacja sprawdza, czy pola wymagane zostały wypełnione i czy typy danych są poprawne
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    // 2. Dodajemy nowy obiekt studenta do kontekstu
+                    db.Students.Add(student);
 
-                return RedirectToAction("Index");
+                    // 3. Zapisujemy zmiany w bazie danych
+                    db.SaveChanges();
+
+                    // 4. Przekierowujemy na listę studentów
+                    return RedirectToAction("Index");
+                }
+                catch (System.Data.DataException /* e */)
+                {
+                    // Zapisujemy błąd (do logów)
+                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            // 5. Jeśli walidacja się nie powiodła LUB wystąpił błąd zapisu do bazy,
+            // wracamy do formularza, aby użytkownik mógł poprawić dane.
+            return View(student);
         }
+
 
         // GET: Student/Edit/5
         public ActionResult Edit(int id)
