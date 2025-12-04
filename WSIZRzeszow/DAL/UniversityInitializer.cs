@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq; // dla .ForEach
 using WSIZRzeszow.Models;
-using System.Data.Entity;
+
 
 namespace WSIZRzeszow.DAL
 {
-    public class UniversityInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<UniversityContext>
+    public class UniversityInitializer : DropCreateDatabaseIfModelChanges<UniversityContext>
     {
         protected override void Seed(UniversityContext context)
         {

@@ -7,12 +7,8 @@
       "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\views\\student\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,27 +27,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Student\\Edit.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Student\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Student\\Delete.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Student\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T23:52:22.83Z",
+              "WhenOpened": "2025-12-04T20:30:44.568Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Student\\Index.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Index.cshtml",
-              "RelativeToolTip": "Views\\Student\\Index.cshtml",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-03T23:03:14.922Z"
             },
             {
               "$type": "Document",
@@ -61,7 +45,7 @@
               "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Controllers\\StudentController.cs",
               "RelativeToolTip": "Controllers\\StudentController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowCwAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAAJQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T23:00:55.426Z",
               "EditorCaption": ""

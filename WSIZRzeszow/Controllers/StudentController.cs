@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity; // Wymagane do użycia EntityState
-using System.Linq;
+﻿using System.Data.Entity; // Wymagane do użycia EntityState
+using System.Linq;  // Wymagane do użycia LINQ (np. ToList())
 using System.Net;   // Wymagane do użycia HttpStatusCodeaby obsłużyć błędy (np. NotFound), aby użyć HttpStatusCodeResult i HttpNotFound
-using System.Web;
-using System.Web.Mvc;
-using WSIZRzeszow.DAL;
+using System.Web.Mvc;   // Wymagane do użycia klasy Controller i ActionResult
+using WSIZRzeszow.DAL;  // Importujemy kontekst bazy danych
+using WSIZRzeszow.Models;   // Importujemy klasę Student
 
 namespace WSIZRzeszow.Controllers
 {
@@ -34,7 +32,7 @@ namespace WSIZRzeszow.Controllers
             }
             // 2. Pobieramy pojedynczego studenta z bazy danych po ID
             // Metoda Find() jest zoptymalizowana do szukania po kluczu głównym
-            Models.Student student = db.Students.Find(id);
+            Student student = db.Students.Find(id);
 
             // 3. Sprawdzamy, czy student został znaleziony
             if (student == null)
@@ -131,24 +129,51 @@ namespace WSIZRzeszow.Controllers
         */
 
         // GET: Student/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            // 1. Sprawdzamy, czy id jest przekazane
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            // 2. Pobieramy studenta z bazy danych
+            Student student = db.Students.Find(id);
+
+            // 3. Sprawdzamy, czy student istnieje
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            // 4. Przekazujemy studenta do widoku, aby potwierdzić usunięcie
+            return View(student);
         }
 
         // POST: Student/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        // Ta akcja jest wywoływana po kliknięciu przycisku "Usuń" w widoku Delete.cshtml. Akceptuje ID rekordu, który ma zostać usunięty.
+        [HttpPost, ActionName("Delete")] // Używamy atrybutu ActionName, ponieważ nazwa metody jest ta sama co GET
+        [ValidateAntiForgeryToken] // Dodaj zabezpieczenie przed atakami CSRF
+        public ActionResult Delete(int id)   // Argument FormCollection jest niepotrzebny
         {
             try
             {
-                // TODO: Add delete logic here
+                // 1. Znajdź studenta do usunięcia
+                Student student = db.Students.Find(id);
 
-                return RedirectToAction("Index");
+                // 2. Usuń studenta z kontekstu
+                db.Students.Remove(student);
+
+                // 3. Zapisz zmiany w bazie danych
+                db.SaveChanges();
+
+                // 4. Przekieruj z powrotem do listy
+                return RedirectToAction("Index");                
             }
-            catch
+            catch (System.Data.DataException /* e */) // Bardziej specyficzna obsługa błędów bazy danych
             {
-                return View();
+                // W przypadku błędu (np. ograniczenie klucza obcego), wróć do widoku 
+                // i możesz opcjonalnie wyświetlić komunikat o błędzie dla użytkownika.
+                return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
         }
     }
