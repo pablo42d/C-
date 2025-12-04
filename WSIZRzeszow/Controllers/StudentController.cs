@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity; // Wymagane do użycia EntityState
 using System.Linq;
+using System.Net;   // Wymagane do użycia HttpStatusCodeaby obsłużyć błędy (np. NotFound), aby użyć HttpStatusCodeResult i HttpNotFound
 using System.Web;
 using System.Web.Mvc;
 using WSIZRzeszow.DAL;
-using System.Net;   // Wymagane do użycia HttpStatusCodeaby obsłużyć błędy (np. NotFound)
-using System.Data.Entity; // Wymagane do użycia EntityState
 
 namespace WSIZRzeszow.Controllers
 {
@@ -24,10 +24,33 @@ namespace WSIZRzeszow.Controllers
         }
 
         // GET: Student/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)    // Używamy int? aby id mogło być null
         {
+            // 1. Sprawdzamy, czy id jest przekazane
+            if (id == null)
+            {
+                // Jeśli ID jest null, zwróć błąd HTTP 400 (Bad Request)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); // Zwracamy błąd 400 Bad Request
+            }
+            // 2. Pobieramy pojedynczego studenta z bazy danych po ID
+            // Metoda Find() jest zoptymalizowana do szukania po kluczu głównym
+            Models.Student student = db.Students.Find(id);
+
+            // 3. Sprawdzamy, czy student został znaleziony
+            if (student == null)
+            {
+                return HttpNotFound(); // Zwracamy błąd 404 Not Found, jeśli student nie istnieje
+            }
+            // 4. Przekazujemy studenta do widoku
+            return View(student);
+        }
+
+        /* public ActionResult Details(int id)
+        {
+
             return View();
         }
+        */
 
         // GET: Student/Create
         public ActionResult Create()
@@ -74,7 +97,7 @@ namespace WSIZRzeszow.Controllers
         // POST: Student/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken] // Zapobiega atakom CSRF
-        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,EnrollmentDate")] Models.Student student)
         {
             // Sprawdzamy, czy dane z formularza są poprawne (walidacja modelu)
             if (ModelState.IsValid)
@@ -90,7 +113,9 @@ namespace WSIZRzeszow.Controllers
             // Jeśli model jest nieprawidłowy, zwracamy widok z modelem do poprawy (wróć do formularz z błedem)
             return View(student);
         }
-        //public ActionResult Edit(int id, FormCollection collection)
+
+        /*
+         * public ActionResult Edit(int id, FormCollection collection)
         {
             try
             {
@@ -103,6 +128,7 @@ namespace WSIZRzeszow.Controllers
                 return View();
             }
         }
+        */
 
         // GET: Student/Delete/5
         public ActionResult Delete(int id)
