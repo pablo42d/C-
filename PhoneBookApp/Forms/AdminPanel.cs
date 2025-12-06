@@ -228,7 +228,7 @@ namespace PhoneBookApp.Forms
                 DepartmentID = cmbEmpDepartment.SelectedValue != null ? Convert.ToInt32(cmbEmpDepartment.SelectedValue) : 0,
                 Photo = _employeePhotoBytes,
                 Username = txtEmpEmail.Text.Trim(),
-                PasswordHash = "changeme", // default temporary password
+                PasswordHash = "Welcome", // default temporary password changeme
                 Role = "Employee"
             };
 
