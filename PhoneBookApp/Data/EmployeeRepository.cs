@@ -153,6 +153,93 @@ WHERE EmployeeID = @EmployeeID";
 
             return emp;
         }
+
+        internal void UpdatePhoto(int employeeID, byte[] bytes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetEmployeesWithPhonesByDepartment(int departmentId)
+        {
+            using (SqlConnection conn = _db.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+            SELECT 
+                e.EmployeeID,
+                e.FirstName,
+                e.LastName,
+                e.PhoneNumber,
+                e.MobileNumber,
+                d.DepartmentName
+            FROM Employees e
+            INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
+            WHERE
+                e.DepartmentID = @dep
+                AND (e.PhoneNumber IS NOT NULL OR e.MobileNumber IS NOT NULL)
+        ";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@dep", departmentId);
+
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+        }
+
+
+        //internal object GetEmployeesByDepartment(int depId)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public DataTable Search(string firstOrLastName, string phone)
+        {
+            using (SqlConnection conn = _db.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"
+            SELECT 
+                e.EmployeeID,
+                e.FirstName,
+                e.LastName,
+                e.PhoneNumber,
+                e.MobileNumber,
+                d.DepartmentName
+            FROM Employees e
+            INNER JOIN Departments d ON e.DepartmentID = d.DepartmentID
+            WHERE
+                (@name = '' OR e.FirstName LIKE @name OR e.LastName LIKE @name)
+                AND
+                (@phone = '' OR e.PhoneNumber LIKE @phone OR e.MobileNumber LIKE @phone)
+                AND
+                (e.PhoneNumber IS NOT NULL OR e.MobileNumber IS NOT NULL)  -- tylko pracownicy z numerem
+        ";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@name", string.IsNullOrWhiteSpace(firstOrLastName) ? "" : "%" + firstOrLastName + "%");
+                cmd.Parameters.AddWithValue("@phone", string.IsNullOrWhiteSpace(phone) ? "" : "%" + phone + "%");
+
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+        }
+
+        internal object GetEmployeesByDepartment(int depId)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        //internal DataTable SearchEmployees(string lastName, string phone)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
 
