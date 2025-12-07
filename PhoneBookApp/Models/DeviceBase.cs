@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneBookApp.Forms;
+using System;
 
 namespace PhoneBookApp.Models
 {
@@ -15,5 +16,10 @@ namespace PhoneBookApp.Models
 
         public string DeviceStatus { get; set; }
         public string Notes { get; set; }
+
+        //public string DeviceType { get; set; }
+        //public string IMEI { get; set; }
+        //public string MACAddress { get; set; }
+        //public bool HasMDM { get; set; }
     }
 }

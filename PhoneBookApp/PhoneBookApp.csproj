@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\BillingImporter.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DepartmentRepository.cs" />
+    <Compile Include="Data\DeviceRepository.cs" />
     <Compile Include="Data\EmployeeRepository.cs" />
     <Compile Include="Forms\AdminPanel.cs">
       <SubType>Form</SubType>
@@ -62,6 +64,7 @@
     <Compile Include="Forms\AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Device.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
