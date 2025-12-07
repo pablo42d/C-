@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace PhoneBookApp.Forms
 {
@@ -62,6 +63,8 @@ namespace PhoneBookApp.Forms
             this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.tabDevices = new System.Windows.Forms.TabPage();
             this.panelDeviceDetails = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.dtpDevReplace = new System.Windows.Forms.DateTimePicker();
             this.dtpDevIssue = new System.Windows.Forms.DateTimePicker();
             this.cmbDevEmployee = new System.Windows.Forms.ComboBox();
@@ -117,7 +120,7 @@ namespace PhoneBookApp.Forms
             this.tabAdmin.Location = new System.Drawing.Point(0, 0);
             this.tabAdmin.Name = "tabAdmin";
             this.tabAdmin.SelectedIndex = 0;
-            this.tabAdmin.Size = new System.Drawing.Size(1051, 592);
+            this.tabAdmin.Size = new System.Drawing.Size(1052, 634);
             this.tabAdmin.TabIndex = 0;
             this.tabAdmin.SelectedIndexChanged += new System.EventHandler(this.tabAdmin_SelectedIndexChanged);
             // 
@@ -131,7 +134,7 @@ namespace PhoneBookApp.Forms
             this.tabEmployees.Location = new System.Drawing.Point(4, 25);
             this.tabEmployees.Name = "tabEmployees";
             this.tabEmployees.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmployees.Size = new System.Drawing.Size(1043, 563);
+            this.tabEmployees.Size = new System.Drawing.Size(1044, 605);
             this.tabEmployees.TabIndex = 0;
             this.tabEmployees.Text = "Employees";
             this.tabEmployees.UseVisualStyleBackColor = true;
@@ -153,9 +156,9 @@ namespace PhoneBookApp.Forms
             this.panelEmployeeDetails.Controls.Add(this.label2);
             this.panelEmployeeDetails.Controls.Add(this.label1);
             this.panelEmployeeDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEmployeeDetails.Location = new System.Drawing.Point(3, 380);
+            this.panelEmployeeDetails.Location = new System.Drawing.Point(3, 422);
             this.panelEmployeeDetails.Name = "panelEmployeeDetails";
-            this.panelEmployeeDetails.Size = new System.Drawing.Size(1037, 180);
+            this.panelEmployeeDetails.Size = new System.Drawing.Size(1038, 180);
             this.panelEmployeeDetails.TabIndex = 4;
             this.panelEmployeeDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEmployeeDetails_Paint);
             // 
@@ -318,7 +321,7 @@ namespace PhoneBookApp.Forms
             this.dgvEmployees.RowHeadersWidth = 51;
             this.dgvEmployees.RowTemplate.Height = 40;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployees.Size = new System.Drawing.Size(1037, 313);
+            this.dgvEmployees.Size = new System.Drawing.Size(1038, 313);
             this.dgvEmployees.TabIndex = 0;
             this.dgvEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellContentClick);
             // 
@@ -332,7 +335,7 @@ namespace PhoneBookApp.Forms
             this.tabDepartments.Location = new System.Drawing.Point(4, 25);
             this.tabDepartments.Name = "tabDepartments";
             this.tabDepartments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDepartments.Size = new System.Drawing.Size(1043, 563);
+            this.tabDepartments.Size = new System.Drawing.Size(1044, 605);
             this.tabDepartments.TabIndex = 1;
             this.tabDepartments.Text = "Departments";
             this.tabDepartments.UseVisualStyleBackColor = true;
@@ -344,9 +347,9 @@ namespace PhoneBookApp.Forms
             this.panelDepartmentDetails.Controls.Add(this.txtDeptDescription);
             this.panelDepartmentDetails.Controls.Add(this.txtDeptName);
             this.panelDepartmentDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDepartmentDetails.Location = new System.Drawing.Point(3, 380);
+            this.panelDepartmentDetails.Location = new System.Drawing.Point(3, 422);
             this.panelDepartmentDetails.Name = "panelDepartmentDetails";
-            this.panelDepartmentDetails.Size = new System.Drawing.Size(1037, 180);
+            this.panelDepartmentDetails.Size = new System.Drawing.Size(1038, 180);
             this.panelDepartmentDetails.TabIndex = 4;
             // 
             // lblDeptDescription
@@ -354,7 +357,7 @@ namespace PhoneBookApp.Forms
             this.lblDeptDescription.AutoSize = true;
             this.lblDeptDescription.Location = new System.Drawing.Point(3, 58);
             this.lblDeptDescription.Name = "lblDeptDescription";
-            this.lblDeptDescription.Size = new System.Drawing.Size(75, 16);
+            this.lblDeptDescription.Size = new System.Drawing.Size(78, 16);
             this.lblDeptDescription.TabIndex = 3;
             this.lblDeptDescription.Text = "Description:";
             // 
@@ -424,7 +427,7 @@ namespace PhoneBookApp.Forms
             this.dgvDepartments.ReadOnly = true;
             this.dgvDepartments.RowHeadersWidth = 51;
             this.dgvDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDepartments.Size = new System.Drawing.Size(1037, 313);
+            this.dgvDepartments.Size = new System.Drawing.Size(1038, 313);
             this.dgvDepartments.TabIndex = 0;
             this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellClick);
             // 
@@ -437,13 +440,15 @@ namespace PhoneBookApp.Forms
             this.tabDevices.Controls.Add(this.dgvDevices);
             this.tabDevices.Location = new System.Drawing.Point(4, 25);
             this.tabDevices.Name = "tabDevices";
-            this.tabDevices.Size = new System.Drawing.Size(1043, 563);
+            this.tabDevices.Size = new System.Drawing.Size(1044, 605);
             this.tabDevices.TabIndex = 2;
             this.tabDevices.Text = "Devices";
             this.tabDevices.UseVisualStyleBackColor = true;
             // 
             // panelDeviceDetails
             // 
+            this.panelDeviceDetails.Controls.Add(this.label7);
+            this.panelDeviceDetails.Controls.Add(this.label6);
             this.panelDeviceDetails.Controls.Add(this.dtpDevReplace);
             this.panelDeviceDetails.Controls.Add(this.dtpDevIssue);
             this.panelDeviceDetails.Controls.Add(this.cmbDevEmployee);
@@ -468,10 +473,30 @@ namespace PhoneBookApp.Forms
             this.panelDeviceDetails.Controls.Add(this.lblDevSerial);
             this.panelDeviceDetails.Controls.Add(this.chkDevMDM);
             this.panelDeviceDetails.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDeviceDetails.Location = new System.Drawing.Point(0, 310);
+            this.panelDeviceDetails.Location = new System.Drawing.Point(0, 352);
             this.panelDeviceDetails.Name = "panelDeviceDetails";
-            this.panelDeviceDetails.Size = new System.Drawing.Size(1043, 253);
+            this.panelDeviceDetails.Size = new System.Drawing.Size(1044, 253);
             this.panelDeviceDetails.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(450, 232);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Replacement Date:";
+            this.label7.Click += new System.EventHandler(this.label7_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 230);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 16);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Issued Date:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // dtpDevReplace
             // 
@@ -594,7 +619,7 @@ namespace PhoneBookApp.Forms
             this.lblDevEmployee.AutoSize = true;
             this.lblDevEmployee.Location = new System.Drawing.Point(450, 90);
             this.lblDevEmployee.Name = "lblDevEmployee";
-            this.lblDevEmployee.Size = new System.Drawing.Size(94, 16);
+            this.lblDevEmployee.Size = new System.Drawing.Size(87, 16);
             this.lblDevEmployee.TabIndex = 9;
             this.lblDevEmployee.Text = "Assigned To:";
             // 
@@ -603,7 +628,7 @@ namespace PhoneBookApp.Forms
             this.lblDevStatus.AutoSize = true;
             this.lblDevStatus.Location = new System.Drawing.Point(450, 55);
             this.lblDevStatus.Name = "lblDevStatus";
-            this.lblDevStatus.Size = new System.Drawing.Size(48, 16);
+            this.lblDevStatus.Size = new System.Drawing.Size(47, 16);
             this.lblDevStatus.TabIndex = 8;
             this.lblDevStatus.Text = "Status:";
             // 
@@ -612,7 +637,7 @@ namespace PhoneBookApp.Forms
             this.lblDevType.AutoSize = true;
             this.lblDevType.Location = new System.Drawing.Point(450, 20);
             this.lblDevType.Name = "lblDevType";
-            this.lblDevType.Size = new System.Drawing.Size(84, 16);
+            this.lblDevType.Size = new System.Drawing.Size(88, 16);
             this.lblDevType.TabIndex = 7;
             this.lblDevType.Text = "Device Type:";
             // 
@@ -621,7 +646,7 @@ namespace PhoneBookApp.Forms
             this.lblDevLocation.AutoSize = true;
             this.lblDevLocation.Location = new System.Drawing.Point(20, 195);
             this.lblDevLocation.Name = "lblDevLocation";
-            this.lblDevLocation.Size = new System.Drawing.Size(62, 16);
+            this.lblDevLocation.Size = new System.Drawing.Size(61, 16);
             this.lblDevLocation.TabIndex = 6;
             this.lblDevLocation.Text = "Location:";
             // 
@@ -630,7 +655,7 @@ namespace PhoneBookApp.Forms
             this.lblDevMAC.AutoSize = true;
             this.lblDevMAC.Location = new System.Drawing.Point(20, 160);
             this.lblDevMAC.Name = "lblDevMAC";
-            this.lblDevMAC.Size = new System.Drawing.Size(95, 16);
+            this.lblDevMAC.Size = new System.Drawing.Size(93, 16);
             this.lblDevMAC.TabIndex = 5;
             this.lblDevMAC.Text = "MAC Address:";
             // 
@@ -639,7 +664,7 @@ namespace PhoneBookApp.Forms
             this.lblDevIMEI.AutoSize = true;
             this.lblDevIMEI.Location = new System.Drawing.Point(20, 125);
             this.lblDevIMEI.Name = "lblDevIMEI";
-            this.lblDevIMEI.Size = new System.Drawing.Size(40, 16);
+            this.lblDevIMEI.Size = new System.Drawing.Size(36, 16);
             this.lblDevIMEI.TabIndex = 4;
             this.lblDevIMEI.Text = "IMEI:";
             // 
@@ -648,7 +673,7 @@ namespace PhoneBookApp.Forms
             this.lblDevModel.AutoSize = true;
             this.lblDevModel.Location = new System.Drawing.Point(20, 90);
             this.lblDevModel.Name = "lblDevModel";
-            this.lblDevModel.Size = new System.Drawing.Size(49, 16);
+            this.lblDevModel.Size = new System.Drawing.Size(48, 16);
             this.lblDevModel.TabIndex = 3;
             this.lblDevModel.Text = "Model:";
             // 
@@ -657,7 +682,7 @@ namespace PhoneBookApp.Forms
             this.lblDevInventory.AutoSize = true;
             this.lblDevInventory.Location = new System.Drawing.Point(20, 55);
             this.lblDevInventory.Name = "lblDevInventory";
-            this.lblDevInventory.Size = new System.Drawing.Size(117, 16);
+            this.lblDevInventory.Size = new System.Drawing.Size(115, 16);
             this.lblDevInventory.TabIndex = 2;
             this.lblDevInventory.Text = "Inventory Number:";
             // 
@@ -666,7 +691,7 @@ namespace PhoneBookApp.Forms
             this.lblDevSerial.AutoSize = true;
             this.lblDevSerial.Location = new System.Drawing.Point(20, 20);
             this.lblDevSerial.Name = "lblDevSerial";
-            this.lblDevSerial.Size = new System.Drawing.Size(97, 16);
+            this.lblDevSerial.Size = new System.Drawing.Size(96, 16);
             this.lblDevSerial.TabIndex = 1;
             this.lblDevSerial.Text = "Serial Number:";
             // 
@@ -675,7 +700,7 @@ namespace PhoneBookApp.Forms
             this.chkDevMDM.AutoSize = true;
             this.chkDevMDM.Location = new System.Drawing.Point(453, 206);
             this.chkDevMDM.Name = "chkDevMDM";
-            this.chkDevMDM.Size = new System.Drawing.Size(93, 20);
+            this.chkDevMDM.Size = new System.Drawing.Size(89, 20);
             this.chkDevMDM.TabIndex = 23;
             this.chkDevMDM.Text = "Has MDM";
             this.chkDevMDM.UseVisualStyleBackColor = true;
@@ -723,7 +748,7 @@ namespace PhoneBookApp.Forms
             this.dgvDevices.RowHeadersWidth = 51;
             this.dgvDevices.RowTemplate.Height = 40;
             this.dgvDevices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDevices.Size = new System.Drawing.Size(1043, 250);
+            this.dgvDevices.Size = new System.Drawing.Size(1044, 250);
             this.dgvDevices.TabIndex = 0;
             this.dgvDevices.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevices_CellClick);
             // 
@@ -734,7 +759,7 @@ namespace PhoneBookApp.Forms
             this.tabBilling.Controls.Add(this.btnBillingBrowse);
             this.tabBilling.Location = new System.Drawing.Point(4, 25);
             this.tabBilling.Name = "tabBilling";
-            this.tabBilling.Size = new System.Drawing.Size(1043, 563);
+            this.tabBilling.Size = new System.Drawing.Size(1044, 605);
             this.tabBilling.TabIndex = 3;
             this.tabBilling.Text = "Billing Import";
             this.tabBilling.UseVisualStyleBackColor = true;
@@ -771,7 +796,7 @@ namespace PhoneBookApp.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 592);
+            this.ClientSize = new System.Drawing.Size(1052, 634);
             this.Controls.Add(this.tabAdmin);
             this.Name = "AdminPanel";
             this.Text = "AdminPanel";
@@ -869,6 +894,9 @@ namespace PhoneBookApp.Forms
         private System.Windows.Forms.Button btnImportBilling;
         private System.Windows.Forms.TextBox txtBillingFile;
         private System.Windows.Forms.Button btnBillingBrowse;
+        private Label label6;
+        private Label label7;
+        //private readonly EventHandler btnAddDepartment_Click;
 
     }
 }
