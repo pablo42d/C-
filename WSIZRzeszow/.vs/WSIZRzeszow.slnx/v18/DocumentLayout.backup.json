@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|e:\\git_project\\c-\\nc#\\c-\\wsizrzeszow\\views\\student\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\views\\student\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{40011055-D2BE-4C86-8CD7-D608FCE3128D}|WSIZRzeszow.csproj|solutionrelative:views\\student\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -25,17 +25,8 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Student\\Create.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Create.cshtml",
-              "RelativeToolTip": "Views\\Student\\Create.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-04T21:04:54.777Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
@@ -45,10 +36,22 @@
               "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Controllers\\StudentController.cs",
               "RelativeToolTip": "Controllers\\StudentController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAqwDkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwDkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-03T23:00:55.426Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Student\\Create.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\WSIZRzeszow\\Views\\Student\\Create.cshtml",
+              "RelativeToolTip": "Views\\Student\\Create.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-04T21:04:54.777Z"
             }
           ]
         }

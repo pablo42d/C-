@@ -1,0 +1,15 @@
+E:\Git_Project\C-\NC#\C-\Lab03\bin\Debug\net10.0\Lab03.exe
+E:\Git_Project\C-\NC#\C-\Lab03\bin\Debug\net10.0\Lab03.deps.json
+E:\Git_Project\C-\NC#\C-\Lab03\bin\Debug\net10.0\Lab03.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\Lab03\bin\Debug\net10.0\Lab03.dll
+E:\Git_Project\C-\NC#\C-\Lab03\bin\Debug\net10.0\Lab03.pdb
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.sourcelink.json
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.dll
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\refint\Lab03.dll
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.pdb
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\Lab03.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\Lab03\obj\Debug\net10.0\ref\Lab03.dll
