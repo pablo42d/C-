@@ -44,6 +44,7 @@ Book b1 = new Book("Hobbit");
 Book b2 = new Book("Wiedźmin");
 Book b3 = new Book("Dziady");
 Book b4 = new Book("Metro 2033");
+Reader.Book book = new Reader.Book("Sample Book"); // Przykład tworzenia obiektu Book z klasy zagnieżdżonej
 
 // Tworzenie czytelników
 Reader r1 = new Reader("Adam", "Kowelski", 32);
@@ -57,6 +58,8 @@ r1.AddBook(b3);
 r2.AddBook(b2);
 r2.AddBook(b4);
 r2.AddBook(b1);
+//p1.AddBook(b3); // To powinno wywołać błąd, ponieważ Person nie ma metody AddBook
+
 
 // Wywołanie metody ViewBook
 r1.ViewBook();
@@ -66,4 +69,21 @@ r2.ViewBook();
 Console.WriteLine(r1.ViewBook());
 Console.WriteLine(r2.ViewBook());
 
+// ========= Zadanie 1 d. ===========================
+/*
+ *Metody View() w klasach Person i Reader poprzedź odpowiednimi słowami kluczowymi, aby wykonanie
+kodu:
+Person o = new Reader (...);
+o.VIew();
+spowodowało wyoknanie metody View () z klasy Reader 
+ */
+
+Person o = new Reader("Paweł", "Dudek", 28);    // Utworzenie obiektu Reader, ale przypisanie go do zmiennej typu Person
+Console.WriteLine(o.View1d());  // Wywołanie metody View1d(), która powinna wykonać metodę z klasy Reader dzięki polimorfizmowi
+// Utworzenie obiektu Person, ale przypisanie go do zmiennej typu Reader
+Person person1 = new Reader("Anna", "Nowak", 35);
+Reader o1 = (Reader)person1;  // Rzutowanie na typ Reader
+o1.AddBook(book);
+Console.WriteLine(o1.View1d());  // Wywołanie metody View1
+Console.WriteLine(o1.ViewBook());  // Wywołanie metody ViewBook z klasy Reader
 

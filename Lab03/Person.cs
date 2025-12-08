@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Lab03
 {
@@ -59,6 +60,13 @@ namespace Lab03
         {
             Console.WriteLine("Person: " + firstName + " " + lastName + ", Age: " + age);
         }
+        // ========== Zadanie 1 d. ===========================
+
+        public virtual string View1d()
+        {
+            return $"Osoba: {firstName + " " + lastName + ", Age: " + age}";
+        }
+
         // właściwości do odczytu imienia i nazwiska, potrzebne w klasie Reader aby był dostęp do tych pól
         public string FirstName => firstName;
         public string LastName => lastName;

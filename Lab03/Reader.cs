@@ -44,7 +44,7 @@ namespace Lab03
         }
 
         // metoda ViewBook - wypisująca tytuły książek, które czytelnik przeczytał
-        public string? ViewBook()
+        public string ViewBook()
         {
 
             if (ReadBooks.Count == 0)
@@ -58,12 +58,21 @@ namespace Lab03
             }
 
             return result;
-            //Console.WriteLine("Books read by " + this.ToString() + ":");
+
+            //Console.WriteLine("Books read by " + {this.FirstName} {this.LastName} + ":");
             //foreach (var book in ReadBooks)
             //{
             //    Console.WriteLine("- " + book.Title);
             //}
         }
-               
+
+        // ========== zadanie 1 d. ===========================
+
+
+        public override string View1d()
+        {
+            return $"Czytelnik: {this.FirstName} {this.LastName}:\n";
+        }
+
     }
 }
