@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Dziedziczenie i polimorfizm w C#
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -57,5 +59,8 @@ namespace Lab03
         {
             Console.WriteLine("Person: " + firstName + " " + lastName + ", Age: " + age);
         }
+        // właściwości do odczytu imienia i nazwiska, potrzebne w klasie Reader aby był dostęp do tych pól
+        public string FirstName => firstName;
+        public string LastName => lastName;
     }
 }

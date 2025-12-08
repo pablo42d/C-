@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|e:\\git_project\\c-\\nc#\\c-\\lab03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C433E4D-5085-47EF-AB54-1AC19D063284}|Lab03.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +38,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Student.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Student.cs",
               "RelativeDocumentMoniker": "Student.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Student.cs",
               "RelativeToolTip": "Student.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T18:42:18.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Reader.cs",
+              "RelativeDocumentMoniker": "Reader.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Reader.cs*",
+              "RelativeToolTip": "Reader.cs*",
+              "ViewState": "AgIAACQAAAAAAAAAAAAUwDsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T19:19:24.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Person.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Person.cs",
               "RelativeDocumentMoniker": "Person.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Person.cs",
               "RelativeToolTip": "Person.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAkwDoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwC8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T18:40:11.519Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab03\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAADwvz4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T18:25:51.101Z",
               "EditorCaption": ""
