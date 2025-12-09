@@ -15,26 +15,27 @@ namespace Lab03
 
         //========= Zadanie 1 b. ===========================
         // klasa Book
-        public class Book
-        {
-            // pole tytułu książki
-            public string Title { get; set; }
-            // konstruktor klasy Book
-            public Book(string title)
-            {
-                Title = title;
-            }
-        }
+        //public class Book
+        //{
+        //    // pole tytułu książki
+        //    public string Title { get; set; }
+        //    // konstruktor klasy Book
+        //    public Book(string title)
+        //    {
+        //        Title = title;
+        //    }
+        //}
 
         // lista przeczytanych książek
-        private List<Book> ReadBooks {get; set; }
+        //private List<Book> ReadBooks {get; set; }
+        private List<Book> ReadBooks = new List<Book>();
 
         // konstruktor klasy Reader
         public Reader(string firstName, string lastName, int age) : base(firstName, lastName, age)
         {
             
             // inicjalizacja listy przeczytanych książek           
-            ReadBooks = new List<Book>();
+            //ReadBooks = new List<Book>();
         }
 
         // metoda do dodawania książek do listy przeczytanych książek
@@ -44,35 +45,53 @@ namespace Lab03
         }
 
         // metoda ViewBook - wypisująca tytuły książek, które czytelnik przeczytał
-        public string ViewBook()
-        {
+        //public string ViewBook()
+        //{
 
-            if (ReadBooks.Count == 0)
-                return $"{this.FirstName} {this.LastName} nie przeczytał żadnych książek.";
+        //    if (ReadBooks.Count == 0)
+        //        return $"{this.FirstName} {this.LastName} nie przeczytał żadnych książek.";
 
-            string result = $"Książki przeczytane przez {this.FirstName} {this.LastName}:\n";
+        //    string result = $"Książki przeczytane przez {this.FirstName} {this.LastName}:\n";
 
-            foreach (var book in ReadBooks)
-            {
-                result += $"- {book.Title}\n";
-            }
+        //    foreach (var book in ReadBooks)
+        //    {
+        //        result += $"- {book.Title}\n";
+        //    }
 
-            return result;
+        //    return result;
 
             //Console.WriteLine("Books read by " + {this.FirstName} {this.LastName} + ":");
             //foreach (var book in ReadBooks)
             //{
             //    Console.WriteLine("- " + book.Title);
             //}
+        //}
+
+        // lub inna metoda wyświetlająca
+        public string ViewBook()
+        {
+            if (ReadBooks.Count == 0) return "Brak przeczytanych książek.";
+
+            string result = "";
+            foreach (var book in ReadBooks)
+            {
+                result += "- " + book.View() + "\n";
+            }
+            return result;
+        }
+
+        public override string View()
+        {
+            return base.View() + "\nPrzeczytane książki:\n" + ViewBook();
         }
 
         // ========== zadanie 1 d. ===========================
 
 
-        public override string View1d()
-        {
-            return $"Czytelnik: {this.FirstName} {this.LastName}:\n";
-        }
+        //public override string View1d()
+        //{
+        //    return $"Czytelnik: {this.FirstName} {this.LastName}:\n";
+        //}
 
     }
 }

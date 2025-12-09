@@ -2,7 +2,9 @@
 
 using Lab03;
 using System;
-using static Lab03.Reader;
+using System.Collections.Generic;
+using System.Xml.Linq;
+
 /*
 // ========= 1 ===========================
 //Person myObj = new Person();
@@ -28,8 +30,8 @@ metodą View.
 • Book z polami: title, author (typu Person), data wydania oraz metodą View.
 Utwórz różne obiekty stworzonych klas. Wykonaj metody View.
 */
-Person person = new Person("Jan", "Kowalski", 25);
-person.View();
+//Person person = new Person("Jan", "Kowalski", 25);
+//person.View();
 
 // ========= Zadanie 1 b. ===========================
 /*
@@ -39,35 +41,39 @@ ViewBook - wypisujące tytuły książek, które czytelnik przeczytał.
 Stwórz 3-5 książek, 2-4 czytelników, przypisz książki do tablic / list przeczytanych książek czytelników,
 wykonaj metody ViewBook
 */
-// Tworzenie książek
-Book b1 = new Book("Hobbit");
-Book b2 = new Book("Wiedźmin");
-Book b3 = new Book("Dziady");
-Book b4 = new Book("Metro 2033");
-Reader.Book book = new Reader.Book("Sample Book"); // Przykład tworzenia obiektu Book z klasy zagnieżdżonej
+//// Autorzy
+//Person p1 = new Person("Adam", "Mickiewicz", 55);
+//Person p2 = new Person("Andrzej", "Sapkowski", 70);
 
-// Tworzenie czytelników
-Reader r1 = new Reader("Adam", "Kowelski", 32);
-Reader r2 = new Reader("Ewa","Bączek", 43);
-Person p1 = new Person("Jan", "Kowalski", 30);
+//// Tworzenie książek
+//Book b1 = new Book("Hobbit", p1, 1937);
+//Book b2 = new Book("Wiedźmin", p2, 1993);
+//Book b3 = new Book("Dziady", p1, 1823);
+//Book b4 = new Book("Historia Polski", p1, 1999);
+////Reader.Book book = new Reader.Book("Sample Book"); // Przykład tworzenia obiektu Book z klasy zagnieżdżonej
 
-
-// Przypisywanie przeczytanych książek
-r1.AddBook(b1);
-r1.AddBook(b3);
-r2.AddBook(b2);
-r2.AddBook(b4);
-r2.AddBook(b1);
-//p1.AddBook(b3); // To powinno wywołać błąd, ponieważ Person nie ma metody AddBook
+//// Tworzenie czytelników
+//Reader r1 = new Reader("Adam", "Kowelski", 32);
+//Reader r2 = new Reader("Ewa", "Bączek", 43);
+//Person p3 = new Person("Jan", "Kowalski", 30);
 
 
-// Wywołanie metody ViewBook
-r1.ViewBook();
-r2.ViewBook();
+//// Przypisywanie przeczytanych książek
+//r1.AddBook(b1);
+//r1.AddBook(b3);
+//r2.AddBook(b2);
+//r2.AddBook(b4);
+//r2.AddBook(b1);
+////p1.AddBook(b3); // To powinno wywołać błąd, ponieważ Person nie ma metody AddBook
+
+
+//// Wywołanie metody ViewBook
+//r1.ViewBook();
+//r2.ViewBook();
 
 // Wyświetlanie (teraz metoda zwraca string)
-Console.WriteLine(r1.ViewBook());
-Console.WriteLine(r2.ViewBook());
+//Console.WriteLine(r1.ViewBook());
+//Console.WriteLine(r2.ViewBook());
 
 // ========= Zadanie 1 d. ===========================
 /*
@@ -77,13 +83,60 @@ Person o = new Reader (...);
 o.VIew();
 spowodowało wyoknanie metody View () z klasy Reader 
  */
-
+/*
 Person o = new Reader("Paweł", "Dudek", 28);    // Utworzenie obiektu Reader, ale przypisanie go do zmiennej typu Person
 Console.WriteLine(o.View1d());  // Wywołanie metody View1d(), która powinna wykonać metodę z klasy Reader dzięki polimorfizmowi
 // Utworzenie obiektu Person, ale przypisanie go do zmiennej typu Reader
 Person person1 = new Reader("Anna", "Nowak", 35);
 Reader o1 = (Reader)person1;  // Rzutowanie na typ Reader
-o1.AddBook(book);
+o1.AddBook(b1);
 Console.WriteLine(o1.View1d());  // Wywołanie metody View1
 Console.WriteLine(o1.ViewBook());  // Wywołanie metody ViewBook z klasy Reader
+*/
+// ============ Zadanie 1 g============================
+partial class Program
+{
+    static void Main(string[] args)
+    {
+        // Autorzy
+        Person p1 = new Person("Adam", "Mickiewicz", 55);
+        Person p2 = new Person("Andrzej", "Sapkowski", 70);
 
+        // Książki
+        Book b1 = new Book("Dziady", p1, 1823);
+        Book b2 = new AdventureBook("Wiedźmin", p2, 1993, "Kontynent");
+        Book b3 = new DocumentaryBook("Historia Polski", p1, 1999, "Polska");
+        Book b4 = new AdventureBook("Hobbit", p1, 1937, "Śródziemie");
+
+        // Czytelnicy
+        Reader r1 = new Reader("Kasia", "Nowak", 22);
+        Reader r2 = new Reader("Marek", "Wiśniewski", 30);
+
+        r1.AddBook(b1);
+        r1.AddBook(b2);
+
+        r2.AddBook(b3);
+
+        // Recenzenci
+        Reviewer rv1 = new Reviewer("Tomek", "Kowal", 40);
+        Reviewer rv2 = new Reviewer("Ewa", "Lis", 28);
+
+        rv1.AddBook(b1);
+        rv1.AddBook(b4);
+
+        rv2.AddBook(b2);
+        rv2.AddBook(b3);
+
+        // Lista Person
+        List<Person> people = new List<Person>()
+        {
+            r1, r2, rv1, rv2
+        };
+
+        foreach (var person in people)
+        {
+            Console.WriteLine(person.View());
+            Console.WriteLine("-----------------------");
+        }
+    }
+}

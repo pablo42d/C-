@@ -44,10 +44,16 @@ namespace Lab03
         //}
 
         // ========= Zadanie 1 a. ===========================
+        //Person z polami: FirstName, LastName, wiek, konstruktorem inicjującym wszystkie pola oraz metodą View
         // pola klasy Person
         private string firstName;
         private string lastName;
         private int age;
+
+        // właściwości do odczytu pól
+        public string FirstName { get => firstName; }
+        public string LastName { get => lastName; }
+        public int Age { get => age; }
         // konstruktor klasy Person
         public Person(string firstName, string lastName, int age)
         {
@@ -55,11 +61,18 @@ namespace Lab03
             this.lastName = lastName;
             this.age = age;
         }
+
         // metoda View
-        public void View()
+        //public void View()
+        //{
+        //    Console.WriteLine("Person: " + firstName + " " + lastName + ", Age: " + age);
+        //}
+
+        public virtual string View()
         {
-            Console.WriteLine("Person: " + firstName + " " + lastName + ", Age: " + age);
+            return $"{FirstName} {LastName}, wiek: {Age}";
         }
+
         // ========== Zadanie 1 d. ===========================
 
         public virtual string View1d()
@@ -67,8 +80,8 @@ namespace Lab03
             return $"Osoba: {firstName + " " + lastName + ", Age: " + age}";
         }
 
-        // właściwości do odczytu imienia i nazwiska, potrzebne w klasie Reader aby był dostęp do tych pól
-        public string FirstName => firstName;
-        public string LastName => lastName;
+        //// właściwości do odczytu imienia i nazwiska, potrzebne w klasie Reader aby był dostęp do tych pól
+        //public string FirstName => firstName;
+        //public string LastName => lastName;
     }
 }
