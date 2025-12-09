@@ -3,6 +3,7 @@
 using Lab03;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Xml.Linq;
 
 /*
@@ -94,6 +95,8 @@ Console.WriteLine(o1.View1d());  // Wywołanie metody View1
 Console.WriteLine(o1.ViewBook());  // Wywołanie metody ViewBook z klasy Reader
 */
 // ============ Zadanie 1 g============================
+/*
+ *
 partial class Program
 {
     static void Main(string[] args)
@@ -140,3 +143,81 @@ partial class Program
         }
     }
 }
+*/
+
+// ================================================ Zadanie 1 g end ===========================
+
+// ================================================ Zadanie 2 ===========================
+
+/*Napisz program, w którym będą dwie klasy: Samochod i SamochodOsobowy. W klasach tych powinny
+znajdować się następujące pola:
+• Samochod: Marka, Model, Nadwozie, Kolor, Rok produkcji, Przebieg (nie może być ujemny)
+• SamochodOsobowy: Waga (powinna być z przedziału 2 t – 4,5 t), Pojemność silnika (powinna
+być z przedziału 0,8-3,0), Ilość osób
+Klasa SamochodOsobowy dziedziczy po klasie Samochod. W obydwu klasach utwórz konstruktor, który
+pobierze dane od użytkownika. Dodatkowo w klasie Samochod przeciąż konstruktor w taki sposób, by
+wartości pól były parametrami metody. W klasie Samochod utwórz także metodę, która wyświetli
+informacje o samochodzie. Przesłoń ją w klasie SamochodOsobowy. W metodzie Main() utwórz obiekt
+klasy SamochodOsobowy oraz dwa obiekty klasy Samochod (wykorzystując różne konstruktory).
+Wyświetl informacje o samochodach.
+*/
+
+/*
+// utwórz obiekt klasy SamochodOsobow
+SamochodOsobowy osobowy = new SamochodOsobowy();
+osobowy.Marka = "Toyota";
+osobowy.Model = "Corolla";
+osobowy.Nadwozie = "Sedan";
+osobowy.Kolor = "Czerwony";
+osobowy.RokProdukcji = 2020;
+osobowy.Przebieg = 15000;
+osobowy.Waga = 3.0;
+osobowy.PojemnoscSilnika = 1.8;
+osobowy.IloscOsob = 5;
+Console.WriteLine("Informacje o samochodzie osobowym:");
+osobowy.WyswietlInformacje();
+Console.WriteLine("-----------------------");
+
+// dwa obiekty klasy Samochod (wykorzystując różne konstruktory)
+Samochod samochod1 = new Samochod("Ford", "Focus", "Hatchback", "Niebieski", 2018, 30000);
+
+Console.WriteLine("Informacje o samochodzie 1:");
+samochod1.WyswietlInformacje();
+Console.WriteLine("-----------------------");
+Samochod samochod2 = new Samochod();
+Console.WriteLine("Informacje o samochodzie 2:");
+samochod2.WyswietlInformacje();
+*/
+
+// W metodzie Main() tworzymy obiekt klasy SamochodOsobowy oraz dwa obiekty klasy Samochod (wykorzystując różne konstruktory) i wyświetlamy informacje o samochodach.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("=== Tworzenie samochodu osobowego ===");
+        SamochodOsobowy os1 = new SamochodOsobowy();
+
+        Console.WriteLine("\n=== Tworzenie samochodów (różne konstruktory) ===");
+
+        Samochod s1 = new Samochod();   // konstruktor od użytkownika
+
+        Samochod s2 = new Samochod(
+            "Toyota",
+            "Corolla",
+            "Sedan",
+            "Srebrny",
+            2018,
+            45000
+        ); // konstruktor parametrowy
+
+        Console.WriteLine("\n=== Dane samochodów ===");
+        os1.WyswietlInformacje();
+        s1.WyswietlInformacje();
+        s2.WyswietlInformacje();
+       
+    }
+}
+
+// ================================================ Zadanie 2 end ===========================
+
