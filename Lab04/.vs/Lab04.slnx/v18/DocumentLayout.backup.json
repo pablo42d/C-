@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:dog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\klasy abstrakcyjne\\square.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:klasy abstrakcyjne\\square.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\pig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:pig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\klasy abstrakcyjne\\rectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:klasy abstrakcyjne\\rectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\internship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:internship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\klasy abstrakcyjne\\figure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:klasy abstrakcyjne\\figure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,20 +29,6 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Pig.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Pig.cs",
-              "RelativeDocumentMoniker": "Pig.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Pig.cs",
-              "RelativeToolTip": "Pig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:57:09.21Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
@@ -68,80 +38,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dog.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Dog.cs",
-              "RelativeDocumentMoniker": "Dog.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Dog.cs*",
-              "RelativeToolTip": "Dog.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Rectangle.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Rectangle.cs",
+              "RelativeDocumentMoniker": "Klasy Abstrakcyjne\\Rectangle.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Rectangle.cs",
+              "RelativeToolTip": "Klasy Abstrakcyjne\\Rectangle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:56:53.298Z",
+              "WhenOpened": "2025-12-10T18:53:37.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Square.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Square.cs",
+              "RelativeDocumentMoniker": "Klasy Abstrakcyjne\\Square.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Square.cs*",
+              "RelativeToolTip": "Klasy Abstrakcyjne\\Square.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T18:52:28.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Animal.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Animal.cs",
-              "RelativeDocumentMoniker": "Animal.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Animal.cs",
-              "RelativeToolTip": "Animal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAAAAAAAAAAAAAA==",
+              "Title": "Figure.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Figure.cs",
+              "RelativeDocumentMoniker": "Klasy Abstrakcyjne\\Figure.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Klasy Abstrakcyjne\\Figure.cs",
+              "RelativeToolTip": "Klasy Abstrakcyjne\\Figure.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:56:34.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Position.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Position.cs",
-              "RelativeDocumentMoniker": "Position.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Position.cs",
-              "RelativeToolTip": "Position.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:31:46.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Internship.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Internship.cs",
-              "RelativeDocumentMoniker": "Internship.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Internship.cs",
-              "RelativeToolTip": "Internship.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:29:59.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IContract.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\IContract.cs",
-              "RelativeDocumentMoniker": "IContract.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\IContract.cs",
-              "RelativeToolTip": "IContract.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:29:00.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Employee.cs",
-              "RelativeDocumentMoniker": "Employee.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Employee.cs",
-              "RelativeToolTip": "Employee.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCQAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T17:25:49.789Z",
+              "WhenOpened": "2025-12-10T18:50:45.51Z",
               "EditorCaption": ""
             },
             {
@@ -150,9 +81,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA5AAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T17:22:11.782Z",
               "EditorCaption": ""
