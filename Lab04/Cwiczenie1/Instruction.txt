@@ -1,0 +1,57 @@
+Æwiczenie 1. System zarz¹dzania formami zatrudnienia w firmie
+Zaprojektuj i zaimplementuj w jêzyku C# prosty system zarz¹dzania pracownikami i ich formami
+zatrudnienia. Celem zadania jest pokazanie: enkapsulacji (ukrywanie danych w klasach), polimorfizmu
+opartego na interfejsie, stosowania kompozycji (pracownik „ma” kontrakt).
+1. Interfejs umowy
+• Zdefiniuj interfejs IContract, który bêdzie reprezentowa³ ogóln¹ umowê o pracê.
+• Interfejs powinien zawieraæ jedn¹ metodê: decimal Salary() – zwraca miesiêczne wynagrodzenie wynikaj¹ce z danej umowy.
+2. Klasa Internship (sta¿)
+• Utwórz klasê Internship, która implementuje IContract.
+• Klasa powinna:
+o posiadaæ w³aœciwoœæ: StawkaMiesieczna : decimal – kwota wyp³acana sta¿yœcie
+miesiêcznie,
+o mieæ konstruktor ustawiaj¹cy stawkê miesiêczn¹,
+o implementowaæ metodê Salary(), zwracaj¹c¹ po prostu wartoœæ StawkaMiesieczna,
+o nadpisaæ metodê ToString(), tak aby zwraca³a czyteln¹ informacjê o rodzaju umowy i
+wysokoœci stawki.
+3. Klasa Position (etat)
+Utwórz klasê Position, która równie¿ implementuje IContract.
+Klasa powinna:
+• posiadaæ w³aœciwoœci:
+o MonthlyRate : decimal – podstawowe wynagrodzenie miesiêczne,
+o Overtime : int – liczba przepracowanych nadgodzin w danym miesi¹cu,
+• mieæ konstruktor ustawiaj¹cy stawkê miesiêczn¹ oraz nadgodziny,
+• implementowaæ metodê Salary(), która policzy wynagrodzenie jako:
+o MonthlyRate + Overtime * (MonthlyRate / 60m) (przyk³adowo: 1 nadgodzina to 1/60
+miesiêcznej stawki),
+• nadpisaæ metodê ToString() z opisem umowy i wyliczon¹ pensj¹.
+4. Klasa Employee (pracownik)
+Utwórz klasê Employee, która bêdzie reprezentowa³a pracownika firmy.
+Klasa powinna:
+• posiadaæ w³aœciwoœci (z enkapsulacj¹):
+o FirstName : string – imiê,
+o LastName : string – nazwisko,
+o Contract : IContract – aktualna umowa pracownika (tylko odczyt z zewn¹trz),
+• mieæ dwa konstruktory:
+o przyjmuj¹cy imiê i nazwisko – domyœlnie tworzy umowê typu Internship z ustalon¹
+stawk¹ (np. 1000),
+o przyjmuj¹cy imiê, nazwisko oraz dowolny obiekt implementuj¹cy IContract,
+• posiadaæ metodê:
+o void ZmienKontrakt(IContract nowyKontrakt) – zmieniaj¹c¹ umowê pracownika
+(zabezpiecz siê przed null),
+o decimal Pensja() – zwracaj¹c¹ wynik metody Salary() aktualnego kontraktu,
+• nadpisaæ ToString(), tak aby wypisywaæ dane pracownika oraz jego aktualne wynagrodzenie.
+Uwaga: W³aœciwoœæ Contract powinna mieæ prywatny setter, ¿eby z zewn¹trz nie mo¿na by³o podmieniæ
+kontraktu bez u¿ycia metody ZmienKontrakt (przyk³ad enkapsulacji logiki zmiany umowy).
+5. Klasa Program – demonstracja polimorfizmu
+W metodzie Main:
+• Utwórz kilka obiektów Employee:
+o jednego z domyœlnym kontraktem typu Internship,
+o drugiego z kontraktem typu Position.
+• Wypisz ich dane na konsolê (Console.WriteLine(employee);).
+• Zmieñ kontrakt jednego z pracowników ze sta¿u (Internship) na etat (Position) za pomoc¹
+ZmienKontrakt.
+• Ponownie wypisz informacje o pracownikach i ich pensjach.
+(Opcjonalnie) Umieœæ pracowników w kolekcji List<Employee> i w pêtli wypisz dane wszystkich
+pracowników – poka¿e to, ¿e dla ró¿nych kontraktów (Internship, Position) wywo³anie Pensja() u¿ywa
+innej implementacji metody Salary() (polimorfizm przez interfejs).

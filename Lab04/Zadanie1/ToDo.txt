@@ -1,0 +1,8 @@
+Zadanie 1.
+Zaimplementuj klasê Shape, posiadaj¹c¹ w³aœciwoœci X, Y, Height, Width oraz virutaln¹ metodê Draw.
+Nastêpnie zaimplementuj klasy:
+• Rectangle,
+• Triangle,
+• Circle
+które bêd¹ implementowaæ metodê draw poprzez wypisanie na okno konsoli jak¹ figurê próbujemy narysowaæ. 
+Nastêpnie napisz program, który do listy List<Shape>, doda po obiekcie ka¿dego typu z klas dziedzicz¹cych. Nastêpnie wywo³aj dla ka¿dego elementu w liœcie funkcjê draw.

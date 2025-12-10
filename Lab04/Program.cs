@@ -1,11 +1,12 @@
 ﻿using Lab04;
-using Lab04.Klasy_Abstrakcyjne;
+using Lab04.Cwiczenie1;
 using Lab04.Interfejs;
+using Lab04.Klasy_Abstrakcyjne;
+using Lab04.Polimorfizm;
+using Lab04.PrzeciazanieMetod;
+using Lab04.Zadanie1;
 using System;
 using System.Net.NetworkInformation;
-using Lab04.PrzeciazanieMetod;
-using Lab04.Polimorfizm;
-using Lab04.Cwiczenie1;
 
 /*
  * Polimorfizm statyczny mechanim łączenia metody z obiektem w trakcie kompilacji jest nazywany
@@ -124,6 +125,30 @@ foreach (var item in employees)
 {
     Console.WriteLine(item.ToString());
 }
+// ===========================================
+Console.WriteLine("===============  Zadanie 1 - Rysowanie kształtów ====================");
+//Shape[] shapes =
+//{
+//    new Shape(0,0,10,10),
+//    new Rectangle1(0,0,20,30),
+//    new Circle(0,0,15,15)
+//};
+//foreach (var shape in shapes)
+//{
+//    shape.Draw();
+//}
+
+List<Shape> shapes = new List<Shape>();
+
+shapes.Add(new Rectangle1(0, 0, 10, 20));
+shapes.Add(new Triangle(5, 5, 15, 15));
+shapes.Add(new Circle(10, 10, 12, 12));
+
+foreach (Shape shape in shapes)
+{
+    shape.Draw();  // polimorfizm – wywoła odpowiednią metodę
+}
+// ===========================================
 
 
 

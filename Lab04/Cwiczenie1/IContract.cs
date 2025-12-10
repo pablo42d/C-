@@ -8,6 +8,7 @@ namespace Lab04.Cwiczenie1
     // interfejs IContract z metodą decimal Salary()
     internal interface IContract
     {
+        // metoda do obliczania wynagrodzenia
         decimal Salary();
     }
 }
