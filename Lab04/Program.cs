@@ -3,6 +3,25 @@ using Lab04.Klasy_Abstrakcyjne;
 using Lab04.Interfejs;
 using System;
 using System.Net.NetworkInformation;
+using Lab04.PrzeciazanieMetod;
+using Lab04.Polimorfizm;
+using Lab04.Cwiczenie1;
+
+/*
+ * Polimorfizm statyczny mechanim łączenia metody z obiektem w trakcie kompilacji jest nazywany
+wczesnym wiązaniem lub też statycznym wiązaniem. C# udostępnia dwa sposoby implementowania
+statycznego polimorfizmu: przeciążanie metod, przeciązanie operatorów.
+Polimorfizm dynamiczny - pozwala tworzyć klasy abstrakcyjne, które następnie są implementowane w
+klasach pochodnych. Klasa taka zawiera abstrakcyjne metody, których implementacja zależy od
+wykorzystania w poszczególnych klasach pochodnych. Poniżej lista zasad o których należy pamiętać
+tworząc klasy abstrakcyjne:
+• nie można utworzyć instancji klasy abstrakcyjnej;
+• nie można zadeklarować metody abstrakcyjnej poza klasą abstrakcyjną;
+• kiedy klasa opatrzona jest modyfikatorem dostępu sealed nie może być dziedziczona.
+Dodatkowo, klasa abstrakcyjna nie może być zdefiniowana jakas sealed
+*/
+
+Console.WriteLine("=============== Polimorfizm ====================");
 
 // Example usage of the Animal class with different contracts Dog and Pig
 
@@ -25,8 +44,11 @@ wd.Wyswietl(5.5);
 wd.Wyswietl(4.5);
 wd.Wyswietl("4.5");
 wd.Wyswietl("Ala ma kota");
-/*
+
 // ===========================================
+
+Console.WriteLine("===================== Przeciążanie operatorów ==============");
+//Przeciążanie operatorów w klasie Pudelko
 double objetosc = 0;
 Pudelko p1 = new Pudelko();
 Pudelko p2 = new Pudelko();
@@ -67,62 +89,6 @@ if (p1 != p2)
 Console.ReadKey();
 
 // ===========================================
-class Pudelko
-{
-    private double dlugosc;
-    private double szerokosc;
-    private double wysokosc;
-    public void PobierzDlugosc(double d)
-    {
-        dlugosc = d;
-    }
-    public void PobierzSzerokosc(double s)
-    {
-        szerokosc = s;
-    }
-    public void PobierzWysokosc(double w)
-    {
-        wysokosc = w;
-    }
-    public double ObliczObjetosc()
-    {
-        return (dlugosc * szerokosc * wysokosc);
-    }
-    // Przeciążenie operatora +
-    // Dodanie do siebie dwóch typów
-    public static Pudelko operator +(Pudelko a, Pudelko b)
-    {
-        Pudelko pud = new Pudelko();
-        pud.wysokosc = a.wysokosc + b.wysokosc;
-        pud.szerokosc = a.szerokosc + b.szerokosc;
-        pud.dlugosc = a.dlugosc + b.dlugosc;
-        return pud;
-    }
-    // Przeciążenie operatora ==
-    public static bool operator ==(Pudelko a, Pudelko b)
-    {
-        bool status = false;
-        if (a.dlugosc == b.dlugosc && a.szerokosc == b.szerokosc && a.wysokosc ==
-       b.wysokosc)
-            status = true;
-        return status;
-    }
-    // Przeciążenie operatora !=
-    public static bool operator !=(Pudelko a, Pudelko b)
-    {
-        bool status = false;
-        if (a.dlugosc != b.dlugosc || a.szerokosc != b.szerokosc || a.wysokosc !=
-       b.wysokosc)
-            status = true;
-        return status;
-    }
-    public override string ToString()
-    {
-        return String.Format("({0}, {1}, {2})", dlugosc, szerokosc, wysokosc);
-    }
-}
-*/
-// ===========================================
 
 Console.WriteLine("===================== Klasy abstrakcyjne ===================");
 
@@ -143,7 +109,7 @@ t2.WyswietlDane();
 
 // ===========================================
 
-Console.WriteLine("===================================");
+Console.WriteLine("===============  System zarządzania formami zatrudnienia w firmie ====================");
 
 Employee[] employees =
 {
@@ -159,19 +125,7 @@ foreach (var item in employees)
     Console.WriteLine(item.ToString());
 }
 
-/*
- * Polimorfizm statyczny mechanim łączenia metody z obiektem w trakcie kompilacji jest nazywany
-wczesnym wiązaniem lub też statycznym wiązaniem. C# udostępnia dwa sposoby implementowania
-statycznego polimorfizmu: przeciążanie metod, przeciązanie operatorów.
-Polimorfizm dynamiczny - pozwala tworzyć klasy abstrakcyjne, które następnie są implementowane w
-klasach pochodnych. Klasa taka zawiera abstrakcyjne metody, których implementacja zależy od
-wykorzystania w poszczególnych klasach pochodnych. Poniżej lista zasad o których należy pamiętać
-tworząc klasy abstrakcyjne:
-• nie można utworzyć instancji klasy abstrakcyjnej;
-• nie można zadeklarować metody abstrakcyjnej poza klasą abstrakcyjną;
-• kiedy klasa opatrzona jest modyfikatorem dostępu sealed nie może być dziedziczona.
-Dodatkowo, klasa abstrakcyjna nie może być zdefiniowana jakas sealed
-*/
+
 
 
 

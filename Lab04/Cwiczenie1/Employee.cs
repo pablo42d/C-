@@ -1,11 +1,10 @@
-﻿using Lab04;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Text;
 
-namespace Lab04
+namespace Lab04.Cwiczenie1
 {
     internal class Employee
     {

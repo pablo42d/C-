@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab04
+namespace Lab04.Cwiczenie1
 {
     // internal class IContract - 
     // interfejs IContract z metodą decimal Salary()

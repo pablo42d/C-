@@ -1,5 +1,4 @@
-﻿using Lab04;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +8,7 @@ using System.Text;
 //zwracanym typem.
 
 
-namespace Lab04
+namespace Lab04.PrzeciazanieMetod
 {
     internal class WyswietlanieDanych
     {

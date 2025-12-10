@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab04
+namespace Lab04.Polimorfizm
 {
     internal class Animal   // Base class (parent class)
     {
