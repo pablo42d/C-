@@ -1,0 +1,15 @@
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.sourcelink.json
+E:\Git_Project\C-\NC#\C-\Lab04\bin\Debug\net10.0\Lab04.exe
+E:\Git_Project\C-\NC#\C-\Lab04\bin\Debug\net10.0\Lab04.deps.json
+E:\Git_Project\C-\NC#\C-\Lab04\bin\Debug\net10.0\Lab04.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\Lab04\bin\Debug\net10.0\Lab04.dll
+E:\Git_Project\C-\NC#\C-\Lab04\bin\Debug\net10.0\Lab04.pdb
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.dll
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\refint\Lab04.dll
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.pdb
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\Lab04.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\Lab04\obj\Debug\net10.0\ref\Lab04.dll
