@@ -1,4 +1,19 @@
 ﻿using Lab04;
+using System.Net.NetworkInformation;
+
+// Example usage of the Animal class with different contracts Dog and Pig
+
+// ========= Main ===========================
+Animal myAnimal = new Animal(); // Create a Animal object
+Animal myPig = new Pig(); // Create a Pig object
+Animal myDog = new Dog(); // Create a Dog object
+myAnimal.Speak();
+myPig.Speak();
+myDog.Speak();
+
+// ===========================================
+
+Console.WriteLine("===================================");
 
 Employee[] employees =
 {
