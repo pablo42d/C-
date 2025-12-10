@@ -1,5 +1,6 @@
 ﻿using Lab04;
 using Lab04.Klasy_Abstrakcyjne;
+using Lab04.Interfejs;
 using System;
 using System.Net.NetworkInformation;
 
@@ -15,7 +16,7 @@ myDog.Speak();
 
 // ===========================================
 
-Console.WriteLine("===================================");
+Console.WriteLine("===================== Przeciążanie metod ==============");
 
 //Przeciążanie metod w clasie WyswietlanieDanych
 WyswietlanieDanych wd = new WyswietlanieDanych();
@@ -123,7 +124,7 @@ class Pudelko
 */
 // ===========================================
 
-Console.WriteLine("===================================");
+Console.WriteLine("===================== Klasy abstrakcyjne ===================");
 
 //Klasy abstrakcyjne Figure, Square, Rectangle
 
@@ -131,6 +132,15 @@ Square square = new Square();
 square.view();
 Rectangle rectangle = new Rectangle();
 rectangle.view();
+// ===========================================
+
+Console.WriteLine("===================== Interfejs ===================");
+
+Transakcje t1 = new Transakcje("01", "25/11/2023", 331);
+Transakcje t2 = new Transakcje("02", "26/11/2023", 3321);
+t1.WyswietlDane();
+t2.WyswietlDane();
+
 // ===========================================
 
 Console.WriteLine("===================================");
