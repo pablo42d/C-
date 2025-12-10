@@ -149,7 +149,7 @@ foreach (Shape shape in shapes)
     shape.Draw();  // polimorfizm – wywoła odpowiednią metodę
 }
 // ===========================================
-
+Console.WriteLine("===============  Zadanie 2 =====================");
 
 
 

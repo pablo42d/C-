@@ -1,0 +1,36 @@
+Zadanie 2.
+Napisz program wykorzystuj¹c polimorfizm, który bêdzie sprawdza³ czy nauczyciel mo¿e wypuœciæ do
+domu uczniów swojej klasy bez opieki doros³ego: Generator pesel: https://pesel.cstudios.pl/Ogeneratorze/Generator-On-Line
+1. Utwórz projekt, w którym:
+• Zdefiniujesz klasê wirtualn¹ Osoba o polach:
+o Imiê
+o Nazwisko
+o Pesel
+• Zdefiniujesz metody:
+o SetFirstName
+o SetLastName
+o SetPesel
+o GetAge
+o GetGender //Pozycja 10 (kobiety parzyste, mezczyzni nieparzyste)
+• Zadeklarujesz metody
+o GetEducationInfo
+o GetFullName
+o CanGoAloneToHome
+2. Dodaj klasê Uczen, która dziedziczy po klasie Osoba;
+• Zawiera dodatkowe w³aœciwoœci:
+o Szko³a
+o MozeSamWracacDoDomu
+• Zdefiniujesz metody:
+o SetSchool
+o ChangeSchool
+o SetCanGoHomeAlone
+• Implementuje zadeklarowane metody z klasy Osoba
+o Info - Nie mo¿e sam wracaæ poni¿ej 12 lat chyba ¿e ma pozwolenie
+3. Dodaj klasê Nauczyciel, która dziedziczy po klasie Uczen:
+• Zawiera dodatkowe w³aœciwoœci:
+o TytulNaukowy
+o Kolekcja uczniów -PodwladniUczniowie (uczniowie którzy znajduj¹ siê w klasie
+nauczyciela)
+• Zadefiniujemy metody:
+o WhichStudentCanGoHomeAlone(Datetime dateToCheck) [wypisuje nazwiska uczniow
+ktorzy moga isc sami do domu]

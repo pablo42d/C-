@@ -1,0 +1,19 @@
+Zadanie 3a.
+Zdefiniuj interfejs IOsoba. Powinien on nakazywaæ implementacjê w³aœciwoœci Imiê, Nazwisko oraz
+metode ZwrocPelnaNazwe. Nastêpnie stwórz klasê Osoba dziedzicz¹c¹ po tym interfejsie i
+implementuj¹c¹ go. Stwórz kilka egzemplarzy tej klasy dodaj je do listy List<Osoba>.
+Zadanie 3b
+Napisz metodê rozszerzaj¹c¹ List<IOsoba> void WypiszOsoby(), a nastêpnie zaimplementuj j¹.
+(wypisanie imiê i nazwisko osób na konsole).
+Zadanie 3c.
+Napisz metodê rozszerzaj¹c¹ List<IOsoba> void PosortujOsobyPoNazwisku(), a nastêpnie
+zaimplementuj j¹.
+Zadanie 3d.
+Napisz interfejs IStudent, roszerzaj¹cy interfejs IOsoba o w³aœciwoœci Uczelnia, Kierunek, Rok, Semestr.
+Nastêpnie stwórz klasê Student implementuj¹c¹ interfejs IStudent oraz zawieraj¹c¹ dodatkow¹
+metodê: string WypiszPelnaNazweIUczelnie(), która wypisze pe³n¹ informacjê o studencie np.:
+Jan Kowalski – 4IID-P 2018 WSIiZ
+Zadanie 3e.
+Napisz i zaimplementuj klasê StudentWSIiZ, dziedzicz¹c¹ po klasie Student. Stwórz kilka egzemplarzy
+tej klasy dodaj je do listy, a nastêpnie przeci¹¿ metodê z zadania 2, by pozwala³a korzystaæ z metody
+WypiszPelnaNazweIUczelnie().

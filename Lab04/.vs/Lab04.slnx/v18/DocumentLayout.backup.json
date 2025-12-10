@@ -3,36 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\todo.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie2\\todo.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie1\\rectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie1\\rectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie1\\triangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie1\\triangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie1\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie1\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie1\\circle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie1\\circle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie1\\todo.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie1\\todo.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\cwiczenie1\\icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:cwiczenie1\\icontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\cwiczenie1\\instruction.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:cwiczenie1\\instruction.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,106 +34,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Circle.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Circle.cs",
-              "RelativeDocumentMoniker": "Zadanie1\\Circle.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Circle.cs",
-              "RelativeToolTip": "Zadanie1\\Circle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T20:46:34.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Triangle.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Triangle.cs",
-              "RelativeDocumentMoniker": "Zadanie1\\Triangle.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Triangle.cs",
-              "RelativeToolTip": "Zadanie1\\Triangle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T20:46:05.973Z",
+              "DocumentIndex": 0,
+              "Title": "ToD3.txt",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
+              "RelativeDocumentMoniker": "Zadanie3\\ToD3.txt",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
+              "RelativeToolTip": "Zadanie3\\ToD3.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-12-10T21:16:36.926Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Rectangle.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Rectangle.cs",
-              "RelativeDocumentMoniker": "Zadanie1\\Rectangle.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Rectangle.cs",
-              "RelativeToolTip": "Zadanie1\\Rectangle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T20:45:38.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Shape.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Shape.cs",
-              "RelativeDocumentMoniker": "Zadanie1\\Shape.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\Shape.cs",
-              "RelativeToolTip": "Zadanie1\\Shape.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T20:40:13.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ToDo.txt",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\ToDo.txt",
-              "RelativeDocumentMoniker": "Zadanie1\\ToDo.txt",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie1\\ToDo.txt",
-              "RelativeToolTip": "Zadanie1\\ToDo.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA9AAAAAAAAAA==",
+              "Title": "ToDO.txt",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\ToDO.txt",
+              "RelativeDocumentMoniker": "Zadanie2\\ToDO.txt",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\ToDO.txt",
+              "RelativeToolTip": "Zadanie2\\ToDO.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-10T20:38:18.449Z",
+              "WhenOpened": "2025-12-10T21:14:10.761Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Instruction.txt",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Cwiczenie1\\Instruction.txt",
-              "RelativeDocumentMoniker": "Cwiczenie1\\Instruction.txt",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Cwiczenie1\\Instruction.txt",
-              "RelativeToolTip": "Cwiczenie1\\Instruction.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-10T20:29:03.523Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAiwIYAAAAEAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T17:22:11.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IContract.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Cwiczenie1\\IContract.cs",
-              "RelativeDocumentMoniker": "Cwiczenie1\\IContract.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Cwiczenie1\\IContract.cs",
-              "RelativeToolTip": "Cwiczenie1\\IContract.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T20:31:17.384Z",
               "EditorCaption": ""
             }
           ]
