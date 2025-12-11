@@ -8,7 +8,7 @@ namespace Lab04.Zadanie2
     {
         private string TytulNaukowy;
         public List<Uczen> PodwladniUczniowie{ get; private set; }
-        public Nauczyciel(string imie, string nazwisko, string pesel, string szkola, bool mozeSamWracacDoDomu, string tytulNaukowy)
+        public Nauczyciel(string imie, string nazwisko, string pesel, string szkola, string tytulNaukowy, bool mozeSamWracacDoDomu)
             : base(imie, nazwisko, pesel, szkola, mozeSamWracacDoDomu)
         {
             TytulNaukowy = tytulNaukowy;

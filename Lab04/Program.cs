@@ -154,7 +154,7 @@ Console.WriteLine("===============  Zadanie 2 =====================");
 
 Uczen uczen1 = new Uczen("Anna", "Kowalska", "05210112345", "Szkoła Podstawowa nr 1", true);
 Uczen uczen2 = new Uczen("Piotr", "Dąbrowski", "11220154321", "Gimnazjum nr 2", false);
-Nauczyciel nauczyciel1 = new Nauczyciel("Dr hab. Jan", "Nowak", "80010167890", "Liceum Ogólnokształcące nr 3", true, "Dr hab.");
+Nauczyciel nauczyciel1 = new Nauczyciel("Dr hab. Jan", "Nowak", "80010167890", "Liceum Ogólnokształcące nr 3", "Dr hab.", true);
 nauczyciel1.DodajUcznia(uczen1);
 nauczyciel1.DodajUcznia(uczen2);
 Console.WriteLine($"Nauczyciel: {nauczyciel1.GetFullName()}");
@@ -165,6 +165,29 @@ foreach (var uczen in nauczyciel1.PodwladniUczniowie)
     Console.WriteLine($"- {uczen.GetFullName()}, Wiek: {uczen.GetAge()}, Płeć: {uczen.GetGender()}, {uczen.GetEducationInfo()}");
 }
 nauczyciel1.WhichStudentCanGoHomeAlone(DateTime.Now);
+
+Uczen u3 = new("Kamil", "Nowak", "15250512345", "SP nr 5", false);    // wiek < 12 → nie może
+Uczen u4 = new("Zuzanna", "Kowal", "Kowal", "SP nr 5",false); // wiek >= 12 → i tak może
+Uczen u5 = new Uczen("Ola", "Lis", "16250511122", "SP nr 5", true); // wiek < 12 → ma zgodę
+
+Nauczyciel n = new Nauczyciel("Anna", "Maj", "90010112345", "SP nr 5", "mgr", true);
+
+n.DodajUcznia(u3);
+n.DodajUcznia(u4);
+n.DodajUcznia(u5);
+
+Console.WriteLine($"Nauczyciel: {n.GetFullName()}");
+Console.WriteLine(n.GetEducationInfo());
+Console.WriteLine("\nUczniowie podlegający nauczycielowi:");
+
+foreach (var u in n.PodwladniUczniowie)
+{
+    Console.WriteLine($"Uczeń: {u.GetFullName()}, Wiek: {u.GetAge()}, Może sam wracać do domu: {u.MozeSamWracacDoDomu}");
+}
+
+n.WhichStudentCanGoHomeAlone(DateTime.Now);
+
+//Console.ReadKey();  // Pause to view output
 
 // ===========================================
 

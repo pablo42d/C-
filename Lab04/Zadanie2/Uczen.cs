@@ -34,7 +34,7 @@ namespace Lab04.Zadanie2
         public override bool CanGoAloneToHome()
         {
             int age;
-            if (int.TryParse(GetAge(), out age))    // Sprawdza czy GetAge() można przekonwertować na int
+            if (int.TryParse(GetAge().ToString(), out age))    // Sprawdza czy GetAge() można przekonwertować na int
             {
                 if (age >= 12) return true;
                 return MozeSamWracacDoDomu;

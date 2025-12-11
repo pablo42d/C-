@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\todo2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie2\\todo2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|solutionrelative:zadanie2\\osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\todo2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|solutionrelative:zadanie2\\todo2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\uczen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|solutionrelative:zadanie2\\uczen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie2\\nauczyciel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61F47384-BE87-4F1F-86DE-2DEDA6A16609}|Lab04.csproj|solutionrelative:zadanie2\\nauczyciel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +42,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ToD3.txt",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
-              "RelativeDocumentMoniker": "Zadanie3\\ToD3.txt",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
-              "RelativeToolTip": "Zadanie3\\ToD3.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-10T21:16:36.926Z",
+              "DocumentIndex": 4,
+              "Title": "Nauczyciel.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Nauczyciel.cs",
+              "RelativeDocumentMoniker": "Zadanie2\\Nauczyciel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Nauczyciel.cs",
+              "RelativeToolTip": "Zadanie2\\Nauczyciel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T18:15:45.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Uczen.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Uczen.cs",
+              "RelativeDocumentMoniker": "Zadanie2\\Uczen.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Uczen.cs",
+              "RelativeToolTip": "Zadanie2\\Uczen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T18:14:07.505Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Osoba.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Osoba.cs",
+              "RelativeDocumentMoniker": "Zadanie2\\Osoba.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\Osoba.cs*",
+              "RelativeToolTip": "Zadanie2\\Osoba.cs*",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAG4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T18:04:36.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ToDO2.txt",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\ToDO2.txt",
               "RelativeDocumentMoniker": "Zadanie2\\ToDO2.txt",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie2\\ToDO2.txt",
               "RelativeToolTip": "Zadanie2\\ToDO2.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-12-10T21:14:10.761Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIgAAAAAAAAAAAAiwJ8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T17:22:11.782Z",
               "EditorCaption": ""
