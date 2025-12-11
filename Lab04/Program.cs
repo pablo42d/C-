@@ -195,8 +195,25 @@ n.WhichStudentCanGoHomeAlone(DateTime.Now);
 */
 Console.WriteLine("=============== Zadanie 3 ====================");
 
-Person pr1 = new Person("Pawel", "Baj");
-pr1.ZwrocPelnaNazwe();
+//Person pr1 = new Person("Pawel", "Baj");
+//Person pr2 = new Person("Anna", "Kowalska");
+//Person pr3 = new Person("Marta", "Nowak");
+//pr1.ZwrocPelnaNazwe();
+
+List<Person> osoby = new List<Person>();
+
+osoby.Add(new Person("Pawel", "Baj"));
+osoby.Add(new Person("Anna", "Kowalska"));
+osoby.Add(new Person("Marta", "Nowak"));
+osoby.Add(new Person("Adam", "Kowalski"));
+osoby.Add(new Person("Ewa", "Nowak"));
+osoby.Add(new Person("Jan", "Wiśniewski"));
+
+foreach (var per in osoby)
+{
+    Console.WriteLine(per.ZwrocPelnaNazwe());
+}
+
 
 
 
