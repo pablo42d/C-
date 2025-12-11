@@ -5,9 +5,10 @@ using Lab04.Klasy_Abstrakcyjne;
 using Lab04.Polimorfizm;
 using Lab04.PrzeciazanieMetod;
 using Lab04.Zadanie1;
+using Lab04.Zadanie2;
+using Lab04.Zadanie3;
 using System;
 using System.Net.NetworkInformation;
-using Lab04.Zadanie2;
 
 /*
  * Polimorfizm statyczny mechanim łączenia metody z obiektem w trakcie kompilacji jest nazywany
@@ -150,6 +151,7 @@ foreach (Shape shape in shapes)
     shape.Draw();  // polimorfizm – wywoła odpowiednią metodę
 }
 // ===========================================
+/*
 Console.WriteLine("===============  Zadanie 2 =====================");
 
 Uczen uczen1 = new Uczen("Anna", "Kowalska", "05210112345", "Szkoła Podstawowa nr 1", true);
@@ -190,8 +192,11 @@ n.WhichStudentCanGoHomeAlone(DateTime.Now);
 //Console.ReadKey();  // Pause to view output
 
 // ===========================================
-
+*/
 Console.WriteLine("=============== Zadanie 3 ====================");
+
+Person pr1 = new Person("Pawel", "Baj");
+pr1.ZwrocPelnaNazwe();
 
 
 
