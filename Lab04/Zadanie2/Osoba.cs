@@ -16,17 +16,18 @@ namespace Lab04.Zadanie2
         {
             Imie = imie;
             Nazwisko = nazwisko;
-            //Pesel = pesel;
-            SetPesel(pesel);
+            Pesel = pesel;
+            //SetPesel(pesel);
         }
-
-        public string SetFirstName(string imie)
-        {
-            Imie = imie;
-            return Imie;
-        }
-
         //public void SetLastName(string nazwisko) => Nazwisko = nazwisko;
+        //public void SetPesel(string pesel) => Pesel = pesel;
+        //public string SetFirstName(string imie)
+        //{
+        //    Imie = imie;
+        //    return Imie;
+        //}
+
+        
 
         //public void SetPesel(string pesel)
         //{
@@ -73,7 +74,8 @@ namespace Lab04.Zadanie2
         //}
 
 
-        public void SetPesel(string pesel) => Pesel = pesel;
+       
+
         public int GetAge()
         {
             int rok = int.Parse(Pesel.ToString().Substring(0, 2)); // pobranie roku z PESEL
@@ -94,7 +96,9 @@ namespace Lab04.Zadanie2
             if (DateTime.Now.DayOfYear < dataUrodzenia.DayOfYear)
                 age--;
             return age;
+            
 
+            //------------ alternatywna wersja ----------------
             /*
             // obsługa stuleci
             int centuryModifier = month / 20; // 0 → 1900, 1 → 2000, itd.
