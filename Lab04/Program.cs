@@ -7,6 +7,7 @@ using Lab04.PrzeciazanieMetod;
 using Lab04.Zadanie1;
 using System;
 using System.Net.NetworkInformation;
+using Lab04.Zadanie2;
 
 /*
  * Polimorfizm statyczny mechanim łączenia metody z obiektem w trakcie kompilacji jest nazywany
@@ -151,6 +152,26 @@ foreach (Shape shape in shapes)
 // ===========================================
 Console.WriteLine("===============  Zadanie 2 =====================");
 
+Uczen uczen1 = new Uczen("Anna", "Kowalska", "05210112345", "Szkoła Podstawowa nr 1", true);
+Uczen uczen2 = new Uczen("Piotr", "Dąbrowski", "11220154321", "Gimnazjum nr 2", false);
+Nauczyciel nauczyciel1 = new Nauczyciel("Dr hab. Jan", "Nowak", "80010167890", "Liceum Ogólnokształcące nr 3", true, "Dr hab.");
+nauczyciel1.DodajUcznia(uczen1);
+nauczyciel1.DodajUcznia(uczen2);
+Console.WriteLine($"Nauczyciel: {nauczyciel1.GetFullName()}");
+Console.WriteLine(nauczyciel1.GetEducationInfo());
+Console.WriteLine("\nUczniowie podlegający nauczycielowi:");
+foreach (var uczen in nauczyciel1.PodwladniUczniowie)
+{
+    Console.WriteLine($"- {uczen.GetFullName()}, Wiek: {uczen.GetAge()}, Płeć: {uczen.GetGender()}, {uczen.GetEducationInfo()}");
+}
+nauczyciel1.WhichStudentCanGoHomeAlone(DateTime.Now);
+
+// ===========================================
+
+Console.WriteLine("=============== Zadanie 3 ====================");
 
 
 
+
+
+Console.WriteLine("=============== Koniec ====================");

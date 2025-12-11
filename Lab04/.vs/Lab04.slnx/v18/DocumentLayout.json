@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie2\\todo2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:zadanie3\\tod3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|e:\\git_project\\c-\\nc#\\c-\\lab04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54EBCE85-F1A6-4AFC-8841-3C0068470071}|Lab04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,19 +27,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ToD3.txt",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
-              "RelativeDocumentMoniker": "Zadanie3\\ToD3.txt",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Zadanie3\\ToD3.txt",
-              "RelativeToolTip": "Zadanie3\\ToD3.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-12-10T21:16:36.926Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +43,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab04\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
