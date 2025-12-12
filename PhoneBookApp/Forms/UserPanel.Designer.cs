@@ -42,12 +42,12 @@
             this.btnDwlBilling = new System.Windows.Forms.Button();
             this.btnDownloadBilling = new System.Windows.Forms.Button();
             this.dgvBilling = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnChangePhoto = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.picUserPhoto = new System.Windows.Forms.PictureBox();
-            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnShowBilling = new System.Windows.Forms.Button();
             this.tabUser.SuspendLayout();
             this.tabSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
@@ -63,7 +63,7 @@
             this.tabUser.Controls.Add(this.tabBilling);
             this.tabUser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabUser.Location = new System.Drawing.Point(0, 98);
-            this.tabUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabUser.Margin = new System.Windows.Forms.Padding(2);
             this.tabUser.Name = "tabUser";
             this.tabUser.SelectedIndex = 0;
             this.tabUser.Size = new System.Drawing.Size(680, 342);
@@ -80,7 +80,7 @@
             this.tabSearch.Controls.Add(this.txtSearchLastName);
             this.tabSearch.Controls.Add(this.lblSearchLastName);
             this.tabSearch.Location = new System.Drawing.Point(4, 22);
-            this.tabSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tabSearch.Name = "tabSearch";
             this.tabSearch.Size = new System.Drawing.Size(672, 316);
             this.tabSearch.TabIndex = 0;
@@ -102,7 +102,7 @@
             // 
             this.cmbSearchDepartment.FormattingEnabled = true;
             this.cmbSearchDepartment.Location = new System.Drawing.Point(359, 39);
-            this.cmbSearchDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSearchDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSearchDepartment.Name = "cmbSearchDepartment";
             this.cmbSearchDepartment.Size = new System.Drawing.Size(151, 21);
             this.cmbSearchDepartment.TabIndex = 6;
@@ -113,7 +113,7 @@
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResults.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvResults.Location = new System.Drawing.Point(0, 72);
-            this.dgvResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvResults.Margin = new System.Windows.Forms.Padding(2);
             this.dgvResults.Name = "dgvResults";
             this.dgvResults.RowHeadersWidth = 51;
             this.dgvResults.RowTemplate.Height = 24;
@@ -124,7 +124,7 @@
             // btnSearchByName
             // 
             this.btnSearchByName.Location = new System.Drawing.Point(536, 40);
-            this.btnSearchByName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchByName.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchByName.Name = "btnSearchByName";
             this.btnSearchByName.Size = new System.Drawing.Size(90, 19);
             this.btnSearchByName.TabIndex = 4;
@@ -146,7 +146,7 @@
             // txtSearchPhone
             // 
             this.txtSearchPhone.Location = new System.Drawing.Point(188, 41);
-            this.txtSearchPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchPhone.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchPhone.Name = "txtSearchPhone";
             this.txtSearchPhone.Size = new System.Drawing.Size(151, 20);
             this.txtSearchPhone.TabIndex = 2;
@@ -155,7 +155,7 @@
             // txtSearchLastName
             // 
             this.txtSearchLastName.Location = new System.Drawing.Point(15, 41);
-            this.txtSearchLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchLastName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchLastName.Name = "txtSearchLastName";
             this.txtSearchLastName.Size = new System.Drawing.Size(151, 20);
             this.txtSearchLastName.TabIndex = 1;
@@ -174,12 +174,12 @@
             // 
             // tabBilling
             // 
+            this.tabBilling.Controls.Add(this.btnShowBilling);
             this.tabBilling.Controls.Add(this.btnDwlBilling);
             this.tabBilling.Controls.Add(this.btnDownloadBilling);
             this.tabBilling.Controls.Add(this.dgvBilling);
-            this.tabBilling.Controls.Add(this.label1);
             this.tabBilling.Location = new System.Drawing.Point(4, 22);
-            this.tabBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabBilling.Margin = new System.Windows.Forms.Padding(2);
             this.tabBilling.Name = "tabBilling";
             this.tabBilling.Size = new System.Drawing.Size(672, 316);
             this.tabBilling.TabIndex = 2;
@@ -190,7 +190,7 @@
             // btnDwlBilling
             // 
             this.btnDwlBilling.Location = new System.Drawing.Point(535, 285);
-            this.btnDwlBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDwlBilling.Margin = new System.Windows.Forms.Padding(2);
             this.btnDwlBilling.Name = "btnDwlBilling";
             this.btnDwlBilling.Size = new System.Drawing.Size(80, 24);
             this.btnDwlBilling.TabIndex = 3;
@@ -201,7 +201,7 @@
             // btnDownloadBilling
             // 
             this.btnDownloadBilling.Location = new System.Drawing.Point(526, 338);
-            this.btnDownloadBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDownloadBilling.Margin = new System.Windows.Forms.Padding(2);
             this.btnDownloadBilling.Name = "btnDownloadBilling";
             this.btnDownloadBilling.Size = new System.Drawing.Size(89, 19);
             this.btnDownloadBilling.TabIndex = 2;
@@ -213,23 +213,13 @@
             // 
             this.dgvBilling.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBilling.Location = new System.Drawing.Point(15, 49);
-            this.dgvBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBilling.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBilling.Name = "dgvBilling";
             this.dgvBilling.RowHeadersWidth = 51;
             this.dgvBilling.RowTemplate.Height = 24;
             this.dgvBilling.Size = new System.Drawing.Size(600, 220);
             this.dgvBilling.TabIndex = 1;
             this.dgvBilling.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBilling_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Your billing";
             // 
             // panelTop
             // 
@@ -240,15 +230,25 @@
             this.panelTop.Controls.Add(this.picUserPhoto);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(2);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(680, 98);
             this.panelTop.TabIndex = 1;
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(246, 65);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(118, 24);
+            this.btnChangePassword.TabIndex = 3;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // btnChangePhoto
             // 
             this.btnChangePhoto.Location = new System.Drawing.Point(101, 65);
-            this.btnChangePhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangePhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePhoto.Name = "btnChangePhoto";
             this.btnChangePhoto.Size = new System.Drawing.Size(108, 24);
             this.btnChangePhoto.TabIndex = 2;
@@ -271,7 +271,7 @@
             // 
             this.picUserPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picUserPhoto.Location = new System.Drawing.Point(8, 8);
-            this.picUserPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picUserPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.picUserPhoto.Name = "picUserPhoto";
             this.picUserPhoto.Size = new System.Drawing.Size(76, 82);
             this.picUserPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -279,15 +279,16 @@
             this.picUserPhoto.TabStop = false;
             this.picUserPhoto.Click += new System.EventHandler(this.picUserPhoto_Click);
             // 
-            // btnChangePassword
+            // btnShowBilling
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(246, 65);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(118, 24);
-            this.btnChangePassword.TabIndex = 3;
-            this.btnChangePassword.Text = "Change Password";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.btnShowBilling.Location = new System.Drawing.Point(15, 17);
+            this.btnShowBilling.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.btnShowBilling.Name = "btnShowBilling";
+            this.btnShowBilling.Size = new System.Drawing.Size(102, 30);
+            this.btnShowBilling.TabIndex = 4;
+            this.btnShowBilling.Text = "Show billings";
+            this.btnShowBilling.UseVisualStyleBackColor = true;
+            this.btnShowBilling.Click += new System.EventHandler(this.btnShowBilling_Click);
             // 
             // UserPanel
             // 
@@ -296,7 +297,7 @@
             this.ClientSize = new System.Drawing.Size(680, 440);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.tabUser);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserPanel";
             this.Text = "UserPanel";
             this.Load += new System.EventHandler(this.UserPanel_Load);
@@ -305,7 +306,6 @@
             this.tabSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.tabBilling.ResumeLayout(false);
-            this.tabBilling.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilling)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
@@ -326,7 +326,6 @@
         private System.Windows.Forms.Label lblSearchLastName;
         private System.Windows.Forms.DataGridView dgvResults;
         private System.Windows.Forms.DataGridView dgvBilling;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDownloadBilling;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label lblWelcome;
@@ -336,5 +335,6 @@
         private System.Windows.Forms.Button btnChangePhoto;
         private System.Windows.Forms.Button btnDwlBilling;
         private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.Button btnShowBilling;
     }
 }

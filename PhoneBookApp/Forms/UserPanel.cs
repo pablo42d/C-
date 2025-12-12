@@ -206,35 +206,80 @@ namespace PhoneBookApp.Forms
 
         // 2. Implementacja ładowania bilingów (na zakładce "Billing")
         private void tabBilling_Click(object sender, EventArgs e)
+        {            
+
+        }
+        
+        private void dgvBilling_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Metoda wywoływana przy kliknięciu zakładki "Billing"
+
+            // Sprawdzenie, czy kliknięto w wiersz danych, a nie nagłówek
+            if (e.RowIndex < 0 || e.RowIndex >= dgvBilling.Rows.Count) return;
+
+            // Przykładowe użycie: wyświetlenie identyfikatora wybranego bilingu
+            // var billingId = dgvBilling.Rows[e.RowIndex].Cells["BillingID"].Value;
+            // MessageBox.Show($"Wybrano biling o ID: {billingId}");
+        }
+        
+        // 5. Obsługa przycisku "Show Billing" (btnShowBilling_Click)
+       
+        private void btnShowBilling_Click(object sender, EventArgs e)
+        {
+            // Wywołanie metody ładującej dane bilingowe
             LoadEmployeeBilling();
 
         }
+
         private void LoadEmployeeBilling()
         {
             try
             {
-                // 1. Sprawdź, czy mamy zalogowanego użytkownika
-                if (_loggedUser == null) return;
+                // Sprawdzamy, czy zalogowany użytkownik istnieje
+                if (_loggedUser == null)
+                {
+                    MessageBox.Show("Brak danych zalogowanego użytkownika.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                // 2. Pobierz bilingi dla zalogowanego EmployeeID
-                // Zakładam, że pole dla bilingów to dgvBilling (zgodnie z nazwą dgvBilling_CellContentClick)
+                // Wywołanie metody z BillingRepository.cs
+                // Używamy EmployeeID zalogowanego użytkownika
                 dgvBilling.DataSource = _billingRepo.GetBillingByEmployeeId(_loggedUser.EmployeeID);
 
-                // 3. Opcjonalnie: formatowanie kolumn, jeśli potrzebne
-                // np. dgvBilling.Columns["CallCost"].DefaultCellStyle.Format = "C"; 
+                // Opcjonalne formatowanie
+                if (dgvBilling.Columns.Contains("CallCost"))
+                {
+                    // Formatowanie na walutę (C2)
+                    dgvBilling.Columns["CallCost"].DefaultCellStyle.Format = "C2";
+                }
+
+                if (dgvBilling.Rows.Count == 0)
+                {
+                    MessageBox.Show("Nie znaleziono żadnych rekordów bilingowych dla tego pracownika.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading billing data: " + ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wystąpił błąd podczas ładowania bilingów: " + ex.Message, "Błąd Bazy Danych", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //try
+            //{
+            //    // 1. Sprawdź, czy mamy zalogowanego użytkownika
+            //    if (_loggedUser == null) return;
+            //    // 2. Pobierz bilingi dla zalogowanego EmployeeID
+            //    // Zakładam, że pole dla bilingów to dgvBilling (zgodnie z nazwą dgvBilling_CellContentClick)
+            //    dgvBilling.DataSource = _billingRepo.GetBillingByEmployeeId(_loggedUser.EmployeeID);
+            //    // 3. Opcjonalnie: formatowanie kolumn, jeśli potrzebne
+            //    dgvBilling.Columns["CallCost"].DefaultCellStyle.Format = "C"; 
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error loading billing data: " + ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //// Metoda wywoływana przy kliknięciu zakładki "Billing"
+            ////LoadEmployeeBilling();
         }
 
-        private void dgvBilling_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         // 3. Implementacja eksportu do CSV (btnDwlBilling_Click)
         private void btnDwlBilling_Click(object sender, EventArgs e)
         {
@@ -288,6 +333,7 @@ namespace PhoneBookApp.Forms
 
             File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
+
     }
 }
 
