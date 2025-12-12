@@ -14,6 +14,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 // -------------------------------------------------------------------
 
@@ -732,6 +733,97 @@ namespace PhoneBookApp.Forms
                 MessageBox.Show("Error importing billing: " + ex.Message);
             }
         }
+        // dodaj deklarację repozytorium:
+        private readonly BillingRepository _billingRepo = new BillingRepository(); // Dodaj lub upewnij się, że istnieje
+
+        // Metoda do ładowania danych bilingowych w zadanym zakresie
+        private void btnLoadBilling_Click(object sender, EventArgs e)
+        {
+            // Weryfikacja dat
+            if (dtpBillingFrom.Value.Date > dtpBillingTo.Value.Date)
+            {
+                MessageBox.Show("Start date cannot be later than end date.", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Pobierz dane dla wszystkich pracowników w zakresie
+                DataTable dt = _billingRepo.GetBillingByDateRange(dtpBillingFrom.Value, dtpBillingTo.Value);
+
+                dgvAllBilling.DataSource = dt;
+
+                if (dgvAllBilling.Columns.Contains("CallCost"))
+                {
+                    // Formatowanie na walutę (C2), aby koszt wyglądał czytelniej
+                    dgvAllBilling.Columns["CallCost"].DefaultCellStyle.Format = "C2";
+                }
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No billing data found in the selected range.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading billing data: " + ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Metoda eksportu danych z DataGridView do CSV (możesz użyć tej samej metody co w UserPanel.cs)
+        private void btnExportBilling_Click(object sender, EventArgs e)
+        {
+            if (dgvAllBilling.Rows.Count == 0 || dgvAllBilling.DataSource == null)
+            {
+                MessageBox.Show("No data loaded to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = $"Billing_Report_{dtpBillingFrom.Value:yyyyMMdd}_to_{dtpBillingTo.Value:yyyyMMdd}.csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Wywołanie metody pomocniczej do eksportu DataGridView do CSV
+                        ExportToCsv(dgvAllBilling, sfd.FileName);
+                        MessageBox.Show("Billing report successfully exported to CSV.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error exporting data: " + ex.Message, "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        // Metoda pomocnicza ExportToCsv (jeśli jeszcze jej nie masz w AdminPanel.cs)
+        private void ExportToCsv(DataGridView dgv, string filePath)
+        {
+            // Upewnij się, że masz using System.Text; i using System.IO; na początku pliku
+            StringBuilder sb = new StringBuilder();
+
+            // Nagłówki kolumn
+            IEnumerable<string> columnNames = dgv.Columns.Cast<DataGridViewColumn>().Select(column => column.HeaderText);
+            sb.AppendLine(string.Join(";", columnNames));
+
+            // Wiersze danych
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                IEnumerable<string> fields = row.Cells.Cast<DataGridViewCell>()
+                    .Select(cell => cell.Value?.ToString().Replace(";", ",") ?? "");
+
+                sb.AppendLine(string.Join(";", fields));
+            }
+
+            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
+        }
+
 
         // --- Empty/Designer Handlers ---
 
@@ -746,6 +838,21 @@ namespace PhoneBookApp.Forms
         private void tabEmployees_Click(object sender, EventArgs e) { }
 
         private void tabBilling_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblBillingRange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpBillingFrom_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpBillingTo_ValueChanged(object sender, EventArgs e)
         {
 
         }

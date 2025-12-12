@@ -18,7 +18,7 @@ namespace PhoneBookApp.Forms
         private readonly EmployeeRepository _employeeRepo = new EmployeeRepository();
         private readonly DepartmentRepository _departmentRepo = new DepartmentRepository();
         private DataGridView dgvSearchResults;
-        private TextBox txtSearchName;
+        //private TextBox txtSearchName;
 
         public UserPanel(Employee emp)
         {
