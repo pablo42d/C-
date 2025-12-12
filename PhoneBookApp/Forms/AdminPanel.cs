@@ -744,6 +744,11 @@ namespace PhoneBookApp.Forms
         private void pictureBox1_Click(object sender, EventArgs e) { } // picEmpPhoto_Click
         private void panelEmployeeDetails_Paint(object sender, PaintEventArgs e) { }
         private void tabEmployees_Click(object sender, EventArgs e) { }
+
+        private void tabBilling_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

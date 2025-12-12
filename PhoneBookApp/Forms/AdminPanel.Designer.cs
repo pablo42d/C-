@@ -763,6 +763,7 @@ namespace PhoneBookApp.Forms
             this.tabBilling.TabIndex = 3;
             this.tabBilling.Text = "Billing Import";
             this.tabBilling.UseVisualStyleBackColor = true;
+            this.tabBilling.Click += new System.EventHandler(this.tabBilling_Click);
             // 
             // btnImportBilling
             // 

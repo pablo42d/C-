@@ -3,15 +3,27 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\changepasswordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\changepasswordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\changepasswordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\changepasswordform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\changepasswordform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\changepasswordform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\data\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:data\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\userpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,40 +46,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserPanel.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
-              "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
-              "RelativeToolTip": "Forms\\UserPanel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Data\\EmployeeRepository.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\EmployeeRepository.cs",
+              "RelativeToolTip": "Data\\EmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T22:03:50.493Z",
+              "WhenOpened": "2025-12-12T20:17:46.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChangePasswordForm.Designer.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.Designer.cs",
+              "RelativeDocumentMoniker": "Forms\\ChangePasswordForm.Designer.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.Designer.cs*",
+              "RelativeToolTip": "Forms\\ChangePasswordForm.Designer.cs*",
+              "ViewState": "AgIAAFwAAAAAAAAAAADwv3YAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T20:05:05.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AdminPanel.cs [Design]",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
-              "RelativeDocumentMoniker": "Forms\\AdminPanel.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs [Design]",
-              "RelativeToolTip": "Forms\\AdminPanel.cs [Design]",
+              "Title": "ChangePasswordForm.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.cs",
+              "RelativeDocumentMoniker": "Forms\\ChangePasswordForm.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.cs*",
+              "RelativeToolTip": "Forms\\ChangePasswordForm.cs*",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAgwGkAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T21:51:57.067Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-12T19:35:03.862Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AdminPanel.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
-              "RelativeDocumentMoniker": "Forms\\AdminPanel.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
-              "RelativeToolTip": "Forms\\AdminPanel.cs",
-              "ViewState": "AgIAAMQBAAAAAAAAAAAYwNEBAAAAAAAAAAAAAA==",
+              "Title": "ChangePasswordForm.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.cs",
+              "RelativeDocumentMoniker": "Forms\\ChangePasswordForm.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\ChangePasswordForm.cs [Design]*",
+              "RelativeToolTip": "Forms\\ChangePasswordForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T21:56:23.617Z",
+              "WhenOpened": "2025-12-12T19:26:07.649Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserPanel.cs [Design]",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs [Design]",
+              "RelativeToolTip": "Forms\\UserPanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T19:20:08.864Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserPanel.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
+              "RelativeToolTip": "Forms\\UserPanel.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAjwKwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-07T22:03:50.493Z",
               "EditorCaption": ""
             }
           ]

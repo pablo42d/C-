@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography; // KLUCZOWE dla haszowania
+using System.Text;
 
 namespace PhoneBookApp.Data
 {
@@ -240,6 +242,99 @@ WHERE EmployeeID = @EmployeeID";
         //{
         //    throw new NotImplementedException();
         //}
+
+        // --- Metody do dodania na końcu pliku EmployeeRepository.cs ---
+
+        // Metoda pomocnicza do haszowania hasła (uproszczona wersja PBKDF2)
+        private string HashPassword(string password)
+        {
+            // Używamy prostego, ale bezpiecznego haszowania (SHA256) na potrzeby demonstracji
+            // W profesjonalnym kodzie należy użyć Rfc2898DeriveBytes (PBKDF2) z Saltem!
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                // Konwersja na ciąg znaków Hex
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        // -------------------------------------------------------------
+        // METODA 1: Weryfikacja starego hasła
+        // -------------------------------------------------------------
+        public bool VerifyPassword(int employeeId, string oldPassword)
+        {
+            string storedHash = null;
+            string query = "SELECT PasswordHash FROM Employees WHERE EmployeeID = @EmployeeID";
+
+            // Zakładam, że masz dostęp do prywatnej klasy Database z metodą GetConnection()
+            using (SqlConnection conn = _db.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    storedHash = result.ToString();
+                }
+            }
+
+            if (storedHash == null)
+            {
+                // Użytkownik nie istnieje lub nie ma hasła
+                return false;
+            }
+
+            // === KLUCZOWA POPRAWKA LOGIKI WERYFIKACJI ===
+            // Sprawdź, czy stare hasło jest czystym tekstem (długość mniejsza niż hasz SHA256)
+            if (storedHash.Length < 64) // Hasz SHA256 ma 64 znaki Hex
+            {
+                // Jeśli storedHash jest krótkim tekstem, porównaj jako czysty tekst.
+                // TO POWINNO DZIAŁAĆ DLA HASŁA "changeme"!
+                return oldPassword.Equals(storedHash, StringComparison.Ordinal);
+            }
+
+            // Porównanie haszów: haszujemy hasło podane przez użytkownika i porównujemy z haszem z bazy
+            string inputHash = HashPassword(oldPassword);
+
+            // W twoim przypadku, gdzie 'PasswordHash' w bazie może być czystym tekstem (np. "Welcome"),
+            // ta metoda może wymagać dopasowania do tego, jak hasła są faktycznie przechowywane.
+            // Jeśli używasz prostego tekstu, zmień to na: return oldPassword == storedHash;
+            // Ale w kontekście bezpieczeństwa ZAWSZE używaj hashowania!
+
+            return inputHash.Equals(storedHash, StringComparison.OrdinalIgnoreCase);
+        }
+
+        // -------------------------------------------------------------
+        // METODA 2: Aktualizacja nowego hasła
+        // -------------------------------------------------------------
+        public void UpdatePassword(int employeeId, string newPassword)
+        {
+            // 1. Haszowanie nowego hasła
+            string newHash = HashPassword(newPassword);
+
+            // 2. Zapytanie SQL
+            string query = "UPDATE Employees SET PasswordHash = @NewHash WHERE EmployeeID = @EmployeeID";
+
+            using (SqlConnection conn = _db.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@NewHash", newHash);
+                cmd.Parameters.AddWithValue("@EmployeeID", employeeId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
     }
 }
 

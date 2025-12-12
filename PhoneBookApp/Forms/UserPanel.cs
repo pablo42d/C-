@@ -195,6 +195,14 @@ namespace PhoneBookApp.Forms
         {
 
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            // Otwórz formularz zmiany hasła
+            ChangePasswordForm cpf = new ChangePasswordForm(_loggedUser);
+            cpf.ShowDialog();
+
+        }
     }
 }
 

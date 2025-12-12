@@ -13,3 +13,4 @@ E:\Git_Project\C-\NC#\C-\PhoneBookApp\bin\Debug\System.Configuration.Configurati
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBoo.A1C0B163.Up2Date
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.exe
 E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.pdb
+E:\Git_Project\C-\NC#\C-\PhoneBookApp\obj\Debug\PhoneBookApp.Forms.ChangePasswordForm.resources
