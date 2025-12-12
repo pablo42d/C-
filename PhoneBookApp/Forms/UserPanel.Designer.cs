@@ -185,13 +185,14 @@
             this.tabBilling.TabIndex = 2;
             this.tabBilling.Text = "Billing";
             this.tabBilling.UseVisualStyleBackColor = true;
+            this.tabBilling.Click += new System.EventHandler(this.tabBilling_Click);
             // 
             // btnDwlBilling
             // 
-            this.btnDwlBilling.Location = new System.Drawing.Point(558, 285);
+            this.btnDwlBilling.Location = new System.Drawing.Point(535, 285);
             this.btnDwlBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDwlBilling.Name = "btnDwlBilling";
-            this.btnDwlBilling.Size = new System.Drawing.Size(56, 19);
+            this.btnDwlBilling.Size = new System.Drawing.Size(80, 24);
             this.btnDwlBilling.TabIndex = 3;
             this.btnDwlBilling.Text = "Download CSV";
             this.btnDwlBilling.UseVisualStyleBackColor = true;
@@ -218,6 +219,7 @@
             this.dgvBilling.RowTemplate.Height = 24;
             this.dgvBilling.Size = new System.Drawing.Size(600, 220);
             this.dgvBilling.TabIndex = 1;
+            this.dgvBilling.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBilling_CellContentClick);
             // 
             // label1
             // 

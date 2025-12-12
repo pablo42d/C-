@@ -1,10 +1,13 @@
 ﻿using PhoneBookApp.Data;
 using PhoneBookApp.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 
 namespace PhoneBookApp.Forms
@@ -36,7 +39,7 @@ namespace PhoneBookApp.Forms
                 {
                     picUserPhoto.Image = System.Drawing.Image.FromStream(ms);
                 }
-            }          
+            }
         }
 
         private void LoadDepartments()
@@ -103,7 +106,7 @@ namespace PhoneBookApp.Forms
         private void tabUser_TextChanged(object sender, EventArgs e)
         {
 
-        }       
+        }
 
         private void txtSearchLastName_TextChanged(object sender, EventArgs e)
         {
@@ -191,11 +194,6 @@ namespace PhoneBookApp.Forms
 
         }
 
-        private void btnDwlBilling_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             // Otwórz formularz zmiany hasła
@@ -203,9 +201,95 @@ namespace PhoneBookApp.Forms
             cpf.ShowDialog();
 
         }
+        // 1. Dodaj deklarację repozytorium (na początku klasy UserPanel)
+        private readonly BillingRepository _billingRepo = new BillingRepository();
+
+        // 2. Implementacja ładowania bilingów (na zakładce "Billing")
+        private void tabBilling_Click(object sender, EventArgs e)
+        {
+            // Metoda wywoływana przy kliknięciu zakładki "Billing"
+            LoadEmployeeBilling();
+
+        }
+        private void LoadEmployeeBilling()
+        {
+            try
+            {
+                // 1. Sprawdź, czy mamy zalogowanego użytkownika
+                if (_loggedUser == null) return;
+
+                // 2. Pobierz bilingi dla zalogowanego EmployeeID
+                // Zakładam, że pole dla bilingów to dgvBilling (zgodnie z nazwą dgvBilling_CellContentClick)
+                dgvBilling.DataSource = _billingRepo.GetBillingByEmployeeId(_loggedUser.EmployeeID);
+
+                // 3. Opcjonalnie: formatowanie kolumn, jeśli potrzebne
+                // np. dgvBilling.Columns["CallCost"].DefaultCellStyle.Format = "C"; 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading billing data: " + ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvBilling_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        // 3. Implementacja eksportu do CSV (btnDwlBilling_Click)
+        private void btnDwlBilling_Click(object sender, EventArgs e)
+        {
+            // Sprawdzenie, czy są dane do eksportu
+            if (dgvBilling.Rows.Count == 0 || dgvBilling.DataSource == null)
+            {
+                MessageBox.Show("No data to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = $"Billing_{_loggedUser.EmployeeID}_{DateTime.Now:yyyyMMdd}.csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Wywołanie metody pomocniczej do eksportu DataGridView do CSV
+                        ExportToCsv(dgvBilling, sfd.FileName);
+                        MessageBox.Show("Billing successfully exported to CSV.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error exporting data: " + ex.Message, "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        // 4. Metoda pomocnicza do eksportu (dodaj ją w UserPanel.cs)
+        private void ExportToCsv(DataGridView dgv, string filePath)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // Nagłówki kolumn
+            IEnumerable<string> columnNames = dgv.Columns.Cast<DataGridViewColumn>().Select(column => column.HeaderText);
+            sb.AppendLine(string.Join(";", columnNames));
+
+            // Wiersze danych
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                // Upewnij się, że nie eksportujemy pustego wiersza na końcu (jeśli AllowUserToAddRows = true)
+                if (row.IsNewRow) continue;
+
+                IEnumerable<string> fields = row.Cells.Cast<DataGridViewCell>()
+                    .Select(cell => cell.Value?.ToString().Replace(";", ",") ?? ""); // Zamień średniki na przecinki w danych
+
+                sb.AppendLine(string.Join(";", fields));
+            }
+
+            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
+        }
     }
 }
-
 
 
 

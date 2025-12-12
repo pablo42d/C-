@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BillingImporter.cs" />
+    <Compile Include="Data\BillingRepository.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DepartmentRepository.cs" />
     <Compile Include="Data\DeviceRepository.cs" />

@@ -312,6 +312,60 @@ WHERE EmployeeID = @EmployeeID";
             return inputHash.Equals(storedHash, StringComparison.OrdinalIgnoreCase);
         }
 
+
+        // -------------------------------------------------------------
+        // NOWA METODA: Uwierzytelnienie Użytkownika (Login)
+        // -------------------------------------------------------------
+        public Employee AuthenticateUser(string username, string password)
+        {
+
+            // 1. Znajdź użytkownika po nazwie
+            Employee employee = GetEmployeeByUsername(username); // Zakładam, że ta metoda mapuje wszystkie pola, w tym PasswordHash
+
+            if (employee == null)
+            {
+                return null; // Użytkownik nie znaleziony
+            }
+
+            string storedHash = employee.PasswordHash;
+
+            if (string.IsNullOrEmpty(storedHash))
+            {
+                // Brak hasła w bazie
+                return null;
+            }
+
+            // 2. Weryfikacja hasła:
+
+            // Używamy logiki, którą zastosowaliśmy w ChangePasswordForm, ale upraszczamy ją do głównej logiki:
+
+            // ***************************************************************
+            // KLUCZOWA LOGIKA ADAPTACYJNA:
+            // ***************************************************************
+            if (storedHash.Length < 64) // Jeśli hasz w bazie jest zbyt krótki (np. "changeme")
+            {
+                // Stare, niebezpieczne hasło w czystym tekście:
+                if (password.Equals(storedHash, StringComparison.Ordinal))
+                {
+                    // Zalogowanie powiodło się. Warto wymusić zmianę tego hasła na hasz.
+                    return employee;
+                }
+            }
+            else
+            {
+                // Hasło jest haszowane (długość 64 znaki SHA256)
+                string inputHash = HashPassword(password);
+                if (inputHash.Equals(storedHash, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Pomyślne uwierzytelnienie
+                    return employee;
+                }
+            }
+
+            return null; // Hasło nie pasuje
+        }
+       
+
         // -------------------------------------------------------------
         // METODA 2: Aktualizacja nowego hasła
         // -------------------------------------------------------------
