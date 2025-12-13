@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\adres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:adres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Adres.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Adres.cs",
+              "RelativeDocumentMoniker": "Adres.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Adres.cs",
+              "RelativeToolTip": "Adres.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:04:30.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Student.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Student.cs",
+              "RelativeDocumentMoniker": "Student.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Student.cs",
+              "RelativeToolTip": "Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T10:03:59.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ListaOsoba.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\ListaOsoba.cs",
+              "RelativeDocumentMoniker": "ListaOsoba.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\ListaOsoba.cs",
+              "RelativeToolTip": "ListaOsoba.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAUwF4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T09:22:51.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Osoba.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Osoba.cs",
+              "RelativeDocumentMoniker": "Osoba.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Osoba.cs",
+              "RelativeToolTip": "Osoba.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T09:22:32.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "odczyt z pliku.txt",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\odczyt z pliku.txt",
+              "RelativeDocumentMoniker": "odczyt z pliku.txt",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\odczyt z pliku.txt",
+              "RelativeToolTip": "odczyt z pliku.txt",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAqwGQAAAA+AQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-12-13T08:58:38.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T08:57:51.721Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

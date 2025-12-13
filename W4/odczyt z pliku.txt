@@ -1,0 +1,101 @@
+Strumienie wejœciowe i wyjœciowe w Javie s³u¿¹ do odczytu i zapisu danych. Poni¿ej znajduje siê przyk³ad kodu, który pokazuje, jak odczytaæ zawartoœæ pliku tekstowego w Javie za pomoc¹ klasy `BufferedReader`.
+string filePath = "odczyt z pliku.txt";
+// odczyt pliku za pomoc¹ StreamReader
+using (StreamReader reader = new StreamReader(new FileReader(filePath))) {
+	String line;
+	while ((line = reader.readLine()) != null) {
+		System.out.println(line);
+	}
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+Dodatkowe metody odczytu plików w Javie to u¿ycie klasy `Files` z pakietu `java.nio.file`, która oferuje prostszy sposób na odczyt ca³ej zawartoœci pliku naraz:
+ReadAllLines example:
+ReadToEnd example:
+Peek example:
+Read example:
+// Zapis do pliku za pomoc¹ StreamWriter using
+using (StreamWriter writer = new StreamWriter(new FileWriter("zapis do pliku.txt"))) {
+	writer.write("To jest przyk³adowy tekst zapisywany do pliku.");
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+\\utworzenie pliku txt z zapisem
+StreamWriter writer = null;
+try {
+	writer = new StreamWriter(new FileWriter("nowy_plik.txt"));
+	writer.write("To jest przyk³adowy tekst w nowym pliku.");
+} catch (IOException e) {
+	e.printStackTrace();
+	//
+} finally {
+	if (writer != null) {
+		try {
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			}
+
+
+
+// Flush() example:
+
+using (StreamWriter writer = new StreamWriter(new FileWriter("flush_example.txt"))) {
+	writer.write("Tekst przed flush.");
+	writer.flush(); // Wymusza zapis danych do pliku
+	writer.write(" Tekst po flush.");
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+\\ Close() example:
+StreamWriter writer = null;
+
+try {
+	writer = new StreamWriter(new FileWriter("close_example.txt"));
+	writer.write("Tekst przed zamkniêciem strumienia.");
+} catch (IOException e) {
+	e.printStackTrace();
+} finally {
+	if (writer != null) {
+		try {
+			writer.close(); // Zamkniêcie strumienia
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+\\ zwolnienie zasobów pamiêciowych za pomoc¹
+\\ Dispose() example:
+
+using (StreamWriter writer = new StreamWriter(new FileWriter("dispose_example.txt"))) {
+	writer.write("Tekst w pliku przed dispose.");
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+
+// JSON 
+// System.Text.Json
+// Newtonsoft.Json (Json.NET) trzeba dodaæ przez NuGet package manager
+
+// Serializacja obiektu do JSON za pomoc¹ System.Text.Json to proces zamiany obiektu na format JSON, który jest ³atwy do przechowywania i przesy³ania danych. Poni¿ej znajduje siê przyk³ad kodu w C#, który pokazuje, jak to zrobiæ:
+// Desarializacja JSON do obiektu za pomoc¹ System.Text.Json to proces zamiany danych w formacie JSON na obiekt w jêzyku C#. Poni¿ej znajduje siê przyk³ad kodu, który pokazuje, jak to zrobiæ:
+using System;
+using System.Text.Json;
+public class Person {
+	public string Name { get; set; }
+	public int Age { get; set; }
+}
+public class Program {
+	public static void Main() {
+		string jsonString = "{\"Name\":\"John Doe\",\"Age\":30}";
+		Person person = JsonSerializer.Deserialize<Person>(jsonString);
+		Console.WriteLine($"Name: {person.Name}, Age: {person.Age}");
+	}
+}
+
+// diagram klas jak generowaæ
+Projektant klas dzia³a tylko na projektach typu .NET Framework. W projektach typu .NET Core lub .NET 5/6/7 nie jest dostêpny. Mo¿esz jednak u¿yæ narzêdzi zewnêtrznych, takich jak Visual Paradigm, StarUML lub inne narzêdzia do modelowania UML, aby tworzyæ diagramy klas dla projektów .NET Core lub nowszych wersji .NET.
