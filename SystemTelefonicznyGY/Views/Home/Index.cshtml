@@ -1,6 +1,6 @@
 ﻿
 @using System.Data
-@model DataTable
+@model List<SystemTelefonicznyGY.Models.PracownikWidok>
 
 @{
     ViewBag.Title = "Książka Telefoniczna - Goodyear Polska";
@@ -44,40 +44,37 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
-                        <thead class="thead-dark">                           
+                        <thead class="thead-dark">
                             <tr>
                                 <th>Imię</th>
                                 <th>Nazwisko</th>
                                 <th>Stanowisko</th>
                                 <th>Dział</th>
+                                <th>Email</th>
                                 <th>Nr Stacjonarny</th>
                                 <th>Nr Komórkowy</th>
                             </tr>
                         </thead>
-
                         <tbody>
-                            @if (Model != null && Model.Rows.Count > 0)
+                            @if (Model.Any())
                             {
-                                foreach (DataRow wiersz in Model.Rows)
+                                foreach (var pracownik in Model)
                                 {
                                     <tr>
-                                        <td>@wiersz["Imie"]</td>
-                                        <td>@wiersz["Nazwisko"]</td>
-                                        <td>@wiersz["Stanowisko"]</td>
-                                        <td>@wiersz["NazwaDzialu"] (@wiersz["SkroconaNazwa"])</td>
-                                        <td class="text-info">
-                                            @(wiersz["NrStacjonarny"] != DBNull.Value ? wiersz["NrStacjonarny"] : "---")
-                                        </td>
-                                        <td class="text-success">
-                                            @(wiersz["NrKomorkowy"] != DBNull.Value ? wiersz["NrKomorkowy"] : "---")
-                                        </td>
+                                        <td>@pracownik.Imie</td>
+                                        <td>@pracownik.Nazwisko</td>
+                                        <td>@pracownik.Stanowisko</td>
+                                        <td>@pracownik.Dzial</td>
+                                        <td>@pracownik.Login</td>
+                                        <td class="text-info">@pracownik.NrStacjonarny</td>
+                                        <td class="text-success">@pracownik.NrKomorkowy</td>
                                     </tr>
                                 }
                             }
                             else
                             {
                                 <tr>
-                                    <td colspan="6" class="text-center">Brak wyników.</td>
+                                    <td colspan="6" class="text-center">Brak wyników dla podanej frazy.</td>
                                 </tr>
                             }
                         </tbody>

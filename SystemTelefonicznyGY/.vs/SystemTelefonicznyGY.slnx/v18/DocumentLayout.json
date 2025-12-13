@@ -11,12 +11,20 @@
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\telefonstacjonarny.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\telefonstacjonarny.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\elementsystemu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\elementsystemu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\pracownikwidok.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\pracownikwidok.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\telefonkomorkowy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\logika\\bazadanych.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\bazadanych.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\elementsystemu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\elementsystemu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,33 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAACYAAAAAAAAAAAAYwC4AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-13T13:58:41.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HomeController.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswBoAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwD8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-13T13:53:51.809Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TelefonStacjonarny.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\TelefonStacjonarny.cs",
               "RelativeDocumentMoniker": "Models\\TelefonStacjonarny.cs",
@@ -93,13 +84,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Pracownik.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\Pracownik.cs",
               "RelativeDocumentMoniker": "Models\\Pracownik.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\Pracownik.cs",
               "RelativeToolTip": "Models\\Pracownik.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAhwB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-13T13:38:25.07Z",
               "EditorCaption": ""
@@ -107,6 +98,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ElementSystemu.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\ElementSystemu.cs",
+              "RelativeDocumentMoniker": "Models\\ElementSystemu.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\ElementSystemu.cs",
+              "RelativeToolTip": "Models\\ElementSystemu.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T12:25:07.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADEAAAAAAAAAAAAtwEMAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-13T13:58:41.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PracownikWidok.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\PracownikWidok.cs",
+              "RelativeDocumentMoniker": "Models\\PracownikWidok.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\PracownikWidok.cs",
+              "RelativeToolTip": "Models\\PracownikWidok.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T17:47:41.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "TelefonKomorkowy.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\TelefonKomorkowy.cs",
               "RelativeDocumentMoniker": "Models\\TelefonKomorkowy.cs",
@@ -119,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "BazaDanych.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\BazaDanych.cs",
               "RelativeDocumentMoniker": "Logika\\BazaDanych.cs",
@@ -132,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Urzadzenie.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\Urzadzenie.cs",
               "RelativeDocumentMoniker": "Models\\Urzadzenie.cs",
@@ -141,19 +171,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-13T12:38:32.764Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ElementSystemu.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\ElementSystemu.cs",
-              "RelativeDocumentMoniker": "Models\\ElementSystemu.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\ElementSystemu.cs",
-              "RelativeToolTip": "Models\\ElementSystemu.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T12:25:07.195Z",
               "EditorCaption": ""
             }
           ]

@@ -12,6 +12,7 @@ namespace SystemTelefonicznyGY.Models
         private string _nazwisko;
         private string _rola;
         private int _idDzialu;
+        private string _login;
 
         // Właściwości publiczne do odczytu i zapisu
         public int Id { get { return _id; } }
@@ -19,15 +20,18 @@ namespace SystemTelefonicznyGY.Models
         public string Nazwisko { get { return _nazwisko; } }
         public string PelneNazwisko { get { return $"{_imie} {_nazwisko}"; } }
         public string Rola { get { return _rola; } }
-        public int IdDzialu { get { return _idDzialu; } }
+        public int IdDzialu { get { return _idDzialu; } }      
+        public string Login { get { return _login; } }
 
-        public Pracownik(int id, string imie, string nazwisko, string rola, int idDzialu)
+        public Pracownik(int id, string imie, string nazwisko, string rola, int idDzialu, string login)
         {
             _id = id;
             _imie = imie;
             _nazwisko = nazwisko;
             _rola = rola;
-            _idDzialu = idDzialu;
+            _idDzialu = idDzialu;           
+            _login = login;
         }
+       
     }
 }
