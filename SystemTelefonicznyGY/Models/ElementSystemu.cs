@@ -9,7 +9,7 @@ namespace SystemTelefonicznyGY.Models
     /// <summary>
     /// Klasa bazowa dla elementów systemu telefonicznego posiadających ID
     /// </summary>
-    public class ElementSystemu
+    public abstract class ElementSystemu
     {
         /// <summary>
         /// Unikalny identyfikator elementu systemu
