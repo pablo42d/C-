@@ -20,7 +20,7 @@ namespace SystemTelefonicznyGY.Controllers
         public ActionResult Index(string szukanaFraza)       
         {
             List<PracownikWidok> listaPracownikow = new List<PracownikWidok>();
-
+            
             string sql = @"
         SELECT 
             p.Imie, 
@@ -71,6 +71,7 @@ namespace SystemTelefonicznyGY.Controllers
             var posortowanaLista = listaPracownikow.OrderBy(p => p.Nazwisko).ToList();
 
             return View(posortowanaLista);
+            
         }
 
         
