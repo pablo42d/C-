@@ -128,6 +128,7 @@
     <Compile Include="Models\ElementSystemu.cs" />
     <Compile Include="Models\Pracownik.cs" />
     <Compile Include="Models\TelefonKomorkowy.cs" />
+    <Compile Include="Models\TelefonStacjonarny.cs" />
     <Compile Include="Models\Urzadzenie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
