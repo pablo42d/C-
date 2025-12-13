@@ -16,9 +16,7 @@ namespace SystemTelefonicznyGY.Controllers
     {
         private BazaDanych _baza = new BazaDanych();
 
-        public ActionResult Index(string szukanaFraza)
-
-        public ActionResult Index()
+        public ActionResult Index(string szukanaFraza)       
         {
             // Zapytanie SQL łączące pracowników z działami
             string sql = @"SELECT p.Imie, p.Nazwisko, p.Stanowisko, d.NazwaDzialu 
