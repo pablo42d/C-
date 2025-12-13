@@ -44,14 +44,17 @@
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover">
-                        <thead class="thead-dark">
+                        <thead class="thead-dark">                           
                             <tr>
                                 <th>Imię</th>
                                 <th>Nazwisko</th>
                                 <th>Stanowisko</th>
-                                <th>Dział (Skrót)</th>
+                                <th>Dział</th>
+                                <th>Nr Stacjonarny</th>
+                                <th>Nr Komórkowy</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @if (Model != null && Model.Rows.Count > 0)
                             {
@@ -62,13 +65,19 @@
                                         <td>@wiersz["Nazwisko"]</td>
                                         <td>@wiersz["Stanowisko"]</td>
                                         <td>@wiersz["NazwaDzialu"] (@wiersz["SkroconaNazwa"])</td>
+                                        <td class="text-info">
+                                            @(wiersz["NrStacjonarny"] != DBNull.Value ? wiersz["NrStacjonarny"] : "---")
+                                        </td>
+                                        <td class="text-success">
+                                            @(wiersz["NrKomorkowy"] != DBNull.Value ? wiersz["NrKomorkowy"] : "---")
+                                        </td>
                                     </tr>
                                 }
                             }
                             else
                             {
                                 <tr>
-                                    <td colspan="4" class="text-center">Brak wyników do wyświetlenia. Dodaj dane w bazie SQL lub zmień kryteria wyszukiwania.</td>
+                                    <td colspan="6" class="text-center">Brak wyników.</td>
                                 </tr>
                             }
                         </tbody>

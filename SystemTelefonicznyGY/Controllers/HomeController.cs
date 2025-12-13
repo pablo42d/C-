@@ -19,13 +19,27 @@ namespace SystemTelefonicznyGY.Controllers
         public ActionResult Index(string szukanaFraza)       
         {
             // Zapytanie SQL łączące pracowników z działami
-            string sql = @"SELECT p.Imie, p.Nazwisko, p.Stanowisko, d.NazwaDzialu 
-                           FROM Pracownicy p 
-                           JOIN Dzialy d ON p.ID_Dzialu = d.ID";
+            string sql = @" 
+            SELECT
+            p.Imie, 
+            p.Nazwisko, 
+            p.Stanowisko, 
+            d.NazwaDzialu, 
+            d.SkroconaNazwa,
+            ns.Numer AS NrStacjonarny,
+            nk.Numer AS NrKomorkowy
+        FROM Pracownicy p
+        JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        LEFT JOIN NumeryStacjonarne ns ON p.ID = ns.ID_Pracownika
+        LEFT JOIN NumeryKomorkowe nk ON p.ID = nk.ID_Pracownika";
 
-            if (!string.IsNullOrEmpty(szukanaFraza))
+    // Rozszerzenie wyszukiwania o numery telefonów
+    if (!string.IsNullOrEmpty(szukanaFraza))
             {
-                sql += " WHERE p.Nazwisko LIKE '%" + szukanaFraza + "%' OR d.NazwaDzialu LIKE '%" + szukanaFraza + "%'";
+                sql += @" WHERE p.Nazwisko LIKE '%" + szukanaFraza + @"%' 
+                  OR d.NazwaDzialu LIKE '%" + szukanaFraza + @"%' 
+                  OR ns.Numer LIKE '%" + szukanaFraza + @"%' 
+                  OR nk.Numer LIKE '%" + szukanaFraza + @"%'";
             }
 
             DataTable dt = _baza.PobierzDane(sql);
