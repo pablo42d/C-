@@ -24,7 +24,7 @@ namespace W4
                 Console.WriteLine(osoba.ToString());
             }
         }
-        public void printData(
+        public void printData(string data)
         {
             Console.WriteLine("Lista osób:");
             foreach (var osoba in listaosob)

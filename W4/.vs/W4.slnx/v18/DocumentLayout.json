@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:listaosoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +23,8 @@
       "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:adres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:osoba.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|e:\\git_project\\c-\\nc#\\c-\\w4\\odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{92169879-152F-4B62-AB12-2F635B186D3D}|W4.csproj|solutionrelative:odczyt z pliku.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "Student.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Student.cs",
               "RelativeToolTip": "Student.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-13T10:03:59.064Z",
               "EditorCaption": ""
@@ -72,20 +72,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ListaOsoba.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\ListaOsoba.cs",
               "RelativeDocumentMoniker": "ListaOsoba.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\ListaOsoba.cs",
               "RelativeToolTip": "ListaOsoba.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAUwF4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-13T09:22:51.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Osoba.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\Osoba.cs",
               "RelativeDocumentMoniker": "Osoba.cs",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "odczyt z pliku.txt",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\W4\\odczyt z pliku.txt",
               "RelativeDocumentMoniker": "odczyt z pliku.txt",
