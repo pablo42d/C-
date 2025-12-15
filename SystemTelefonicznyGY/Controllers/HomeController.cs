@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+//using System.Web;
 using System.Web.Mvc;
 using System.Data;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using System.Linq;
+//using System.Web.Mvc;
+//using System.Collections.Generic;
+//using System.Linq;
 using SystemTelefonicznyGY.Logika; // folder z klasą BazaDanych
 using SystemTelefonicznyGY.Models;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -32,6 +33,15 @@ namespace SystemTelefonicznyGY.Models
             _idDzialu = idDzialu;           
             _login = login;
         }
-       
+
+        //public class PodsumowaniePracownikaModel
+        //{
+        //    public List<Urzadzenie> MojeUrzadzenia { get; set; } = new List<Urzadzenie>();
+        //    public List<DataRow> BilingiKomorkowe { get; set; } = new List<DataRow>();
+        //    public List<DataRow> BilingiStacjonarne { get; set; } = new List<DataRow>();
+        //    public decimal SumaKomorkowe { get; set; } = 0;
+        //    public decimal SumaStacjonarne { get; set; } = 0;
+        //}
+
     }
 }

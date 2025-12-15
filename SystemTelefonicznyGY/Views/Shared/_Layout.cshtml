@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        
+
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
@@ -26,36 +26,43 @@
             </div>
         </div>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-            </ul>
+        @* Sekcja po prawej stronie *@
+    <div class="navbar-collapse collapse">
 
-            @* Sekcja po prawej stronie *@
-            <ul class="nav navbar-nav navbar-right">
-                if (Session["IdPracownika"] == null)
-                {
-                <li>
-                    <a href="@Url.Action("Login", "Konto")">
-                        <span class="glyphicon glyphicon-user"></span> Zaloguj
-                    </a>
-                </li>
-                }
-                else
-                {
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Witaj, @Session["ImiePracownika"] <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Moje Bilingi", "Index", "Bilingi")</li>
-                        <li role="separator" class="divider"></li>
-                        <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto")</li>
-                    </ul>
-                </li>
-                }
-            </ul>
-        </div>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            if (Session["IdPracownika"] == null)
+            {
+            <li>
+                <a href="@Url.Action("Login", "Konto")">
+                    <span class="glyphicon glyphicon-user"></span> Zaloguj
+                </a>
+            </li>
+            }
+            else
+            {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Witaj, @Session["ImiePracownika"] <span class="caret"></span>
+                </a>
+
+                @*Pierwszy parametr to tekst wyświetlany, drugi to nazwa metody (Index), trzeci to nazwa kontrolera*@
+
+                <ul class="dropdown-menu">
+
+                    <li>@Html.ActionLink("Panel pracownika", "Index", "PanelUzytkownika")</li>
+                    <li>@Html.ActionLink("Bilingi komórkowe", "BilingiKomorkowe", "PanelUzytkownika")</li>
+                    <li>@Html.ActionLink("Bilingi stacjonarne", "BilingiStacjonarne", "PanelUzytkownika")</li>
+                    <li role="separator" class="divider"></li>
+                    <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto")</li>
+                </ul>
+            </li>
+            }
+        </ul>
+    </div>
 
     </nav>
     <div class="container body-content">
@@ -65,6 +72,7 @@
             <p>&copy; @DateTime.Now.Year - My phone book aplication</p>
         </footer>
     </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

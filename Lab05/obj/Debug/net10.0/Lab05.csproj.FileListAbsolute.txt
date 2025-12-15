@@ -1,0 +1,5 @@
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.sourcelink.json

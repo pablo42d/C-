@@ -17,6 +17,8 @@ namespace SystemTelefonicznyGY.Models
         public string Status { get { return _status; } set { _status = value; } }
         public int IdPracownika { get { return _idPracownika; } }
 
+        public string Aparat { get; internal set; }
+
         /// <summary>
         /// Inicjalizuje nową instancję klasy Urzadzenie z podanymi wartościami. 
         /// </summary>

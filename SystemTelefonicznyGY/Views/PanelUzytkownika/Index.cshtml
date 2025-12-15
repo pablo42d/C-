@@ -1,0 +1,116 @@
+﻿
+@using System.Data
+@model SystemTelefonicznyGY.Controllers.PodsumowaniePracownikaModel
+
+@{
+    ViewBag.Title = "Mój Panel - Goodyear";
+}
+
+<main>
+    <h2>Panel Pracownika: @(Session["ImiePracownika"] ?? "Użytkownik")</h2>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-md-4">
+            <div class="alert alert-info">
+                <h4>Suma kosztów (Komórkowe)</h4>
+                <p style="font-size: 24px;"><strong>@Model.SumaKomorkowe.ToString("0.00") zł</strong></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-warning">
+                <h4>Suma kosztów (Stacjonarne)</h4>
+                <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Moje Urządzenia</h3>
+    <table class="table table-bordered table-striped">
+        <thead style="background-color: #2c3e50; color: white;">
+            <tr>
+                <th>Aparat</th>
+                <th>Model</th>
+                <th>Numer Seryjny</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.MojeUrzadzenia != null && Model.MojeUrzadzenia.Any())
+            {
+                foreach (var urz in Model.MojeUrzadzenia)
+                {
+                    <tr>
+                        <td>@urz.Aparat</td>
+                        <td>@urz.Model</td>
+                        <td>@urz.SN</td>
+                        <td><span class="label label-primary">@urz.Status</span></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="4" class="text-center">Brak przypisanych urządzeń.</td></tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />
+
+    @*<h3>Szczegółowy biling połączeń</h3>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#kom">Komórkowe</a></li>
+        <li><a data-toggle="tab" href="#stac">Stacjonarne</a></li>
+    </ul>
+
+    <div class="tab-content" style="padding-top:20px;">
+        <div id="kom" class="tab-pane fade in active">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Numer Wybierany</th>
+                        <th>Czas (sek)</th>
+                        <th>Koszt Brutto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.BilingiKomorkowe)
+                    {
+                        <tr>
+                            <td>@row["DataPolaczenia"]</td>
+                            <td>@row["NumerWybierany"]</td>
+                            <td>@row["CzasTrwania"]</td>
+                            <td>@row["KwotaBrutto"] zł</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div id="stac" class="tab-pane fade">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Numer Wybierany</th>
+                        <th>Czas (sek)</th>
+                        <th>Koszt Brutto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.BilingiStacjonarne)
+                    {
+                        <tr>
+                            <td>@row["DataPolaczenia"]</td>
+                            <td>@row["NumerWybierany"]</td>
+                            <td>@row["CzasTrwania"]</td>
+                            <td>@row["KwotaBrutto"] zł</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>*@
+</main>
