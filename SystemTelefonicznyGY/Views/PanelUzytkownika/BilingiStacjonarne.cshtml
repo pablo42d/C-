@@ -1,20 +1,80 @@
 ﻿
 @using System.Data
 @model DataTable
-<h3>Szczegółowy biling połączeń Stacjonarnych</h3>
-<table class="table table-striped">
-    <thead>
-        <tr><th>Data</th><th>Numer Wybierany</th><th>Czas (sek)</th><th>Koszt Brutto</th></tr>
-    </thead>
-    <tbody>
-        @foreach (DataRow row in Model.Rows)
-        {
+
+@{
+    string typ = ViewBag.Typ;
+    string miesiac = ViewBag.MiesiacBilingowy;
+    ViewBag.Title = $"Bilingi Szczegółowe {typ}";
+    string eksportAction = (typ == "Komórkowe") ? "kom" : "stac";
+}
+
+<h2>Bilingi Szczegółowe - @typ</h2>
+<p class="lead">Bilingi za miesiąc: <strong>@miesiac</strong></p>
+<hr />
+
+@if (TempData["Blad"] != null)
+{
+    <div class="alert alert-danger">@TempData["Blad"]</div>
+}
+
+@if (Model != null && Model.Rows.Count > 0)
+{
+    <p>
+        <a href="@Url.Action("EksportBilingu", "PanelUzytkownika", new { typ = eksportAction })" class="btn btn-success">
+            <i class="fas fa-download"></i> Pobierz biling (@miesiac)
+        </a>
+    </p>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
             <tr>
-                <td>@row["DataPolaczenia"]</td>
-                <td>@row["NumerWybierany"]</td>
-                <td>@row["CzasTrwania"]</td>
-                <td>@row["KwotaBrutto"] zł</td>
+                <th>Data Połączenia</th>
+                <th>Numer Własny</th>
+                <th>Numer Wybierany</th>
+                <th>Czas Trwania (s)</th>
+                <th>Kwota Brutto</th>
+                <th>Nr Faktury</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@Convert.ToDateTime(row["DataPolaczenia"]).ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@row["NumerTelefonu"]</td>
+                    <td>@row["NumerWybierany"]</td>
+                    <td>@row["CzasTrwania"]</td>
+                    <td>@Convert.ToDecimal(row["KwotaBrutto"]).ToString("0.00") zł</td>
+                    <td>@row["NrFaktury"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        W tej chwili brak szczegółowych bilingów **@typ** za miesiąc **@miesiac**.
+    </div>
+}
+
+@*Stary kod ver1*@
+
+@*<h3>Szczegółowy biling połączeń Stacjonarnych</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr><th>Data</th><th>Numer Wybierany</th><th>Czas (sek)</th><th>Koszt Brutto</th></tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["DataPolaczenia"]</td>
+                    <td>@row["NumerWybierany"]</td>
+                    <td>@row["CzasTrwania"]</td>
+                    <td>@row["KwotaBrutto"] zł</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
