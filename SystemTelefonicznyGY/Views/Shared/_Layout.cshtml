@@ -4,25 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - System Telefoniczny GY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/site.css" rel="stylesheet">
+    
 
-    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
 
-    <style>
-        /* Styl, który naśladuje starszy wygląd navbar-dark */
-        .navbar-dark {
-            background-color: #212529 !important; /* Ciemne tło */
-        }
+    @*<style>
+            /* Styl, który naśladuje starszy wygląd navbar-dark */
+            .navbar-dark {
+                background-color: #212529 !important; /* Ciemne tło */
+            }
 
-        .navbar-brand, .nav-link, .navbar-nav .dropdown-toggle {
-            color: rgba(255, 255, 255, 0.9) !important; /* Jasny tekst */
-        }
+            .navbar-brand, .nav-link, .navbar-nav .dropdown-toggle {
+                color: rgba(255, 255, 255, 0.9) !important; /* Jasny tekst */
+            }
 
-        .navbar-nav .nav-link:hover {
-            color: rgba(255, 255, 255, 0.75) !important;
-        }
-    </style>
+            .navbar-nav .nav-link:hover {
+                color: rgba(255, 255, 255, 0.75) !important;
+            }
+        </style>*@
+
+
 </head>
+
+
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
@@ -34,50 +41,55 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
+
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+                <div class="d-flex w-100">
+                    @* 1. Linki po lewej stronie (flex-grow-1 i me-auto to klucz do BS5) *@
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">@Html.ActionLink("Książka Telefoniczna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("O nas", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Kontakt", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
-                @* 1. Linki po lewej stronie (flex-grow-1 i me-auto to klucz do BS5) *@
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">@Html.ActionLink("Książka Telefoniczna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("O nas", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Kontakt", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+                    </ul>
 
-                @* 2. Sekcja Logowania po prawej stronie (ms-auto) *@
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    @if (Session["IdPracownika"] == null)
-                    {
-                        <li class="nav-item">
-                            <a href="@Url.Action("Login", "Konto")" class="nav-link">
-                                <i class="fas fa-sign-in-alt"></i> Zaloguj
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user"></i> Witaj, @Session["ImiePracownika"] <span class="badge text-bg-warning">@Session["RolaPracownika"]</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li>@Html.ActionLink("Panel Pracownika", "Index", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
-                                <li>@Html.ActionLink("Bilingi Komórkowe", "BilingiKomorkowe", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
-                                <li>@Html.ActionLink("Bilingi Stacjonarne", "BilingiStacjonarne", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
 
-                                @if (Session["RolaPracownika"] != null && Session["RolaPracownika"].ToString() == "Admin")
-                                {
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>@Html.ActionLink("ADMIN: Zarządzanie", "Index", "Administrator", null, new { @class = "dropdown-item text-danger" })</li>
-                                }
+                    @* 2. Sekcja Logowania po prawej stronie (ms-auto) *@
 
-                                <li><hr class="dropdown-divider"></li>
-                                <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto", null, new { @class = "dropdown-item" })</li>
-                            </ul>
-                        </li>
-                    }
-                </ul>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        @* Twój kod logowania (Witaj ) *@
+                        @if (Session["IdPracownika"] == null)
+                        {
+                            <li class="nav-item">
+                                <a href="@Url.Action("Login", "Konto")" class="nav-link">
+                                    <i class="fas fa-sign-in-alt"></i> Zaloguj
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> Witaj: @(Session["ImiePracownika"] + " " + Session["NazwiskoPracownika"] ?? "Użytkownik")
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li>@Html.ActionLink("Panel Pracownika", "Index", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Bilingi Komórkowe", "BilingiKomorkowe", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Bilingi Stacjonarne", "BilingiStacjonarne", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+
+                                    @if (Session["RolaPracownika"] != null && Session["RolaPracownika"].ToString() == "Admin")
+                                    {
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>@Html.ActionLink("ADMIN: Zarządzanie", "Index", "Administrator", null, new { @class = "dropdown-item text-danger" })</li>
+                                    }
+                                    <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto", null, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -91,9 +103,9 @@
     </div>
 
     @* WAŻNE: W BS5 jQuery musi być pierwsze, a po nim Popper i Bootstrap JS. *@
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

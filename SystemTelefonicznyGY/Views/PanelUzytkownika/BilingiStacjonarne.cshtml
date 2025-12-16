@@ -5,11 +5,11 @@
 @{
     string typ = ViewBag.Typ;
     string miesiac = ViewBag.MiesiacBilingowy;
-    ViewBag.Title = $"Bilingi Szczegółowe {typ}";
+    ViewBag.Title = $"Bilingi szczegółowe dla numerów komórkowych:";
     string eksportAction = (typ == "Komórkowe") ? "kom" : "stac";
 }
 
-<h2>Bilingi Szczegółowe - @typ</h2>
+<h2>Bilingi szczegółowe dla numerów komórkowych:</h2>
 <p class="lead">Bilingi za miesiąc: <strong>@miesiac</strong></p>
 <hr />
 

@@ -77,14 +77,14 @@ namespace SystemTelefonicznyGY.Controllers
         
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Prefiksy zewnętrzne i wewnętrzne dla Systemu telekomunikacynego Firmy.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Dane kontaktowe do Firmy.";
 
             return View();
         }

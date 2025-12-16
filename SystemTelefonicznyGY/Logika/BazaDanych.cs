@@ -30,7 +30,6 @@ namespace SystemTelefonicznyGY.Logika
                 }
                 catch (Exception ex)
                 {
-                    // Tutaj obsługa wyjątków - wymóg na ocenę 4.0
                     // Możemy np. zapisać błąd do logów
                     throw new Exception("Błąd połączenia z bazą: " + ex.Message);
                 }
