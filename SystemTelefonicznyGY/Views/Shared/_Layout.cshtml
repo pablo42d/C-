@@ -3,69 +3,86 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - System Telefoniczny GY</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    
+
+    <style>
+        /* Styl, który naśladuje starszy wygląd navbar-dark */
+        .navbar-dark {
+            background-color: #212529 !important; /* Ciemne tło */
+        }
+
+        .navbar-brand, .nav-link, .navbar-nav .dropdown-toggle {
+            color: rgba(255, 255, 255, 0.9) !important; /* Jasny tekst */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: rgba(255, 255, 255, 0.75) !important;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
 
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+            @* Marka aplikacji * @
+                @Html.ActionLink("System Telefoniczny GY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                @* Przycisk dla mobilnej wersji *@
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                @* 1. Linki po lewej stronie (flex-grow-1 i me-auto to klucz do BS5) *@
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">@Html.ActionLink("Książka Telefoniczna", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("O nas", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Kontakt", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+
+                @* 2. Sekcja Logowania po prawej stronie (ms-auto) *@
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    @if (Session["IdPracownika"] == null)
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("Login", "Konto")" class="nav-link">
+                                <i class="fas fa-sign-in-alt"></i> Zaloguj
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> Witaj, @Session["ImiePracownika"] <span class="badge text-bg-warning">@Session["RolaPracownika"]</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li>@Html.ActionLink("Panel Pracownika", "Index", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Bilingi Komórkowe", "BilingiKomorkowe", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Bilingi Stacjonarne", "BilingiStacjonarne", "PanelUzytkownika", null, new { @class = "dropdown-item" })</li>
+
+                                @if (Session["RolaPracownika"] != null && Session["RolaPracownika"].ToString() == "Admin")
+                                {
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>@Html.ActionLink("ADMIN: Zarządzanie", "Index", "Administrator", null, new { @class = "dropdown-item text-danger" })</li>
+                                }
+
+                                <li><hr class="dropdown-divider"></li>
+                                <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto", null, new { @class = "dropdown-item" })</li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
-
-        @* Sekcja po prawej stronie *@
-    <div class="navbar-collapse collapse">
-
-        <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-            if (Session["IdPracownika"] == null)
-            {
-            <li>
-                <a href="@Url.Action("Login", "Konto")">
-                    <span class="glyphicon glyphicon-user"></span> Zaloguj
-                </a>
-            </li>
-            }
-            else
-            {
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Witaj, @Session["ImiePracownika"] <span class="caret"></span>
-                </a>
-
-                @*Pierwszy parametr to tekst wyświetlany, drugi to nazwa metody (Index), trzeci to nazwa kontrolera*@
-
-                <ul class="dropdown-menu">
-
-                    <li>@Html.ActionLink("Panel pracownika", "Index", "PanelUzytkownika")</li>
-                    <li>@Html.ActionLink("Bilingi komórkowe", "BilingiKomorkowe", "PanelUzytkownika")</li>
-                    <li>@Html.ActionLink("Bilingi stacjonarne", "BilingiStacjonarne", "PanelUzytkownika")</li>
-                    <li role="separator" class="divider"></li>
-                    <li>@Html.ActionLink("Wyloguj", "Wyloguj", "Konto")</li>
-                </ul>
-            </li>
-            }
-        </ul>
-    </div>
-
     </nav>
-    <div class="container body-content">
+
+    <div class="container body-content" style="margin-top: 20px;">
         @RenderBody()
         <hr />
         <footer>
@@ -73,7 +90,7 @@
         </footer>
     </div>
 
-
+    @* WAŻNE: W BS5 jQuery musi być pierwsze, a po nim Popper i Bootstrap JS. *@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

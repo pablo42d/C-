@@ -10,66 +10,113 @@ namespace SystemTelefonicznyGY.Controllers
 {
     public class PanelUzytkownikaController : Controller
     {
-        private readonly int idZalogowanego;
+        //private readonly int idZalogowanego;
         private BazaDanych _baza = new BazaDanych();
 
         // GET: PanelUzytkownika
         // Sprawdzamy, czy użytkownik jest zalogowany przed wyświetleniem panelu użytkownika
         public ActionResult Index()
         {
-            //if (Session["IdPracownika"] == null)
-            //{
-            //    return RedirectToAction("Login", "Konto");
-            //}
+            if (Session["IdPracownika"] == null)
+            {
+                return RedirectToAction("Login", "Konto");
+            }
+
+            // POPRAWKA: POBIERAMY ID Z SESJI I UŻYWAMY LOKALNIE
+            int idPracownika = Convert.ToInt32(Session["IdPracownika"]);
 
             //int idZalogowanegoPracownika = Convert.ToInt32(Session["IdPracownika"]);
 
             //// Przygotowanie kontenera na dane (ViewModel)
-            //var model = new PodsumowaniePracownikaModel();
-
-            // inna wersja
-            if (Session["IdPracownika"] == null) return RedirectToAction("Login", "Konto");
-            int id = Convert.ToInt32(Session["IdPracownika"]);
-
             var model = new PodsumowaniePracownikaModel();
 
-            // 2. Pobieranie Urządzeń dla zalogowanego pracownika
-            // 
-            string sqlUrzadzenia = $"SELECT * FROM Urzadzenia WHERE ID_Pracownika = {idZalogowanego}";
+            // inna wersja
+            //if (Session["IdPracownika"] == null) return RedirectToAction("Login", "Konto");
+            //int id = Convert.ToInt32(Session["IdPracownika"]);
+
+            //var model = new PodsumowaniePracownikaModel();
+
+            //// 2. Pobieranie Urządzeń dla zalogowanego pracownika
+            //// 
+            //string sqlUrzadzenia = $"SELECT * FROM Urzadzenia WHERE ID_Pracownika = {idZalogowanego}";
+            // POPRAWKA: Używamy idPracownika zamiast pustej idZalogowanego
+            string sqlUrzadzenia = $"SELECT * FROM Urzadzenia WHERE ID_Pracownika = {idPracownika}";
             DataTable dtUrzadzenia = _baza.PobierzDane(sqlUrzadzenia);
-            foreach (DataRow row in dtUrzadzenia.Rows)
+            // Zabezpieczenie przed błędem, jeśli baza nie zwróci danych (dtUrzadzenia == null)
+            if (dtUrzadzenia != null)
             {
-                model.MojeUrzadzenia.Add(new Urzadzenie(
-                    Convert.ToInt32(row["ID"]),
-                    row["Model"].ToString(),
-                    row["SN"].ToString(),
-                    row["Status"].ToString(),
-                    idZalogowanego
-                )
-                { Aparat = row["Aparat"].ToString() });
+                foreach (DataRow row in dtUrzadzenia.Rows)
+                {
+                    model.MojeUrzadzenia.Add(new Urzadzenie(
+                        Convert.ToInt32(row["ID"]),
+                        row["Model"].ToString(),
+                        row["SN"].ToString(),
+                        row["Status"].ToString(),
+                        idPracownika // Używamy idPracownika
+                    )
+                    { Aparat = row["Aparat"].ToString() });
+                }
             }
-            // 3. Pobieranie Połączeń komórkowych i sumowanie kosztów
+            //foreach (DataRow row in dtUrzadzenia.Rows)
+            //{
+            //    model.MojeUrzadzenia.Add(new Urzadzenie(
+            //        Convert.ToInt32(row["ID"]),
+            //        row["Model"].ToString(),
+            //        row["SN"].ToString(),
+            //        row["Status"].ToString(),
+            //        idZalogowanego
+            //    )
+            //    { Aparat = row["Aparat"].ToString() });
+            //}
+            //// 3. Pobieranie Połączeń komórkowych i sumowanie kosztów
+            //string sqlKom = $@"SELECT b.* FROM BilingiKomorkowe b 
+            //                   JOIN NumeryKomorkowe n ON b.ID_NumeruKomorkowego = n.ID 
+            //                   WHERE n.ID_Pracownika = {idZalogowanego}";
             string sqlKom = $@"SELECT b.* FROM BilingiKomorkowe b 
-                               JOIN NumeryKomorkowe n ON b.ID_NumeruKomorkowego = n.ID 
-                               WHERE n.ID_Pracownika = {idZalogowanego}";
+                           JOIN NumeryKomorkowe n ON b.ID_NumeruKomorkowego = n.ID 
+                           WHERE n.ID_Pracownika = {idPracownika}";
+
             DataTable dtKom = _baza.PobierzDane(sqlKom);
-            foreach (DataRow row in dtKom.Rows)
+            if (dtKom != null)
             {
-                decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
-                model.BilingiKomorkowe.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
-                model.SumaKomorkowe += koszt;
+                foreach (DataRow row in dtKom.Rows)
+                {
+                    decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
+                    model.BilingiKomorkowe.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
+                    model.SumaKomorkowe += koszt;
+                }
             }
-            // 4. Pobieranie Połączeń stacjonarnych i sumowanie kosztów
+            //foreach (DataRow row in dtKom.Rows)
+            //{
+            //    decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
+            //    model.BilingiKomorkowe.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
+            //    model.SumaKomorkowe += koszt;
+            //}
+            //// 4. Pobieranie Połączeń stacjonarnych i sumowanie kosztów
+            //string sqlStacjonarne = $@"SELECT b.* FROM BilingiStacjonarne b 
+            //                          JOIN NumeryStacjonarne n ON b.ID_NumeruStacjonarnego = n.ID 
+            //                          WHERE n.ID_Pracownika = {idZalogowanego}";
+            // POPRAWKA: Używamy idPracownika w zapytaniu
             string sqlStacjonarne = $@"SELECT b.* FROM BilingiStacjonarne b 
-                                      JOIN NumeryStacjonarne n ON b.ID_NumeruStacjonarnego = n.ID 
-                                      WHERE n.ID_Pracownika = {idZalogowanego}";
+                                 JOIN NumeryStacjonarne n ON b.ID_NumeruStacjonarnego = n.ID 
+                                 WHERE n.ID_Pracownika = {idPracownika}";
+
             DataTable dtStacjonarne = _baza.PobierzDane(sqlStacjonarne);
-            foreach (DataRow row in dtStacjonarne.Rows)
+            if (dtStacjonarne != null)
             {
-                decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
-                model.BilingiStacjonarne.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
-                model.SumaStacjonarne += koszt;
+                foreach (DataRow row in dtStacjonarne.Rows)
+                {
+                    decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
+                    model.BilingiStacjonarne.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
+                    model.SumaStacjonarne += koszt;
+                }
             }
+            //foreach (DataRow row in dtStacjonarne.Rows)
+            //{
+            //    decimal koszt = Convert.ToDecimal(row["KwotaBrutto"]);
+            //    model.BilingiStacjonarne.Add(row); // Używamy DataRow dla uproszczenia bilingu szczegółowego
+            //    model.SumaStacjonarne += koszt;
+            //}
             return View(model);
 
         }
