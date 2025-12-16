@@ -7,7 +7,9 @@
 }
 
 <main>
-    <h2>Panel Pracownika: @(Session["ImiePracownika"] ?? "Użytkownik")</h2>
+    @*<h2>Panel Pracownika: @(Session["ImiePracownika"] ?? "Użytkownik")</h2>*@
+    @*Modyfikacja widoku w celu wyświetlenia Imienia i Nazwiska pracownika*@
+    <h2>Panel Pracownika: @(Session["ImiePracownika"] + " " + Session["NazwiskoPracownika"] ?? "Użytkownik")</h2>
     @*<p class="lead">Dane bilingowe wyświetlane są za miesiąc: <strong>@ViewBag.MiesiacBilingowy</strong>.</p>*@
 
     <div class="row" style="margin-top:20px;">
@@ -15,13 +17,13 @@
             <div class="alert alert-info">
                 <h4>Suma wszystkich kosztów za połączenia (Komórkowe)</h4>
                 @*@if (Model.SumaKomorkowe > 0)
-                {
-                    <p style="font-size: 24px;"><strong>@Model.SumaKomorkowe.ToString("0.00") zł</strong></p>
-                }
-                else
-                {
-                    <p class="text-muted">Brak bilingów komórkowych za ten miesiąc.</p>
-                }*@
+                    {
+                        <p style="font-size: 24px;"><strong>@Model.SumaKomorkowe.ToString("0.00") zł</strong></p>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Brak bilingów komórkowych za ten miesiąc.</p>
+                    }*@
 
                 <p style="font-size: 24px;"><strong>@Model.SumaKomorkowe.ToString("0.00") zł</strong></p>
             </div>
@@ -30,13 +32,13 @@
             <div class="alert alert-warning">
                 <h4>Suma wszystkich kosztów za połączenia (Stacjonarne)</h4>
                 @*@if (Model.SumaStacjonarne > 0)
-                {
-                    <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
-                }
-                else
-                {
-                    <p class="text-muted">Brak bilingów stacjonarnych za ten miesiąc.</p>
-                }*@
+                    {
+                        <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
+                    }
+                    else
+                    {
+                        <p class="text-muted">Brak bilingów stacjonarnych za ten miesiąc.</p>
+                    }*@
 
                 <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
             </div>
