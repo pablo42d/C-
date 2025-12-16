@@ -30,14 +30,15 @@ namespace SystemTelefonicznyGY.Controllers
 
         // Get:Wyświetlanie formularza logowania
         // Obsluga danych z formularza logowania
+        //zmiana sposobu wyświetlania osoby zalogowanej przez dodanie Nazwiska
         [HttpPost]
 
         public ActionResult Login(LogowanieModel model)
         {
             if (ModelState.IsValid)
             {
-                // Szukamy pracownika w bazie (studencki sposób)
-                string zapytanie = $"SELECT ID, Imie, Rola FROM Pracownicy WHERE Login = '{model.Login}' AND Haslo = '{model.Haslo}'";
+                // Szukamy pracownika w bazie (studencki sposób) dodanie Nazwiska do zapytania
+                string zapytanie = $"SELECT ID, Imie, Nazwisko, Rola FROM Pracownicy WHERE Login = '{model.Login}' AND Haslo = '{model.Haslo}'";
                 DataTable wynik = _bazaObiekt.PobierzDane(zapytanie);
 
                 if (wynik.Rows.Count > 0)
@@ -45,6 +46,8 @@ namespace SystemTelefonicznyGY.Controllers
                     // Ustawiamy sesję (pamięć serwera o zalogowanym)
                     Session["IdPracownika"] = wynik.Rows[0]["ID"];
                     Session["ImiePracownika"] = wynik.Rows[0]["Imie"];
+                    // Dodanie Nazwiska do sesji
+                    Session["NazwiskoPracownika"] = wynik.Rows[0]["Nazwisko"];
                     Session["RolaPracownika"] = wynik.Rows[0]["Rola"];
 
                     return RedirectToAction("Index", "Home"); // Przekierowanie do strony głównej po zalogowaniu
