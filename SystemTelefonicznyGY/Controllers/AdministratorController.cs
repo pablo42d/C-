@@ -17,7 +17,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             return Session["RolaPracownika"] != null && Session["RolaPracownika"].ToString() == "Admin";
         }
-        // GET: Administrator( dashbord Administratora
+        // 1. GET: Administrator( dashbord Administratora = Vidok Index)
         public ActionResult Index()
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
@@ -28,6 +28,13 @@ namespace SystemTelefonicznyGY.Controllers
 
             return View();
         }
+
+        // 2. Lista Pracowników = vidok Pracownicy
+        public ActionResult Pracownicy()
+        {
+
+        }
+
 
     }
 }
