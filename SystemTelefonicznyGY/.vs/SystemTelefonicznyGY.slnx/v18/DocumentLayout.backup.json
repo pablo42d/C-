@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\administrator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\administrator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -32,24 +40,49 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Administrator\\Index.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Index.cshtml",
+              "RelativeToolTip": "Views\\Administrator\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T21:16:10.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdministratorController.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdministratorController.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
+              "RelativeToolTip": "Controllers\\AdministratorController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T20:34:46.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-16T22:42:09.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-16T22:42:09.419Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Shared\\_Layout.cshtml*",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml*",
-              "ViewState": "AgIAABUAAAAAAAAAAAAjwGwAAAAJAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-16T20:51:51.499Z",
               "EditorCaption": ""
