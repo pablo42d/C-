@@ -32,6 +32,7 @@ namespace SystemTelefonicznyGY.Controllers
         // 2. Lista Pracowników = vidok Pracownicy
         public ActionResult Pracownicy()
         {
+            return View();
 
         }
 
