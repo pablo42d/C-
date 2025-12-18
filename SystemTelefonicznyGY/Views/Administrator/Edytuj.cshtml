@@ -1,0 +1,66 @@
+﻿@using System.Data
+@model SystemTelefonicznyGY.Models.Pracownik
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>@(Model.Id == 0 ? "Dodaj Nowego Pracownika" : "Edycja Pracownika: " + Model.PelneNazwisko)</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Zapisz", "Administrator", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Id)
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Imię</label>
+                        <input type="text" name="Imie" value="@Model.Imie" class="form-control" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nazwisko</label>
+                        <input type="text" name="Nazwisko" value="@Model.Nazwisko" class="form-control" required />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Login</label>
+                        <input type="text" name="Login" value="@Model.Login" class="form-control" required />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Stanowisko</label>
+                            <input type="text" name="Stanowisko" value="@Model.Stanowisko" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Dział</label>
+                        <select name="IdDzialu" class="form-select">
+                            @foreach (DataRow dzial in (ViewBag.ListaDzialow as DataTable).Rows)
+                            {
+                                <option value="@dzial["ID"]" @(Convert.ToInt32(dzial["ID"]) == Model.IdDzialu ? "selected" : "")>
+                                    @dzial["NazwaDzialu"]
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Rola</label>
+                    <select name="Rola" class="form-select">
+                        <option value="User" @(Model.Rola == "User" ? "selected" : "")>Użytkownik (User)</option>
+                        <option value="Admin" @(Model.Rola == "Admin" ? "selected" : "")>Administrator (Admin)</option>
+                    </select>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fas fa-save"></i> Zapisz Zmiany
+                    </button>
+                    <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

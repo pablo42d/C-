@@ -3,7 +3,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Lista Pracowników</h2>
-        <a href="@Url.Action("DodajPracownika", "Administrator")" class="btn btn-success">
+        <a href="@Url.Action("Edytuj", "Administrator")" class="btn btn-success">
             <i class="fas fa-plus"></i> Dodaj Pracownika
         </a>
     </div>
@@ -29,7 +29,28 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.Id</td>
+                        <td><strong>@p.Imie @p.Nazwisko</strong></td>
+                        <td>@p.Stanowisko</td>
+                        <td><code>@p.Login</code></td>
+                        <td>
+                            <span class="badge @(p.Rola == "Admin" ? "bg-danger" : "bg-primary")">@p.Rola</span>
+                        </td>
+                        <td class="text-center">
+                            <div class="btn-group">
+                                <a href="@Url.Action("Edytuj", "Administrator", new { id = p.Id })" class="btn btn-sm btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="@Url.Action("Usun", "Administrator", new { id = p.Id })" class="btn btn-sm btn-outline-danger" onclick="return confirm('Usunąć pracownika?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

@@ -262,6 +262,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Administrator\Index.cshtml" />
     <Content Include="Views\Administrator\Pracownicy.cshtml" />
+    <Content Include="Views\Administrator\Edytuj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
