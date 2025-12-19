@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using System.Security.Policy;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
@@ -14,6 +16,8 @@ namespace SystemTelefonicznyGY.Controllers
     public class AdministratorController : Controller
     {
         private BazaDanych _baza = new BazaDanych();
+
+        public object Haslo { get; private set; }
 
         //Sprawdzamy uprawnienia czy Admin
         private bool CzyAdmin()
@@ -66,6 +70,14 @@ namespace SystemTelefonicznyGY.Controllers
             return View(lista);
         }
 
+        // Metoda wyświetlająca stronę wyboru pliku CSV
+        [HttpGet]
+        public ActionResult Import()
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Edytuj(int? id)
         {
@@ -100,20 +112,19 @@ namespace SystemTelefonicznyGY.Controllers
         }
         //Implementacja zapisu(Metoda POST) Aby formularz zaczął działać, dodajemy metodę Zapisz. Ponieważ model Pracownik nie ma publicznych setterów(ma tylko get), parametry z formularza odbierzemy bezpośrednio w argumentach metody.
         [HttpPost]
-        public ActionResult Zapisz(int Id, string Imie, string Nazwisko, string Login, int IdDzialu, string Rola, string Stanowisko)
+        public ActionResult Zapisz(int Id, string Imie, string Nazwisko, string Login, int IdDzialu, string Rola, string Stanowisko, string Haslo) // <--- Dodano Haslo
         {
-            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+            if (Session["RolaPracownika"]?.ToString() != "Admin") return RedirectToAction("Login", "Konto");
 
             string sql;
             if (Id == 0)
             {
-                // INSERT - Nowy pracownik (Hasło domyślne np. 'Start123')
+                // Teraz zmienna Haslo jest widoczna i zostanie pobrana z formularza
                 sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, Stanowisko, Kraj) 
-                 VALUES ('{Imie}', '{Nazwisko}', '{Login}', 'Start123', '{Rola}', {IdDzialu}, '{Stanowisko}', 'Polska')";
+                 VALUES ('{Imie}', '{Nazwisko}', '{Login}', '{Haslo}', '{Rola}', {IdDzialu}, '{Stanowisko}', 'Polska')";
             }
             else
             {
-                // UPDATE - Istniejący pracownik
                 sql = $@"UPDATE Pracownicy SET 
                  Imie = '{Imie}', 
                  Nazwisko = '{Nazwisko}', 
@@ -127,15 +138,94 @@ namespace SystemTelefonicznyGY.Controllers
             try
             {
                 _baza.WykonajPolecenie(sql);
-                TempData["Sukces"] = "Dane pracownika zostały zapisane.";
+                TempData["Sukces"] = "Dane zostały pomyślnie zapisane.";
             }
             catch (Exception ex)
             {
-                TempData["Blad"] = "Błąd zapisu: " + ex.Message;
+                TempData["Blad"] = "Błąd bazy danych: " + ex.Message;
             }
 
             return RedirectToAction("Pracownicy");
         }
+
+
+        //if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+        //string sql;
+        //if (Id == 0)
+        //{
+        //    // INSERT - Nowy pracownik (Hasło domyślne np. 'user123')
+        //    sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, Stanowisko, Kraj) 
+        //     VALUES ('{Imie}', '{Nazwisko}', '{Login}', 'user123', '{Rola}', {IdDzialu}, '{Stanowisko}', 'Polska')";
+        //}
+        //else
+        //{
+        //    // UPDATE - Istniejący pracownik
+        //    sql = $@"UPDATE Pracownicy SET 
+        //     Imie = '{Imie}', 
+        //     Nazwisko = '{Nazwisko}', 
+        //     Login = '{Login}', 
+        //     Rola = '{Rola}', 
+        //     ID_Dzialu = {IdDzialu}, 
+        //     Stanowisko = '{Stanowisko}' 
+        //     WHERE ID = {Id}";
+        //}
+
+        //try
+        //{
+        //    _baza.WykonajPolecenie(sql);
+        //    TempData["Sukces"] = "Dane pracownika zostały zapisane.";
+        //}
+        //catch (Exception ex)
+        //{
+        //    TempData["Blad"] = "Błąd podczas zapisu: " + ex.Message;                
+        //}
+
+        //return RedirectToAction("Pracownicy");
+
+
+
+        [HttpPost]
+        public ActionResult ImportujCSV(HttpPostedFileBase plikBilingowy, string typ)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            if (plikBilingowy != null && plikBilingowy.ContentLength > 0)
+            {
+                try
+                {
+                    using (var reader = new System.IO.StreamReader(plikBilingowy.InputStream))
+                    {
+                        // Pomijamy nagłówek pliku
+                        reader.ReadLine();
+                        int licznik = 0;
+
+                        while (!reader.EndOfStream)
+                        {
+                            var linia = reader.ReadLine();
+                            var wartosci = linia.Split(';'); // Zakładamy średnik jako separator
+
+                            // Przykładowy mapowanie: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru
+                            string tabela = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
+                            string idKolumna = (typ == "kom") ? "ID_NumeruKomorkowego" : "ID_NumeruStacjonarnego";
+
+                            string sql = $@"INSERT INTO {tabela} (DataPolaczenia, NumerTelefonu, NumerWybierany, CzasTrwania, KwotaBrutto, NrFaktury, {idKolumna})
+                                    VALUES ('{wartosci[0]}', '{wartosci[1]}', '{wartosci[2]}', {wartosci[3]}, {wartosci[4].Replace(',', '.')}, '{wartosci[5]}', {wartosci[6]})";
+
+                            _baza.WykonajPolecenie(sql);
+                            licznik++;
+                        }
+                        TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów bilingowych.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    TempData["Blad"] = "Błąd podczas przetwarzania pliku: " + ex.Message;
+                }
+            }
+            return RedirectToAction("Index");
+        }
+
 
         // Metoda suwanie Pracownika
         public ActionResult Usun(int id)
@@ -151,10 +241,47 @@ namespace SystemTelefonicznyGY.Controllers
             }
             catch (Exception ex)
             {
-                TempData["Blad"] = "Nie można usunąć pracownika (prawdopodobnie ma przypisane numery).";
+                TempData["Blad"] = "Nie można usunąć pracownika (prawdopodobnie ma przypisane numery)." + ex.Message;
             }
 
             return RedirectToAction("Pracownicy");
+        }
+
+
+        public void EksportujRaport()
+        {
+            if (!CzyAdmin()) return;
+
+            // Zapytanie łączące pracowników, działy i ich bilingi
+            string sql = @"
+        SELECT p.Imie, p.Nazwisko, d.NazwaDzialu, 
+               ISNULL(SUM(bk.KwotaBrutto), 0) + ISNULL(SUM(bs.KwotaBrutto), 0) as SumaKosztow
+        FROM Pracownicy p
+        JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        LEFT JOIN BilingiKomorkowe bk ON bk.ID_NumeruKomorkowego IN (SELECT ID FROM NumeryKomorkowe WHERE ID_Pracownika = p.ID)
+        LEFT JOIN BilingiStacjonarne bs ON bs.ID_NumeruStacjonarnego IN (SELECT ID FROM NumeryStacjonarne WHERE ID_Pracownika = p.ID)
+        GROUP BY p.Imie, p.Nazwisko, d.NazwaDzialu";
+
+            DataTable dt = _baza.PobierzDane(sql);
+
+            // Przygotowanie pliku CSV
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Imie;Nazwisko;Dzial;Suma Kosztow");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                sb.AppendLine($"{row["Imie"]};{row["Nazwisko"]};{row["NazwaDzialu"]};{row["SumaKosztow"]}");
+            }
+
+            // Wysłanie pliku do przeglądarki użytkownika
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment;filename=Raport_Koszty_Goodyear.csv");
+            Response.Charset = "";
+            Response.ContentType = "text/csv";
+            Response.Output.Write(sb.ToString());
+            Response.Flush();
+            Response.End();
         }
 
     }

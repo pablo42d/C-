@@ -54,6 +54,17 @@
                     </select>
                 </div>
 
+                if (Model.Id == 0)
+                {
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Hasło początkowe</label>
+                            <input type="password" name="Haslo" class="form-control" required />
+                            <small class="text-muted">Wymagane tylko dla nowych pracowników.</small>
+                        </div>
+                    </div>
+                }
+
                 <div class="mt-4">
                     <button type="submit" class="btn btn-success">
                         <i class="fas fa-save"></i> Zapisz Zmiany
@@ -64,3 +75,14 @@
         </div>
     </div>
 </div>
+
+@*<div class="mt-4">
+    <button type="submit" class="btn btn-success">
+        <i class="fas fa-save"></i> Zapisz Zmiany
+    </button>
+    <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
+</div>
+            }
+        </div>
+    </div>
+</div>*@

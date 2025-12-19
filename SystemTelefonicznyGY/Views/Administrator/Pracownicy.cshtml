@@ -2,13 +2,87 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Lista Pracowników</h2>
+        <h2><i class="fas fa-users-cog"></i> Lista Pracowników</h2>
         <a href="@Url.Action("Edytuj", "Administrator")" class="btn btn-success">
             <i class="fas fa-plus"></i> Dodaj Pracownika
         </a>
     </div>
 
+    @* Powiadomienia o sukcesie lub błędzie *@
     @if (TempData["Sukces"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle"></i> @TempData["Sukces"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Blad"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle"></i> @TempData["Blad"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-striped table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 50px;">ID</th>
+                    <th>Imię i Nazwisko</th>
+                    <th>Stanowisko</th>
+                    <th>Login</th>
+                    <th>Rola</th>
+                    <th class="text-center" style="width: 150px;">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.Id</td>
+                            <td><strong>@p.PelneNazwisko</strong></td>
+                            <td>@p.Stanowisko</td>
+                            <td><code>@p.Login</code></td>
+                            <td>
+                                <span class="badge @(p.Rola == "Admin" ? "bg-danger" : "bg-primary")">@p.Rola</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("Edytuj", "Administrator", new { id = p.Id })"
+                                       class="btn btn-sm btn-outline-warning" title="Edytuj">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="@Url.Action("Usun", "Administrator", new { id = p.Id })"
+                                       class="btn btn-sm btn-outline-danger"
+                                       onclick="return confirm('Czy na pewno chcesz usunąć pracownika: @p.PelneNazwisko?')"
+                                       title="Usuń">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="fas fa-info-circle fa-2x mb-2"></i><br />
+                            W tej chwili brak zarejestrowanych pracowników w systemie.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+@*@if (TempData["Sukces"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             @TempData["Sukces"]
@@ -52,6 +126,6 @@
                     </tr>
                 }
             </tbody>
-        </table>
-    </div>
-</div>
+        </table>*@
+
+

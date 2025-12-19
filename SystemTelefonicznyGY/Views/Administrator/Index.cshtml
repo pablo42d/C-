@@ -7,34 +7,41 @@
 
     <div class="row g-4">
         <div class="col-md-4">
-            <div class="card h-100 border-primary">
+            <div class="card h-100 border-primary shadow-sm">
                 <div class="card-body text-center">
                     <i class="fas fa-users fa-3x mb-3 text-primary"></i>
                     <h5 class="card-title">Pracownicy</h5>
                     <p class="card-text">Zarządzaj kadrą (@ViewBag.LiczbaPracownikow osób), dodawaj nowych i edytuj uprawnienia.</p>
-                    <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100">Otwórz listę</a>
+                    <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100">
+                        <i class="fas fa-list"></i> Otwórz listę
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card h-100 border-success">
+            <div class="card h-100 border-success shadow-sm">
                 <div class="card-body text-center">
                     <i class="fas fa-file-import fa-3x mb-3 text-success"></i>
                     <h5 class="card-title">Import Bilingów</h5>
                     <p class="card-text">Wgraj pliki CSV od operatora za miesiąc <strong>@ViewBag.OstatniMiesiac</strong>.</p>
-                    <a href="#" class="btn btn-success w-100 disabled">Wkrótce...</a>
+                    @* USUNIĘTO KLASĘ DISABLED *@
+                    <a href="@Url.Action("Import", "Administrator")" class="btn btn-success w-100">
+                        <i class="fas fa-upload"></i> Otwórz Import
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card h-100 border-danger">
+            <div class="card h-100 border-info shadow-sm">
                 <div class="card-body text-center">
-                    <i class="fas fa-file-export fa-3x mb-3 text-danger"></i>
-                    <h5 class="card-title">Raporty i Eksport</h5>
-                    <p class="card-text">Generuj zbiorcze zestawienia kosztów dla działów i księgowości.</p>
-                    <a href="#" class="btn btn-danger w-100 disabled">Wkrótce...</a>
+                    <i class="fas fa-file-csv fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Raporty Miesięczne</h5>
+                    <p class="card-text">Generuj zbiorcze zestawienia kosztów dla wszystkich działów i księgowości.</p>
+                    <a href="@Url.Action("EksportujRaport", "Administrator")" class="btn btn-info w-100 text-white">
+                        <i class="fas fa-download"></i> Pobierz Raport CSV
+                    </a>
                 </div>
             </div>
         </div>

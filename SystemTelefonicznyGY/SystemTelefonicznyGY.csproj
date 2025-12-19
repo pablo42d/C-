@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Logika\BazaDanych.cs" />
     <Compile Include="Models\ElementSystemu.cs" />
+    <Compile Include="Models\ILogowanieModel.cs" />
     <Compile Include="Models\LogowanieModel.cs" />
     <Compile Include="Models\Pracownik.cs" />
     <Compile Include="Models\PracownikWidok.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Views\Administrator\Index.cshtml" />
     <Content Include="Views\Administrator\Pracownicy.cshtml" />
     <Content Include="Views\Administrator\Edytuj.cshtml" />
+    <Content Include="Views\Administrator\Import.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

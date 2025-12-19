@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Import Danych";
+}
+
+<div class="container mt-4">
+    <div class="card shadow border-success">
+        <div class="card-header bg-success text-white">
+            <h4><i class="fas fa-file-csv"></i> Import bilingów operatora</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ImportujCSV", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="mb-3">
+                    <label class="form-label">Wybierz plik CSV</label>
+                    <input type="file" name="plikBilingowy" class="form-control" required />
+                    <div class="form-text">Format: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Typ połączeń</label>
+                    <select name="typ" class="form-select">
+                        <option value="kom">Komórkowe</option>
+                        <option value="stac">Stacjonarne</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">Rozpocznij import</button>
+                <a href="@Url.Action("Index")" class="btn btn-secondary">Anuluj</a>
+            }
+        </div>
+    </div>
+</div>
+</div>
