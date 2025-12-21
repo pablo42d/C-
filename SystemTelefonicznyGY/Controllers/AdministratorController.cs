@@ -333,8 +333,26 @@ namespace SystemTelefonicznyGY.Controllers
 
             return RedirectToAction("Dzialy");
         }
-        
-        
+
+        public ActionResult UsunStanowisko(int id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Dzialy");
+
+            try
+            {
+                // Sprawdzamy, czy jakieś bilingi lub pracownicy nie korzystają z tego stanowiska
+                _baza.WykonajPolecenie($"DELETE FROM Stanowiska WHERE ID = {id}");
+                TempData["Sukces"] = "Stanowisko zostało usunięte ze słownika.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Nie można usunąć stanowiska. Upewnij się, że żaden pracownik nie ma go przypisanego. " + ex.Message;
+            }
+
+            return RedirectToAction("Dzialy");
+        }
+
+
 
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
 
