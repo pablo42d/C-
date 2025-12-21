@@ -1,12 +1,11 @@
 ﻿
-@using System.Data
-@model List<SystemTelefonicznyGY.Models.PracownikWidok>
+@model List<SystemTelefonicznyGY.Models.Pracownik>
 
 @{
     ViewBag.Title = "Książka Telefoniczna - Goodyear Polska";
 }
 
-<main>
+<main class="container">
     <section class="row" aria-labelledby="systemTitle" style="background-color: #f8f9fa; padding: 30px; border-radius: 10px; margin-top: 20px;">
         <div class="col-md-12">
             <h1 id="systemTitle">System Telefoniczny GY</h1>
@@ -16,21 +15,18 @@
 
     <hr />
 
-    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="row my-4">
         <div class="col-md-12">
-            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-inline" }))
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "row g-3" }))
             {
-                <div class="input-group" style="width: 100%;">
+                <div class="input-group">
                     <input type="text"
                            name="szukanaFraza"
                            class="form-control"
-                           placeholder="Wpisz nazwisko pracownika lub nazwę działu..."
-                           style="max-width: 100%;" />
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="glyphicon glyphicon-search"></i> Szukaj
-                        </button>
-                    </div>
+                           placeholder="Wpisz nazwisko pracownika, login lub nazwę działu..." />
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Szukaj
+                    </button>
                 </div>
             }
         </div>
@@ -38,35 +34,35 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Lista Pracowników</h3>
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="card-title mb-0" style="font-size: 1.2rem;">Lista Pracowników</h3>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead class="thead-dark">
+                    <table class="table table-bordered table-striped table-hover mb-0">
+                        <thead class="table-light">
                             <tr>
                                 <th>Imię</th>
                                 <th>Nazwisko</th>
                                 <th>Stanowisko</th>
                                 <th>Dział</th>
-                                <th>Email</th>
+                                <th>Email (Login)</th>
                                 <th>Nr Stacjonarny</th>
                                 <th>Nr Komórkowy</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (Model.Any())
+                            @if (Model != null && Model.Any())
                             {
                                 foreach (var pracownik in Model)
                                 {
                                     <tr>
                                         <td>@pracownik.Imie</td>
-                                        <td>@pracownik.Nazwisko</td>
-                                        <td>@pracownik.Stanowisko</td>
+                                        <td><strong>@pracownik.Nazwisko</strong></td>
+                                        <td>@pracownik.NazwaStanowiska</td> @* Wyświetlamy nazwę, nie ID *@
                                         <td>@pracownik.Dzial</td>
-                                        <td>@pracownik.Login</td>
-                                        <td class="text-info">@pracownik.NrStacjonarny</td>
+                                        <td><code>@pracownik.Login</code></td>
+                                        <td class="text-primary">@pracownik.NrStacjonarny</td>
                                         <td class="text-success">@pracownik.NrKomorkowy</td>
                                     </tr>
                                 }
@@ -74,7 +70,7 @@
                             else
                             {
                                 <tr>
-                                    <td colspan="6" class="text-center">Brak wyników dla podanej frazy.</td>
+                                    <td colspan="7" class="text-center py-4 text-muted">Brak wyników dla podanej frazy.</td>
                                 </tr>
                             }
                         </tbody>
@@ -83,10 +79,108 @@
             </div>
         </div>
     </div>
-
-
-
 </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model List<SystemTelefonicznyGY.Models.Pracownik>
+
+    @{
+        ViewBag.Title = "Książka Telefoniczna - Goodyear Polska";
+    }
+
+    <main>
+        <section class="row" aria-labelledby="systemTitle" style="background-color: #f8f9fa; padding: 30px; border-radius: 10px; margin-top: 20px;">
+            <div class="col-md-12">
+                <h1 id="systemTitle">System Telefoniczny GY</h1>
+                <p class="lead">Wyszukiwanie numerów, pracowników oraz działów firmy Goodyear Polska.</p>
+            </div>
+        </section>
+
+        <hr />
+
+        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="col-md-12">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "form-inline" }))
+                {
+                    <div class="input-group" style="width: 100%;">
+                        <input type="text"
+                               name="szukanaFraza"
+                               class="form-control"
+                               placeholder="Wpisz nazwisko pracownika lub nazwę działu..."
+                               style="max-width: 100%;" />
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="glyphicon glyphicon-search"></i> Szukaj
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Lista Pracowników</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Imię</th>
+                                    <th>Nazwisko</th>
+                                    <th>NazwaStanowiska</th>
+                                    <th>Dział</th>
+                                    <th>Email</th>
+                                    <th>Nr Stacjonarny</th>
+                                    <th>Nr Komórkowy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Any())
+                                {
+                                    foreach (var pracownik in Model)
+                                    {
+                                        <tr>
+                                            <td>@pracownik.Imie</td>
+                                            <td>@pracownik.Nazwisko</td>
+                                            <td>@pracownik.NazwaStanowiska</td>
+                                            <td>@pracownik.Dzial</td>
+                                            <td>@pracownik.Login</td>
+                                            <td class="text-info">@pracownik.NrStacjonarny</td>
+                                            <td class="text-success">@pracownik.NrKomorkowy</td>
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="6" class="text-center">Brak wyników dla podanej frazy.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>*@
 
 
 

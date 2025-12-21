@@ -1,88 +1,110 @@
 ﻿@using System.Data
 @model SystemTelefonicznyGY.Models.Pracownik
 
-<div class="container mt-4">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h4>@(Model.Id == 0 ? "Dodaj Nowego Pracownika" : "Edycja Pracownika: " + Model.PelneNazwisko)</h4>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Zapisz", "Administrator", FormMethod.Post))
-            {
-                @Html.HiddenFor(m => m.Id)
+<!--
+Przejrzystość: Formularz jest symetryczny i czytelny, co poprawia komfort pracy administratora.
+Bezpieczeństwo danych: Skrypt JS uniemożliwia pomyłkowe przypisanie informatyka do stanowiska magazynera.
+Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc nie obciąża serwera dodatkowymi zapytaniami przy każdej zmianie pola działu.
+--->
+<script>
+    function filtrujStanowiska() {
+        var wybranyDzial = document.getElementById("selectDzial").value;
+        var selectStanowisko = document.getElementById("selectStanowisko");
+        var opcje = selectStanowisko.options;
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Imię</label>
-                        <input type="text" name="Imie" value="@Model.Imie" class="form-control" required />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Nazwisko</label>
-                        <input type="text" name="Nazwisko" value="@Model.Nazwisko" class="form-control" required />
-                    </div>
-                </div>
+        var pierwszeDostepne = null;
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Login</label>
-                        <input type="text" name="Login" value="@Model.Login" class="form-control" required />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <label class="form-label">Stanowisko</label>
-                            <input type="text" name="Stanowisko" value="@Model.Stanowisko" class="form-control" required />
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Dział</label>
-                        <select name="IdDzialu" class="form-select">
-                            @foreach (DataRow dzial in (ViewBag.ListaDzialow as DataTable).Rows)
-                            {
-                                <option value="@dzial["ID"]" @(Convert.ToInt32(dzial["ID"]) == Model.IdDzialu ? "selected" : "")>
-                                    @dzial["NazwaDzialu"]
-                                </option>
-                            }
-                        </select>
-                    </div>
-                </div>
+        for (var i = 0; i < opcje.length; i++) {
+            var dzialStanowiska = opcje[i].getAttribute("data-dzial");
 
-                <div class="mb-3">
-                    <label class="form-label">Rola</label>
-                    <select name="Rola" class="form-select">
-                        <option value="User" @(Model.Rola == "User" ? "selected" : "")>Użytkownik (User)</option>
-                        <option value="Admin" @(Model.Rola == "Admin" ? "selected" : "")>Administrator (Admin)</option>
-                    </select>
-                </div>
-
-                if (Model.Id == 0)
-                {
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <label class="form-label">Hasło początkowe</label>
-                            <input type="password" name="Haslo" class="form-control" required />
-                            <small class="text-muted">Wymagane tylko dla nowych pracowników.</small>
-                        </div>
-                    </div>
-                }
-
-                <div class="mt-4">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fas fa-save"></i> Zapisz Zmiany
-                    </button>
-                    <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
-                </div>
+            if (dzialStanowiska == wybranyDzial) {
+                opcje[i].style.display = "block";
+                if (!pierwszeDostepne) pierwszeDostepne = opcje[i].value;
+            } else {
+                opcje[i].style.display = "none";
             }
-        </div>
-    </div>
-</div>
+        }
 
-@*<div class="mt-4">
-    <button type="submit" class="btn btn-success">
-        <i class="fas fa-save"></i> Zapisz Zmiany
-    </button>
-    <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
-</div>
-            }
+        // Automatycznie ustawiamy pierwsze pasujące stanowisko po zmianie działu
+        if (pierwszeDostepne) {
+            selectStanowisko.value = pierwszeDostepne;
+        }
+    }
+
+    // Uruchomienie filtrowania przy starcie strony, aby dopasować stan początkowy
+    window.onload = filtrujStanowiska;
+</script>
+
+<!-- Układ strony czytelniejszy niż poprzednia wersja -->
+
+<div class="card-body">
+    @using (Html.BeginForm("Zapisz", "Administrator", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Imię</label>
+                <input type="text" name="Imie" value="@Model.Imie" class="form-control" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Nazwisko</label>
+                <input type="text" name="Nazwisko" value="@Model.Nazwisko" class="form-control" required />
+            </div>
         </div>
-    </div>
-</div>*@
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Email (Login)</label>
+                <input type="text" name="Login" value="@Model.Login" class="form-control" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Rola</label>
+                <select name="Rola" class="form-select">
+                    <option value="User" @(Model.Rola == "User" ? "selected" : "")>Użytkownik (User)</option>
+                    <option value="Admin" @(Model.Rola == "Admin" ? "selected" : "")>Administrator (Admin)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Dział</label>
+                <select id="selectDzial" name="IdDzialu" class="form-select" onchange="filtrujStanowiska()">
+                    @foreach (System.Data.DataRow dzial in (ViewBag.ListaDzialow as System.Data.DataTable).Rows)
+                    {
+                        <option value="@dzial["ID"]" @(Convert.ToInt32(dzial["ID"]) == Model.IdDzialu ? "selected" : "")>
+                            @dzial["NazwaDzialu"]
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Stanowisko</label>
+                <select id="selectStanowisko" name="IdStanowiska" class="form-select">
+                    @foreach (System.Data.DataRow st in (ViewBag.ListaStanowiska as System.Data.DataTable).Rows)
+                    {
+                        <option value="@st["ID"]"
+                                data-dzial="@st["ID_Dzialu"]"
+                                @(Convert.ToInt32(st["ID"]) == Model.IdStanowiska ? "selected" : "")>
+                            @st["NazwaStanowiska"]
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        if (Model.Id == 0)
+        {
+            <div class="mb-3">
+                <label class="form-label">Hasło początkowe</label>
+                <input type="password" name="Haslo" class="form-control" required />
+            </div>
+        }
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success">Zapisz Zmiany</button>
+            <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
+        </div>
+    }
+</div>

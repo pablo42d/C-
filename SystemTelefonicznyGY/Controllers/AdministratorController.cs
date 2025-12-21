@@ -80,22 +80,21 @@ namespace SystemTelefonicznyGY.Controllers
             return View(lista);
         }
 
-        // Metoda wyświetlająca stronę wyboru pliku CSV
-        [HttpGet]
-        public ActionResult Import()
-        {
-            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
-            return View();
-        }
-
+       
         [HttpGet]
         public ActionResult Edytuj(int? id)
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
             // Pobieramy działy do listy rozwijanej
-            DataTable dtDzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy");
+            DataTable dtDzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy ORDER BY NazwaDzialu");
             ViewBag.ListaDzialow = dtDzialy;
+            // Pobieramy stanowiska do osobnej listy rozwijanej
+            //DataTable dtStanowiska = _baza.PobierzDane("SELECT ID, NazwaStanowiska FROM Stanowiska ORDER BY NazwaStanowiska");
+            //ViewBag.ListaStanowiska = dtStanowiska;
+            // Poprawione zapytanie - musi zawierać ID_Dzialu dla każdego stanowiska
+            DataTable dtStanowiska = _baza.PobierzDane("SELECT ID, NazwaStanowiska, ID_Dzialu FROM Stanowiska ORDER BY NazwaStanowiska");
+            ViewBag.ListaStanowiska = dtStanowiska;
 
             if (id.HasValue)
             {
@@ -118,11 +117,13 @@ namespace SystemTelefonicznyGY.Controllers
             }
 
             // Tryb Dodawania: Zwracamy pusty obiekt (używając konstruktora z domyślnymi wartościami)
-            return View(new Pracownik(0, "", "", "User", 1, "", 0));
+            return View(new Pracownik(1, "", "", "User", 1, "", 1));
         }
         //Implementacja zapisu(Metoda POST) Aby formularz zaczął działać, dodajemy metodę Zapisz. Ponieważ model Pracownik nie ma publicznych setterów(ma tylko get), parametry z formularza odbierzemy bezpośrednio w argumentach metody.
+        // Zmieniamy parametr string NazwaStanowiska na int IdStanowiska, aby pasował do wyboru z listy <select>. Aktualizujemy również zapytania SQL, by zapisywały ID w kolumnie ID_Stanowiska.
+
         [HttpPost]
-        public ActionResult Zapisz(int Id, string Imie, string Nazwisko, string Login, int IdDzialu, string Rola, string Stanowisko, string Haslo) // <--- Dodano Haslo
+        public ActionResult Zapisz(int Id, string Imie, string Nazwisko, string Login, int IdDzialu, string Rola, int IdStanowiska, string Haslo)
         {
             if (Session["RolaPracownika"]?.ToString() != "Admin") return RedirectToAction("Login", "Konto");
 
@@ -130,8 +131,8 @@ namespace SystemTelefonicznyGY.Controllers
             if (Id == 0)
             {
                 // Teraz zmienna Haslo jest widoczna i zostanie pobrana z formularza
-                sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, Stanowisko, Kraj) 
-                 VALUES ('{Imie}', '{Nazwisko}', '{Login}', '{Haslo}', '{Rola}', {IdDzialu}, '{Stanowisko}', 'Polska')";
+                sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, ID_Stanowisko, Kraj) 
+                 VALUES ('{Imie}', '{Nazwisko}', '{Login}', '{Haslo}', '{Rola}', {IdDzialu}, {IdStanowiska}, 'Polska')";
             }
             else
             {
@@ -141,7 +142,7 @@ namespace SystemTelefonicznyGY.Controllers
                  Login = '{Login}', 
                  Rola = '{Rola}', 
                  ID_Dzialu = {IdDzialu}, 
-                 Stanowisko = '{Stanowisko}' 
+                 Stanowiska = '{IdStanowiska}'                 
                  WHERE ID = {Id}";
             }
 
@@ -248,6 +249,14 @@ namespace SystemTelefonicznyGY.Controllers
         }
 
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
+
+        // Metoda wyświetlająca stronę wyboru pliku CSV
+        [HttpGet]
+        public ActionResult Import()
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+            return View();
+        }
 
         [HttpPost]
         public ActionResult ImportujCSV(HttpPostedFileBase plikBilingowy, string typ)
