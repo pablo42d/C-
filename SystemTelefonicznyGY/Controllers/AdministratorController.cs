@@ -42,10 +42,18 @@ namespace SystemTelefonicznyGY.Controllers
             // pobieramy dane z bazy danych i przekazujemy je do vidoku Pracownicy wypełniając tabelę 
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto"); // Wywołanie kontrolera
 
-            string sql = @"Select p.*, d.NazwaDzialu
+            // Łączymy pracowników ze stanowiskami, a stanowiska z działami
+            string sql = @"
+        SELECT p.*, s.NazwaStanowiska, d.NazwaDzialu
         FROM Pracownicy p
-        JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        JOIN Stanowiska s ON p.ID_Stanowiska = s.ID
+        JOIN Dzialy d ON s.ID_Dzialu = d.ID
         ORDER BY p.Nazwisko";
+
+            //    string sql = @"Select p.*, d.NazwaDzialu
+            //FROM Pracownicy p
+            //JOIN Dzialy d ON p.ID_Dzialu = d.ID
+            //ORDER BY p.Nazwisko";
 
             DataTable dt = _baza.PobierzDane(sql);
             List<Pracownik> lista = new List<Pracownik>();
@@ -55,17 +63,19 @@ namespace SystemTelefonicznyGY.Controllers
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    // Używamy konstruktora, który zdefiniowałeś w modelu Pracownik
-                    lista.Add(new Pracownik(
+                    // Używam konstruktora, który zdefiniowałem w modelu Pracownik
+                    var p = new Pracownik(
                         Convert.ToInt32(row["ID"]),
                         row["Imie"].ToString(),
                         row["Nazwisko"].ToString(),
                         row["Rola"].ToString(),
                         Convert.ToInt32(row["ID_Dzialu"]),
                         row["Login"].ToString(),
-                        row["Stanowisko"].ToString()
-                    ));
-                }                
+                        Convert.ToInt32(row["ID_Stanowiska"])
+                    );
+                    p.NazwaStanowiska = row["NazwaStanowiska"].ToString();
+                    lista.Add(p);
+                }
             }
             return View(lista);
         }
@@ -101,14 +111,14 @@ namespace SystemTelefonicznyGY.Controllers
                         row["Rola"].ToString(),
                         Convert.ToInt32(row["ID_Dzialu"]),
                         row["Login"].ToString(),
-                        row["Stanowisko"].ToString()
+                        Convert.ToInt32(row["ID_Stanowiska"])
                     );
                     return View(p);
                 }
             }
 
             // Tryb Dodawania: Zwracamy pusty obiekt (używając konstruktora z domyślnymi wartościami)
-            return View(new Pracownik(0, "", "", "User", 1, "", ""));
+            return View(new Pracownik(0, "", "", "User", 1, "", 0));
         }
         //Implementacja zapisu(Metoda POST) Aby formularz zaczął działać, dodajemy metodę Zapisz. Ponieważ model Pracownik nie ma publicznych setterów(ma tylko get), parametry z formularza odbierzemy bezpośrednio w argumentach metody.
         [HttpPost]

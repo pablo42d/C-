@@ -14,7 +14,9 @@ namespace SystemTelefonicznyGY.Models
         private string _rola;
         private int _idDzialu;
         private string _login;
-        private string _stanowisko;
+        private int _idStanowiska;
+        
+
 
         // Właściwości publiczne do odczytu i zapisu
         public int Id { get { return _id; } }
@@ -24,10 +26,12 @@ namespace SystemTelefonicznyGY.Models
         public string Rola { get { return _rola; } }
         public int IdDzialu { get { return _idDzialu; } }      
         public string Login { get { return _login; } }
-        public string Stanowisko { get { return _stanowisko; } }
+        public int IdStanowiska { get { return _idStanowiska; } }
+        // Pole tekstowe do wyświetlania nazwy w tabeli (opcjonalnie)
+        public string NazwaStanowiska { get; set; }
 
 
-        public Pracownik(int id, string imie, string nazwisko, string rola, int idDzialu, string login, string stanowisko)
+        public Pracownik(int id, string imie, string nazwisko, string rola, int idDzialu, string login, int idStanowiska)
         {
             _id = id;
             _imie = imie;
@@ -35,7 +39,7 @@ namespace SystemTelefonicznyGY.Models
             _rola = rola;
             _idDzialu = idDzialu;           
             _login = login;
-            _stanowisko = stanowisko;
+            _idStanowiska = idStanowiska;
         }
 
         //public class PodsumowaniePracownikaModel
