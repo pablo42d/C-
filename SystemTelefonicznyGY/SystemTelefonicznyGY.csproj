@@ -267,6 +267,7 @@
     <Content Include="Views\Administrator\Import.cshtml" />
     <Content Include="Views\Administrator\Dzialy.cshtml" />
     <Content Include="Views\Administrator\EdytujDzial.cshtml" />
+    <Content Include="Views\Administrator\EdytujStanowisko.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

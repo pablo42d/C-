@@ -298,8 +298,10 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            ViewBag.IdDzialu = idDzialu; // Przekazujemy, do którego działu dodajemy
-            DataTable dtDzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy");
+            // 1. Przekazujemy ID działu dla nowych stanowisk
+            ViewBag.IdDzialu = idDzialu;
+            // 2. Pobieramy działy do listy rozwijanej
+            DataTable dtDzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu, SkroconaNazwa FROM Dzialy ORDER BY NazwaDzialu");
             ViewBag.ListaDzialow = dtDzialy;
 
             if (id.HasValue)
@@ -322,11 +324,11 @@ namespace SystemTelefonicznyGY.Controllers
             try
             {
                 _baza.WykonajPolecenie(sql);
-                TempData["Sukces"] = "Lista działów został zaktualizowany.";
+                TempData["Sukces"] = "Lista działów został zaktualizowany. Zapisano stanowisko: " + NazwaStanowiska;
             }
             catch (Exception ex)
             {
-                TempData["Blad"] = "Błąd zapisu działu: " + ex.Message;
+                TempData["Blad"] = "Błąd zapisu stanowiska: " + ex.Message;
             }
 
             return RedirectToAction("Dzialy");
