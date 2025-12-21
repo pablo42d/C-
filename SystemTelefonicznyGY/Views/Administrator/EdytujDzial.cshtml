@@ -1,0 +1,36 @@
+﻿@using System.Data
+@model System.Data.DataRow
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4>@(Model == null ? "Nowy Dział" : "Edycja Działu")</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ZapiszDzial", "Administrator", FormMethod.Post))
+            {
+                <input type="hidden" name="Id" value="@(Model != null ? Model["ID"] : 0)" />
+
+                <div class="mb-3">
+                    <label class="form-label">Pełna Nazwa Działu</label>
+                    <input type="text" name="NazwaDzialu" class="form-control"
+                           value="@(Model != null ? Model["NazwaDzialu"] : "")" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Skrócona Nazwa (np. IT, HR, LOG)</label>
+                    <input type="text" name="SkroconaNazwa" class="form-control"
+                           value="@(Model != null ? Model["SkroconaNazwa"] : "")" maxlength="10" required />
+                    <small class="text-muted">Maksymalnie 10 znaków.</small>
+                </div>
+
+                @*<div class="mb-3">
+                <label class="form-label">Nazwa Działu</label>
+                <input type="text" name="NazwaDzialu" class="form-control" value="@(Model != null ? Model["NazwaDzialu"] : "")" required />
+            </div>*@
+                <button type="submit" class="btn btn-success">Zapisz</button>
+                <a href="@Url.Action("Dzialy")" class="btn btn-secondary">Anuluj</a>
+            }
+        </div>
+    </div>
+</div>

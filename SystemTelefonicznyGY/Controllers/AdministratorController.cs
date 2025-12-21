@@ -197,18 +197,48 @@ namespace SystemTelefonicznyGY.Controllers
 
 
 
-        // --- SEKCJA ZARZĄDZANIA DZIAŁAMI ---
+        // --- ZARZĄDZANIE DZIAŁAMI I STANOWISKAMI ---
 
         // Lista działów
         public ActionResult Dzialy()
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            DataTable dt = _baza.PobierzDane("SELECT * FROM Dzialy ORDER BY NazwaDzialu");
-            return View(dt);
+            // Pobieramy listę wszystkich działów
+            DataTable dtDzialy = _baza.PobierzDane("SELECT * FROM Dzialy ORDER BY NazwaDzialu");
+
+            // Pobieramy listę WSZYSTKICH stanowisk, aby przypisać je do odpowiednich kafelków w widoku
+            DataTable dtStanowiska = _baza.PobierzDane("SELECT * FROM Stanowiska ORDER BY NazwaStanowiska");
+
+            // Przekazujemy stanowiska przez ViewBag, a działy jako główny Model
+            ViewBag.WszystkieStanowiska = dtStanowiska;
+
+            //// Pobieramy działy wraz z listą przypisanych stanowisk (używając GROUP_CONCAT lub dodatkowego zapytania)
+            //string sql = @"SELECT d.*, 
+            //      (SELECT COUNT(*) FROM Stanowiska WHERE ID_Dzialu = d.ID) as LiczbaStanowisk 
+            //      FROM Dzialy d ORDER BY d.NazwaDzialu";
+
+            //DataTable dt = _baza.PobierzDane(sql);
+            return View(dtDzialy);
         }
 
-        // Widok dodawania/edycji działu
+        // Akcja usuwania działu
+        public ActionResult UsunDzial(int id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Dzialy");
+            try
+            {
+                _baza.WykonajPolecenie($"DELETE FROM Dzialy WHERE ID = {id}");
+                TempData["Sukces"] = "Dział został usunięty.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Nie można usunąć działu, który ma przypisane stanowiska lub pracowników." + ex.Message;
+            }
+            return RedirectToAction("Dzialy");
+        }
+
+        // --- Dodawanie Działu ---
         [HttpGet]
         public ActionResult EdytujDzial(int? id)
         {
@@ -219,21 +249,75 @@ namespace SystemTelefonicznyGY.Controllers
                 DataTable dt = _baza.PobierzDane($"SELECT * FROM Dzialy WHERE ID = {id.Value}");
                 if (dt != null && dt.Rows.Count > 0)
                 {
+                    // Przekazujemy DataRow do widoku
                     return View(dt.Rows[0]);
                 }
             }
-            return View(); // Zwraca pusty widok dla nowego działu
+            // Dla nowego działu przekazujemy null (widok musi to obsłużyć). Jawne przekazanie null wymagane ze względu na przeciążenie widoku. wywołanie bez parametrów może powodować błąd kompilacji.return View()
+            return View((System.Data.DataRow)null);
         }
 
-        // Zapis działu
         [HttpPost]
-        public ActionResult ZapiszDzial(int Id, string NazwaDzialu)
+        public ActionResult ZapiszDzial(int Id, string NazwaDzialu, string SkroconaNazwa)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string sql;
+            if (Id == 0)
+            {
+                // Przy dodawaniu (INSERT) NIE podajemy ID - baza nada je automatycznie
+                sql = $@"INSERT INTO Dzialy (NazwaDzialu, SkroconaNazwa) 
+                 VALUES ('{NazwaDzialu}', '{SkroconaNazwa}')";
+            }
+            else
+            {
+                // Przy edycji aktualizujemy obie nazwy
+                sql = $@"UPDATE Dzialy SET 
+                 NazwaDzialu = '{NazwaDzialu}', 
+                 SkroconaNazwa = '{SkroconaNazwa}' 
+                 WHERE ID = {Id}";
+            }
+
+            try
+            {
+                _baza.WykonajPolecenie(sql);
+                TempData["Sukces"] = "Słownik działów został zaktualizowany.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Błąd zapisu: " + ex.Message;
+            }
+
+            return RedirectToAction("Dzialy");
+        }
+
+        // --- ZARZĄDZANIE STANOWISKAMI ---
+
+        [HttpGet]
+        public ActionResult EdytujStanowisko(int? id, int? idDzialu)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            ViewBag.IdDzialu = idDzialu; // Przekazujemy, do którego działu dodajemy
+            DataTable dtDzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy");
+            ViewBag.ListaDzialow = dtDzialy;
+
+            if (id.HasValue)
+            {
+                DataTable dt = _baza.PobierzDane($"SELECT * FROM Stanowiska WHERE ID = {id.Value}");
+                return View(dt.Rows[0]);
+            }
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult ZapiszStanowisko(int Id, string NazwaStanowiska, int ID_Dzialu)
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
             string sql = Id == 0
-                ? $"INSERT INTO Dzialy (NazwaDzialu) VALUES ('{NazwaDzialu}')"
-                : $"UPDATE Dzialy SET NazwaDzialu = '{NazwaDzialu}' WHERE ID = {Id}";
+                ? $"INSERT INTO Stanowiska (NazwaStanowiska, ID_Dzialu) VALUES ('{NazwaStanowiska}', {ID_Dzialu})"
+                : $"UPDATE Stanowiska SET NazwaStanowiska = '{NazwaStanowiska}', ID_Dzialu = {ID_Dzialu} WHERE ID = {Id}";
 
             try
             {
@@ -247,6 +331,8 @@ namespace SystemTelefonicznyGY.Controllers
 
             return RedirectToAction("Dzialy");
         }
+        
+        
 
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
 

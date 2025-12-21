@@ -7,27 +7,8 @@
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\AppData\\Local\\Temp\\.vsdbgsrc\\07c4ec1cba87e4656ea3ff248a744c9ad14372e0efa94ac6f688b9e3e27ad0b3\\ControllerActionInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\views\\administrator\\edytuj.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\administrator\\edytuj.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\pracownik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\logika\\bazadanych.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\bazadanych.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\controllers\\paneluzytkownikacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\paneluzytkownikacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\administrator\\edytujdzial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\administrator\\edytujdzial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\views\\administrator\\dzialy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -51,7 +32,7 @@
               "RelativeDocumentMoniker": "Controllers\\AdministratorController.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
               "RelativeToolTip": "Controllers\\AdministratorController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAcwGEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgBAAAAAAAAAAAgwCwBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T20:19:58.533Z",
               "IsPinned": true,
@@ -59,95 +40,33 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ControllerActionInvoker.cs",
-              "DocumentMoniker": "C:\\Users\\User\\AppData\\Local\\Temp\\.vsdbgsrc\\07c4ec1cba87e4656ea3ff248a744c9ad14372e0efa94ac6f688b9e3e27ad0b3\\ControllerActionInvoker.cs",
-              "ToolTip": "C:\\Users\\User\\AppData\\Local\\Temp\\.vsdbgsrc\\07c4ec1cba87e4656ea3ff248a744c9ad14372e0efa94ac6f688b9e3e27ad0b3\\ControllerActionInvoker.cs [Read Only]",
-              "ViewState": "AgIAAEUBAAAAAAAAAAAIwFcBAAAEAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T19:26:48.471Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Pracownik.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\Pracownik.cs",
-              "RelativeDocumentMoniker": "Models\\Pracownik.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\Pracownik.cs",
-              "RelativeToolTip": "Models\\Pracownik.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAA5wC8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T13:36:59.907Z",
+              "Title": "EdytujDzial.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\EdytujDzial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Administrator\\EdytujDzial.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\EdytujDzial.cshtml",
+              "RelativeToolTip": "Views\\Administrator\\EdytujDzial.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-21T19:59:34.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edytuj.cshtml",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Edytuj.cshtml",
-              "RelativeDocumentMoniker": "Views\\Administrator\\Edytuj.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Edytuj.cshtml",
-              "RelativeToolTip": "Views\\Administrator\\Edytuj.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAcwEwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-21T13:36:10.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAmwCIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T16:12:32.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BazaDanych.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\BazaDanych.cs",
-              "RelativeDocumentMoniker": "Logika\\BazaDanych.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\BazaDanych.cs",
-              "RelativeToolTip": "Logika\\BazaDanych.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T17:23:05.643Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PanelUzytkownikaController.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\PanelUzytkownikaController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PanelUzytkownikaController.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\PanelUzytkownikaController.cs",
-              "RelativeToolTip": "Controllers\\PanelUzytkownikaController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-21T14:55:40.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "Dzialy.cshtml",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Dzialy.cshtml",
               "RelativeDocumentMoniker": "Views\\Administrator\\Dzialy.cshtml",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Dzialy.cshtml",
               "RelativeToolTip": "Views\\Administrator\\Dzialy.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-21T13:09:37.754Z"
+              "WhenOpened": "2025-12-21T13:09:37.754Z",
+              "EditorCaption": ""
             }
           ]
         },
@@ -158,6 +77,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

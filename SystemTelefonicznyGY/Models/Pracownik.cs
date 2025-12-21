@@ -18,7 +18,7 @@ namespace SystemTelefonicznyGY.Models
         private int _idDzialu;
 
 
-        // Właściwości publiczne wymagane przez konstruktor i logikę bazy
+        // Właściwości publiczne na początek
 
         //public int Id { get; set; }
         //public string Imie { get; set; }
