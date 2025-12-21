@@ -185,6 +185,60 @@ namespace SystemTelefonicznyGY.Controllers
 
 
 
+
+        // --- SEKCJA ZARZĄDZANIA DZIAŁAMI ---
+
+        // Lista działów
+        public ActionResult Dzialy()
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            DataTable dt = _baza.PobierzDane("SELECT * FROM Dzialy ORDER BY NazwaDzialu");
+            return View(dt);
+        }
+
+        // Widok dodawania/edycji działu
+        [HttpGet]
+        public ActionResult EdytujDzial(int? id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            if (id.HasValue)
+            {
+                DataTable dt = _baza.PobierzDane($"SELECT * FROM Dzialy WHERE ID = {id.Value}");
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return View(dt.Rows[0]);
+                }
+            }
+            return View(); // Zwraca pusty widok dla nowego działu
+        }
+
+        // Zapis działu
+        [HttpPost]
+        public ActionResult ZapiszDzial(int Id, string NazwaDzialu)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string sql = Id == 0
+                ? $"INSERT INTO Dzialy (NazwaDzialu) VALUES ('{NazwaDzialu}')"
+                : $"UPDATE Dzialy SET NazwaDzialu = '{NazwaDzialu}' WHERE ID = {Id}";
+
+            try
+            {
+                _baza.WykonajPolecenie(sql);
+                TempData["Sukces"] = "Lista działów został zaktualizowany.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Błąd zapisu działu: " + ex.Message;
+            }
+
+            return RedirectToAction("Dzialy");
+        }
+
+        // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
+
         [HttpPost]
         public ActionResult ImportujCSV(HttpPostedFileBase plikBilingowy, string typ)
         {
@@ -227,7 +281,7 @@ namespace SystemTelefonicznyGY.Controllers
         }
 
 
-        // Metoda suwanie Pracownika
+        // Metoda usuwanie Pracownika
         public ActionResult Usun(int id)
         {
             if (!CzyAdmin()) return RedirectToAction("Index");
