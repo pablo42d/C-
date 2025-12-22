@@ -1,4 +1,8 @@
-﻿@using System.Data
+﻿
+
+
+
+@using System.Data
 @model DataTable
 
 <div class="container mt-4">
@@ -24,13 +28,13 @@
             <thead class="table-dark">
                 <tr>
                     <th>Numer</th>
-                    <th>Status</th>
-                    <th>Użytkownik</th>
                     <th>Nr Karty SIM</th>
                     <th>Plan / Opis</th>
                     <th>PIN</th>
                     <th>PUK</th>
-                    <th class="text-center" style="min-width: 200px;">Zarządzaj</th>
+                    <th>Status</th>
+                    <th>Użytkownik</th>
+                    <th class="text-center" style="min-width: 180px;">Zarządzaj</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +42,10 @@
                 {
                     <tr>
                         <td class="align-middle"><strong>@row["Numer"]</strong></td>
+                        <td class="align-middle">@row["NumerKarty"]</td>
+                        <td class="align-middle small">@row["PlanOpis"]</td>
+                        <td class="align-middle"><code>@row["PIN"]</code></td>
+                        <td class="align-middle"><code>@row["PUK"]</code></td>
                         <td class="align-middle text-center">
                             @{
                                 var status = row["Status"].ToString();
@@ -48,18 +56,15 @@
                             <span class="badge @badgeClass" style="font-size: 0.9em;">@status</span>
                         </td>
                         <td class="align-middle">@(row["PrzypisanyPracownik"] != DBNull.Value ? row["PrzypisanyPracownik"] : "---")</td>
-                        <td class="align-middle">@row["NumerKarty"]</td>
-                        <td class="align-middle small">@row["PlanOpis"]</td>
-                        <td class="align-middle"><code>@row["PIN"]</code></td>
-                        <td class="align-middle"><code>@row["PUK"]</code></td>
                         <td class="text-center align-middle">
-                            <div class="btn-group w-100">
+                            @* Zmniejszone i ujednolicone przyciski akcji *@
+                            <div class="btn-group">
                                 <a href="@Url.Action("EdytujNumer", "Administrator", new { id = row["ID"] })"
-                                   class="btn btn-warning btn-sm" title="Edytuj dane">
+                                   class="btn btn-warning btn-sm py-1 px-2" title="Edytuj dane">
                                     <i class="fas fa-edit"></i> Edytuj
                                 </a>
                                 <a href="@Url.Action("DezaktywujNumer", "Administrator", new { id = row["ID"] })"
-                                   class="btn btn-danger btn-sm"
+                                   class="btn btn-danger btn-sm py-1 px-2"
                                    onclick="return confirm('Czy na pewno wycofać ten numer?')">
                                     <i class="fas fa-power-off"></i> Wycofaj
                                 </a>
