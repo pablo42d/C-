@@ -5,73 +5,91 @@
 <div class="container mt-4">
     <h2 class="mb-4"><i class="fas fa-user-shield"></i> Centrum Zarządzania Goodyear</h2>
 
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100 border-primary shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-users fa-3x mb-3 text-primary"></i>
-                    <h5 class="card-title">Pracownicy</h5>
-                    <p class="card-text">Zarządzaj kadrą (@ViewBag.LiczbaPracownikow osób), dodawaj nowych i edytuj uprawnienia.</p>
-                    <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100">
-                        <i class="fas fa-list"></i> Otwórz listę
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        @*Dodanie sekcji zrządzania Działąmi*@
-        <div class="col-md-4">
-            <div class="card h-100 border-warning shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-folder-plus fa-3x mb-3 text-warning"></i>
-                    <h5 class="card-title">Zarządzaj Działami</h5>
-                    <p class="card-text">Dodawaj nowe jednostki organizacyjne, działy, oraz stanowiska firmy Goodyear.</p>
-                    <a href="@Url.Action("Dzialy", "Administrator")" class="btn btn-warning w-100 text-dark">
-                        <i class="fas fa-cog"></i> Zarządzaj Działami
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        @*Dodanie sekcji zarządzającej sprzętem*@
-
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 border-primary shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Zarządzaj Urządzeniami</h5>
-                    <p class="card-text">Dodawaj nowe urządzenia (smartfony/telefony), edytuj dane IMEI i przypisuj sprzęt do pracowników.</p>
-                    <a href="@Url.Action("Urzadzenia", "Administrator")" class="btn btn-outline-primary">Otwórz listę</a>
-                </div>
-            </div>
-        </div>
-
-        @*Sekcja odpowiedzialna za import bilingów z pliku CSV*@
-        <div class="col-md-4">
-            <div class="card h-100 border-success shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-file-import fa-3x mb-3 text-success"></i>
-                    <h5 class="card-title">Import Bilingów</h5>
-                    <p class="card-text">Wgraj pliki CSV od operatora za miesiąc <strong>@ViewBag.OstatniMiesiac</strong>.</p>
-                    @* USUNIĘTO KLASĘ DISABLED *@
-                    <a href="@Url.Action("Import", "Administrator")" class="btn btn-success w-100">
-                        <i class="fas fa-upload"></i> Otwórz Import
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        @*Sekcja odpowiedzialna za export bilingów do pliku CSV*@
-        <div class="col-md-4">
-            <div class="card h-100 border-info shadow-sm">
-                <div class="card-body text-center">
-                    <i class="fas fa-file-csv fa-3x mb-3 text-info"></i>
-                    <h5 class="card-title">Raporty Miesięczne</h5>
-                    <p class="card-text">Generuj zbiorcze zestawienia kosztów dla wszystkich działów i księgowości.</p>
-                    <a href="@Url.Action("EksportujRaport", "Administrator")" class="btn btn-info w-100 text-white">
-                        <i class="fas fa-download"></i> Pobierz Raport CSV
-                    </a>
-                </div>
+    @*Sekcja odpowiedzialna za zarządzanie Pracownikami*@
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 border-primary shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">Zarządzaj Pracownikami</h5>
+                <p class="card-text">Zarządzaj kadrą (@ViewBag.LiczbaPracownikow osób), dodawaj nowych i edytuj uprawnienia.</p>
+                <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100">
+                    <i class="fas fa-list"></i> Otwórz listę
+                </a>
             </div>
         </div>
     </div>
+
+    @*Dodanie sekcji zrządzania Działąmi*@
+    <div class="col-md-4">
+        <div class="card h-100 border-warning shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-folder-plus fa-3x mb-3 text-warning"></i>
+                <h5 class="card-title">Zarządzaj Działami</h5>
+                <p class="card-text">Dodawaj nowe jednostki organizacyjne, działy, oraz stanowiska firmy Goodyear.</p>
+                <a href="@Url.Action("Dzialy", "Administrator")" class="btn btn-warning w-100 text-dark">
+                    <i class="fas fa-cog"></i> Zarządzaj Działami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @*Dodanie sekcji zarządzającej Sprzętem*@
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-primary shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">Zarządzaj Urządzeniami</h5>
+                <p class="card-text">Dodawaj nowe urządzenia (smartfony/telefony), edytuj dane IMEI i przypisuj sprzęt do pracowników.</p>
+                <a href="@Url.Action("Urzadzenia", "Administrator")" class="btn btn-primary w-100">
+                    <i class="fas fa-list"></i> Otwórz listę
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-info shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-mobile-alt fa-3x mb-3 text-info"></i>
+                <h5 class="card-title">Numery Komórkowe</h5>
+                <p class="card-text">Zarządzaj kartami SIM, kodami PIN/PUK oraz przypisaniem numerów do pracowników.</p>
+                <a href="@Url.Action("NumeryKomorkowe", "Administrator")" class="btn btn-info w-100">
+                    <i class="fas fa-list"></i>Otwórz listę
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @*Sekcja odpowiedzialna za import bilingów z pliku CSV*@
+    <div class="col-md-4">
+        <div class="card h-100 border-success shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-file-import fa-3x mb-3 text-success"></i>
+                <h5 class="card-title">Import Bilingów</h5>
+                <p class="card-text">Wgraj pliki CSV od operatora za miesiąc <strong>@ViewBag.OstatniMiesiac</strong>.</p>
+                @* USUNIĘTO KLASĘ DISABLED *@
+                <a href="@Url.Action("Import", "Administrator")" class="btn btn-success w-100">
+                    <i class="fas fa-upload"></i> Otwórz Import
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @*Sekcja odpowiedzialna za export bilingów do pliku CSV*@
+    <div class="col-md-4">
+        <div class="card h-100 border-info shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-file-csv fa-3x mb-3 text-info"></i>
+                <h5 class="card-title">Raporty Miesięczne</h5>
+                <p class="card-text">Generuj zbiorcze zestawienia kosztów dla wszystkich działów i księgowości.</p>
+                <a href="@Url.Action("EksportujRaport", "Administrator")" class="btn btn-info w-100 text-white">
+                    <i class="fas fa-download"></i> Pobierz Raport CSV
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

@@ -270,6 +270,8 @@
     <Content Include="Views\Administrator\EdytujStanowisko.cshtml" />
     <Content Include="Views\Administrator\Urzadzenia.cshtml" />
     <Content Include="Views\Administrator\EdytujUrzadzenie.cshtml" />
+    <Content Include="Views\Administrator\EdytujNumer.cshtml" />
+    <Content Include="Views\Administrator\NumeryKomorkowe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -160,43 +160,6 @@ namespace SystemTelefonicznyGY.Controllers
         }
 
 
-        //if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
-
-        //string sql;
-        //if (Id == 0)
-        //{
-        //    // INSERT - Nowy pracownik (Hasło domyślne np. 'user123')
-        //    sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, Stanowisko, Kraj) 
-        //     VALUES ('{Imie}', '{Nazwisko}', '{Login}', 'user123', '{Rola}', {IdDzialu}, '{Stanowisko}', 'Polska')";
-        //}
-        //else
-        //{
-        //    // UPDATE - Istniejący pracownik
-        //    sql = $@"UPDATE Pracownicy SET 
-        //     Imie = '{Imie}', 
-        //     Nazwisko = '{Nazwisko}', 
-        //     Login = '{Login}', 
-        //     Rola = '{Rola}', 
-        //     ID_Dzialu = {IdDzialu}, 
-        //     Stanowisko = '{Stanowisko}' 
-        //     WHERE ID = {Id}";
-        //}
-
-        //try
-        //{
-        //    _baza.WykonajPolecenie(sql);
-        //    TempData["Sukces"] = "Dane pracownika zostały zapisane.";
-        //}
-        //catch (Exception ex)
-        //{
-        //    TempData["Blad"] = "Błąd podczas zapisu: " + ex.Message;                
-        //}
-
-        //return RedirectToAction("Pracownicy");
-
-
-
-
         // --- ZARZĄDZANIE DZIAŁAMI I STANOWISKAMI ---
 
         // Lista działów
@@ -448,6 +411,89 @@ namespace SystemTelefonicznyGY.Controllers
             return RedirectToAction("Urzadzenia");
         }
 
+        // --- Zarządzanie Numerami Telefonicznymi ---
+        // --- Telefony Komórkowe ---
+
+        // 1. Lista numerów z wyszukiwarką po wszystkich kolumnach
+        public ActionResult NumeryKomorkowe(string szukanaFraza)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string sql = @"
+        SELECT n.*, p.Imie + ' ' + p.Nazwisko AS PrzypisanyPracownik
+        FROM NumeryKomorkowe n
+        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID";
+
+            if (!string.IsNullOrEmpty(szukanaFraza))
+            {
+                sql += $@" WHERE n.Numer LIKE '%{szukanaFraza}%' 
+                   OR n.NumerKarty LIKE '%{szukanaFraza}%' 
+                   OR n.PIN LIKE '%{szukanaFraza}%' 
+                   OR n.PUK LIKE '%{szukanaFraza}%'
+                   OR n.PlanOpis LIKE '%{szukanaFraza}%'
+                   OR n.Status LIKE '%{szukanaFraza}%'
+                   OR p.Nazwisko LIKE '%{szukanaFraza}%'";
+            }
+
+            DataTable dt = _baza.PobierzDane(sql);
+            ViewBag.OstatniaFraza = szukanaFraza;
+            return View(dt);
+        }
+        // Usuwanie numeru za pomocą dezaktywacji i ustawianie parametru nie aktywny
+        public ActionResult DezaktywujNumer(int id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("NumeryKomorkowe");
+
+            // Zmiana statusu na 'nie aktywny' i odpięcie pracownika
+            string sql = $"UPDATE NumeryKomorkowe SET Status = 'nie aktywny', ID_Pracownika = NULL WHERE ID = {id}";
+
+            try
+            {
+                _baza.WykonajPolecenie(sql);
+                TempData["Sukces"] = "Numer został zdezaktywowany i przeniesiony do rezerwy.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Błąd: " + ex.Message;
+            }
+
+            return RedirectToAction("NumeryKomorkowe");
+        }
+
+        // 2. Widok dodawania/edycji
+        [HttpGet]
+        public ActionResult EdytujNumer(int? id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            ViewBag.ListaPracownikow = _baza.PobierzDane("SELECT ID, Imie + ' ' + Nazwisko AS Nazwa FROM Pracownicy ORDER BY Nazwisko");
+
+            if (id.HasValue)
+            {
+                DataTable dt = _baza.PobierzDane($"SELECT * FROM NumeryKomorkowe WHERE ID = {id.Value}");
+                if (dt != null && dt.Rows.Count > 0) return View(dt.Rows[0]);
+            }
+            return View();
+        }
+
+        // 3. Zapis zmian (INSERT/UPDATE)
+        [HttpPost]
+        public ActionResult ZapiszNumer(int ID, string Numer, string NumerKarty, string PIN, string PUK, string PlanOpis, string Status, int? ID_Pracownika)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string pracownikSql = ID_Pracownika.HasValue ? ID_Pracownika.Value.ToString() : "NULL";
+            string sql = ID == 0
+                ? $@"INSERT INTO NumeryKomorkowe (Numer, NumerKarty, PIN, PUK, PlanOpis, Status, ID_Pracownika) 
+             VALUES ('{Numer}', '{NumerKarty}', '{PIN}', '{PUK}', '{PlanOpis}', '{Status}', {pracownikSql})"
+                : $@"UPDATE NumeryKomorkowe SET 
+             Numer='{Numer}', NumerKarty='{NumerKarty}', PIN='{PIN}', PUK='{PUK}', 
+             PlanOpis='{PlanOpis}', Status='{Status}', ID_Pracownika={pracownikSql} WHERE ID={ID}";
+
+            _baza.WykonajPolecenie(sql);
+            TempData["Sukces"] = "Dane numeru zostały pomyślnie zaktualizowane.";
+            return RedirectToAction("NumeryKomorkowe");
+        }
 
 
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---

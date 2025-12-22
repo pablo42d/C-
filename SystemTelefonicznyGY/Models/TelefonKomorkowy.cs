@@ -18,6 +18,7 @@ namespace SystemTelefonicznyGY.Models
         public string Pin { get { return _pin; } set { _pin = value; } }
         public string Puk { get { return _puk; } set { _puk = value; } }
 
+
         public TelefonKomorkowy(int id, string model, string sn, string status, int idPracownika) : base(id, model, sn, status, idPracownika)
         {
             this._imei = Imei;
