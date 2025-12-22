@@ -281,7 +281,7 @@ namespace SystemTelefonicznyGY.Controllers
             try
             {
                 _baza.WykonajPolecenie(sql);
-                TempData["Sukces"] = "Słownik działów został zaktualizowany.";
+                TempData["Sukces"] = "Lista działów została zaktualizowana.";
             }
             catch (Exception ex)
             {
@@ -342,7 +342,7 @@ namespace SystemTelefonicznyGY.Controllers
             {
                 // Sprawdzamy, czy jakieś bilingi lub pracownicy nie korzystają z tego stanowiska
                 _baza.WykonajPolecenie($"DELETE FROM Stanowiska WHERE ID = {id}");
-                TempData["Sukces"] = "Stanowisko zostało usunięte ze słownika.";
+                TempData["Sukces"] = "Stanowisko zostało usunięte z listy.";
             }
             catch (Exception ex)
             {
@@ -350,6 +350,102 @@ namespace SystemTelefonicznyGY.Controllers
             }
 
             return RedirectToAction("Dzialy");
+        }
+
+        // --- ZARZĄDZANIE SPRZETEM ---
+
+        public ActionResult Urzadzenia(string szukanaFraza)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            // Budujemy zapytanie z JOIN, aby móc szukać po Nazwisku pracownika
+            string sql = @"
+        SELECT u.*, p.Imie, p.Nazwisko, (p.Imie + ' ' + p.Nazwisko) AS PrzypisanyPracownik
+        FROM Urzadzenia u
+        LEFT JOIN Pracownicy p ON u.ID_Pracownika = p.ID";
+
+            if (!string.IsNullOrEmpty(szukanaFraza))
+            {
+                // Użycie LIKE '%...%' pozwala znaleźć frazę w dowolnym miejscu ciągu (np. fragment IMEI)
+                sql += $@" WHERE u.IMEI_MAC LIKE '%{szukanaFraza}%' 
+                   OR u.Model LIKE '%{szukanaFraza}%' 
+                   OR u.NrInwentarzowy LIKE '%{szukanaFraza}%' 
+                   OR p.Nazwisko LIKE '%{szukanaFraza}%'";
+            }
+
+            DataTable dt = _baza.PobierzDane(sql);
+
+            // Przekazujemy frazę z powrotem, aby input w wyszukiwarce nie stał się pusty po kliknięciu "Filtruj"
+            ViewBag.OstatniaFraza = szukanaFraza;
+
+            return View(dt);
+        }
+
+        [HttpGet]
+        public ActionResult EdytujUrzadzenie(int? id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            // Pobieramy listę pracowników do dropdowna, aby móc przypisać im sprzęt
+            DataTable dtPracownicy = _baza.PobierzDane("SELECT ID, Imie + ' ' + Nazwisko AS Nazwa FROM Pracownicy ORDER BY Nazwisko");
+            ViewBag.ListaPracownikow = dtPracownicy;
+
+            if (id.HasValue)
+            {
+                // Tryb EDYCJI
+                DataTable dt = _baza.PobierzDane($"SELECT * FROM Urzadzenia WHERE ID = {id.Value}");
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    return View(dt.Rows[0]);
+                }
+            }
+
+            // Tryb DODAWANIA (zwraca pusty widok)
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ZapiszUrzadzenie(int ID, string Aparat, string Model, string IMEI_MAC, string SN, string NrInwentarzowy, string Status, int? ID_Pracownika)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            // Obsługa NULL dla pracownika (jeśli urządzenie jest w magazynie)
+            string pracownikVal = ID_Pracownika.HasValue ? ID_Pracownika.Value.ToString() : "NULL";
+            string sql;
+
+            if (ID == 0)
+            {
+                sql = $@"INSERT INTO Urzadzenia (Aparat, Model, IMEI_MAC, SN, Status, NrInwentarzowy, ID_Pracownika) 
+                 VALUES ('{Aparat}', '{Model}', '{IMEI_MAC}', '{SN}', '{Status}', '{NrInwentarzowy}', {pracownikVal})";
+            }
+            else
+            {
+                sql = $@"UPDATE Urzadzenia SET 
+                 Aparat='{Aparat}', Model='{Model}', IMEI_MAC='{IMEI_MAC}', SN='{SN}', 
+                 Status='{Status}', NrInwentarzowy='{NrInwentarzowy}', ID_Pracownika={pracownikVal} 
+                 WHERE ID={ID}";
+            }
+
+            _baza.WykonajPolecenie(sql);
+            TempData["Sukces"] = "Dane urządzenia zostały zaktualizowane.";
+            return RedirectToAction("Urzadzenia");
+        }
+
+        // Metoda usuwanie Urządzenia przez wycofanie zamiast fizycznego usunięcia
+
+        public ActionResult WycofajUrzadzenie(int id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Urzadzenia");
+            try
+            {
+                _baza.WykonajPolecenie($"UPDATE Urzadzenia SET Status = 'Wycofane' WHERE ID = {id}");
+                TempData["Sukces"] = "Urządzenie zostało wycofane z użytku.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Nie można wycofać urządzenia. " + ex.Message;
+            }
+            return RedirectToAction("Urzadzenia");
         }
 
 

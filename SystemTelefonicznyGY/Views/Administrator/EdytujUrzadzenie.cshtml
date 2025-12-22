@@ -1,0 +1,71 @@
+﻿@using System.Data
+@model DataRow
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4><i class="fas fa-mobile-alt"></i> @(Model == null ? "Dodaj Nowe Urządzenie" : "Edycja: " + Model["Model"])</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ZapiszUrzadzenie", "Administrator", FormMethod.Post))
+            {
+                <input type="hidden" name="ID" value="@(Model != null ? Model["ID"] : 0)" />
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Producent (np. Samsung, Apple)</label>
+                        <input type="text" name="Aparat" class="form-control" value="@(Model != null ? Model["Aparat"] : "")" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Model</label>
+                        <input type="text" name="Model" class="form-control" value="@(Model != null ? Model["Model"] : "")" required />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">IMEI / MAC Address</label>
+                        <input type="text" name="IMEI_MAC" class="form-control" value="@(Model != null ? Model["IMEI_MAC"] : "")" required />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Numer Seryjny (SN)</label>
+                        <input type="text" name="SN" class="form-control" value="@(Model != null ? Model["SN"] : "")" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Numer Inwentarzowy</label>
+                        <input type="text" name="NrInwentarzowy" class="form-control" value="@(Model != null ? Model["NrInwentarzowy"] : "")" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Status</label>
+                        <select name="Status" class="form-select">
+                            <option value="W użyciu" @(Model != null && Model["Status"].ToString() == "W użyciu" ? "selected" : "")>W użyciu</option>
+                            <option value="Magazyn" @(Model != null && Model["Status"].ToString() == "Magazyn" ? "selected" : "")>Magazyn</option>
+                            <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "Wycofany" ? "selected" : "")>Wycofany</option>
+                            <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "Uszkodzony" ? "selected" : "")>Uszkodzony</option>
+                            <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "W naprawie" ? "selected" : "")>W naprawie</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Pracownik (Użytkownik)</label>
+                        <select name="ID_Pracownika" class="form-select">
+                            <option value="">-- Magazyn / Brak --</option>
+                            @foreach (DataRow p in (ViewBag.ListaPracownikow as DataTable).Rows)
+                            {
+                                <option value="@p["ID"]" @(Model != null && Model["ID_Pracownika"].ToString() == p["ID"].ToString() ? "selected" : "")>
+                                    @p["Nazwa"]
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">Zapisz Urządzenie</button>
+                    <a href="@Url.Action("Urzadzenia")" class="btn btn-secondary">Powrót</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
