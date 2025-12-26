@@ -3,7 +3,7 @@
 }
 
 <div class="container mt-4">
-    <h2 class="mb-4"><i class="fas fa-user-shield"></i> Centrum Zarządzania Goodyear</h2>
+    <h2 class="mb-4"><i class="fas fa-user-shield"></i> Centrum Zarządzania Goodyear/Dębica</h2>
 
     @*Sekcja odpowiedzialna za zarządzanie Pracownikami*@
 <div class="row g-4">
@@ -14,7 +14,7 @@
                 <h5 class="card-title">Zarządzaj Pracownikami</h5>
                 <p class="card-text">Zarządzaj kadrą (@ViewBag.LiczbaPracownikow osób), dodawaj nowych i edytuj uprawnienia.</p>
                 <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100">
-                    <i class="fas fa-list"></i> Otwórz listę
+                    <i class="fas fa-list"></i> Zarządzaj
                 </a>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <h5 class="card-title">Zarządzaj Działami</h5>
                 <p class="card-text">Dodawaj nowe jednostki organizacyjne, działy, oraz stanowiska firmy Goodyear.</p>
                 <a href="@Url.Action("Dzialy", "Administrator")" class="btn btn-warning w-100 text-dark">
-                    <i class="fas fa-cog"></i> Zarządzaj Działami
+                    <i class="fas fa-cog"></i> Zarządzaj
                 </a>
             </div>
         </div>
@@ -43,13 +43,13 @@
                 <h5 class="card-title">Zarządzaj Urządzeniami</h5>
                 <p class="card-text">Dodawaj nowe urządzenia (smartfony/telefony), edytuj dane IMEI i przypisuj sprzęt do pracowników.</p>
                 <a href="@Url.Action("Urzadzenia", "Administrator")" class="btn btn-primary w-100">
-                    <i class="fas fa-list"></i> Otwórz listę
+                    <i class="fas fa-list"></i> Zarządzaj
                 </a>
             </div>
         </div>
     </div>
 
-
+    @*Sekcja odpowiedzialna za zarządzanie numerami komórkowymi*@
     <div class="col-md-4 mb-4">
         <div class="card h-100 border-info shadow-sm">
             <div class="card-body text-center">
@@ -57,7 +57,21 @@
                 <h5 class="card-title">Numery Komórkowe</h5>
                 <p class="card-text">Zarządzaj kartami SIM, kodami PIN/PUK oraz przypisaniem numerów do pracowników.</p>
                 <a href="@Url.Action("NumeryKomorkowe", "Administrator")" class="btn btn-info w-100">
-                    <i class="fas fa-list"></i>Otwórz listę
+                    <i class="fas fa-list"></i>Zarządzaj
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @*Sekcja odpowiedzialna za zarządzanie numerami stacjonarnymi*@
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 border-info shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-mobile-alt fa-3x mb-3 text-info"></i>
+                <h5 class="card-title">Numery Stacjonarne/MS-Teams</h5>
+                <p class="card-text">Zarządzaj numerami stacjonarnymi, typem lini oraz przypisaniem numerów do pracowników.</p>
+                <a href="@Url.Action("NumeryStacjonarne", "Administrator")" class="btn btn-info w-100">
+                    <i class="fas fa-list"></i>Zarządzaj
                 </a>
             </div>
         </div>
@@ -72,7 +86,7 @@
                 <p class="card-text">Wgraj pliki CSV od operatora za miesiąc <strong>@ViewBag.OstatniMiesiac</strong>.</p>
                 @* USUNIĘTO KLASĘ DISABLED *@
                 <a href="@Url.Action("Import", "Administrator")" class="btn btn-success w-100">
-                    <i class="fas fa-upload"></i> Otwórz Import
+                    <i class="fas fa-upload"></i> Wprowadź Nowe Bilingi
                 </a>
             </div>
         </div>

@@ -495,6 +495,68 @@ namespace SystemTelefonicznyGY.Controllers
             return RedirectToAction("NumeryKomorkowe");
         }
 
+        // --- SEKCJA ZARZĄZANIA NUMERAMI STACJONARNYMI ---
+
+        // Wyświetlanie listy z wyszukiwarką
+        public ActionResult NumeryStacjonarne(string szukanaFraza)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string sql = @"
+        SELECT ns.*, p.Imie + ' ' + p.Nazwisko AS PrzypisanyPracownik
+        FROM NumeryStacjonarne ns
+        LEFT JOIN Pracownicy p ON ns.ID_Pracownika = p.ID";
+
+            if (!string.IsNullOrEmpty(szukanaFraza))
+            {
+                sql += $@" WHERE ns.Numer LIKE '%{szukanaFraza}%' 
+                   OR ns.LiniaTyp LIKE '%{szukanaFraza}%' 
+                   OR ns.Opis LIKE '%{szukanaFraza}%' 
+                   OR ns.StatusCOR LIKE '%{szukanaFraza}%'
+                   OR p.Nazwisko LIKE '%{szukanaFraza}%'";
+            }
+
+            DataTable dt = _baza.PobierzDane(sql);
+            ViewBag.OstatniaFraza = szukanaFraza;
+            return View(dt);
+        }
+
+        // Widok edycji
+        [HttpGet]
+        public ActionResult EdytujNumerStacjonarny(int? id)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            ViewBag.ListaPracownikow = _baza.PobierzDane("SELECT ID, Imie + ' ' + Nazwisko AS Nazwa FROM Pracownicy ORDER BY Nazwisko");
+
+            if (id.HasValue)
+            {
+                DataTable dt = _baza.PobierzDane($"SELECT * FROM NumeryStacjonarne WHERE ID = {id.Value}");
+                if (dt != null && dt.Rows.Count > 0) return View(dt.Rows[0]);
+            }
+            return View();
+        }
+
+        // Zapis (INSERT / UPDATE) Dodajemy nowy lub edydtujemy już istniejący
+        [HttpPost]
+        public ActionResult ZapiszNumerStacjonarny(int ID, string Numer, string LiniaTyp, int? ID_Pracownika, string PrefiksKraj, string PrefiksMiasto, string Opis, string StatusCOR)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            string pracownikIdSql = ID_Pracownika.HasValue ? ID_Pracownika.Value.ToString() : "NULL";
+            string sql = ID == 0
+                ? $@"INSERT INTO NumeryStacjonarne (Numer, LiniaTyp, ID_Pracownika, PrefiksKraj, PrefiksMiasto, Opis, StatusCOR) 
+             VALUES ('{Numer}', '{LiniaTyp}', {pracownikIdSql}, '{PrefiksKraj}', '{PrefiksMiasto}', '{Opis}', '{StatusCOR}')"
+                : $@"UPDATE NumeryStacjonarne SET 
+             Numer='{Numer}', LiniaTyp='{LiniaTyp}', ID_Pracownika={pracownikIdSql}, 
+             PrefiksKraj='{PrefiksKraj}', PrefiksMiasto='{PrefiksMiasto}', Opis='{Opis}', StatusCOR='{StatusCOR}' 
+             WHERE ID={ID}";
+
+            _baza.WykonajPolecenie(sql);
+            TempData["Sukces"] = "Dane numeru stacjonarnego zostały zaktualizowane.";
+            return RedirectToAction("NumeryStacjonarne");
+        }
+
 
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
 

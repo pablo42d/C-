@@ -132,7 +132,6 @@
     <Compile Include="Models\ILogowanieModel.cs" />
     <Compile Include="Models\LogowanieModel.cs" />
     <Compile Include="Models\Pracownik.cs" />
-    <Compile Include="Models\PracownikWidok.cs" />
     <Compile Include="Models\TelefonKomorkowy.cs" />
     <Compile Include="Models\TelefonStacjonarny.cs" />
     <Compile Include="Models\Urzadzenie.cs" />
@@ -272,6 +271,8 @@
     <Content Include="Views\Administrator\EdytujUrzadzenie.cshtml" />
     <Content Include="Views\Administrator\EdytujNumer.cshtml" />
     <Content Include="Views\Administrator\NumeryKomorkowe.cshtml" />
+    <Content Include="Views\Administrator\NumeryStacjonarne.cshtml" />
+    <Content Include="Views\Administrator\EdytujNumerStacjonarny.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

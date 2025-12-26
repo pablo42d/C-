@@ -1,0 +1,47 @@
+﻿@using System.Data
+@model DataRow
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4><i class="fas fa-phone-square"></i> @(Model == null ? "Dodaj Numer Stacjonarny" : "Edycja: " + Model["Numer"])</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ZapiszNumerStacjonarny", "Administrator", FormMethod.Post))
+            {
+                <input type="hidden" name="ID" value="@(Model != null ? Model["ID"] : 0)" />
+                <div class="row mb-3">
+                    <div class="col-md-2"><label>Kraj</label><input type="text" name="PrefiksKraj" class="form-control" value="@(Model != null ? Model["PrefiksKraj"] : "+48")" /></div>
+                    <div class="col-md-2"><label>Miasto</label><input type="text" name="PrefiksMiasto" class="form-control" value="@(Model != null ? Model["PrefiksMiasto"] : "14")" /></div>
+                    <div class="col-md-4"><label>Numer Wewnętrzny</label><input type="text" name="Numer" class="form-control" value="@(Model != null ? Model["Numer"] : "")" required /></div>
+                    <div class="col-md-4"><label>Typ Linii</label><input type="text" name="LiniaTyp" class="form-control" value="@(Model != null ? Model["LiniaTyp"] : "Voip")" /></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label>Status / COR (Uprawnienia)</label>
+                        <select name="StatusCOR" class="form-select">
+                            <option value="lokalnie" @(Model != null && Model["StatusCOR"].ToString() == "lokalnie" ? "selected" : "")>Lokalnie (Wewnętrzne)</option>
+                            <option value="miasto" @(Model != null && Model["StatusCOR"].ToString() == "miasto" ? "selected" : "")>Miasto (Strefa)</option>
+                            <option value="komórki" @(Model != null && Model["StatusCOR"].ToString() == "komórki" ? "selected" : "")>Komórki</option>
+                            <option value="międzynarodowe" @(Model != null && Model["StatusCOR"].ToString() == "międzynarodowe" ? "selected" : "")>Międzynarodowe</option>
+                            <option value="nie aktywny" @(Model != null && Model["StatusCOR"].ToString() == "nie aktywny" ? "selected" : "")>Nie aktywny</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Użytkownik</label>
+                        <select name="ID_Pracownika" class="form-select">
+                            <option value="">-- Brak / Magazyn --</option>
+                            @foreach (DataRow p in (ViewBag.ListaPracownikow as DataTable).Rows)
+                            {
+                                <option value="@p["ID"]" @(Model != null && Model["ID_Pracownika"].ToString() == p["ID"].ToString() ? "selected" : "")>@p["Nazwa"]</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4"><label>Lokalizacja / Opis</label><input type="text" name="Opis" class="form-control" value="@(Model != null ? Model["Opis"] : "")" /></div>
+                </div>
+                <button type="submit" class="btn btn-success">Zapisz Zmiany</button>
+                <a href="@Url.Action("NumeryStacjonarne")" class="btn btn-secondary">Anuluj</a>
+            }
+        </div>
+    </div>
+</div>
