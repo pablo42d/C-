@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\administrator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\administrator\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\views\\administrator\\import.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:views\\administrator\\import.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 323,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AdministratorController.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdministratorController.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs*",
-              "RelativeToolTip": "Controllers\\AdministratorController.cs*",
-              "ViewState": "AgIAACcCAAAAAAAAAAAcwHECAAAJAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
+              "RelativeToolTip": "Controllers\\AdministratorController.cs",
+              "ViewState": "AgIAAF0CAAAAAAAAAAAuwJ8CAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T20:19:58.533Z",
               "IsPinned": true,
@@ -40,13 +44,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Administrator\\Index.cshtml",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Index.cshtml",
+              "RelativeToolTip": "Views\\Administrator\\Index.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAGUAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-26T13:40:40.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Import.cshtml",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Import.cshtml",
               "RelativeDocumentMoniker": "Views\\Administrator\\Import.cshtml",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Import.cshtml*",
-              "RelativeToolTip": "Views\\Administrator\\Import.cshtml*",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAwDUAAAAGAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Views\\Administrator\\Import.cshtml",
+              "RelativeToolTip": "Views\\Administrator\\Import.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAwCcAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-26T12:53:24.667Z",
               "EditorCaption": ""

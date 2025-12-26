@@ -563,6 +563,8 @@ namespace SystemTelefonicznyGY.Controllers
 
         // Metoda wyświetlająca stronę wyboru pliku CSV
 
+        // V1.3
+
         [HttpGet]
         public ActionResult Import()
         {
@@ -579,14 +581,14 @@ namespace SystemTelefonicznyGY.Controllers
             {
                 try
                 {
-                    // DEKLARACJA NAZWY TABELI PRZED PĘTLĄ
-                    string nazwaTabeli = (typ == "kom") ? "Bilingi Komórkowe" : "Bilingi Stacjonarne";
                     string tabelaSQL = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
+                    int licznik = 0;
+                    bool czyUsunietoStaraFakture = false;
+                    string numerFakturyInfo = "nieznany";
 
                     using (var reader = new System.IO.StreamReader(plikBilingowy.InputStream))
                     {
-                        reader.ReadLine(); // Pomiń nagłówek
-                        int licznik = 0;
+                        reader.ReadLine(); // Pomijam nagłówek w pliku bilingowym
 
                         while (!reader.EndOfStream)
                         {
@@ -594,52 +596,62 @@ namespace SystemTelefonicznyGY.Controllers
                             if (string.IsNullOrWhiteSpace(linia)) continue;
 
                             var wartosci = linia.Split(';');
+                            if (wartosci.Length < 9) continue;
 
-                            //// 1. POPRAWKA DATY: Konwersja z formatu 01.10.2025 na format SQL 2025-10-01
-                            //DateTime dt;
-                            //string dataDlaSQL;
-                            //if (DateTime.TryParseExact(wartosci[0], "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dt))
-                            //{
-                            //    dataDlaSQL = dt.ToString("yyyy-MM-dd HH:mm:ss");
-                            //}
-                            //else
-                            //{
-                            //    dataDlaSQL = wartosci[0]; // Próba ratunkowa
-                            //}
+                            // --- POBRANIE NR FAKTURY I SPRAWDZENIE CZY ISTNIEJE W TD JEŚLI TAK TO USUWAMY I WGRYWAMY NOWĄ ---
+                            string nrFaktury = wartosci[8].Trim().Replace("'", "''");
 
-                            // Dane z pliku 
-                            string dataPolaczenia = wartosci[0];
+                            // Używamy zmiennej czyUsunietoStaraFakture, aby DELETE wykonał się tylko RAZ
+                            if (!czyUsunietoStaraFakture && !string.IsNullOrEmpty(nrFaktury))
+                            {
+                                _baza.WykonajPolecenie($"DELETE FROM {tabelaSQL} WHERE NrFaktury = '{nrFaktury}'");
+                                czyUsunietoStaraFakture = true; // Zmieniamy wartość, flaga jest teraz "użyta"
+                                numerFakturyInfo = nrFaktury;
+                            }
+
+                            // --- 2: KONWERSJA DATY ---
+                            string dataDlaSQL;
+                            if (DateTime.TryParseExact(wartosci[0], "dd.MM.yyyy HH:mm",
+                                System.Globalization.CultureInfo.InvariantCulture,
+                                System.Globalization.DateTimeStyles.None, out DateTime dt))
+                            {
+                                dataDlaSQL = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                            }
+                            else
+                            {
+                                DateTime.TryParse(wartosci[0], out dt);
+                                dataDlaSQL = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                            }
+
+                            // --- 3: PRZYGOTOWANIE DANYCH ---
                             string numerA = KonwertujNumer(wartosci[1]);
                             string numerB = KonwertujNumer(wartosci[2]);
-                            string typPolaczenia = wartosci[3];
-                            string czasTrwania = wartosci[5];
+                            string typPol = wartosci[3].Replace("'", "''");
+                            string czas = wartosci[5];
+                            string netto = wartosci[6].Replace(',', '.');
+                            string brutto = wartosci[7].Replace(',', '.');
 
-                            // Obsługa kwot - zamiana przecinka na kropkę dla SQL
-                            string kwotaNetto = wartosci[6].Replace(',', '.');
-                            string kwotaBrutto = wartosci[7].Replace(',', '.');
-
-                            string nrFaktury = wartosci[8];
-
-                            // Poprawione zapytanie SQL z uwzględnieniem KwotaNetto
+                            // --- 4: DEFINICJA I UŻYCIE SQL ---
+                            // Deklarujemy 'string sql' bezpośrednio przed wykonaniem
                             string sql = $@"INSERT INTO {tabelaSQL} 
-        (DataPolaczenia, NumerTelefonu, NumerWybierany, TypPolaczenia, CzasTrwania, KwotaNetto, KwotaBrutto, NrFaktury)
-        VALUES ('{dataPolaczenia}', '{numerA}', '{numerB}', '{typPolaczenia}', '{czasTrwania}', {kwotaNetto}, {kwotaBrutto}, '{nrFaktury}')";
+                        (DataPolaczenia, NumerTelefonu, NumerWybierany, TypPolaczenia, CzasTrwania, KwotaNetto, KwotaBrutto, NrFaktury)
+                        VALUES ('{dataDlaSQL}', '{numerA}', '{numerB}', '{typPol}', '{czas}', {netto}, {brutto}, '{nrFaktury}')";
 
                             _baza.WykonajPolecenie(sql);
                             licznik++;
                         }
 
-                        // Teraz 'nazwaTabeli' jest widoczna tutaj, bo jest zadeklarowana wyżej
-                        TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów do bazy: {nazwaTabeli}.";
+                        TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów. Faktura: {numerFakturyInfo}.";
                     }
                 }
                 catch (Exception ex)
                 {
-                    TempData["Blad"] = "Błąd podczas przetwarzania pliku: " + ex.Message;
+                    TempData["Blad"] = "Błąd: " + ex.Message;
                 }
             }
             return RedirectToAction("Index");
         }
+
 
         // Funkcja pomocnicza do naprawy formatu naukowego (np. 4,815E+10 -> 48150000000)
         private string KonwertujNumer(string raw)
@@ -657,55 +669,7 @@ namespace SystemTelefonicznyGY.Controllers
             return raw;
         }
 
-        //[HttpGet]
-        //public ActionResult Import()
-        //{
-        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult ImportujCSV(HttpPostedFileBase plikBilingowy, string typ)
-        //{
-        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
-
-        //    if (plikBilingowy != null && plikBilingowy.ContentLength > 0)
-        //    {
-        //        try
-        //        {
-        //            using (var reader = new System.IO.StreamReader(plikBilingowy.InputStream))
-        //            {
-        //                // Pomijamy nagłówek pliku
-        //                reader.ReadLine();
-        //                int licznik = 0;
-
-        //                while (!reader.EndOfStream)
-        //                {
-        //                    var linia = reader.ReadLine();
-        //                    var wartosci = linia.Split(';'); // Zakładamy średnik jako separator
-
-        //                    // Przykładowy mapowanie: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru
-        //                    string tabela = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
-        //                    string idKolumna = (typ == "kom") ? "ID_NumeruKomorkowego" : "ID_NumeruStacjonarnego";
-
-        //                    string sql = $@"INSERT INTO {tabela} (DataPolaczenia, NumerTelefonu, NumerWybierany, CzasTrwania, KwotaBrutto, NrFaktury, {idKolumna})
-        //                            VALUES ('{wartosci[0]}', '{wartosci[1]}', '{wartosci[2]}', {wartosci[3]}, {wartosci[4].Replace(',', '.')}, '{wartosci[5]}', {wartosci[6]})";
-
-        //                    _baza.WykonajPolecenie(sql);
-        //                    licznik++;
-        //                }
-        //                TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów bilingowych.";
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            TempData["Blad"] = "Błąd podczas przetwarzania pliku: " + ex.Message;
-        //        }
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
-
+        
         // Metoda usuwanie Pracownika
         public ActionResult Usun(int id)
         {
