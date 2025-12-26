@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Security.Policy;
 using System.Text;
 using System.Web;
@@ -561,6 +562,7 @@ namespace SystemTelefonicznyGY.Controllers
         // --- SEKCJA IMPORTU BILINGÓW Z PLIKU CSV ---
 
         // Metoda wyświetlająca stronę wyboru pliku CSV
+
         [HttpGet]
         public ActionResult Import()
         {
@@ -577,28 +579,58 @@ namespace SystemTelefonicznyGY.Controllers
             {
                 try
                 {
+                    // DEKLARACJA NAZWY TABELI PRZED PĘTLĄ
+                    string nazwaTabeli = (typ == "kom") ? "Bilingi Komórkowe" : "Bilingi Stacjonarne";
+                    string tabelaSQL = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
+
                     using (var reader = new System.IO.StreamReader(plikBilingowy.InputStream))
                     {
-                        // Pomijamy nagłówek pliku
-                        reader.ReadLine();
+                        reader.ReadLine(); // Pomiń nagłówek
                         int licznik = 0;
 
                         while (!reader.EndOfStream)
                         {
                             var linia = reader.ReadLine();
-                            var wartosci = linia.Split(';'); // Zakładamy średnik jako separator
+                            if (string.IsNullOrWhiteSpace(linia)) continue;
 
-                            // Przykładowy mapowanie: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru
-                            string tabela = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
-                            string idKolumna = (typ == "kom") ? "ID_NumeruKomorkowego" : "ID_NumeruStacjonarnego";
+                            var wartosci = linia.Split(';');
 
-                            string sql = $@"INSERT INTO {tabela} (DataPolaczenia, NumerTelefonu, NumerWybierany, CzasTrwania, KwotaBrutto, NrFaktury, {idKolumna})
-                                    VALUES ('{wartosci[0]}', '{wartosci[1]}', '{wartosci[2]}', {wartosci[3]}, {wartosci[4].Replace(',', '.')}, '{wartosci[5]}', {wartosci[6]})";
+                            //// 1. POPRAWKA DATY: Konwersja z formatu 01.10.2025 na format SQL 2025-10-01
+                            //DateTime dt;
+                            //string dataDlaSQL;
+                            //if (DateTime.TryParseExact(wartosci[0], "dd.MM.yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dt))
+                            //{
+                            //    dataDlaSQL = dt.ToString("yyyy-MM-dd HH:mm:ss");
+                            //}
+                            //else
+                            //{
+                            //    dataDlaSQL = wartosci[0]; // Próba ratunkowa
+                            //}
+
+                            // Dane z pliku 
+                            string dataPolaczenia = wartosci[0];
+                            string numerA = KonwertujNumer(wartosci[1]);
+                            string numerB = KonwertujNumer(wartosci[2]);
+                            string typPolaczenia = wartosci[3];
+                            string czasTrwania = wartosci[5];
+
+                            // Obsługa kwot - zamiana przecinka na kropkę dla SQL
+                            string kwotaNetto = wartosci[6].Replace(',', '.');
+                            string kwotaBrutto = wartosci[7].Replace(',', '.');
+
+                            string nrFaktury = wartosci[8];
+
+                            // Poprawione zapytanie SQL z uwzględnieniem KwotaNetto
+                            string sql = $@"INSERT INTO {tabelaSQL} 
+        (DataPolaczenia, NumerTelefonu, NumerWybierany, TypPolaczenia, CzasTrwania, KwotaNetto, KwotaBrutto, NrFaktury)
+        VALUES ('{dataPolaczenia}', '{numerA}', '{numerB}', '{typPolaczenia}', '{czasTrwania}', {kwotaNetto}, {kwotaBrutto}, '{nrFaktury}')";
 
                             _baza.WykonajPolecenie(sql);
                             licznik++;
                         }
-                        TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów bilingowych.";
+
+                        // Teraz 'nazwaTabeli' jest widoczna tutaj, bo jest zadeklarowana wyżej
+                        TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów do bazy: {nazwaTabeli}.";
                     }
                 }
                 catch (Exception ex)
@@ -608,6 +640,70 @@ namespace SystemTelefonicznyGY.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        // Funkcja pomocnicza do naprawy formatu naukowego (np. 4,815E+10 -> 48150000000)
+        private string KonwertujNumer(string raw)
+        {
+            if (string.IsNullOrWhiteSpace(raw)) return "";
+            raw = raw.Trim().Replace(" ", "");
+
+            if (raw.Contains("E+"))
+            {
+                if (double.TryParse(raw.Replace(",", "."), System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double parsed))
+                {
+                    return parsed.ToString("F0");
+                }
+            }
+            return raw;
+        }
+
+        //[HttpGet]
+        //public ActionResult Import()
+        //{
+        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult ImportujCSV(HttpPostedFileBase plikBilingowy, string typ)
+        //{
+        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+        //    if (plikBilingowy != null && plikBilingowy.ContentLength > 0)
+        //    {
+        //        try
+        //        {
+        //            using (var reader = new System.IO.StreamReader(plikBilingowy.InputStream))
+        //            {
+        //                // Pomijamy nagłówek pliku
+        //                reader.ReadLine();
+        //                int licznik = 0;
+
+        //                while (!reader.EndOfStream)
+        //                {
+        //                    var linia = reader.ReadLine();
+        //                    var wartosci = linia.Split(';'); // Zakładamy średnik jako separator
+
+        //                    // Przykładowy mapowanie: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru
+        //                    string tabela = (typ == "kom") ? "BilingiKomorkowe" : "BilingiStacjonarne";
+        //                    string idKolumna = (typ == "kom") ? "ID_NumeruKomorkowego" : "ID_NumeruStacjonarnego";
+
+        //                    string sql = $@"INSERT INTO {tabela} (DataPolaczenia, NumerTelefonu, NumerWybierany, CzasTrwania, KwotaBrutto, NrFaktury, {idKolumna})
+        //                            VALUES ('{wartosci[0]}', '{wartosci[1]}', '{wartosci[2]}', {wartosci[3]}, {wartosci[4].Replace(',', '.')}, '{wartosci[5]}', {wartosci[6]})";
+
+        //                    _baza.WykonajPolecenie(sql);
+        //                    licznik++;
+        //                }
+        //                TempData["Sukces"] = $"Pomyślnie zaimportowano {licznik} rekordów bilingowych.";
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            TempData["Blad"] = "Błąd podczas przetwarzania pliku: " + ex.Message;
+        //        }
+        //    }
+        //    return RedirectToAction("Index");
+        //}
 
 
         // Metoda usuwanie Pracownika

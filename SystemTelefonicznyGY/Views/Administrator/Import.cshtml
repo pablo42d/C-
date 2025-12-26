@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Import Danych";
+﻿@using System.Data
+@{
+    ViewBag.Title = "Import Bilingów";
 }
 
 <div class="container mt-4">
@@ -10,24 +11,84 @@
         <div class="card-body">
             @using (Html.BeginForm("ImportujCSV", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                <div class="mb-3">
-                    <label class="form-label">Wybierz plik CSV</label>
-                    <input type="file" name="plikBilingowy" class="form-control" required />
-                    <div class="form-text">Format: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru</div>
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    Wybierz plik CSV otrzymany od operatora. System automatycznie rozpozna numer faktury oraz poprawi format numerów telefonów.
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Typ połączeń</label>
-                    <select name="typ" class="form-select">
-                        <option value="kom">Komórkowe</option>
-                        <option value="stac">Stacjonarne</option>
-                    </select>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">1. Wybierz plik CSV</label>
+                    <input type="file" name="plikBilingowy" class="form-control form-control-lg" required />
+                    <div class="form-text mt-2">
+                        <strong>Wymagany układ kolumn:</strong> Data; Numer A; Numer B; Typ; Kierunek; Czas; Netto; Brutto; Nr Faktury
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-success">Rozpocznij import</button>
-                <a href="@Url.Action("Index")" class="btn btn-secondary">Anuluj</a>
+                <div class="mb-4">
+                    <label class="form-label fw-bold">2. Typ importowanych danych</label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check card p-2 flex-fill">
+                            <input class="form-check-input ms-1" type="radio" name="typ" id="typKom" value="kom" checked>
+                            <label class="form-check-label ms-4" for="typKom">
+                                <i class="fas fa-mobile-alt me-1"></i> Bilingi Komórkowe
+                            </label>
+                        </div>
+                        <div class="form-check card p-2 flex-fill">
+                            <input class="form-check-input ms-1" type="radio" name="typ" id="typStac" value="stac">
+                            <label class="form-check-label ms-4" for="typStac">
+                                <i class="fas fa-phone-alt me-1"></i> Bilingi Stacjonarne
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-top pt-3">
+                    <button type="submit" class="btn btn-success btn-lg px-5">
+                        <i class="fas fa-upload me-2"></i> Rozpocznij import
+                    </button>
+                    <a href="@Url.Action("Index")" class="btn btn-outline-secondary btn-lg">Anuluj</a>
+                </div>
             }
         </div>
     </div>
 </div>
 
+
+
+
+
+
+@*
+    @{
+        ViewBag.Title = "Import Danych";
+    }
+
+    <div class="container mt-4">
+        <div class="card shadow border-success">
+            <div class="card-header bg-success text-white">
+                <h4><i class="fas fa-file-csv"></i> Import bilingów operatora</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("ImportujCSV", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="mb-3">
+                        <label class="form-label">Wybierz plik CSV</label>
+                        <input type="file" name="plikBilingowy" class="form-control" required />
+                        <div class="form-text">Format: Data;Numer;NumerWybierany;Sekundy;Koszt;Faktura;ID_Numeru</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Typ połączeń</label>
+                        <select name="typ" class="form-select">
+                            <option value="kom">Komórkowe</option>
+                            <option value="stac">Stacjonarne</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Rozpocznij import</button>
+                    <a href="@Url.Action("Index")" class="btn btn-secondary">Anuluj</a>
+                }
+            </div>
+        </div>
+    </div>
+*@
