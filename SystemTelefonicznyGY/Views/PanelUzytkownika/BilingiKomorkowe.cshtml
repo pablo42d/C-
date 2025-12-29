@@ -1,14 +1,15 @@
 ﻿@using System.Data
+@using System.Text
 @*@model DataTable*@
 
 @{
     string typ = ViewBag.Typ;
     string miesiac = ViewBag.MiesiacBilingowy;
-    ViewBag.Title = $"Bilingi szczegółowe dla numerów stacjonarnych:";
+    ViewBag.Title = $"Bilingi szczegółowe dla numerów komórkowych:";
     string eksportAction = (typ == "Komórkowe") ? "kom" : "stac";
 }
 
-<h2>Bilingi szczegółowe dla numerów stacjonarnych</h2>
+<h2>Bilingi szczegółowe dla numerów komórkowych</h2>
 <p class="lead">Bilingi za miesiąc: <strong>@miesiac</strong></p>
 <hr />
 
@@ -21,7 +22,7 @@
 {
     <p>
         <a href="@Url.Action("EksportBilingu", "PanelUzytkownika", new { typ = eksportAction })" class="btn btn-success">
-            <i class="fas fa-download"></i> Pobierz biling (@miesiac)
+            <i class="fas fa-download"></i> Pobierz biling 
         </a>
     </p>
 

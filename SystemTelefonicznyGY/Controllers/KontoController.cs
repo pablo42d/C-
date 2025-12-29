@@ -65,5 +65,39 @@ namespace SystemTelefonicznyGY.Controllers
             Session.Abandon(); // Czyścimy wszystko
             return RedirectToAction("Index", "Home");
         }
+        [HttpPost]
+        public ActionResult ProcesZmianyHasla(ZmianaHaslaModel model)
+        {
+            if (Session["IdPracownika"] == null) return RedirectToAction("Login", "Konto");
+
+            // 1. Walidacja modelu (Twoje warunki)
+            string blad = model.SprawdzBledy();
+            if (blad != null)
+            {
+                TempData["Blad"] = blad;
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+
+            // 2. Weryfikacja starego hasła
+            DataTable dt = _bazaObiekt.PobierzDane($"SELECT Haslo FROM Pracownicy WHERE ID = {model.IdPracownika}");
+            if (dt.Rows.Count == 0 || dt.Rows[0]["Haslo"].ToString() != model.StareHaslo)
+            {
+                TempData["Blad"] = "Podane obecne hasło jest błędne.";
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+
+            // 3. Aktualizacja
+            try
+            {
+                _bazaObiekt.WykonajPolecenie($"UPDATE Pracownicy SET Haslo = '{model.NoweHaslo}' WHERE ID = {model.IdPracownika}");
+                TempData["Sukces"] = "Hasło zostało pomyślnie zmienione.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Blad"] = "Błąd bazy: " + ex.Message;
+            }
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
     }
 }

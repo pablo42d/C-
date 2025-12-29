@@ -95,6 +95,23 @@
     </nav>
 
     <div class="container body-content" style="margin-top: 20px;">
+
+        @* SEKCJA KOMUNIKATÓW SYSTEMOWYCH *@
+        @if (TempData["Blad"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle"></i> @TempData["Blad"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (TempData["Sukces"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle"></i> @TempData["Sukces"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
         @RenderBody()
         <hr />
         <footer>

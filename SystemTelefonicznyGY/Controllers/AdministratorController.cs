@@ -131,6 +131,9 @@ namespace SystemTelefonicznyGY.Controllers
             string sql;
             if (Id == 0)
             {
+                // Jeśli admin nie podał hasła, używamy domyślnego Welcome123
+                string finalneHaslo = string.IsNullOrEmpty(Haslo) ? "Welcome123" : Haslo;
+                //string.IsNullOrEmpty(Haslo) ? "Welcome123" : Haslo;
                 // Teraz zmienna Haslo jest widoczna i zostanie pobrana z formularza
                 sql = $@"INSERT INTO Pracownicy (Imie, Nazwisko, Login, Haslo, Rola, ID_Dzialu, ID_Stanowisko, Kraj) 
                  VALUES ('{Imie}', '{Nazwisko}', '{Login}', '{Haslo}', '{Rola}', {IdDzialu}, {IdStanowiska}, 'Polska')";
@@ -140,10 +143,10 @@ namespace SystemTelefonicznyGY.Controllers
                 sql = $@"UPDATE Pracownicy SET 
                  Imie = '{Imie}', 
                  Nazwisko = '{Nazwisko}', 
-                 Login = '{Login}', 
+                 Login = '{Login}',                 
                  Rola = '{Rola}', 
                  ID_Dzialu = {IdDzialu}, 
-                 Stanowiska = '{IdStanowiska}'                 
+                 ID_Stanowiska = '{IdStanowiska}'                 
                  WHERE ID = {Id}";
             }
 
@@ -690,42 +693,566 @@ namespace SystemTelefonicznyGY.Controllers
             return RedirectToAction("Pracownicy");
         }
 
+        // --- SEKCJA POBIERANIA BILINGÓW DO PLIKU CSV ---
 
-        public void EksportujRaport()
+
+        //private List<Biling> PobierzDaneZTablei(string tabela, int m, int r, DateTime? od, DateTime? doDaty, string fraza, int? dzialId, string manager)
+        //{
+        //    // Budujemy zapytanie bazowe
+        //    string sql = $@"SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //                   p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName AS Manager, d.NazwaDzialu AS Dzial
+        //            FROM {tabela} b
+        //            LEFT JOIN Pracownicy p ON ... -- Twoje JOINy
+        //            LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //            WHERE 1=1";
+
+        //    // Priorytet kalendarza
+        //    if (od.HasValue && doDaty.HasValue)
+        //    {
+        //        sql += $" AND b.DataPolaczenia >= '{od:yyyy-MM-dd}' AND b.DataPolaczenia <= '{doDaty:yyyy-MM-dd} 23:59:59'";
+        //    }
+        //    else
+        //    {
+        //        sql += $" AND MONTH(b.DataPolaczenia) = {m} AND YEAR(b.DataPolaczenia) = {r}";
+        //    }
+
+        //    // Pozostałe filtry
+        //    if (!string.IsNullOrEmpty(fraza)) sql += $" AND ..."; // Twoja logika frazy
+
+        //    DataTable dt = _baza.PobierzDane(sql);
+
+        //    // Mapowanie DataTable na List<Biling>
+        //    return dt.AsEnumerable().Select(row => new Biling
+        //    {
+        //        DataPolaczenia = row.Field<DateTime>("DataPolaczenia"),
+        //        NumerTelefonu = row.Field<string>("NumerTelefonu"),
+        //        // ... reszta pól
+        //    }).ToList();
+        //}
+
+
+
+
+
+
+
+        // //--- 1. METODA WYŚWIETLAJĄCA STRONĘ RAPORTÓW  ---
+
+        //public ActionResult Raporty(int? miesiac, int? rok, string fraza)
+        //{
+        //    int m, r;
+        //    // Logika domyślnego bilingu (sqlOstatnia), jeśli parametry są puste
+        //    if (!miesiac.HasValue || !rok.HasValue)
+        //    {
+        //        // ... Twoje zapytanie TOP 1 YEAR/MONTH ...
+        //        m = 12; r = 2025; // Przykład po znalezieniu
+        //    }
+        //    else
+        //    {
+        //        m = miesiac.Value; r = rok.Value;
+        //    }
+
+        //    var model = new RaportViewModel
+        //    {
+        //        WybranyMiesiac = m,
+        //        WybranyRok = r,
+        //        Fraza = fraza,
+        //        Komorkowe = PobierzDane("BilingiKomorkowe", m, r, fraza),
+        //        Stacjonarne = PobierzDane("BilingiStacjonarne", m, r, fraza)
+        //    };
+
+        //    return View(model);
+        //}
+
+        //// Uniwersalna metoda mapująca dane na klasę Biling
+        //private List<Biling> PobierzDane(string tabela, int m, int r, string fraza)
+        //{
+        //    string sql = $@"SELECT * FROM {tabela} WHERE MONTH(DataPolaczenia) = {m} AND YEAR(DataPolaczenia) = {r}";
+        //    if (!string.IsNullOrEmpty(fraza)) sql += $" AND (NumerTelefonu LIKE '%{fraza}%')";
+
+        //    DataTable dt = _baza.PobierzDane(sql);
+        //    var lista = new List<Biling>();
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        lista.Add(new Biling
+        //        {
+        //            DataPolaczenia = Convert.ToDateTime(row["DataPolaczenia"]),
+        //            NumerTelefonu = row["NumerTelefonu"].ToString(),
+        //            Brutto = Convert.ToDecimal(row["KwotaBrutto"]),
+        //            Typ = tabela.Contains("Komorkowe") ? "Komórkowy" : "Stacjonarny"
+        //        });
+        //    }
+        //    return lista;
+        //}
+
+
+
+        public ActionResult Raporty(int? miesiac, int? rok, string fraza, string nrFaktury, int? dzialId, string manager, DateTime? od, DateTime? doDaty, int strona = 1)//(string fraza, string nrFaktury, int? dzialId, string manager, DateTime? od, DateTime? doDaty, int strona = 1)
+        {
+            if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+            // 1. Ustalenie domyślnego miesiąca i roku, jeśli nie wybrano filtrów
+            if (!miesiac.HasValue || !rok.HasValue)
+            {
+                string sqlOstatnia = @"SELECT TOP 1 YEAR(DataPolaczenia) as R, MONTH(DataPolaczenia) as M 
+                               FROM (SELECT DataPolaczenia FROM BilingiKomorkowe UNION ALL SELECT DataPolaczenia FROM BilingiStacjonarne) AS T 
+                               ORDER BY DataPolaczenia DESC";
+                DataTable dtOstatnia = _baza.PobierzDane(sqlOstatnia);
+                if (dtOstatnia.Rows.Count > 0)
+                {
+                    rok = Convert.ToInt32(dtOstatnia.Rows[0]["R"]);
+                    miesiac = Convert.ToInt32(dtOstatnia.Rows[0]["M"]);
+                }
+                else
+                {
+                    rok = DateTime.Now.Year;
+                    miesiac = DateTime.Now.Month;
+                }
+            }
+
+            ViewBag.Dzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy ORDER BY NazwaDzialu");
+            ViewBag.WybranyMiesiac = miesiac;
+            ViewBag.WybranyRok = rok;
+
+            int rozmiarStrony = 50;
+            int pomin = (strona - 1) * rozmiarStrony;
+
+
+            try
+            {
+                // 1. Logika określenia zakresu czasu (Priorytet dla kalendarza)
+                string warunekCzasu;
+                if (od.HasValue || doDaty.HasValue)
+                {
+                    List<string> czesciDaty = new List<string>();
+                    if (od.HasValue) czesciDaty.Add($"b.DataPolaczenia >= '{od.Value:yyyy-MM-dd}'");
+                    if (doDaty.HasValue) czesciDaty.Add($"b.DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'");
+                    warunekCzasu = string.Join(" AND ", czesciDaty);
+                }
+                else
+                {
+                    warunekCzasu = $"MONTH(b.DataPolaczenia) = {miesiac} AND YEAR(b.DataPolaczenia) = {rok}";
+                }
+
+                // 2. Pozostałe filtry tekstowe
+                string filtryDodatkowe = "";
+                if (!string.IsNullOrEmpty(fraza)) filtryDodatkowe += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
+                if (dzialId.HasValue) filtryDodatkowe += $" AND DzialID = {dzialId.Value}";
+                if (!string.IsNullOrEmpty(manager)) filtryDodatkowe += $" AND MenagerName LIKE '%{manager}%'";
+                if (!string.IsNullOrEmpty(nrFaktury)) filtryDodatkowe += $" AND NrFaktury = '{nrFaktury}'";
+
+                // 3. Główny SQL (jako baza pod liczenie i dane)
+                string sqlBazowy = BilingService.GenerujSqlBazowy(warunekCzasu); // pracownikId zostaje null
+
+        //        string sqlBazowy = $@"
+        //SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //       p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, d.ID AS DzialID, 
+        //       d.NazwaDzialu AS Dzial, 'Komórkowy' AS Typ
+        //FROM BilingiKomorkowe b
+        //LEFT JOIN NumeryKomorkowe n ON (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        //LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //WHERE {warunekCzasu}
+        //UNION ALL
+        //SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //       p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, d.ID AS DzialID,
+        //       d.NazwaDzialu AS Dzial, 'Stacjonarny' AS Typ
+        //FROM BilingiStacjonarne b
+        //LEFT JOIN NumeryStacjonarne n ON (CASE WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7) ELSE b.NumerTelefonu END) = n.Numer
+        //LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //WHERE {warunekCzasu}";
+
+                // 4. Zapytanie LICZĄCE całkowitą ilość rekordów
+                string sqlLiczenie = $@"SELECT COUNT(*) FROM ({sqlBazowy}) AS T WHERE 1=1 {filtryDodatkowe}";
+                DataTable dtLiczenie = _baza.PobierzDane(sqlLiczenie);
+                int lacznieRekordow = Convert.ToInt32(dtLiczenie.Rows[0][0]);
+                ViewBag.LiczbaStron = (int)Math.Ceiling((double)lacznieRekordow / rozmiarStrony);
+
+                // 5. Zapytanie o konkretne DANE dla aktualnej strony
+                string sqlDane = $@"SELECT * FROM ({sqlBazowy}) AS Zbiorcze 
+                        WHERE 1=1 {filtryDodatkowe} 
+                        ORDER BY DataPolaczenia DESC 
+                        OFFSET {pomin} ROWS FETCH NEXT {rozmiarStrony} ROWS ONLY";
+
+                DataTable dt = _baza.PobierzDane(sqlDane);
+
+                // Ustawienie statusów dla widoku
+                ViewBag.AktualnaStrona = strona;
+                ViewBag.BrakKomorkowych = dt.AsEnumerable().All(r => r["Typ"].ToString() != "Komórkowy");
+                ViewBag.BrakStacjonarnych = dt.AsEnumerable().All(r => r["Typ"].ToString() != "Stacjonarny");
+
+                return View(dt);
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Blad = "Błąd bazy danych: " + ex.Message;
+                return View(new DataTable());
+            }
+        }
+
+
+        //public ActionResult Raporty(string fraza, string nrFaktury, int? dzialId, string manager, DateTime? od, DateTime? doDaty, int strona = 1)
+        //{
+        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
+
+        //    // Ustalenie domyślnego miesiąca i roku, jeśli nie wybrano filtrów
+        //    if (!miesiac.HasValue || !rok.HasValue)
+        //    {
+        //        string sqlOstatnia = @"SELECT TOP 1 YEAR(DataPolaczenia) as R, MONTH(DataPolaczenia) as M 
+        //                               FROM (SELECT DataPolaczenia FROM BilingiKomorkowe UNION ALL SELECT DataPolaczenia FROM BilingiStacjonarne) AS T 
+        //                               ORDER BY DataPolaczenia DESC";
+        //        DataTable dtOstatnia = _baza.PobierzDane(sqlOstatnia);
+        //        if (dtOstatnia.Rows.Count > 0)
+        //        {
+        //            rok = Convert.ToInt32(dtOstatnia.Rows[0]["R"]);
+        //            miesiac = Convert.ToInt32(dtOstatnia.Rows[0]["M"]);
+        //        }
+        //        else
+        //        {
+        //            rok = DateTime.Now.Year;
+        //            miesiac = DateTime.Now.Month;
+        //        }
+        //    }
+
+        //    //// Jeśli nrFaktury jest pusty, znajdźmy najnowszą fakturę w bazie
+        //    //if (string.IsNullOrEmpty(nrFaktury) && !od.HasValue)
+        //    //{
+        //    //    string sqlOstatnia = "SELECT TOP 1 NrFaktury FROM (SELECT NrFaktury, DataPolaczenia FROM BilingiKomorkowe UNION ALL SELECT NrFaktury, DataPolaczenia FROM BilingiStacjonarne) AS T ORDER BY DataPolaczenia DESC";
+        //    //    DataTable dtOstatnia = _baza.PobierzDane(sqlOstatnia);
+        //    //    if (dtOstatnia.Rows.Count > 0)
+        //    //    {
+        //    //        nrFaktury = dtOstatnia.Rows[0]["NrFaktury"].ToString();
+        //    //    }
+        //    //}
+
+        //    // 1: Widok Raportów (Tabela na stronie)
+        //    ViewBag.Dzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy ORDER BY NazwaDzialu");
+        //    ViewBag.WybranyMiesiac = miesiac;
+        //    ViewBag.WybranyRok = rok;
+
+        //    string sql = @"
+        //SELECT * FROM (
+        //    -- CZĘŚĆ KOMÓRKOWA
+        //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Komórkowy' AS Typ
+        //    FROM BilingiKomorkowe b
+        //    LEFT JOIN NumeryKomorkowe n ON 
+        //        (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        //    LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //    LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+
+        //    UNION ALL
+
+        //    -- CZĘŚĆ STACJONARNA (z wycinaniem 7 cyfr dla Warszawy 22 i Tarnowa 14)
+        //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Stacjonarny' AS Typ
+        //    FROM BilingiStacjonarne b
+        //    LEFT JOIN NumeryStacjonarne n ON 
+        //        (CASE 
+        //            WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7)
+        //            WHEN LEN(b.NumerTelefonu) > 7 THEN RIGHT(b.NumerTelefonu, 7)
+        //            ELSE b.NumerTelefonu 
+        //         END) = n.Numer
+        //    LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //    LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //) AS Zbiorcze WHERE 1=1";
+
+
+        //    //        string sql = @"
+        //    //SELECT * FROM (
+        //    //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //    //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //    //           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Komórkowy' AS Typ -- POPRAWKA 2
+        //    //    FROM BilingiKomorkowe b
+        //    //    JOIN NumeryKomorkowe n ON b.NumerTelefonu = n.Numer
+        //    //    JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //    //    JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //    //    UNION ALL
+        //    //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //    //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //    //           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Stacjonarny' AS Typ -- POPRAWKA 2
+        //    //    FROM BilingiStacjonarne b
+        //    //    JOIN NumeryStacjonarne n ON b.NumerTelefonu = n.Numer
+        //    //    JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //    //    JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //    //) AS Zbiorcze WHERE 1=1";
+
+
+        //    if (!string.IsNullOrEmpty(fraza)) sql += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
+        //    if (!string.IsNullOrEmpty(nrFaktury)) sql += $" AND NrFaktury = '{nrFaktury}'";
+        //    if (dzialId.HasValue) sql += $" AND DzialID = {dzialId.Value}";
+        //    if (!string.IsNullOrEmpty(manager)) sql += $" AND MenagerName LIKE '%{manager}%'";
+        //    if (od.HasValue) sql += $" AND DataPolaczenia >= '{od.Value:yyyy-MM-dd}'";
+        //    if (doDaty.HasValue) sql += $" AND DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'";
+
+        //    int rozmiarStrony = 50;
+        //    int pomin = (strona - 1) * rozmiarStrony;
+
+        //    //sql += $@" ORDER BY DataPolaczenia DESC 
+        //    //   OFFSET {pomin} ROWS 
+        //    //   FETCH NEXT {rozmiarStrony} ROWS ONLY";
+
+        //    DataTable dt = _baza.PobierzDane(sql);
+        //    // Przekazujemy aktualną stronę do widoku
+        //    ViewBag.AktualnaStrona = strona;
+        //    ViewBag.NrFaktury = nrFaktury; // Aby formularz wiedział, co jest wybrane
+
+        //    return View(dt);
+        //}
+
+        // --- 2. METODA GENERUJĄCA ZBIORCZY RAPORT KSIĘGOWY (Suma na działy) ---
+        public void RaportKsiegowy()
         {
             if (!CzyAdmin()) return;
 
-            // Zapytanie łączące pracowników, działy i ich bilingi
             string sql = @"
-        SELECT p.Imie, p.Nazwisko, d.NazwaDzialu, 
-               ISNULL(SUM(bk.KwotaBrutto), 0) + ISNULL(SUM(bs.KwotaBrutto), 0) as SumaKosztow
-        FROM Pracownicy p
-        JOIN Dzialy d ON p.ID_Dzialu = d.ID
-        LEFT JOIN BilingiKomorkowe bk ON bk.ID_NumeruKomorkowego IN (SELECT ID FROM NumeryKomorkowe WHERE ID_Pracownika = p.ID)
-        LEFT JOIN BilingiStacjonarne bs ON bs.ID_NumeruStacjonarnego IN (SELECT ID FROM NumeryStacjonarne WHERE ID_Pracownika = p.ID)
-        GROUP BY p.Imie, p.Nazwisko, d.NazwaDzialu";
+    SELECT Dzial, MenagerName, 
+           COUNT(*) AS IloscPolaczen, 
+           SUM(KwotaNetto) AS SumaNetto, 
+           SUM(KwotaBrutto) AS SumaBrutto
+    FROM (
+        SELECT d.NazwaDzialu AS Dzial, p.MenagerName, b.KwotaNetto, b.KwotaBrutto 
+        FROM BilingiKomorkowe b 
+        LEFT JOIN NumeryKomorkowe n ON (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID 
+        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        UNION ALL
+        SELECT d.NazwaDzialu AS Dzial, p.MenagerName, b.KwotaNetto, b.KwotaBrutto 
+        FROM BilingiStacjonarne b 
+        LEFT JOIN NumeryStacjonarne n ON (CASE WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7) ELSE b.NumerTelefonu END) = n.Numer
+        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID 
+        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+    ) AS Dane
+    GROUP BY Dzial, MenagerName";
+
+            //        string sql = @"
+            //SELECT Dzial, MenagerName, SUM(KwotaNetto) as SumaNetto, SUM(KwotaBrutto) as SumaBrutto, COUNT(*) as IloscPolaczen
+            //FROM (
+            //    SELECT d.NazwaDzialu AS Dzial, p.MenagerName, b.KwotaNetto, b.KwotaBrutto FROM BilingiKomorkowe b 
+            //    JOIN NumeryKomorkowe n ON b.NumerTelefonu = n.Numer JOIN Pracownicy p ON n.ID_Pracownika = p.ID JOIN Dzialy d ON p.ID_Dzialu = d.ID
+            //    UNION ALL
+            //    SELECT d.NazwaDzialu AS Dzial, p.MenagerName, b.KwotaNetto, b.KwotaBrutto FROM BilingiStacjonarne b 
+            //    JOIN NumeryStacjonarne n ON b.NumerTelefonu = n.Numer JOIN Pracownicy p ON n.ID_Pracownika = p.ID JOIN Dzialy d ON p.ID_Dzialu = d.ID
+            //) as Dane
+            //GROUP BY Dzial, MenagerName";
 
             DataTable dt = _baza.PobierzDane(sql);
-
-            // Przygotowanie pliku CSV
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Imie;Nazwisko;Dzial;Suma Kosztow");
+            sb.AppendLine("Dzial;Manager;Ilosc Polaczen;Suma Netto;Suma Brutto");
 
             foreach (DataRow row in dt.Rows)
             {
-                sb.AppendLine($"{row["Imie"]};{row["Nazwisko"]};{row["NazwaDzialu"]};{row["SumaKosztow"]}");
+                sb.AppendLine($"{row["Dzial"]};{row["MenagerName"]};{row["IloscPolaczen"]};{row["SumaNetto"]};{row["SumaBrutto"]}");
             }
 
-            // Wysłanie pliku do przeglądarki użytkownika
             Response.Clear();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment;filename=Raport_Koszty_Goodyear.csv");
-            Response.Charset = "";
+            Response.AddHeader("content-disposition", "attachment;filename=Raport_Ksiegowy_Goodyear.csv");
             Response.ContentType = "text/csv";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Output.Write(sb.ToString());
             Response.Flush();
             Response.End();
         }
+
+        public void EksportujRaport(int? miesiac, int? rok, string fraza, int? dzialId, string manager, DateTime? od, DateTime? doDaty)
+        {
+            if (!CzyAdmin()) return;
+
+            // 1. Logika określenia zakresu czasu (Identyczna jak w Raporty)
+            string warunekCzasu;
+            if (od.HasValue || doDaty.HasValue)
+            {
+                List<string> czesciDaty = new List<string>();
+                if (od.HasValue) czesciDaty.Add($"b.DataPolaczenia >= '{od.Value:yyyy-MM-dd}'");
+                if (doDaty.HasValue) czesciDaty.Add($"b.DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'");
+                warunekCzasu = string.Join(" AND ", czesciDaty);
+            }
+            else
+            {
+                // Używamy przekazanych parametrów lub domyślnych
+                int m = miesiac ?? DateTime.Now.Month;
+                int r = rok ?? DateTime.Now.Year;
+                warunekCzasu = $"MONTH(b.DataPolaczenia) = {m} AND YEAR(b.DataPolaczenia) = {r}";
+            }
+
+            // 2. Filtry dodatkowe
+            string filtryDodatkowe = "";
+            if (!string.IsNullOrEmpty(fraza)) filtryDodatkowe += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
+            if (dzialId.HasValue) filtryDodatkowe += $" AND DzialID = {dzialId.Value}";
+            if (!string.IsNullOrEmpty(manager)) filtryDodatkowe += $" AND MenagerName LIKE '%{manager}%'";
+
+            // 3. Budowa zapytania SQL (UNION ALL dla obu tabel)
+            string sql = $@"
+    SELECT * FROM (
+        SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+               p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        FROM BilingiKomorkowe b
+        LEFT JOIN NumeryKomorkowe n ON (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        WHERE {warunekCzasu}
+        UNION ALL
+        SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+               p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        FROM BilingiStacjonarne b
+        LEFT JOIN NumeryStacjonarne n ON (CASE WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7) ELSE b.NumerTelefonu END) = n.Numer
+        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        WHERE {warunekCzasu}
+    ) AS Zbiorcze WHERE 1=1 {filtryDodatkowe} ORDER BY DataPolaczenia DESC";
+
+            DataTable dt = _baza.PobierzDane(sql);
+
+            // 4. Budowanie pliku CSV
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Data;Numer;Pracownik;Manager;Dzial;Netto;Brutto;Faktura");
+
+            foreach (DataRow row in dt.Rows)
+            {
+                sb.AppendLine(string.Format("{0:dd.MM.yyyy HH:mm};{1};{2};{3};{4};{5:N2};{6:N2};{7}",
+                    row["DataPolaczenia"],
+                    row["NumerTelefonu"],
+                    row["Pracownik"],
+                    row["MenagerName"],
+                    row["Dzial"],
+                    row["KwotaNetto"],
+                    row["KwotaBrutto"],
+                    row["NrFaktury"]));
+            }
+
+            // 5. Wysyłka pliku do przeglądarki
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=Raport_Bilingowy.csv");
+            Response.ContentType = "text/csv";
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
+            Response.Write('\uFEFF'); // BOM dla Excela
+            Response.Output.Write(sb.ToString());
+            Response.End();
+        }
+
+        // old
+        //        public void EksportujRaport(int? miesiac, int? rok, string fraza, int? dzialId, string manager) // string fraza, string nrFaktury, int? dzialId, string manager, DateTime? od, DateTime? doDaty)
+        //        {
+        //            if (!CzyAdmin()) return;
+        //            // 1. Zabezpieczenie przed brakiem dat - jeśli null, bierzemy obecny miesiąc/rok
+        //            int m = miesiac ?? DateTime.Now.Month;
+        //            int r = rok ?? DateTime.Now.Year;
+
+        //            // 1. Budujemy zapytanie bazowe (identyczne jak w widoku, aby wyniki były spójne)
+        //            string sql = $@"
+        //    SELECT * FROM (
+        //        SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //               p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //               d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        //        FROM BilingiKomorkowe b
+        //        LEFT JOIN NumeryKomorkowe n ON (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        //        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //        WHERE MONTH(b.DataPolaczenia) = {m} AND YEAR(b.DataPolaczenia) = {r}
+
+        //        UNION ALL
+
+        //        SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //               p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //               d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        //        FROM BilingiStacjonarne b
+        //        LEFT JOIN NumeryStacjonarne n ON (CASE WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7) ELSE b.NumerTelefonu END) = n.Numer
+        //        LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //        LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //        WHERE MONTH(b.DataPolaczenia) = {m} AND YEAR(b.DataPolaczenia) = {r}
+        //    ) AS Zbiorcze WHERE 1=1";
+        ////            string sql = @"
+        ////SELECT * FROM (
+        ////    -- CZĘŚĆ KOMÓRKOWA
+        ////    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        ////           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        ////           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Komórkowy' AS Typ
+        ////    FROM BilingiKomorkowe b
+        ////    LEFT JOIN NumeryKomorkowe n ON 
+        ////        (CASE WHEN LEN(b.NumerTelefonu) > 9 THEN RIGHT(b.NumerTelefonu, 9) ELSE b.NumerTelefonu END) = n.Numer
+        ////    LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        ////    LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+
+        //            //    UNION ALL
+
+        //            //    -- CZĘŚĆ STACJONARNA (z wycinaniem 7 cyfr dla Warszawy 22 i Tarnowa 14)
+        //            //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //            //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //            //           d.NazwaDzialu AS Dzial, d.ID AS DzialID, 'Stacjonarny' AS Typ
+        //            //    FROM BilingiStacjonarne b
+        //            //    LEFT JOIN NumeryStacjonarne n ON 
+        //            //        (CASE 
+        //            //            WHEN b.NumerTelefonu LIKE '4814%' OR b.NumerTelefonu LIKE '4822%' THEN RIGHT(b.NumerTelefonu, 7)
+        //            //            WHEN LEN(b.NumerTelefonu) > 7 THEN RIGHT(b.NumerTelefonu, 7)
+        //            //            ELSE b.NumerTelefonu 
+        //            //         END) = n.Numer
+        //            //    LEFT JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //            //    LEFT JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //            //) AS Zbiorcze WHERE 1=1";
+        //            //        string sql = @"
+        //            //SELECT * FROM (
+        //            //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //            //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //            //           d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        //            //    FROM BilingiKomorkowe b
+        //            //    JOIN NumeryKomorkowe n ON b.NumerTelefonu = n.Numer
+        //            //    JOIN Pracownicy p ON n.ID_Pracownika = p.ID
+        //            //    JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //            //    UNION ALL
+        //            //    SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
+        //            //           p.Imie + ' ' + p.Nazwisko AS Pracownik, p.MenagerName, 
+        //            //           d.NazwaDzialu AS Dzial, d.ID AS DzialID
+        //            //    FROM BilingiStacjonarne b
+        //            //    JOIN NumeryStacjonarne n ON b.NumerTelefonu = n.Numer
+        //            //    JOIN Pracownicy p n.ID_Pracownika = p.ID
+        //            //    JOIN Dzialy d ON p.ID_Dzialu = d.ID
+        //            //) AS Zbiorcze WHERE 1=1";
+
+        //            // 2. Dodajemy filtry, aby użytkownik pobrał to, co widzi przefiltrowane na ekranie
+        //            if (!string.IsNullOrEmpty(fraza)) sql += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
+        //            //if (!string.IsNullOrEmpty(nrFaktury)) sql += $" AND NrFaktury = '{nrFaktury}'";
+        //            if (dzialId.HasValue) sql += $" AND DzialID = {dzialId.Value}";
+        //            if (!string.IsNullOrEmpty(manager)) sql += $" AND MenagerName LIKE '%{manager}%'";
+        //            //if (od.HasValue) sql += $" AND DataPolaczenia >= '{od.Value:yyyy-MM-dd}'";
+        //            //if (doDaty.HasValue) sql += $" AND DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'";
+        //            sql += " ORDER BY DataPolaczenia DESC"; // Sortowanie dla czytelności pliku
+
+        //            DataTable dt = _baza.PobierzDane(sql);
+
+        //            // 3. Budowanie pliku CSV (z polskimi znakami)
+        //            StringBuilder sb = new StringBuilder();
+        //            // Używamy średnika jako separatora (standard dla polskiego Excela)
+        //            sb.AppendLine("Data;Numer;Pracownik;Manager;Dzial;Netto;Brutto;Faktura");
+
+        //            foreach (DataRow row in dt.Rows)
+        //            {
+        //                string linia = string.Format("{0};{1};{2};{3};{4};{5};{6};{7}",
+        //                    row["DataPolaczenia"],
+        //                    row["NumerTelefonu"],
+        //                    row["Pracownik"],
+        //                    row["MenagerName"],
+        //                    row["Dzial"],
+        //                    row["KwotaNetto"],
+        //                    row["KwotaBrutto"],
+        //                    row["NrFaktury"]);
+        //                sb.AppendLine(linia);
+        //            }
+
+        //            // 4. Wysłanie pliku
+        //            Response.Clear();
+        //            //Response.Buffer = true;
+        //            Response.AddHeader("content-disposition", "attachment;filename=Raport_Bilingowy_Goodyear.csv");
+        //            Response.ContentType = "text/csv";
+        //            Response.ContentEncoding = System.Text.Encoding.UTF8; // Ważne dla polskich znaków
+        //            Response.Write('\uFEFF'); // BOM dla Excela, żeby poprawnie czytał polskie znaki w UTF-8
+        //            Response.Output.Write(sb.ToString());
+        //            //Response.Flush();
+        //            Response.End();
+        //        }
 
     }
 }

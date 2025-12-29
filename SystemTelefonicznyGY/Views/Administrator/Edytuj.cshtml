@@ -35,6 +35,7 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
     window.onload = filtrujStanowiska;
 </script>
 
+
 <!-- Układ strony czytelniejszy niż poprzednia wersja -->
 
 <div class="card-body">
@@ -58,6 +59,21 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
                 <label class="form-label">Email (Login)</label>
                 <input type="text" name="Login" value="@Model.Login" class="form-control" required />
             </div>
+
+            @*<div class="col-md-6">
+                    @if (Model.Id == 0)
+                    {
+                        <label class="form-label">Hasło (domyślne: Welcome123)</label>
+                        <input type="text" name="Haslo" value="Welcome123" class="form-control" required />
+                    }
+                    else
+                    {
+                        <label class="form-label">Hasło</label>
+                        <input type="text" class="form-control" placeholder="********" readonly />
+                        <small class="text-muted">Hasło można zmienić tylko przez opcję resetu.</small>
+                    }
+                </div>*@
+
             <div class="col-md-6">
                 <label class="form-label">Rola</label>
                 <select name="Rola" class="form-select">
@@ -93,18 +109,21 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
                 </select>
             </div>
         </div>
+        <div class="mb-3">
+            <label class="form-label">Hasło początkowe (zostaw puste dla: Welcome123)</label>
+            <input type="password" name="Haslo" class="form-control" placeholder="Welcome123" />
+        </div>
 
-        if (Model.Id == 0)
-        {
-            <div class="mb-3">
-                <label class="form-label">Hasło początkowe</label>
-                <input type="password" name="Haslo" class="form-control" required />
-            </div>
-        }
+        <div class="mb-3">
+            <button type="button" class="btn btn-warning btn-sm" onclick="resetujHaslo(@Model.Id)">
+                Zresetuj hasło do Welcome123
+            </button>
+        </div>
 
         <div class="mt-4">
             <button type="submit" class="btn btn-success">Zapisz Zmiany</button>
             <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
         </div>
     }
+
 </div>

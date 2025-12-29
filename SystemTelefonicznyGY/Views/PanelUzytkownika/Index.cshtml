@@ -1,6 +1,6 @@
 ﻿
 @using System.Data
-@model SystemTelefonicznyGY.Controllers.PodsumowaniePracownikaModel
+@model SystemTelefonicznyGY.Models.PodsumowaniePracownikaModel
 
 @{
     ViewBag.Title = "Mój Panel - Goodyear";
@@ -31,6 +31,7 @@
         <div class="col-md-4">
             <div class="alert alert-warning">
                 <h4>Suma wszystkich kosztów za połączenia (Stacjonarne)</h4>
+
                 @*@if (Model.SumaStacjonarne > 0)
                     {
                         <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
@@ -87,6 +88,12 @@
     </table>
 
     <hr />
+
+    <div class="row mt-4">
+        <div class="col-12">
+            @Html.Partial("_FormularzHasla", new SystemTelefonicznyGY.Models.ZmianaHaslaModel { IdPracownika = Model.IdPracownika })
+        </div>
+    </div>
 
     @*<h3>Szczegółowy biling połączeń</h3>
         <ul class="nav nav-tabs">

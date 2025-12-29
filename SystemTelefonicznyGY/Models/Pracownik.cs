@@ -96,15 +96,15 @@ namespace SystemTelefonicznyGY.Models
     //        _login = login;
     //        _idStanowiska = idStanowiska;            
     //    }
-
-    //public class PodsumowaniePracownikaModel
-    //{
-    //    public List<Urzadzenie> MojeUrzadzenia { get; set; } = new List<Urzadzenie>();
-    //    public List<DataRow> BilingiKomorkowe { get; set; } = new List<DataRow>();
-    //    public List<DataRow> BilingiStacjonarne { get; set; } = new List<DataRow>();
-    //    public decimal SumaKomorkowe { get; set; } = 0;
-    //    public decimal SumaStacjonarne { get; set; } = 0;
+   
     //}
-
-    //}
+    public class PodsumowaniePracownikaModel
+    {
+        public int IdPracownika { get; set; }
+        public List<Urzadzenie> MojeUrzadzenia { get; set; } = new List<Urzadzenie>();
+        public List<System.Data.DataRow> BilingiKomorkowe { get; set; } = new List<System.Data.DataRow>();
+        public List<System.Data.DataRow> BilingiStacjonarne { get; set; } = new List<System.Data.DataRow>();
+        public decimal SumaKomorkowe { get; set; }
+        public decimal SumaStacjonarne { get; set; }
+    }
 }
