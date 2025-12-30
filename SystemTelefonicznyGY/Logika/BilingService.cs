@@ -11,7 +11,7 @@ namespace SystemTelefonicznyGY.Logika
         public static string GenerujSqlBazowy(string warunekCzasu, int? pracownikId = null)
         {
             // Jeśli podano pracownikId, ograniczamy bilingi tylko do tego pracownika
-            string filtrPracownika = pracownikId.HasValue ? $" AND n.ID_Pracownika = {pracownikId.Value}" : "";
+            string filtrPracownika = pracownikId.HasValue ? " AND n.ID_Pracownika = @id" : ""; //$" AND n.ID_Pracownika = {pracownikId.Value}" : "";
 
             return $@"
         SELECT b.DataPolaczenia, b.NumerTelefonu, b.KwotaNetto, b.KwotaBrutto, b.NrFaktury, 
@@ -37,7 +37,14 @@ namespace SystemTelefonicznyGY.Logika
 
         public static (int m, int r) PobierzDateOstatniegoBilingu(BazaDanych baza, int? idPracownika = null)
         {
-            string filtr = idPracownika.HasValue ? $" WHERE n.ID_Pracownika = {idPracownika.Value}" : "";
+            var paramy = new Dictionary<string, object>();
+            string filtr = "";
+
+            if (idPracownika.HasValue)
+            {
+                filtr = " WHERE n.ID_Pracownika = @id";
+                paramy.Add("@id", idPracownika.Value);
+            }
 
             string sql = $@"
         SELECT TOP 1 YEAR(DataPolaczenia) as R, MONTH(DataPolaczenia) as M 
@@ -50,12 +57,28 @@ namespace SystemTelefonicznyGY.Logika
         ) AS T {filtr}
         ORDER BY DataPolaczenia DESC";
 
-            DataTable dt = baza.PobierzDane(sql);
+            // POPRAWKA CS7036: Przekazujemy słownik parametrów
+            DataTable dt = baza.PobierzDane(sql, paramy);
             if (dt != null && dt.Rows.Count > 0)
             {
                 return (Convert.ToInt32(dt.Rows[0]["M"]), Convert.ToInt32(dt.Rows[0]["R"]));
             }
             return (DateTime.Now.Month, DateTime.Now.Year);
         }
+
+        public static DataTable PobierzWszystkieBilingi(BazaDanych baza, string warunekCzasu, int? pracownikId = null)
+        {
+            var paramy = new Dictionary<string, object>();
+
+            if (pracownikId.HasValue)
+            {
+                paramy.Add("@id", pracownikId.Value);
+            }
+
+            // POPRAWKA CS1503: Przekazujemy pracownikId zamiast stringa 'filtr'
+            string sql = GenerujSqlBazowy(warunekCzasu, pracownikId);
+            return baza.PobierzDane(sql, paramy);
+        }
+    
     }    
 }

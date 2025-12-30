@@ -14,32 +14,50 @@ namespace SystemTelefonicznyGY.Logika
         // Prywatne pole z tzw. Connection Stringiem
         private string _stringPolaczenia = @"Data Source=DESKTOP-COV87SH\SQLEXPRESS;Initial Catalog=SystemTelefonicznyGY;Integrated Security=True";
 
-        // Metoda do pobierania danych (zwraca DataTable - bardzo studenckie i wygodne)
-        public DataTable PobierzDane(string zapytanieSql)
+        // Bezpieczna wersja pobierania danych z parametrami
+        public DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry)
         {
-            DataTable tabelaWynikow = new DataTable();
-
+            DataTable tabela = new DataTable();
             using (SqlConnection polaczenie = new SqlConnection(_stringPolaczenia))
             {
-                try
+                SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
+                foreach (var p in parametry)
                 {
-                    SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
-                    SqlDataAdapter adapter = new SqlDataAdapter(komenda);
-                    polaczenie.Open();
-                    adapter.Fill(tabelaWynikow);
+                    komenda.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
                 }
-                catch (Exception ex)
-                {
-                    // Możemy np. zapisać błąd do logów
-                    throw new Exception("Błąd połączenia z bazą: " + ex.Message);
-                }
-                finally
-                {
-                    polaczenie.Close();
-                }
+                SqlDataAdapter adapter = new SqlDataAdapter(komenda);
+                adapter.Fill(tabela);
             }
-            return tabelaWynikow;
+            return tabela;
         }
+
+
+        //// Metoda do pobierania danych (zwraca DataTable)
+        //public DataTable PobierzDane(string zapytanieSql)
+        //{
+        //    DataTable tabelaWynikow = new DataTable();
+
+        //    using (SqlConnection polaczenie = new SqlConnection(_stringPolaczenia))
+        //    {
+        //        try
+        //        {
+        //            SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
+        //            SqlDataAdapter adapter = new SqlDataAdapter(komenda);
+        //            polaczenie.Open();
+        //            adapter.Fill(tabelaWynikow);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Możemy np. zapisać błąd do logów
+        //            throw new Exception("Błąd połączenia z bazą: " + ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            polaczenie.Close();
+        //        }
+        //    }
+        //    return tabelaWynikow;
+        //}
 
         // Metoda do operacji typu INSERT, UPDATE, DELETE
         public int WykonajPolecenie(string zapytanieSql)
