@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="Logika\BazaDanych.cs" />
     <Compile Include="Models\Biling.cs" />
-    <Compile Include="Models\BilingService.cs" />
+    <Compile Include="Logika\BilingService.cs" />
     <Compile Include="Models\ElementSystemu.cs" />
     <Compile Include="Models\ILogowanieModel.cs" />
     <Compile Include="Models\LogowanieModel.cs" />
