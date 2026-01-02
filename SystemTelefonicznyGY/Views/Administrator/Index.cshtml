@@ -117,11 +117,13 @@
                 <div class="card-body text-center">
                     <i class="fas fa-file-csv fa-3x mb-3 text-info"></i>
                     <h5 class="card-title">Raporty Miesięczne</h5>
-                    <p class="card-text">Generuj zbiorcze zestawienia kosztów.</p>
-                    <a href="@Url.Action("Raporty", "Administrator")" class="btn btn-info w-100 text-white">
-                        <i class="fas fa-download"></i> Pobierz Raport CSV
-                    </a>
-                </div>
+                    <p class="card-text">
+                        Generuj zbiorcze zestawienia kosztów. Koszty: (@ViewBag.OstatniMiesiacNazwa) @String.Format("{0:C}", ViewBag.SumaBilingow)
+                    </p>
+                        <a href="@Url.Action("Raporty", "Administrator")" class="btn btn-info w-100 text-white">
+                            <i class="fas fa-download"></i> Pobierz Raport CSV
+                        </a>
+                    </div>
             </div>
         </div>
     </div>

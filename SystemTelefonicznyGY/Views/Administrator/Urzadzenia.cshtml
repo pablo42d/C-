@@ -43,12 +43,16 @@
                         </td>
                         <td class="align-middle text-center">
                             @{
-                                var status = row["Status"].ToString();
+                                var status = row["Status"]?.ToString() ?? "Nieznany";
                                 var badgeClass = status == "W użyciu" ? "bg-success" :
                                                  status == "Magazyn" ? "bg-warning text-dark" :
-                                                 status == "Naprawa" ? "bg-info text-dark" : "bg-danger";
+                                                 status == "Naprawa" ? "bg-info text-dark" :
+                                                 status == "Wycofane" ? "bg-danger" :
+                                                 "bg-secondary"; // Domyślny kolor dla innych statusów
                             }
-                            <span class="badge @badgeClass" style="font-size: 0.9em;">@status</span>
+                            <span class="badge @badgeClass" style="font-size: 0.9em; padding: 0.5em 0.8em;">
+                                @status
+                            </span>
                         </td>
                         <td class="align-middle">@(row["PrzypisanyPracownik"] != DBNull.Value ? row["PrzypisanyPracownik"] : "---")</td>
                         <td class="text-center align-middle">

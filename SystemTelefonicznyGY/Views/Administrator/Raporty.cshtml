@@ -1,45 +1,54 @@
-﻿
-
-@using System.Data
+﻿@using System.Data
 @model DataTable
 
 <div class="container mt-4">
-@*<div class="container-fluid mt-4">*@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2><i class="fas fa-file-invoice-dollar"></i> Raporty Bilingowe Goodyear</h2>
         <div class="btn-group shadow-sm">
             <button onclick="pobierzRaport()" class="btn btn-success">
-                <i class="fas fa-file-csv"></i> Eksportuj do CSV
+                <i class="fas fa-file-csv"></i> Eksportuj widoczne do CSV
             </button>
-            @* Dodatkowy przycisk dla raportu *@
             <a href="@Url.Action("RaportKsiegowy", "Administrator")" class="btn btn-outline-success">
                 <i class="fas fa-calculator"></i> Podsumowanie Działów
             </a>
         </div>
     </div>
 
-    @* Panel Zaawansowanych Filtrów *@
+    @* Komunikat o braku bilingów *@
+    @if (ViewBag.KomunikatBledu != null)
+    {
+        <div class="alert alert-warning text-center shadow-sm" role="alert">
+            <i class="fas fa-exclamation-triangle fa-lg me-2"></i>
+            <strong>Uwaga:</strong> @ViewBag.KomunikatBledu
+        </div>
+    }
+
+    @* Panel Filtrów *@
     <div class="card shadow-sm mb-4 border-primary">
-        <div class="card-header bg-light fw-bold">
-            <i class="fas fa-filter text-primary"></i> Parametry wyszukiwania
+        <div class="card-header bg-light fw-bold d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-filter text-primary"></i> Parametry wyszukiwania</span>
+            @if (Model != null && Model.Rows.Count > 0)
+            {
+                <span class="badge bg-primary">Znaleziono: @ViewBag.LiczbaWierszy rekordów</span>
+            }
         </div>
         <div class="card-body">
             <form method="get" class="row g-3">
+                @* Wiersz 1 *@
                 <div class="col-md-3">
-                    <label class="form-label small fw-bold">Pracownik / Numer</label>
-                    <input type="text" name="fraza" value="@Request.QueryString["fraza"]" class="form-control" placeholder="Imię, Nazwisko lub Numer...">
-                </div>
-                <div class="col-md-2">
-                    <label class="form-label small fw-bold">Nr Faktury</label>
-                    <input type="text" name="nrFaktury" value="@Request.QueryString["nrFaktury"]" class="form-control" placeholder="FVT/...">
+                    <label class="form-label small fw-bold">Szukaj wszędzie</label>
+                    <input type="text" name="fraza" value="@Request.QueryString["fraza"]" class="form-control" placeholder="Pracownik, Numer, Manager...">
                 </div>
                 <div class="col-md-2">
                     <label class="form-label small fw-bold">Dział</label>
                     <select name="dzialId" class="form-select">
                         <option value="">Wszystkie działy</option>
-                        @foreach (DataRow d in (ViewBag.Dzialy as DataTable).Rows)
+                        @if (ViewBag.Dzialy != null)
                         {
-                            <option value="@d["ID"]" @(Request.QueryString["dzialId"] == d["ID"].ToString() ? "selected" : "")>@d["NazwaDzialu"]</option>
+                            foreach (DataRow d in (ViewBag.Dzialy as DataTable).Rows)
+                            {
+                                <option value="@d["ID"]" @(Request.QueryString["dzialId"] == d["ID"].ToString() ? "selected" : "")>@d["NazwaDzialu"]</option>
+                            }
                         }
                     </select>
                 </div>
@@ -47,15 +56,22 @@
                     <label class="form-label small fw-bold">Manager</label>
                     <input type="text" name="manager" value="@Request.QueryString["manager"]" class="form-control" placeholder="Nazwisko managera...">
                 </div>
-                <div class="col-md-3">
-                    <label class="form-label small fw-bold">Zakres dat (Od - Do)</label>
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold">Nr Faktury</label>
+                    <input type="text" name="nrFaktury" value="@Request.QueryString["nrFaktury"]" class="form-control" placeholder="Np. FVT/...">
+                </div>
+
+                @* Wiersz 2: Filtry Czasu *@
+                <div class="col-md-3 border-start">
+                    <label class="form-label small fw-bold text-primary">Miesiąc / Rok</label>
                     <div class="input-group">
-                        <input type="date" name="od" value="@Request.QueryString["od"]" class="form-control">
-                        <input type="date" name="doDaty" value="@Request.QueryString["doDaty"]" class="form-control">
+                        <input type="number" name="miesiac" class="form-control" placeholder="MM" value="@ViewBag.WybranyMiesiac" min="1" max="12">
+                        <input type="number" name="rok" class="form-control" placeholder="RRRR" value="@ViewBag.WybranyRok">
                     </div>
                 </div>
+
                 <div class="col-12 text-end border-top pt-3">
-                    <a href="@Url.Action("Raporty")" class="btn btn-secondary me-2">Wyczyść</a>
+                    <a href="@Url.Action("Raporty")" class="btn btn-secondary me-2">Wyczyść filtry</a>
                     <button type="submit" class="btn btn-primary px-5">Filtruj bilingi</button>
                 </div>
             </form>
@@ -63,83 +79,57 @@
     </div>
 
     @* Tabela wyników *@
-    <div class="table-responsive shadow-sm rounded border">
-        <table id="tabelaRaportu" class="table table-bordered table-hover bg-white mb-0">
-            <thead class="table-dark">
+    <div class="table-responsive shadow-sm rounded border" style="max-height: 800px; overflow-y: auto;">
+        <table class="table table-bordered table-hover bg-white mb-0 table-sm">
+            <thead class="table-dark sticky-top">
                 <tr>
-                    <th>Data połączenia</th>
-                    <th>Numer źródłowy</th>
+                    <th>Data</th>
+                    <th>Numer</th>
                     <th>Pracownik</th>
                     <th>Manager</th>
                     <th>Dział</th>
                     <th>Typ</th>
                     <th class="text-end">Netto</th>
                     <th class="text-end">Brutto</th>
-                    <th>Nr Faktury</th>
+                    <th>Faktura</th>
                 </tr>
             </thead>
             <tbody>
-                @* Sekcja Ostrzeżeń *@
-                @if (ViewBag.BrakKomorkowych == true && ViewBag.BrakStacjonarnych == true)
+                @if (Model == null || Model.Rows.Count == 0)
                 {
-                    <tr class="table-danger">
-                        <td colspan="9" class="text-center py-3 fw-bold">
-                            ⚠️ Brak jakichkolwiek bilingów w systemie za okres @ViewBag.WybranyMiesiac.@ViewBag.WybranyRok
+                    <tr>
+                        <td colspan="9" class="text-center py-5 text-muted">
+                            <i class="fas fa-search fa-3x mb-3"></i><br />
+                            Brak danych do wyświetlenia.
                         </td>
                     </tr>
                 }
                 else
                 {
-                    if (ViewBag.BrakKomorkowych == true)
-                    {
-                        <tr class="table-warning text-dark">
-                            <td colspan="9" class="text-center py-2">
-                                <i class="fas fa-mobile-alt"></i> Uwaga: Brak bilingów <strong>komórkowych</strong> za ten miesiąc.
-                            </td>
-                        </tr>
-                    }
-                    if (ViewBag.BrakStacjonarnych == true)
-                    {
-                        <tr class="table-warning text-dark">
-                            <td colspan="9" class="text-center py-2">
-                                <i class="fas fa-phone-alt"></i> Uwaga: Brak bilingów <strong>stacjonarnych</strong> za ten miesiąc.
-                            </td>
-                        </tr>
-                    }
-                }
-
-
-                @*@if (Model.Rows.Count == 0)
+                    foreach (DataRow row in Model.Rows)
                     {
                         <tr>
-                            <td colspan="9" class="text-center py-4 text-muted">Brak bilingów spełniających wybrane kryteria.</td>
+                            <td>@Convert.ToDateTime(row["DataPolaczenia"]).ToString("dd.MM.yyyy HH:mm")</td>
+                            <td><code>@row["NumerTelefonu"]</code></td>
+                            <td><strong>@row["Pracownik"]</strong></td>
+                            <td>@row["MenagerName"]</td>
+                            <td>@row["Dzial"]</td>
+                            <td class="text-center">
+                                <span class="badge @(row["Typ"].ToString() == "Komórkowy" ? "bg-info" : "bg-secondary")">@row["Typ"]</span>
+                            </td>
+                            <td class="text-end text-muted">@string.Format("{0:N2}", row["KwotaNetto"])</td>
+                            <td class="text-end fw-bold">@string.Format("{0:N2}", row["KwotaBrutto"])</td>
+                            <td class="small">@row["NrFaktury"]</td>
                         </tr>
-                    }*@
-
-
-                @foreach (DataRow row in Model.Rows)
-                {
-                    <tr>
-                        <td class="align-middle">@Convert.ToDateTime(row["DataPolaczenia"]).ToString("dd.MM.yyyy HH:mm")</td>
-                        <td class="align-middle"><code>@row["NumerTelefonu"]</code></td>
-                        <td class="align-middle"><strong>@row["Pracownik"]</strong></td>
-                        <td class="align-middle">@row["MenagerName"]</td>
-                        <td class="align-middle"><span class="badge bg-light text-dark border">@row["Dzial"]</span></td>
-                        <td class="align-middle text-center">
-                            <span class="badge @(row["Typ"].ToString() == "Komórkowy" ? "bg-info" : "bg-secondary")">@row["Typ"]</span>
-                        </td>
-                        <td class="align-middle text-end text-muted">@string.Format("{0:N2}", row["KwotaNetto"]) zł</td>
-                        <td class="align-middle text-end fw-bold">@string.Format("{0:N2}", row["KwotaBrutto"]) zł</td>
-                        <td class="align-middle small">@row["NrFaktury"]</td>
-                    </tr>
+                    }
                 }
             </tbody>
-            @if (Model.Rows.Count > 0)
+            @if (Model != null && Model.Rows.Count > 0)
             {
-                <tfoot class="table-light fw-bold border-top-2">
+                <tfoot class="table-light fw-bold border-top-2 sticky-bottom">
                     <tr>
-                        <td colspan="7" class="text-end py-3">SUMA BRUTTO DLA WIDOCZNYCH (50) POZYCJI:</td>
-                        <td class="text-end py-3 text-primary" style="font-size: 1.1em;">
+                        <td colspan="7" class="text-end py-2">SUMA BRUTTO (WIDOCZNE):</td>
+                        <td class="text-end py-2 text-primary" style="font-size: 1.1em;">
                             @{
                                 var sumaBrutto = Model.AsEnumerable().Sum(x => x.Field<decimal>("KwotaBrutto"));
                             }
@@ -149,67 +139,37 @@
                     </tr>
                 </tfoot>
             }
-
-            @*<tfoot class="table-light fw-bold border-top-2">
-                    <tr>
-                        <td colspan="7" class="text-end py-3">ŁĄCZNY KOSZT PRZEFILTROWANYCH POŁĄCZEŃ:</td>
-                        <td class="text-end py-3 text-primary" style="font-size: 1.1em;">
-                            @{
-                                var sumaBrutto = Model.AsEnumerable().Sum(x => x.Field<decimal>("KwotaBrutto"));
-                            }
-                            @string.Format("{0:N2}", sumaBrutto) zł
-                        </td>
-                        <td></td>
-                    </tr>
-                </tfoot>*@
-
         </table>
     </div>
-    @* Paginacja *@
-    <div class="mt-3 d-flex justify-content-center">
-        <nav>
-            <ul class="pagination">
-                @* Przycisk Poprzednia *@
-                <li class="page-item @(ViewBag.AktualnaStrona <= 1 ? "disabled" : "")">
-                    <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona - 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"] })">«</a>
-                </li>
 
-                @* Numery stron *@
-                @for (int i = 1; i <= ViewBag.LiczbaStron; i++)
-                {
-                    <li class="page-item @(i == ViewBag.AktualnaStrona ? "active" : "")">
-                        <a class="page-link" href="@Url.Action("Raporty", new { strona = i, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"] })">@i</a>
-                    </li>
-                }
-
-                @* Przycisk Następna *@
-                <li class="page-item @(ViewBag.AktualnaStrona >= ViewBag.LiczbaStron ? "disabled" : "")">
-                    <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona + 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"] })">»</a>
-                </li>
-            </ul>
-
-            @*<ul class="pagination">
+    @* Paginacja (opcjonalna) *@
+    @if (ViewBag.LiczbaStron > 1)
+    {
+        <div class="mt-3 d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
                     <li class="page-item @(ViewBag.AktualnaStrona <= 1 ? "disabled" : "")">
-                        <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona - 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"] })">Poprzednia</a>
+                        <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona - 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"], manager = Request.QueryString["manager"], dzialId = Request.QueryString["dzialId"] })">«</a>
                     </li>
-                    <li class="page-item disabled"><span class="page-link">Strona @ViewBag.AktualnaStrona</span></li>
-                    <li class="page-item">
-                        <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona + 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"] })">Następna</a>
+                    <li class="page-item active">
+                        <span class="page-link">Strona @ViewBag.AktualnaStrona z @ViewBag.LiczbaStron</span>
                     </li>
-                </ul>*@
-
-        </nav>
-    </div>
+                    <li class="page-item @(ViewBag.AktualnaStrona >= ViewBag.LiczbaStron ? "disabled" : "")">
+                        <a class="page-link" href="@Url.Action("Raporty", new { strona = ViewBag.AktualnaStrona + 1, miesiac = ViewBag.WybranyMiesiac, rok = ViewBag.WybranyRok, fraza = Request.QueryString["fraza"], manager = Request.QueryString["manager"], dzialId = Request.QueryString["dzialId"] })">»</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    }
 </div>
 
-@* Skrypt obsługujący eksport C# z filtrami *@
 <script>
     function pobierzRaport() {
+        // JavaScript pobiera wszystkie parametry z paska adresu
+        // Dzięki temu eksportuje DOKŁADNIE to, co wybrał użytkownik (filtry)
         const urlParams = new URLSearchParams(window.location.search);
+        // Wywołujemy akcję EksportujRaport - kontroler zadba, by pobrać WSZYSTKIE strony
         const url = `@Url.Action("EksportujRaport", "Administrator")?` + urlParams.toString();
         window.location.href = url;
     }
 </script>
-
-
-

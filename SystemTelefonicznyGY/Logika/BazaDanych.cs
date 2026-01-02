@@ -1,73 +1,107 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration; // Wymaga dodania referencji w projekcie
 
 namespace SystemTelefonicznyGY.Logika
 {
     public class BazaDanych
     {
-        //private string _stringPolaczenia = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SystemTelefonicznyGYDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        // Prywatne pole z tzw. Connection Stringiem
-        private string _stringPolaczenia = @"Data Source=DESKTOP-COV87SH\SQLEXPRESS;Initial Catalog=SystemTelefonicznyGY;Integrated Security=True";
+        // Connection string (tylko do odczytu)
+        private readonly string _stringPolaczenia = @"Data Source=DESKTOP-COV87SH\SQLEXPRESS;Initial Catalog=SystemTelefonicznyGY;Integrated Security=True";
 
-        // Bezpieczna wersja pobierania danych z parametrami
-        public DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry)
+        // =============================================
+        // METODY POBIERANIA DANYCH (SELECT)
+        // =============================================
+
+        // WERSJA 1: Przyjmuje List<SqlParameter> (Dla AdministratorController i ZasobyService)
+        public DataTable PobierzDane(string zapytanieSql, List<SqlParameter> parametry = null)
         {
-            DataTable tabela = new DataTable();
+            DataTable tabelaWynikow = new DataTable();
+
             using (SqlConnection polaczenie = new SqlConnection(_stringPolaczenia))
             {
-                SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
-                foreach (var p in parametry)
+                try
                 {
-                    komenda.Parameters.AddWithValue(p.Key, p.Value ?? DBNull.Value);
+                    SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
+
+                    if (parametry != null)
+                    {
+                        komenda.Parameters.AddRange(parametry.ToArray());
+                    }
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(komenda);
+                    polaczenie.Open();
+                    adapter.Fill(tabelaWynikow);
                 }
-                SqlDataAdapter adapter = new SqlDataAdapter(komenda);
-                adapter.Fill(tabela);
+                catch (Exception ex)
+                {
+                    throw new Exception("Błąd połączenia z bazą: " + ex.Message);
+                }
             }
-            return tabela;
+            return tabelaWynikow;
         }
 
+        // WERSJA 2 (FIX DLA CIEBIE): Przyjmuje Dictionary<string, object> (Dla PanelUzytkownikaController)
+        // Ta metoda automatycznie zamienia Słownik na Listę Parametrów i woła Wersję 1.
+        public DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry)
+        {
+            List<SqlParameter> listaParametrow = new List<SqlParameter>();
 
-        //// Metoda do pobierania danych (zwraca DataTable)
-        //public DataTable PobierzDane(string zapytanieSql)
-        //{
-        //    DataTable tabelaWynikow = new DataTable();
+            if (parametry != null)
+            {
+                foreach (var para in parametry)
+                {
+                    // Obsługa wartości null w bazie danych (DBNull.Value)
+                    listaParametrow.Add(new SqlParameter(para.Key, para.Value ?? DBNull.Value));
+                }
+            }
 
-        //    using (SqlConnection polaczenie = new SqlConnection(_stringPolaczenia))
-        //    {
-        //        try
-        //        {
-        //            SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
-        //            SqlDataAdapter adapter = new SqlDataAdapter(komenda);
-        //            polaczenie.Open();
-        //            adapter.Fill(tabelaWynikow);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            // Możemy np. zapisać błąd do logów
-        //            throw new Exception("Błąd połączenia z bazą: " + ex.Message);
-        //        }
-        //        finally
-        //        {
-        //            polaczenie.Close();
-        //        }
-        //    }
-        //    return tabelaWynikow;
-        //}
+            return PobierzDane(zapytanieSql, listaParametrow);
+        }
 
-        // Metoda do operacji typu INSERT, UPDATE, DELETE
-        public int WykonajPolecenie(string zapytanieSql)
+        // =============================================
+        // METODY WYKONYWANIA POLECEŃ (INSERT, UPDATE, DELETE)
+        // =============================================
+
+        // WERSJA 1: Przyjmuje List<SqlParameter>
+        public int WykonajPolecenie(string zapytanieSql, List<SqlParameter> parametry = null)
         {
             using (SqlConnection polaczenie = new SqlConnection(_stringPolaczenia))
             {
-                SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
-                polaczenie.Open();
-                return komenda.ExecuteNonQuery();
+                try
+                {
+                    SqlCommand komenda = new SqlCommand(zapytanieSql, polaczenie);
+
+                    if (parametry != null)
+                    {
+                        komenda.Parameters.AddRange(parametry.ToArray());
+                    }
+
+                    polaczenie.Open();
+                    return komenda.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Błąd wykonywania polecenia: " + ex.Message);
+                }
             }
+        }
+
+        // WERSJA 2 (FIX DLA CIEBIE): Przyjmuje Dictionary<string, object>
+        public int WykonajPolecenie(string zapytanieSql, Dictionary<string, object> parametry)
+        {
+            List<SqlParameter> listaParametrow = new List<SqlParameter>();
+
+            if (parametry != null)
+            {
+                foreach (var para in parametry)
+                {
+                    listaParametrow.Add(new SqlParameter(para.Key, para.Value ?? DBNull.Value));
+                }
+            }
+
+            return WykonajPolecenie(zapytanieSql, listaParametrow);
         }
     }
 }

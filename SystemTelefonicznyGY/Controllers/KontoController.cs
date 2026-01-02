@@ -1,60 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;  // Dodane dla dostępu do DataTable
 using System.Web.Mvc;
-using SystemTelefonicznyGY.Logika; // Dodane dla dostępu do klasy BazaDanych
-using SystemTelefonicznyGY.Models;  // Dodane dla dostępu do modeli
+using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Controllers
 {
     public class KontoController : Controller
     {
-        private BazaDanych _bazaObiekt;
+        // Używamy serwisu - pełna separacja od SQL
+        private readonly PracownikService _pracownikService = new PracownikService();
 
-        // Konstruktor - inicjalizuje obiekt BazaDanych tworzymy nową instancję klasy BazaDanych
-        public KontoController()
-        {
-            _bazaObiekt = new BazaDanych();
-        }
-
-        // Metoda wyświetlająca stronę logowania
         [HttpGet]
         public ActionResult Login()
         {
-            // Przesyłamy pusty obiekt modelu, aby uniknąć NullReferenceException
-            var model = new LogowanieModel();
-            return View(model);
+            return View(new LogowanieModel());
         }
 
-        // Get:Wyświetlanie formularza logowania
-        // Obsluga danych z formularza logowania
-        //zmiana sposobu wyświetlania osoby zalogowanej przez dodanie Nazwiska
         [HttpPost]
-
         public ActionResult Login(LogowanieModel model)
         {
             if (ModelState.IsValid)
             {
-                // Szukamy pracownika w bazie (studencki sposób) dodanie Nazwiska do zapytania
-                string zapytanie = $"SELECT ID, Imie, Nazwisko, Rola FROM Pracownicy WHERE Login = '{model.Login}' AND Haslo = '{model.Haslo}'";
-                DataTable wynik = _bazaObiekt.PobierzDane(zapytanie);
+                // Logika logowania w serwisie
+                var pracownikRow = _pracownikService.Zaloguj(model.Login, model.Haslo);
 
-                if (wynik.Rows.Count > 0)
+                if (pracownikRow != null)
                 {
-                    // Ustawiamy sesję (pamięć serwera o zalogowanym)
-                    Session["IdPracownika"] = wynik.Rows[0]["ID"];
-                    Session["ImiePracownika"] = wynik.Rows[0]["Imie"];
-                    // Dodanie Nazwiska do sesji
-                    Session["NazwiskoPracownika"] = wynik.Rows[0]["Nazwisko"];
-                    Session["RolaPracownika"] = wynik.Rows[0]["Rola"];
+                    Session["IdPracownika"] = pracownikRow["ID"];
+                    Session["ImiePracownika"] = pracownikRow["Imie"];
+                    Session["NazwiskoPracownika"] = pracownikRow["Nazwisko"];
+                    Session["RolaPracownika"] = pracownikRow["Rola"];
 
-                    return RedirectToAction("Index", "Home"); // Przekierowanie do strony głównej po zalogowaniu
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Błędny login lub hasło pracownika."); // wyświetlenie błędu logowania
+                    ModelState.AddModelError("", "Błędny login lub hasło pracownika.");
                 }
             }
             return View(model);
@@ -62,15 +43,16 @@ namespace SystemTelefonicznyGY.Controllers
 
         public ActionResult Wyloguj()
         {
-            Session.Abandon(); // Czyścimy wszystko
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
+
         [HttpPost]
         public ActionResult ProcesZmianyHasla(ZmianaHaslaModel model)
         {
             if (Session["IdPracownika"] == null) return RedirectToAction("Login", "Konto");
 
-            // 1. Walidacja modelu (Twoje warunki)
+            // 1. Walidacja modelu (długość hasła, czy się powtarzają)
             string blad = model.SprawdzBledy();
             if (blad != null)
             {
@@ -78,18 +60,19 @@ namespace SystemTelefonicznyGY.Controllers
                 return Redirect(Request.UrlReferrer.ToString());
             }
 
-            // 2. Weryfikacja starego hasła
-            DataTable dt = _bazaObiekt.PobierzDane($"SELECT Haslo FROM Pracownicy WHERE ID = {model.IdPracownika}");
-            if (dt.Rows.Count == 0 || dt.Rows[0]["Haslo"].ToString() != model.StareHaslo)
+            // 2. Weryfikacja starego hasła przez SERWIS
+            bool czyStareDobre = _pracownikService.WeryfikujHaslo(model.IdPracownika, model.StareHaslo);
+
+            if (!czyStareDobre)
             {
                 TempData["Blad"] = "Podane obecne hasło jest błędne.";
                 return Redirect(Request.UrlReferrer.ToString());
             }
 
-            // 3. Aktualizacja
+            // 3. Zmiana hasła przez SERWIS
             try
             {
-                _bazaObiekt.WykonajPolecenie($"UPDATE Pracownicy SET Haslo = '{model.NoweHaslo}' WHERE ID = {model.IdPracownika}");
+                _pracownikService.ZmienHaslo(model.IdPracownika, model.NoweHaslo);
                 TempData["Sukces"] = "Hasło zostało pomyślnie zmienione.";
             }
             catch (Exception ex)

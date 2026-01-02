@@ -25,6 +25,14 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
             }
         }
 
+        // Funkcja do resetowania hasła (wpisuje Welcome123 do pola)
+        function zresetujHaslo() {
+            var pole = document.getElementById("poleHaslo");
+            pole.value = "Welcome123";
+            // Opcjonalnie: podświetl pole na żółto, żeby zwrócić uwagę
+            pole.style.backgroundColor = "#fff3cd";
+        }
+
         // Automatycznie ustawiamy pierwsze pasujące stanowisko po zmianie działu
         if (pierwszeDostepne) {
             selectStanowisko.value = pierwszeDostepne;
@@ -59,20 +67,6 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
                 <label class="form-label">Email (Login)</label>
                 <input type="text" name="Login" value="@Model.Login" class="form-control" required />
             </div>
-
-            @*<div class="col-md-6">
-                    @if (Model.Id == 0)
-                    {
-                        <label class="form-label">Hasło (domyślne: Welcome123)</label>
-                        <input type="text" name="Haslo" value="Welcome123" class="form-control" required />
-                    }
-                    else
-                    {
-                        <label class="form-label">Hasło</label>
-                        <input type="text" class="form-control" placeholder="********" readonly />
-                        <small class="text-muted">Hasło można zmienić tylko przez opcję resetu.</small>
-                    }
-                </div>*@
 
             <div class="col-md-6">
                 <label class="form-label">Rola</label>
@@ -109,15 +103,21 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
                 </select>
             </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Hasło początkowe (zostaw puste dla: Welcome123)</label>
-            <input type="password" name="Haslo" class="form-control" placeholder="Welcome123" />
-        </div>
+        <hr />
 
-        <div class="mb-3">
-            <button type="button" class="btn btn-warning btn-sm" onclick="resetujHaslo(@Model.Id)">
-                Zresetuj hasło do Welcome123
-            </button>
+        <div class="row mb-3 align-items-end">
+            <div class="col-md-6">
+                <label class="form-label">Hasło</label>
+                <input type="text" id="poleHaslo" name="Haslo" class="form-control" placeholder="@(Model.Id == 0 ? "Domyślnie: Welcome123" : "Zostaw puste, aby nie zmieniać")" />
+                <small class="text-muted">
+                    @(Model.Id == 0 ? "Dla nowego pracownika domyślne hasło to Welcome123." : "Jeśli zostawisz to pole puste, obecne hasło pracownika pozostanie bez zmian.")
+                </small>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-warning" onclick="zresetujHaslo()">
+                    <i class="fas fa-key"></i> Zresetuj hasło do "Welcome123"
+                </button>
+            </div>
         </div>
 
         <div class="mt-4">
@@ -125,5 +125,4 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
             <a href="@Url.Action("Pracownicy")" class="btn btn-secondary">Anuluj</a>
         </div>
     }
-
 </div>

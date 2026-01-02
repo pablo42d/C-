@@ -128,11 +128,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logika\BazaDanych.cs" />
-    <Compile Include="Models\Biling.cs" />
     <Compile Include="Logika\BilingService.cs" />
+    <Compile Include="Logika\DzialyService.cs" />
+    <Compile Include="Logika\ImportService.cs" />
+    <Compile Include="Logika\PracownikService.cs" />
+    <Compile Include="Logika\SprzetService.cs" />
+    <Compile Include="Logika\ZasobyService.cs" />
+    <Compile Include="Models\BilingFilterModel.cs" />
     <Compile Include="Models\ElementSystemu.cs" />
     <Compile Include="Models\ILogowanieModel.cs" />
     <Compile Include="Models\LogowanieModel.cs" />
+    <Compile Include="Models\PodsumowaniePracownikaModel.cs" />
     <Compile Include="Models\Pracownik.cs" />
     <Compile Include="Models\TelefonKomorkowy.cs" />
     <Compile Include="Models\TelefonStacjonarny.cs" />
