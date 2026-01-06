@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Web.Mvc;
 using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Controllers
@@ -11,8 +12,8 @@ namespace SystemTelefonicznyGY.Controllers
     public class PanelUzytkownikaController : Controller
     {
         // Wstrzykujemy serwisy (readonly dla bezpieczeństwa i wydajności)
-        private readonly BilingService _bilingService = new BilingService();
-        private readonly ZasobyService _zasobyService = new ZasobyService();
+        private readonly IBilingService _bilingService = new BilingService();
+        private readonly IZasobyService _zasobyService = new ZasobyService();
 
         // 1. GŁÓWNY WIDOK PANELU (Podsumowanie)
         public ActionResult Index(int? miesiac, int? rok)

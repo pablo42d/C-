@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 
 namespace SystemTelefonicznyGY.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly PracownikService _pracownikService = new PracownikService();
+        private readonly IPracownikService _pracownikService = new PracownikService();
 
         public ActionResult Index(string szukanaFraza)
         {

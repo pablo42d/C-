@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Controllers
@@ -14,10 +15,10 @@ namespace SystemTelefonicznyGY.Controllers
     {
         // --- WSTRZYKIWANIE SERWISÓW ---
         // Instancje klas z folderu Logika, które wykonują "brudną robotę" (SQL, obliczenia)
-        private readonly PracownikService _pracownikService = new PracownikService();
-        private readonly DzialyService _dzialyService = new DzialyService();
-        private readonly BilingService _bilingService = new BilingService();
-        private readonly ZasobyService _zasobyService = new ZasobyService();
+        private readonly IPracownikService _pracownikService = new PracownikService();
+        private readonly IDzialyService _dzialyService = new DzialyService();
+        private readonly IBilingService _bilingService = new BilingService();
+        private readonly IZasobyService _zasobyService = new ZasobyService();
 
         // Metoda pomocnicza sprawdzająca uprawnienia (korzysta z Sesji, więc zostaje w Kontrolerze)
         private bool CzyAdmin()

@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\models\\deskphone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:models\\deskphone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\models\\devicebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:models\\devicebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\data\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:data\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|e:\\git_project\\c-\\nc#\\c-\\phonebookapp\\forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B8043A63-948B-402C-9031-50CAD7B8DFCD}|PhoneBookApp.csproj|solutionrelative:forms\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -29,20 +41,59 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 161,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "DeviceBase.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Models\\DeviceBase.cs",
+              "RelativeDocumentMoniker": "Models\\DeviceBase.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Models\\DeviceBase.cs",
+              "RelativeToolTip": "Models\\DeviceBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T09:13:54.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeskPhone.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Models\\DeskPhone.cs",
+              "RelativeDocumentMoniker": "Models\\DeskPhone.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Models\\DeskPhone.cs",
+              "RelativeToolTip": "Models\\DeskPhone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T09:13:50.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Data\\EmployeeRepository.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\EmployeeRepository.cs",
+              "RelativeToolTip": "Data\\EmployeeRepository.cs",
+              "ViewState": "AgIAAKYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T09:12:33.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "UserPanel.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\UserPanel.cs",
               "RelativeDocumentMoniker": "Forms\\UserPanel.cs",
@@ -54,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AdminPanel.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
               "RelativeDocumentMoniker": "Forms\\AdminPanel.cs",
@@ -67,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "BillingRepository.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Data\\BillingRepository.cs",
               "RelativeDocumentMoniker": "Data\\BillingRepository.cs",
@@ -79,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AdminPanel.Designer.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\AdminPanel.Designer.cs",
@@ -92,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AdminPanel.cs [Design]",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\PhoneBookApp\\Forms\\AdminPanel.cs",
               "RelativeDocumentMoniker": "Forms\\AdminPanel.cs",
@@ -101,6 +152,16 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-12T22:54:13.509Z",
               "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 239,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

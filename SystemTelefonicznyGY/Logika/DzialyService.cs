@@ -1,9 +1,10 @@
 ﻿using System.Data;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Logika
 {
-    public class DzialyService
+    public class DzialyService : IDzialyService
     {
         private readonly BazaDanych _baza = new BazaDanych();
 

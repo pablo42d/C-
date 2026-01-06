@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Controllers
@@ -8,7 +9,7 @@ namespace SystemTelefonicznyGY.Controllers
     public class KontoController : Controller
     {
         // Używamy serwisu - pełna separacja od SQL
-        private readonly PracownikService _pracownikService = new PracownikService();
+        private readonly IPracownikService _pracownikService = new PracownikService();
 
         [HttpGet]
         public ActionResult Login()

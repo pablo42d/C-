@@ -1,12 +1,12 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
 
 namespace SystemTelefonicznyGY.Models
 {
-    public class LogowanieModel : ILogowanieModel
+    public class LogowanieModel
     {
         // Używamy pól prywatnych i publicznych właściwości
         private string _login;

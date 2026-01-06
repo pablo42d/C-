@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using System.Data; // Niezbędne do obsługi DataTable i DataRow
 using System.Linq;
 using System.Web;
@@ -9,7 +10,7 @@ using SystemTelefonicznyGY.Models;
 namespace SystemTelefonicznyGY.Logika
 {
     // Klasa serwisowa grupująca logikę zarządzania "zasobami" firmy: Urządzenia, Numery Komórkowe, Numery Stacjonarne
-    public class ZasobyService
+    public class ZasobyService : IZasobyService
     {
         // Prywatne pole instancji bazy danych - służy do komunikacji z SQL
         private readonly BazaDanych _baza = new BazaDanych();

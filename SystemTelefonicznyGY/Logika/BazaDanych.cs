@@ -1,11 +1,12 @@
 ﻿using System;
+using SystemTelefonicznyGY.Logika.Interfejsy;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace SystemTelefonicznyGY.Logika
 {
-    public class BazaDanych
+    public class BazaDanych : IBazaDanych
     {
         // Connection string (tylko do odczytu)
         private readonly string _stringPolaczenia = @"Data Source=DESKTOP-COV87SH\SQLEXPRESS;Initial Catalog=SystemTelefonicznyGY;Integrated Security=True";
@@ -42,7 +43,7 @@ namespace SystemTelefonicznyGY.Logika
             return tabelaWynikow;
         }
 
-        // WERSJA 2 (FIX DLA CIEBIE): Przyjmuje Dictionary<string, object> (Dla PanelUzytkownikaController)
+        // WERSJA 2: Przyjmuje Dictionary<string, object> (Dla PanelUzytkownikaController)
         // Ta metoda automatycznie zamienia Słownik na Listę Parametrów i woła Wersję 1.
         public DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry)
         {
@@ -88,7 +89,7 @@ namespace SystemTelefonicznyGY.Logika
             }
         }
 
-        // WERSJA 2 (FIX DLA CIEBIE): Przyjmuje Dictionary<string, object>
+        // WERSJA 2: Przyjmuje Dictionary<string, object>
         public int WykonajPolecenie(string zapytanieSql, Dictionary<string, object> parametry)
         {
             List<SqlParameter> listaParametrow = new List<SqlParameter>();
