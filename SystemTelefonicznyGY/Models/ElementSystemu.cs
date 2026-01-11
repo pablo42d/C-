@@ -15,7 +15,6 @@ namespace SystemTelefonicznyGY.Models
         /// </summary>
 
         // Prywatne pola przechowujące wartości właściwości
-        // Dodano 'readonly' zgodnie z sugestią IDE0044 - te pola są ustawiane tylko raz w konstruktorze
         private readonly int _id;
         private readonly DateTime _dataDodaniaWpisu;
 

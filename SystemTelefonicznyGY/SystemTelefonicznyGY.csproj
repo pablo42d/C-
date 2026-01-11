@@ -136,9 +136,7 @@
     <Compile Include="Logika\Interfejsy\IPracownikService.cs" />
     <Compile Include="Logika\Interfejsy\IZasobyService.cs" />
     <Compile Include="Logika\PracownikService.cs" />
-    <Compile Include="Logika\SprzetService.cs" />
     <Compile Include="Logika\ZasobyService.cs" />
-    <Compile Include="Models\BilingFilterModel.cs" />
     <Compile Include="Models\ElementSystemu.cs" />
     <Compile Include="Models\LogowanieModel.cs" />
     <Compile Include="Models\Modem.cs" />

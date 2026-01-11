@@ -43,24 +43,7 @@ namespace SystemTelefonicznyGY.Logika
             return tabelaWynikow;
         }
 
-        // WERSJA 2: Przyjmuje Dictionary<string, object> (Dla PanelUzytkownikaController)
-        // Ta metoda automatycznie zamienia Słownik na Listę Parametrów i woła Wersję 1.
-        public DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry)
-        {
-            List<SqlParameter> listaParametrow = new List<SqlParameter>();
-
-            if (parametry != null)
-            {
-                foreach (var para in parametry)
-                {
-                    // Obsługa wartości null w bazie danych (DBNull.Value)
-                    listaParametrow.Add(new SqlParameter(para.Key, para.Value ?? DBNull.Value));
-                }
-            }
-
-            return PobierzDane(zapytanieSql, listaParametrow);
-        }
-
+       
         // =============================================
         // METODY WYKONYWANIA POLECEŃ (INSERT, UPDATE, DELETE)
         // =============================================
@@ -87,22 +70,6 @@ namespace SystemTelefonicznyGY.Logika
                     throw new Exception("Błąd wykonywania polecenia: " + ex.Message);
                 }
             }
-        }
-
-        // WERSJA 2: Przyjmuje Dictionary<string, object>
-        public int WykonajPolecenie(string zapytanieSql, Dictionary<string, object> parametry)
-        {
-            List<SqlParameter> listaParametrow = new List<SqlParameter>();
-
-            if (parametry != null)
-            {
-                foreach (var para in parametry)
-                {
-                    listaParametrow.Add(new SqlParameter(para.Key, para.Value ?? DBNull.Value));
-                }
-            }
-
-            return WykonajPolecenie(zapytanieSql, listaParametrow);
-        }
+        }        
     }
 }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 using SystemTelefonicznyGY.Logika.Interfejsy;
 using System.Linq; // Umożliwia operacje na kolekcjach danych (LINQ)
-using SystemTelefonicznyGY.Models; // Dostęp do modeli (Pracownik, etc.)
+using SystemTelefonicznyGY.Models; // Dostęp do modeli (Pracownik)
 
 namespace SystemTelefonicznyGY.Logika
 {
     // Klasa serwisowa obsługująca logikę związaną z Pracownikami
     public class PracownikService : IPracownikService
     {
-        private readonly BazaDanych _baza = new BazaDanych(); // Instancja naszej klasy do łączenia z SQL
+        private readonly BazaDanych _baza = new BazaDanych(); // Instancja klasy do łączenia z SQL
 
         // Metoda do logowania - sprawdza czy login i hasło pasują
         public DataRow Zaloguj(string login, string haslo)

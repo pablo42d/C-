@@ -98,7 +98,7 @@ namespace SystemTelefonicznyGY.Logika
             return raw;
         }
 
-        // --- 2. NOWE METODY RAPORTOWANIA ---
+        // --- 2. METODY RAPORTOWANIA ---
 
         // Metoda pomocnicza: Generuje bazowy SQL z JOINami i warunkiem czasu
         // Używana wewnątrz, aby nie powtarzać kodu w PobierzRaport i PoliczRekordy

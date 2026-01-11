@@ -15,46 +15,77 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SystemTelefonicznyGY.Models.TelefonKomorkowy">
-    <Position X="4" Y="4.25" Width="1.5" />
+    <Position X="4" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEIAAAAAAAAAAAkAAACAAAAAAAABAAAAAAAAAAAAAk=</HashCode>
       <FileName>Models\TelefonKomorkowy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SystemTelefonicznyGY.Models.TelefonStacjonarny">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAgAAIAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Models\TelefonStacjonarny.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SystemTelefonicznyGY.Models.Pracownik">
-    <Position X="9" Y="0.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AIACAAAQAJAAAAAAAAEgACAAgIAAAAEBAAAQAAAAAAA=</HashCode>
       <FileName>Models\Pracownik.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SystemTelefonicznyGY.Models.LogowanieModel">
-    <Position X="5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQIQAAAAA=</HashCode>
-      <FileName>Models\LogowanieModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SystemTelefonicznyGY.Models.ZmianaHaslaModel">
-    <Position X="7" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAIMAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\LogowanieModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SystemTelefonicznyGY.Models.Modem">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+    <Position X="2.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAIAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>Models\Modem.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SystemTelefonicznyGY.Logika.BazaDanych">
+    <Position X="4" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Logika\BazaDanych.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.217" />
+  </Class>
+  <Class Name="SystemTelefonicznyGY.Logika.PracownikService">
+    <Position X="6" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAGAkACAAAAIAAAIAA=</HashCode>
+      <FileName>Logika\PracownikService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.217" />
+  </Class>
+  <Class Name="SystemTelefonicznyGY.Logika.ZasobyService">
+    <Position X="10.5" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABBBAAAAgAgAAAAAIAIAAQAQECABAAAAAAAAAABA=</HashCode>
+      <FileName>Logika\ZasobyService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="SystemTelefonicznyGY.Logika.Interfejsy.IPracownikService">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAACAkACAAAAIAAAIAA=</HashCode>
+      <FileName>Logika\Interfejsy\IPracownikService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SystemTelefonicznyGY.Logika.Interfejsy.IZasobyService">
+    <Position X="10.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABBBAAAAgAgAAAAAIAIAAQAQACABAAAAAAAAAABA=</HashCode>
+      <FileName>Logika\Interfejsy\IZasobyService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SystemTelefonicznyGY.Logika.Interfejsy.IBazaDanych">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Logika\Interfejsy\IBazaDanych.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

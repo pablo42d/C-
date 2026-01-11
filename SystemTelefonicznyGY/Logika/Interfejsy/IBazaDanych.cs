@@ -10,9 +10,7 @@ namespace SystemTelefonicznyGY.Logika.Interfejsy
 {
     public interface IBazaDanych
     {
-        DataTable PobierzDane(string zapytanieSql, List<SqlParameter> parametry = null);
-        DataTable PobierzDane(string zapytanieSql, Dictionary<string, object> parametry);
-        int WykonajPolecenie(string zapytanieSql, List<SqlParameter> parametry = null);
-        int WykonajPolecenie(string zapytanieSql, Dictionary<string, object> parametry);
+        DataTable PobierzDane(string zapytanieSql, List<SqlParameter> parametry = null);       
+        int WykonajPolecenie(string zapytanieSql, List<SqlParameter> parametry = null);        
     }
 }
