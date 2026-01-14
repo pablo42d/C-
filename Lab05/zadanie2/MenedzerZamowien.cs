@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab05
+namespace Lab05.zadanie2
 {
     internal class MenedzerZamowien
     {

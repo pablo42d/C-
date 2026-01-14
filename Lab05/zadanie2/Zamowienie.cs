@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Lab05;
+using Lab05.zadanie2;
 
 public class Zamowienie
 {

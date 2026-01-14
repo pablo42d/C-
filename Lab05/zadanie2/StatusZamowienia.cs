@@ -8,7 +8,7 @@
 //    {
 //    }
 //}
-namespace Lab05
+namespace Lab05.zadanie2
 {
     public enum StatusZamowienia
     {

@@ -238,41 +238,43 @@ zamówienie o podanym numerze nie istnieje.
 co obecny.
 */
 
-using System;
-using System.Collections.Generic;
-using Lab05;
+// Odkomentuj poniższy kod aby zobaczyć rozwiązanie zadania 2
 
-class Program
-{
-    
-    static void Main()
-    {
-        MenedzerZamowien menedzer = new MenedzerZamowien();
+//using Lab05.zadanie2;
+//using System;
+//using System.Collections.Generic;
 
-        menedzer.DodajZamowienie(1,
-            new List<string> { "Laptop", "Mysz" });
+//class Program
+//{
 
-        menedzer.DodajZamowienie(2,
-            new List<string> { "Telefon" });
+//    static void Main()
+//    {
+//        MenedzerZamowien menedzer = new MenedzerZamowien();
 
-        menedzer.WyswietlZamowienia();
+//        menedzer.DodajZamowienie(1,
+//            new List<string> { "Laptop", "Mysz" });
 
-        try
-        {
-            menedzer.ZmienStatus(1, StatusZamowienia.Przyjete);
-            menedzer.ZmienStatus(2, StatusZamowienia.Przyjete); // wyjątek
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Błąd: " + e.Message);
-        }
+//        menedzer.DodajZamowienie(2,
+//            new List<string> { "Telefon" });
 
-        Console.WriteLine("\nPo zmianach:\n");
-        menedzer.WyswietlZamowienia();
+//        menedzer.WyswietlZamowienia();
 
-        Console.ReadKey();
-    }
-}
+//        try
+//        {
+//            menedzer.ZmienStatus(1, StatusZamowienia.Przyjete);
+//            menedzer.ZmienStatus(2, StatusZamowienia.Przyjete); // wyjątek
+//        }
+//        catch (Exception e)
+//        {
+//            Console.WriteLine("Błąd: " + e.Message);
+//        }
+
+//        Console.WriteLine("\nPo zmianach:\n");
+//        menedzer.WyswietlZamowienia();
+
+//        Console.ReadKey();
+//    }
+//}
 
 
 // ======================================================================
@@ -289,3 +291,15 @@ liście.
 • Dodaj możliwość ponownego zgadywania, aż użytkownik odgadnie prawidłowy kolor.
 */
 
+// Odkomentuj poniższy kod aby zobaczyć rozwiązanie zadania 3
+
+//using Lab05.zadanie3;
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        GraKolory gra = new GraKolory();
+//        gra.Start();
+//    }
+//}
