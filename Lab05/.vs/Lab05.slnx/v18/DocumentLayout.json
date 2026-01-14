@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C46E066D-2E60-453D-9482-03FD2BB622AA}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C46E066D-2E60-453D-9482-03FD2BB622AA}|Lab05.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\menedzerzamowien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|solutionrelative:menedzerzamowien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C46E066D-2E60-453D-9482-03FD2BB622AA}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\kalkulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C46E066D-2E60-453D-9482-03FD2BB622AA}|Lab05.csproj|solutionrelative:kalkulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\statuszamowienia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|solutionrelative:statuszamowienia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\zamowienie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|solutionrelative:zamowienie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|e:\\git_project\\c-\\nc#\\c-\\lab05\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A5F43ABD-A53A-7CCB-3CAA-F704DDA4B7C9}|Lab05.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,42 +25,78 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 279,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Kalkulator.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Kalkulator.cs",
-              "RelativeDocumentMoniker": "Kalkulator.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Kalkulator.cs",
-              "RelativeToolTip": "Kalkulator.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAADwv2YAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T15:52:25.24Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MenedzerZamowien.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\MenedzerZamowien.cs",
+              "RelativeDocumentMoniker": "MenedzerZamowien.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\MenedzerZamowien.cs*",
+              "RelativeToolTip": "MenedzerZamowien.cs*",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T21:37:28.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StatusZamowienia.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\StatusZamowienia.cs",
+              "RelativeDocumentMoniker": "StatusZamowienia.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\StatusZamowienia.cs*",
+              "RelativeToolTip": "StatusZamowienia.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T21:35:27.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Zamowienie.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Zamowienie.cs",
+              "RelativeDocumentMoniker": "Zamowienie.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Zamowienie.cs*",
+              "RelativeToolTip": "Zamowienie.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T21:30:29.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAmwM8AAAA/AAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab05\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAwBIBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-14T15:00:13.561Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 121,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

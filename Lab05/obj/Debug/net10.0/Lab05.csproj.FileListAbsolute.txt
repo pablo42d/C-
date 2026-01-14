@@ -3,3 +3,13 @@ E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.AssemblyInfoInputs.cache
 E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.AssemblyInfo.cs
 E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.csproj.CoreCompileInputs.cache
 E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.sourcelink.json
+E:\Git_Project\C-\NC#\C-\Lab05\bin\Debug\net10.0\Lab05.exe
+E:\Git_Project\C-\NC#\C-\Lab05\bin\Debug\net10.0\Lab05.deps.json
+E:\Git_Project\C-\NC#\C-\Lab05\bin\Debug\net10.0\Lab05.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\Lab05\bin\Debug\net10.0\Lab05.dll
+E:\Git_Project\C-\NC#\C-\Lab05\bin\Debug\net10.0\Lab05.pdb
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.dll
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\refint\Lab05.dll
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.pdb
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\Lab05.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\Lab05\obj\Debug\net10.0\ref\Lab05.dll
