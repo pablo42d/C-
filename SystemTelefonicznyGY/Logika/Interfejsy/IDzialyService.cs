@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemTelefonicznyGY.Logika.Interfejsy
 {
-    internal interface IDzialyService
+    public interface IDzialyService
     {
         DataTable PobierzWszystkieDzialy();
         DataTable PobierzWszystkieStanowiska();

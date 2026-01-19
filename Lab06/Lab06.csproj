@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="zadanie2\" />
+    <None Remove="zadanie2\db.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="db.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

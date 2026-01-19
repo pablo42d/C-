@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie1\\jsoncontactrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|solutionrelative:zadanie1\\jsoncontactrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie2\\populationrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:zadanie2\\populationrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie1\\textcontactreposytory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|solutionrelative:zadanie1\\textcontactreposytory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie1\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|solutionrelative:zadanie1\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie2\\populationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:zadanie2\\populationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 279,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,41 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "JsonContactRepository.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\JsonContactRepository.cs",
-              "RelativeDocumentMoniker": "zadanie1\\JsonContactRepository.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\JsonContactRepository.cs",
-              "RelativeToolTip": "zadanie1\\JsonContactRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-14T22:53:38.51Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TextContactReposytory.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\TextContactReposytory.cs",
-              "RelativeDocumentMoniker": "zadanie1\\TextContactReposytory.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\TextContactReposytory.cs",
-              "RelativeToolTip": "zadanie1\\TextContactReposytory.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA7wDEAAAAAAAAAAAAAAA==",
+              "Title": "PopulationRepository.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRepository.cs",
+              "RelativeDocumentMoniker": "zadanie2\\PopulationRepository.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRepository.cs",
+              "RelativeToolTip": "zadanie2\\PopulationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-14T22:44:43.14Z",
+              "WhenOpened": "2026-01-15T16:36:32.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Contact.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\Contact.cs",
-              "RelativeDocumentMoniker": "zadanie1\\Contact.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie1\\Contact.cs",
-              "RelativeToolTip": "zadanie1\\Contact.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PopulationRecord.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRecord.cs",
+              "RelativeDocumentMoniker": "zadanie2\\PopulationRecord.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRecord.cs",
+              "RelativeToolTip": "zadanie2\\PopulationRecord.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-14T22:44:06.871Z",
+              "WhenOpened": "2026-01-15T16:36:09.613Z",
               "EditorCaption": ""
             },
             {
@@ -83,7 +66,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAkwHkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAQwNcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-14T22:41:10.667Z",
               "EditorCaption": ""

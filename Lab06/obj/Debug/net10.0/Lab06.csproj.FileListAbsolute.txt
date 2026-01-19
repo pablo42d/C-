@@ -13,3 +13,4 @@ E:\Git_Project\C-\NC#\C-\Lab06\obj\Debug\net10.0\refint\Lab06.dll
 E:\Git_Project\C-\NC#\C-\Lab06\obj\Debug\net10.0\Lab06.pdb
 E:\Git_Project\C-\NC#\C-\Lab06\obj\Debug\net10.0\Lab06.genruntimeconfig.cache
 E:\Git_Project\C-\NC#\C-\Lab06\obj\Debug\net10.0\ref\Lab06.dll
+E:\Git_Project\C-\NC#\C-\lab06\bin\Debug\net10.0\db.json

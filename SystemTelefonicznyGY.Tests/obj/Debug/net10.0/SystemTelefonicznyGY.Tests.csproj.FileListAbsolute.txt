@@ -1,0 +1,8 @@
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.csproj.AssemblyReference.cache
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.gentestingplatformentrypointinputcache.cache
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.genautoregisteredextensionsinputcache.cache
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\SystemTelefonicznyGY.Tests\obj\Debug\net10.0\SystemTelefonicznyGY.Tests.sourcelink.json

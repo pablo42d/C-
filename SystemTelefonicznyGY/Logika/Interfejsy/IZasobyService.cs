@@ -8,7 +8,7 @@ using SystemTelefonicznyGY.Models;
 
 namespace SystemTelefonicznyGY.Logika.Interfejsy
 {
-    internal interface IZasobyService
+    public interface IZasobyService
     {
         DataTable PobierzUrzadzenia(string szukanaFraza);
         DataRow PobierzUrzadzeniePoId(int id);

@@ -20,6 +20,21 @@ namespace SystemTelefonicznyGY.Controllers
         private readonly IBilingService _bilingService = new BilingService();
         private readonly IZasobyService _zasobyService = new ZasobyService();
 
+        public AdministratorController()
+            : this(new PracownikService(), new DzialyService(), new BilingService(), new ZasobyService())
+        {
+        }
+
+        // Ten konstruktor jest używany przez UNIT TESTY do wstrzykiwania Mocków.
+        public AdministratorController(IPracownikService pracownikService, IDzialyService dzialyService, IBilingService bilingService, IZasobyService zasobyService)
+        {
+            // Zabezpieczenie (opcjonalne, ale dobrej praktyki)
+            _pracownikService = pracownikService ?? throw new ArgumentNullException(nameof(pracownikService));
+            _dzialyService = dzialyService ?? throw new ArgumentNullException(nameof(dzialyService));
+            _bilingService = bilingService ?? throw new ArgumentNullException(nameof(bilingService));
+            _zasobyService = zasobyService ?? throw new ArgumentNullException(nameof(zasobyService));
+        }
+
         // Metoda pomocnicza sprawdzająca uprawnienia (korzysta z Sesji, więc zostaje w Kontrolerze)
         private bool CzyAdmin()
         {

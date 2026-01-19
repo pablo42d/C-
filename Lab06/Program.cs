@@ -29,77 +29,80 @@ Zakładamy, że plik txt oraz json zawiera dane w postaci:
 
  */
 
-using System;
-using Lab06.zadanie1;
+// Odkomentuj poniższy kod, aby uruchomić zadanie 1
 
-class Program
-{
-    static void Main()
-    {
-        var repo = new TxtContactRepository("contacts.txt");
+//using Lab06.zadanie1;
+//using Lab06.zadanie2;
+//using System;
 
-        while (true)
-        {
-            Console.WriteLine("1. Pokaż kontakty");
-            Console.WriteLine("2. Dodaj kontakt");
-            Console.WriteLine("0. Wyjście");
+//class Program
+//{
+//    static void Main()
+//    {
+//        var repo = new TxtContactRepository("contacts.txt");
 
-            var choice = Console.ReadLine();
+//        while (true)
+//        {
+//            Console.WriteLine("1. Pokaż kontakty");
+//            Console.WriteLine("2. Dodaj kontakt");
+//            Console.WriteLine("0. Wyjście");
 
-            if (choice == "1")
-                ShowAll(repo);
-            else if (choice == "2")
-                Add(repo);
-            else if (choice == "0")
-                break;
-        }
-    }
+//            var choice = Console.ReadLine();
 
-    static void ShowAll(TxtContactRepository repo)
-    {
-        var contacts = repo.GetAll();
+//            if (choice == "1")
+//                ShowAll(repo);
+//            else if (choice == "2")
+//                Add(repo);
+//            else if (choice == "0")
+//                break;
+//        }
+//    }
 
-        if (contacts.Count == 0)
-        {
-            Console.WriteLine("Brak kontaktów");
-            return;
-        }
+//    static void ShowAll(TxtContactRepository repo)
+//    {
+//        var contacts = repo.GetAll();
 
-        foreach (var c in contacts)
-            Console.WriteLine($"{c.Id} | {c.Name} | {c.Email}");
-    }
+//        if (contacts.Count == 0)
+//        {
+//            Console.WriteLine("Brak kontaktów");
+//            return;
+//        }
 
-    static void Add(TxtContactRepository repo)
-    {
-        var c = ReadContactFromUser(true);
-        repo.Add(c);
-        Console.WriteLine("Dodano dane");
-    }
+//        foreach (var c in contacts)
+//            Console.WriteLine($"{c.Id} | {c.Name} | {c.Email}");
+//    }
 
-    static Contact ReadContactFromUser(bool requireID)
-    {
-        int id = 0;
+//    static void Add(TxtContactRepository repo)
+//    {
+//        var c = ReadContactFromUser(true);
+//        repo.Add(c);
+//        Console.WriteLine("Dodano dane");
+//    }
 
-        if (requireID)
-        {
-            Console.Write("Id: ");
-            int.TryParse(Console.ReadLine(), out id);
-        }
+//    static Contact ReadContactFromUser(bool requireID)
+//    {
+//        int id = 0;
 
-        Console.Write("Imię i nazwisko: ");
-        string name = Console.ReadLine() ?? "";
+//        if (requireID)
+//        {
+//            Console.Write("Id: ");
+//            int.TryParse(Console.ReadLine(), out id);
+//        }
 
-        Console.Write("Email: ");
-        string email = Console.ReadLine() ?? "";
+//        Console.Write("Imię i nazwisko: ");
+//        string name = Console.ReadLine() ?? "";
 
-        return new Contact
-        {
-            Id = id,
-            Name = name,
-            Email = email
-        };
-    }
-}
+//        Console.Write("Email: ");
+//        string email = Console.ReadLine() ?? "";
+
+//        return new Contact
+//        {
+//            Id = id,
+//            Name = name,
+//            Email = email
+//        };
+//    }
+//}
 
 /*
  *  Zastosowano model Contact, repozytorium TXT oraz JSON.
@@ -121,3 +124,94 @@ kraju,
 • Pozwalający użytkownikowi na sprawdzenie procentowego wzrostu populacji dla każdego kraju
 względem roku poprzedniego do wskazanego,
  */
+
+// Odkomentuj poniższy kod, aby uruchomić zadanie 2
+
+using Lab06.zadanie2;
+
+var repo = new PopulationRepository("db.json");
+
+while (true)
+{
+    Console.WriteLine("\nMENU:");
+    Console.WriteLine("1. Indie 1970–2000");
+    Console.WriteLine("2. USA 1965–2010");
+    Console.WriteLine("3. Chiny 1980–2018");
+    Console.WriteLine("4. Populacja dla kraju i roku");
+    Console.WriteLine("5. Różnica populacji");
+    Console.WriteLine("6. Procentowy wzrost rok do roku");
+    Console.WriteLine("0. Wyjście");
+
+    Console.Write("Wybierz 0 - 6: ");
+    string choice = Console.ReadLine() ?? "";
+
+    try
+    {
+        switch (choice)
+        {
+            case "1":
+                Console.WriteLine(repo.GetDifference("IN", 1970, 2000));
+                break;
+
+            case "2":
+                Console.WriteLine(repo.GetDifference("US", 1965, 2010));
+                break;
+
+            case "3":
+                Console.WriteLine(repo.GetDifference("CN", 1980, 2018));
+                break;
+
+            case "4":
+                Console.Write("Kraj (IN/US/CN): ");
+                string c = Console.ReadLine()!;
+                Console.Write("Rok: ");
+                int y = int.Parse(Console.ReadLine()!);
+                Console.WriteLine(repo.GetPopulation(c, y));
+                break;
+
+            case "5":
+                Console.Write("Kraj: ");
+                string cc = Console.ReadLine()!;
+                Console.Write("Od roku: ");
+                int f = int.Parse(Console.ReadLine()!);
+                Console.Write("Do roku: ");
+                int t = int.Parse(Console.ReadLine()!);
+                Console.WriteLine(repo.GetDifference(cc, f, t));
+                break;
+
+            case "6":
+                Console.WriteLine("1 - Indie");
+                Console.WriteLine("2 - USA");
+                Console.WriteLine("3 - Chiny");
+                Console.Write("Wybierz kraj: ");
+
+                string k = Console.ReadLine()!;
+                string country = k switch
+                {
+                    "1" => "IN",
+                    "2" => "US",
+                    "3" => "CN",
+                    _ => throw new Exception("Nieprawidłowy kraj")
+                };
+
+                repo.ShowPercentageGrowth(country);
+                break;
+
+
+            case "0":
+                return;
+
+            default:
+                Console.WriteLine("Nieznana opcja");
+                break;
+        }
+
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Błąd: " + ex.Message);
+    }
+}
+
+

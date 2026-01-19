@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Lab06.csproj": {}
+    "E:\\Git_Project\\C-\\NC#\\C-\\lab06\\Lab06.csproj": {}
   },
   "projects": {
-    "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Lab06.csproj": {
+    "E:\\Git_Project\\C-\\NC#\\C-\\lab06\\Lab06.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Lab06.csproj",
+        "projectUniqueName": "E:\\Git_Project\\C-\\NC#\\C-\\lab06\\Lab06.csproj",
         "projectName": "Lab06",
-        "projectPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Lab06.csproj",
+        "projectPath": "E:\\Git_Project\\C-\\NC#\\C-\\lab06\\Lab06.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\obj\\",
         "projectStyle": "PackageReference",

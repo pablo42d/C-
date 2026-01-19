@@ -9,7 +9,7 @@ using static SystemTelefonicznyGY.Logika.BilingService;
 
 namespace SystemTelefonicznyGY.Logika.Interfejsy
 {
-    internal interface IBilingService
+    public interface IBilingService
     {
         WynikImportu ImportujPlik(Stream strumienPliku, string typ);
         bool CzyIstniejaBilingi(int miesiac, int rok);

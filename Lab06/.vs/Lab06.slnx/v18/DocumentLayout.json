@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4DCF4E0-31E9-4796-8DFF-2455360A4F8A}|Lab06.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie2\\populationrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:zadanie2\\populationrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|e:\\git_project\\c-\\nc#\\c-\\lab06\\zadanie2\\populationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DC66AB8-3AAB-6775-D1A5-1A03614A4346}|Lab06.csproj|solutionrelative:zadanie2\\populationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 279,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +34,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PopulationRepository.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRepository.cs",
+              "RelativeDocumentMoniker": "zadanie2\\PopulationRepository.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRepository.cs",
+              "RelativeToolTip": "zadanie2\\PopulationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T16:36:32.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PopulationRecord.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRecord.cs",
+              "RelativeDocumentMoniker": "zadanie2\\PopulationRecord.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\zadanie2\\PopulationRecord.cs",
+              "RelativeToolTip": "zadanie2\\PopulationRecord.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T16:36:09.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\Lab06\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAuwHkAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAQwNcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-14T22:41:10.667Z",
               "EditorCaption": ""
