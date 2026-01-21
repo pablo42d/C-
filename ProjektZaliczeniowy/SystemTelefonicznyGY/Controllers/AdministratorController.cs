@@ -266,13 +266,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Pobieramy listę pracowników do dropdowna (PracownikService) - reuse!
-            // Możemy przekonwertować List<Pracownik> na DataTable lub ViewBag, zależnie jak widok to przyjmuje.
-            // Tutaj pobieramy prosty DataTable z imionami
-            // Dla uproszczenia w modelu thin controller, możemy użyć metody serwisu zwracającej listę i w widoku użyć @model List
-            // lub tutaj mapować. Zakładam, że widok oczekuje DataTable, więc można dodać pomocniczą metodę w PracownikService lub użyć bilingu.
-            // *Ad-hoc*: użyjmy listy pracowników i przekażmy jako ViewBag
-            // ViewBag.ListaPracownikow = _pracownikService.PobierzListęPracownikow("");
+            // Pobieramy listę pracowników do dropdowna (PracownikService)            
             ViewBag.ListaPracownikow = _pracownikService.PobierzPracownikowDoDropdown();
 
             if (id.HasValue)
@@ -341,9 +335,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            ViewBag.ListaPracownikow = _pracownikService.PobierzPracownikowDoDropdown();
-
-            //ViewBag.ListaPracownikow = _pracownikService.PobierzListęPracownikow(""); // Reuse
+            ViewBag.ListaPracownikow = _pracownikService.PobierzPracownikowDoDropdown();           
 
             if (id.HasValue)
             {
@@ -381,8 +373,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
             ViewBag.ListaPracownikow = _pracownikService.PobierzPracownikowDoDropdown();
-            //ViewBag.ListaPracownikow = _pracownikService.PobierzListęPracownikow("");
-
+            
             if (id.HasValue)
             {
                 var row = _zasobyService.PobierzNumerStacjonarnyPoId(id.Value);
@@ -418,12 +409,20 @@ namespace SystemTelefonicznyGY.Controllers
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
             if (plikBilingowy != null && plikBilingowy.ContentLength > 0)
-            {
+            {                
+                // Sprawdzam, czy nazwa pliku kończy się na ".csv" (wielkość liter nie ma znaczenia)
+                if (!plikBilingowy.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+                {
+                    TempData["Blad"] = "Niedozwolony format pliku! Proszę wgrać plik z rozszerzeniem .csv";
+                    return RedirectToAction("Index");
+                }
+                // ---------------------------------------------
+
                 try
                 {
-                    // Cała skomplikowana logika parsowania jest w serwisie
                     var wynik = _bilingService.ImportujPlik(plikBilingowy.InputStream, typ);
 
+                    // Tutaj można zmienić klucz na "Sukces" lub inny "Komunikat"
                     TempData["Sukces"] = $"Zaimportowano {wynik.LiczbaRekordow} rekordów. Faktura: {wynik.NumerFaktury}.";
                 }
                 catch (Exception ex)
@@ -433,7 +432,7 @@ namespace SystemTelefonicznyGY.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        
         // ==========================================
         // 8. RAPORTY (BilingService)
         // ==========================================
@@ -442,24 +441,15 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // 1. Logika Domyślnego Widoku (Miesiąc wstecz)
-            //bool czyDomyslnyWidok = false;
+            // 1. Logika Domyślnego Widoku (Miesiąc wstecz)            
             if (!miesiac.HasValue || !rok.HasValue)
             {
                 var dataOczekiwana = DateTime.Now.AddMonths(-1);
                 miesiac = dataOczekiwana.Month;
-                rok = dataOczekiwana.Year;
-                //// Jeśli użytkownik nie wybrał daty, ustalamy oczekiwany biling na poprzedni miesiąc
-                //var dzis = DateTime.Now;
-                //var dataOczekiwana = dzis.AddMonths(-1);
-
-                //miesiac = dataOczekiwana.Month;
-                //rok = dataOczekiwana.Year;
-                //czyDomyslnyWidok = true;
+                rok = dataOczekiwana.Year;                
             }
 
-            ViewBag.Dzialy = _dzialyService.PobierzWszystkieDzialy();
-            //ViewBag.Dzialy = _baza.PobierzDane("SELECT ID, NazwaDzialu FROM Dzialy ORDER BY NazwaDzialu");
+            ViewBag.Dzialy = _dzialyService.PobierzWszystkieDzialy();            
             ViewBag.WybranyMiesiac = miesiac;
             ViewBag.WybranyRok = rok;
 
@@ -473,10 +463,7 @@ namespace SystemTelefonicznyGY.Controllers
                 {
                     string nazwaMiesiaca = new DateTime(rok.Value, miesiac.Value, 1).ToString("MMMM yyyy");
                     ViewBag.KomunikatBledu = $"Administrator nie wprowadził jeszcze bilingów za miesiąc {nazwaMiesiaca}.";
-
-                    // Jeśli to domyślny widok i nie ma danych, możemy spróbować poszukać jeszcze starszych, 
-                    // albo po prostu wyświetlić pustą tabelę z komunikatem.
-                    // Tutaj wyświetlamy pustą tabelę z komunikatem.
+                    
                     return View(new DataTable());
                 }
             }
@@ -521,110 +508,18 @@ namespace SystemTelefonicznyGY.Controllers
             Response.Output.Write(sb.ToString());
             Response.End();
         }
-
-        //public ActionResult Raporty(int? miesiac, int? rok, string fraza, string nrFaktury, int? dzialId, string manager, DateTime? od, DateTime? doDaty, int strona = 1)
-        //{
-        //    if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
-
-        //    // 1. Logika domyślnego czasu (zostaje w kontrolerze, bo to logika prezentacji)
-        //    if (!miesiac.HasValue || !rok.HasValue)
-        //    {
-        //        rok = DateTime.Now.Year;
-        //        miesiac = DateTime.Now.Month;
-        //        // Można dodać metodę w BilingService do pobrania daty ostatniego bilingu, aby to ulepszyć
-        //    }
-
-        //    ViewBag.Dzialy = _dzialyService.PobierzWszystkieDzialy();
-        //    ViewBag.WybranyMiesiac = miesiac;
-        //    ViewBag.WybranyRok = rok;
-
-        //    // 2. Budowanie filtrów (parametry dla serwisu)
-        //    string warunekCzasu;
-        //    if (od.HasValue || doDaty.HasValue)
-        //    {
-        //        List<string> czesciDaty = new List<string>();
-        //        if (od.HasValue) czesciDaty.Add($"b.DataPolaczenia >= '{od.Value:yyyy-MM-dd}'");
-        //        if (doDaty.HasValue) czesciDaty.Add($"b.DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'");
-        //        warunekCzasu = string.Join(" AND ", czesciDaty);
-        //    }
-        //    else
-        //    {
-        //        warunekCzasu = $"MONTH(b.DataPolaczenia) = {miesiac} AND YEAR(b.DataPolaczenia) = {rok}";
-        //    }
-
-        //    string filtry = "";
-        //    if (!string.IsNullOrEmpty(fraza)) filtry += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
-        //    if (dzialId.HasValue) filtry += $" AND DzialID = {dzialId.Value}";
-        //    if (!string.IsNullOrEmpty(manager)) filtry += $" AND MenagerName LIKE '%{manager}%'";
-        //    if (!string.IsNullOrEmpty(nrFaktury)) filtry += $" AND NrFaktury = '{nrFaktury}'";
-
-        //    // 3. Pobranie danych z serwisu (z paginacją)
-        //    int rozmiarStrony = 50;
-        //    int pomin = (strona - 1) * rozmiarStrony;
-
-        //    // Uwaga: Można dodać metodę PoliczRekordy w BilingService dla dokładnej paginacji
-        //    // Tutaj uproszczone pobieranie danych
-        //    DataTable dt = _bilingService.PobierzDaneRaportu(warunekCzasu, filtry, pomin, rozmiarStrony);
-
-        //    ViewBag.AktualnaStrona = strona;
-        //    // ViewBag.LiczbaStron = ... (Wymagałoby osobnego zapytania count w serwisie)
-
-        //    return View(dt);
-        //}
-
-        //public void EksportujRaport(int? miesiac, int? rok, string fraza, int? dzialId, string manager, DateTime? od, DateTime? doDaty)
-        //{
-        //    if (!CzyAdmin()) return;
-
-        //    // 1. Budowanie warunku czasu
-        //    string warunekCzasu;
-        //    if (od.HasValue || doDaty.HasValue)
-        //    {
-        //        List<string> czesciDaty = new List<string>();
-        //        if (od.HasValue) czesciDaty.Add($"b.DataPolaczenia >= '{od.Value:yyyy-MM-dd}'");
-        //        if (doDaty.HasValue) czesciDaty.Add($"b.DataPolaczenia <= '{doDaty.Value:yyyy-MM-dd} 23:59:59'");
-        //        warunekCzasu = string.Join(" AND ", czesciDaty);
-        //    }
-        //    else
-        //    {
-        //        int m = miesiac ?? DateTime.Now.Month;
-        //        int r = rok ?? DateTime.Now.Year;
-        //        warunekCzasu = $"MONTH(b.DataPolaczenia) = {m} AND YEAR(b.DataPolaczenia) = {r}";
-        //    }
-
-        //    // 2. Budowanie filtrów
-        //    string filtry = "";
-        //    if (!string.IsNullOrEmpty(fraza)) filtry += $" AND (NumerTelefonu LIKE '%{fraza}%' OR Pracownik LIKE '%{fraza}%')";
-        //    if (dzialId.HasValue) filtry += $" AND DzialID = {dzialId.Value}";
-        //    if (!string.IsNullOrEmpty(manager)) filtry += $" AND MenagerName LIKE '%{manager}%'";
-
-        //    // 3. Pobranie danych z serwisu (bez limitu stron)
-        //    var dt = _bilingService.PobierzDaneRaportu(warunekCzasu, filtry);
-
-        //    // 4. Generowanie CSV z serwisu
-        //    var sb = _bilingService.GenerujCsvRaportu(dt);
-
-        //    // 5. Wysłanie pliku
-        //    Response.Clear();
-        //    Response.AddHeader("content-disposition", "attachment;filename=Raport_Bilingowy.csv");
-        //    Response.ContentType = "text/csv";
-        //    Response.ContentEncoding = System.Text.Encoding.UTF8;
-        //    Response.Write('\uFEFF');
-        //    Response.Output.Write(sb.ToString());
-        //    Response.End();
-        //}
+        
 
         // Metoda do Raportu Księgowego - również korzystająca z danych serwisu
         public void RaportKsiegowy()
         {
             if (!CzyAdmin()) return;
 
-            // Pobieramy wszystkie dane (można zoptymalizować dodając metodę agregującą w BilingService)
+            // Pobieramy wszystkie dane 
             // Tutaj dla prostoty pobieramy "wszystko" i grupujemy w pamięci (Linq to DataTable)
             // W środowisku produkcyjnym lepiej zrobić GROUP BY w SQL wewnątrz BilingService
             var dt = _bilingService.PobierzWszystkieBilingi();
-            //var dt = _bilingService.PobierzDaneRaportu("1=1", "");
-
+            
             var grouped = dt.AsEnumerable()
                 .GroupBy(r => new { Dzial = r["Dzial"], Manager = r["MenagerName"] })
                 .Select(g => new {

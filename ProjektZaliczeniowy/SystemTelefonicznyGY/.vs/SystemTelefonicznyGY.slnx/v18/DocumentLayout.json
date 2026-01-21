@@ -3,7 +3,8 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\ProjektZaliczeniowy\\SystemTelefonicznyGY\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\projektzaliczeniowy\\systemtelefonicznygy\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\ProjektZaliczeniowy\\SystemTelefonicznyGY\\controllers\\kontocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -44,14 +45,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "KontoControllerTests.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
-              "RelativeDocumentMoniker": "..\\..\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
-              "RelativeToolTip": "..\\..\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAADwv4AAAAABAAAAAAAAAA==",
+              "Title": "AdministratorController.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\ProjektZaliczeniowy\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdministratorController.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\ProjektZaliczeniowy\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
+              "RelativeToolTip": "Controllers\\AdministratorController.cs",
+              "ViewState": "AgIAAJIBAAAAAAAAAAAqwKgBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T21:51:37.804Z",
+              "WhenOpened": "2026-01-21T22:15:14.805Z",
               "EditorCaption": ""
             },
             {

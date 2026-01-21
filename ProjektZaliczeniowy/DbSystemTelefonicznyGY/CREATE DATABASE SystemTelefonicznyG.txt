@@ -1,0 +1,102 @@
+-- Tworzenie bazy danych
+CREATE DATABASE SystemTelefonicznyGY;
+GO
+USE SystemTelefonicznyGY;
+GO
+
+-- 1. Tabela Działy
+CREATE TABLE Dzialy (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    NazwaDzialu NVARCHAR(100) NOT NULL,
+    [SkroconaNazwa] NVARCHAR(10) 
+);
+
+-- 2. Tabela Stanowiska
+CREATE TABLE Stanowiska (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    NazwaStanowiska NVARCHAR(100) NOT NULL,
+    ID_Dzialu INT NOT NULL,
+    FOREIGN KEY (ID_Dzialu) REFERENCES Dzialy(ID)
+);
+
+-- 3. Tabela Pracownicy
+CREATE TABLE Pracownicy (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Imie NVARCHAR(50),
+    Nazwisko NVARCHAR(50),
+    Login NVARCHAR(50) UNIQUE,
+    Haslo NVARCHAR(50),
+    Kraj NVARCHAR(50),
+    MenagerID INT, -- Relacja zwrotna 
+    MenagerName NVARCHAR(100),
+    Rola NVARCHAR(20),
+    ID_Dzialu INT FOREIGN KEY REFERENCES Dzialy(ID),
+    ID_Stanowiska INT FOREIGN KEY REFERENCES Stanowiska(ID)
+);
+
+-- 4. Tabela NumeryStacjonarne
+CREATE TABLE NumeryStacjonarne (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Numer NVARCHAR(20),
+    LiniaTyp NVARCHAR(20),
+    ID_Pracownika INT FOREIGN KEY REFERENCES Pracownicy(ID),
+    PrefiksKraj NVARCHAR(5),
+    PrefiksMiasto NVARCHAR(5),
+    Opis NVARCHAR(200),
+    StatusCOR NVARCHAR(50) DEFAULT 'lokalnie'
+);
+
+-- 5. Tabela NumeryKomorkowe
+CREATE TABLE NumeryKomorkowe (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Numer NVARCHAR(20),
+    NumerKarty NVARCHAR(50),
+    PIN NVARCHAR(10),
+    PUK NVARCHAR(15),
+    PlanOpis NVARCHAR(MAX),
+    ID_Pracownika INT FOREIGN KEY REFERENCES Pracownicy(ID),
+    Status NVARCHAR(20) DEFAULT 'aktywny'
+);
+
+-- 6. Tabela Urzadzenia
+CREATE TABLE Urzadzenia (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Aparat NVARCHAR(50),
+    Model NVARCHAR(50),
+    IMEI_MAC NVARCHAR(50),
+    SN NVARCHAR(50),
+    ZakupData DATE,
+    NrZamowienia NVARCHAR(50),
+    NrInwentarzowy NVARCHAR(50),
+    DataWydania DATE,
+    DataZwrotu DATE,
+    Status NVARCHAR(20),
+    Discriminator NVARCHAR(128) DEFAULT 'Urzadzenie',
+    ID_Pracownika INT FOREIGN KEY REFERENCES Pracownicy(ID)
+);
+
+-- 7. Bilingi Stacjonarne
+CREATE TABLE BilingiStacjonarne (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    DataPolaczenia DATETIME,
+    NumerTelefonu NVARCHAR(20),
+    NumerWybierany NVARCHAR(20),
+    TypPolaczenia NVARCHAR(50),
+    CzasTrwania NVARCHAR(20),
+    KwotaNetto DECIMAL(18,2),
+    KwotaBrutto DECIMAL(18,2),
+    NrFaktury NVARCHAR(50)   
+);
+
+-- 8. Bilingi Komórkowe
+CREATE TABLE BilingiKomorkowe (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    DataPolaczenia DATETIME,
+    NumerTelefonu NVARCHAR(20),
+    NumerWybierany NVARCHAR(20),
+    TypPolaczenia NVARCHAR(50),
+    CzasTrwania NVARCHAR(20),
+    KwotaNetto DECIMAL(18,2),
+    KwotaBrutto DECIMAL(18,2),
+    NrFaktury NVARCHAR(50)
+);
