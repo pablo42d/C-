@@ -1,0 +1,29 @@
+﻿
+@model SystemTelefonicznyGY.Models.ZmianaHaslaModel
+
+<div class="card border-warning mt-3">
+    <div class="card-header bg-warning text-dark">
+        <strong><i class="fas fa-lock"></i> Zmiana Hasła Logowania</strong>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("ProcesZmianyHasla", "Konto", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.IdPracownika)
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Obecne hasło</label>
+                    <input type="password" name="StareHaslo" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                    <label>Nowe hasło (min. 5 znaków)</label>
+                    <input type="password" name="NoweHaslo" class="form-control" required />
+                </div>
+                <div class="col-md-4">
+                    <label>Powtórz nowe hasło</label>
+                    <input type="password" name="PowtorzHaslo" class="form-control" required />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning mt-3">Zastosuj nowe hasło</button>
+        }
+    </div>
+</div>

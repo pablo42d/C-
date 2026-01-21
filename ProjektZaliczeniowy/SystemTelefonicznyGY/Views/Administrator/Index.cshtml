@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Panel Administratora";
+}
+
+<div class="container mt-4">
+
+    @*Obsługa błędów try and catch*@
+
+    <h2 class="mb-4"><i class="fas fa-user-shield"></i> Centrum Zarządzania Goodyear/Dębica</h2>
+    @if (TempData["Sukces"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-check-circle me-2"></i> @TempData["Sukces"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["Blad"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i> @TempData["Blad"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @*Sekcja odpowiedzialna za zarządzanie Pracownikami*@
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-primary shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Zarządzaj Pracownikami</h5>
+                    <p class="card-text">Zarządzaj kadrą (@ViewBag.LiczbaPracownikow osób), dodawaj nowych i edytuj uprawnienia.</p>
+                    <a href="@Url.Action("Pracownicy", "Administrator")" class="btn btn-primary w-100 text-white">
+                        <i class="fas fa-list"></i> Zarządzaj
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Dodanie sekcji zrządzania Działąmi*@
+        <div class="col-md-4">
+            <div class="card h-100 border-primary shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-folder-plus fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Zarządzaj Działami</h5>
+                    <p class="card-text">Dodawaj nowe jednostki organizacyjne, działy, oraz stanowiska firmy Goodyear.</p>
+                    <a href="@Url.Action("Dzialy", "Administrator")" class="btn btn-primary w-100 text-white">
+                    @*<a href="@Url.Action("Dzialy", "Administrator")" class="btn btn-warning w-100 text-dark">*@
+                        <i class="fas fa-list"></i> Zarządzaj
+                        @*<i class="fas fa-cog"></i> Zarządzaj*@
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Dodanie sekcji zarządzającej Sprzętem*@
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-primary shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                    <h5 class="card-title">Zarządzaj Urządzeniami</h5>
+                    <p class="card-text">Dodawaj nowe urządzenia (smartfony/telefony), edytuj dane IMEI i przypisuj sprzęt do pracowników.</p>
+                    <a href="@Url.Action("Urzadzenia", "Administrator")" class="btn btn-primary w-100 text-white">
+                        <i class="fas fa-list"></i> Zarządzaj
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Sekcja odpowiedzialna za zarządzanie numerami komórkowymi*@
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-info shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-mobile-alt fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Numery Komórkowe</h5>
+                    <p class="card-text">Zarządzaj kartami SIM, kodami PIN/PUK oraz przypisaniem numerów do pracowników.</p>
+                    <a href="@Url.Action("NumeryKomorkowe", "Administrator")" class="btn btn-info w-100 text-dark">
+                        <i class="fas fa-list"></i>Zarządzaj
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Sekcja odpowiedzialna za zarządzanie numerami stacjonarnymi*@
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-info shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-mobile-alt fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Numery Stacjonarne/MS-Teams</h5>
+                    <p class="card-text">Zarządzaj numerami stacjonarnymi, typem lini oraz przypisaniem numerów do pracowników.</p>
+                    <a href="@Url.Action("NumeryStacjonarne", "Administrator")" class="btn btn-info w-100 text-dark">
+                        <i class="fas fa-list"></i>Zarządzaj
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Sekcja odpowiedzialna za import bilingów z pliku CSV*@
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-info shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-mobile-alt fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Import Bilingów</h5>
+                    <p class="card-text">Wgraj pliki CSV od operatora dla numerów stacjonarnych i komórkowych.</p>
+                    <a href="@Url.Action("Import", "Administrator")" class="btn btn-info w-100 text-white">
+                        <i class="fas fa-upload"></i> Wprowadź Bilingi
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @*Sekcja odpowiedzialna za export bilingów do pliku CSV*@
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 border-info shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fas fa-file-csv fa-3x mb-3 text-info"></i>
+                    <h5 class="card-title">Raporty Miesięczne</h5>
+                    <p class="card-text">
+                        Generuj zbiorcze zestawienia kosztów. Koszty: (@ViewBag.OstatniMiesiacNazwa) @String.Format("{0:C}", ViewBag.SumaBilingow)
+                    </p>
+                        <a href="@Url.Action("Raporty", "Administrator")" class="btn btn-info w-100 text-white">
+                            <i class="fas fa-download"></i> Pobierz Raport CSV
+                        </a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

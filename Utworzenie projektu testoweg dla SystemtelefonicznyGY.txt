@@ -1,0 +1,59 @@
+Krok 2: Utworzenie projektu testowego
+Nie wrzucaj pliku AdministratorControllerTests.cs do głównego projektu!
+
+W Visual Studio kliknij prawym przyciskiem na Rozwiązanie (Solution) -> Add -> New Project.
+
+Wybierz MSTest Test Project (lub "Unit Test Project").
+
+Nazwij go: SystemTelefonicznyGY.Tests.
+
+W nowym projekcie kliknij prawym na Dependencies (lub References) -> Add Project Reference.
+
+Zaznacz swój główny projekt (SystemTelefonicznyGY).
+
+Krok 3: Instalacja paczek i dodanie pliku
+Kliknij prawym na projekt SystemTelefonicznyGY.Tests -> Manage NuGet Packages.
+
+Zainstaluj:
+
+Moq (To jest biblioteka do tworzenia "udawanych" serwisów i bazy danych).
+
+MSTest.TestFramework (powinno być zainstalowane domyślnie).
+
+Teraz utwórz w tym projekcie plik AdministratorControllerTests.cs i wklej tam kod wygenerowany przez Copilota. /test#nazwa metody klasy co tam chcesz testować
+
+ Visual Studio domyślnie szuka w internecie, ale czasem przestawia się na tryb offline.
+
+Kliknij prawym przyciskiem myszy na swój projekt testowy (SystemTelefonicznyGY.Tests) -> Manage NuGet Packages... (Zarządzaj pakietami NuGet).
+
+W oknie, które się otworzy, spójrz w prawy górny róg.
+
+Znajdź listę rozwijaną obok napisu Package source (Źródło pakietów).
+
+Upewnij się, że jest tam wybrane nuget.org (lub All).
+
+Błąd: Jeśli masz tam wybrane Microsoft Visual Studio Offline Packages, to nie znajdzie Moq, bo szuka tylko na Twoim dysku.
+
+Rozwiązanie 2: Użyj Konsoli (Niezawodne)
+Jeśli wyszukiwarka graficzna szwankuje, konsola zawsze działa.
+
+W menu na górze wybierz: Tools (Narzędzia) -> NuGet Package Manager -> Package Manager Console.
+
+Na dole ekranu otworzy się terminal.
+
+W małym pasku Default project (u góry konsoli) wybierz swój projekt testowy: SystemTelefonicznyGY.Tests.
+
+Wpisz komendę i naciśnij Enter:
+
+PowerShell
+Install-Package Moq
+Rozwiązanie 3: Upewnij się, że jesteś w zakładce "Browse"
+W oknie zarządzania pakietami (Manage NuGet Packages) są trzy zakładki na górze:
+
+Browse (Przeglądaj) - tu szukasz nowych.
+
+Installed (Zainstalowane).
+
+Updates (Aktualizacje).
+
+Upewnij się, że jesteś w pierwszej zakładce (Browse). Wpisz w wyszukiwarkę po prostu Moq (pierwszy wynik, zazwyczaj autorstwa Daniel Cazzulino lub kzu).

@@ -1,0 +1,78 @@
+﻿
+
+
+
+@using System.Data
+@model DataTable
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="fas fa-sim-card"></i> Zarządzanie Numerami Komórkowymi</h2>
+        <a href="@Url.Action("EdytujNumer", "Administrator")" class="btn btn-success shadow-sm">
+            <i class="fas fa-plus"></i> Dodaj Nowy Numer
+        </a>
+    </div>
+
+    <form method="get" class="row g-3 my-4 p-3 bg-light rounded shadow-sm">
+        <div class="col-md-10">
+            <input type="text" name="szukanaFraza" value="@ViewBag.OstatniaFraza"
+                   class="form-control" placeholder="Szukaj po numerze, PIN, PUK, karcie, statusie..." />
+        </div>
+        <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary">Filtruj</button>
+        </div>
+    </form>
+
+    <div class="table-responsive shadow">
+        <table class="table table-bordered table-hover bg-white mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Numer</th>
+                    <th>Nr Karty SIM</th>
+                    <th>Plan / Opis</th>
+                    <th>PIN</th>
+                    <th>PUK</th>
+                    <th>Status</th>
+                    <th>Użytkownik</th>
+                    <th class="text-center" style="min-width: 180px;">Zarządzaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td class="align-middle"><strong>@row["Numer"]</strong></td>
+                        <td class="align-middle">@row["NumerKarty"]</td>
+                        <td class="align-middle small">@row["PlanOpis"]</td>
+                        <td class="align-middle"><code>@row["PIN"]</code></td>
+                        <td class="align-middle"><code>@row["PUK"]</code></td>
+                        <td class="align-middle text-center">
+                            @{
+                                var status = row["Status"].ToString();
+                                var badgeClass = status == "aktywny" ? "bg-success" :
+                                                 status == "prepaid" ? "bg-info text-dark" :
+                                                 status == "nie przypisany" ? "bg-warning text-dark" : "bg-danger";
+                            }
+                            <span class="badge @badgeClass" style="font-size: 0.9em;">@status</span>
+                        </td>
+                        <td class="align-middle">@(row["PrzypisanyPracownik"] != DBNull.Value ? row["PrzypisanyPracownik"] : "---")</td>
+                        <td class="text-center align-middle">
+                            @* Zmniejszone i ujednolicone przyciski akcji *@
+                            <div class="btn-group">
+                                <a href="@Url.Action("EdytujNumer", "Administrator", new { id = row["ID"] })"
+                                   class="btn btn-warning btn-sm py-1 px-2" title="Edytuj dane">
+                                    <i class="fas fa-edit"></i> Edytuj
+                                </a>
+                                <a href="@Url.Action("DezaktywujNumer", "Administrator", new { id = row["ID"] })"
+                                   class="btn btn-danger btn-sm py-1 px-2"
+                                   onclick="return confirm('Czy na pewno wycofać ten numer?')">
+                                    <i class="fas fa-power-off"></i> Wycofaj
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

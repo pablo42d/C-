@@ -1,0 +1,114 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    ViewBag.Title = "Zarządzanie Strukturą";
+    // DEKLARACJA ZMIENNEJ - musi być tutaj, aby była widoczna niżej
+    var wszystkieStanowiska = ViewBag.WszystkieStanowiska as DataTable;
+}
+
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="fas fa-sitemap"></i> Zarządzanie Strukturą</h2>
+        <div class="btn-group shadow-sm">
+            <a href="@Url.Action("EdytujDzial", "Administrator")" class="btn btn-success">
+                <i class="fas fa-plus"></i> Dodaj Nowy Dział
+            </a>
+            @* NOWY PRZYCISK: Przeniesiony z kart działów *@
+            <a href="@Url.Action("EdytujStanowisko", "Administrator")" class="btn btn-primary">
+                <i class="fas fa-briefcase"></i> Dodaj Stanowisko
+            </a>
+        </div>
+    </div>
+
+    @*Obsuga wyjątków:*@
+    <div class="container mt-3">
+        @if (TempData["Sukces"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle me-2"></i> @TempData["Sukces"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        @if (TempData["Blad"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i> @TempData["Blad"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+    </div>
+
+
+    @foreach (DataRow dzial in Model.Rows)
+    {
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    @dzial["NazwaDzialu"]
+                    <span class="badge bg-info text-dark">@dzial["SkroconaNazwa"]</span>
+                </h5>
+                <div class="btn-group">
+                    @* Wyraźne przyciski akcji dla działu *@
+                    <a href="@Url.Action("EdytujDzial", "Administrator", new { id = dzial["ID"] })" class="btn btn-sm btn-warning">
+                        <i class="fas fa-edit"></i> Edytuj
+                    </a>
+                    @* CZERWONY PRZYCISK USUŃ *@
+                    <a href="@Url.Action("UsunDzial", "Administrator", new { id = dzial["ID"] })"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('UWAGA: Usunięcie działu może być niemożliwe, jeśli ma przypisane stanowiska. Kontynuować?')">
+                        <i class="fas fa-trash"></i> Usuń Dział
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Stanowisko</th>
+                            <th class="text-center" style="width: 120px;">Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var currentDzialId = Convert.ToInt32(dzial["ID"]);
+                            bool znaleziono = false;
+                        }
+                        @if (wszystkieStanowiska != null)
+                        {
+                            foreach (DataRow stan in wszystkieStanowiska.Rows)
+                            {
+                                if (Convert.ToInt32(stan["ID_Dzialu"]) == currentDzialId)
+                                {
+                                    znaleziono = true;
+                                    <tr>
+                                        <td class="ps-4">@stan["NazwaStanowiska"]</td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <a href="@Url.Action("EdytujStanowisko", "Administrator", new { id = stan["ID"] })" class="btn btn-sm btn-outline-warning">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="@Url.Action("UsunStanowisko", "Administrator", new { id = stan["ID"] })"
+                                                   class="btn btn-sm btn-outline-danger"
+                                                   onclick="return confirm('Usunąć stanowisko?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                        @if (!znaleziono)
+                        {
+                            <tr><td colspan="2" class="text-center text-muted py-2 small">Brak stanowisk.</td></tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

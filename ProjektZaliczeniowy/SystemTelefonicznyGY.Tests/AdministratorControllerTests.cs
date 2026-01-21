@@ -1,0 +1,135 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+using SystemTelefonicznyGY.Controllers;
+using SystemTelefonicznyGY.Logika;
+using SystemTelefonicznyGY.Logika.Interfejsy;
+using SystemTelefonicznyGY.Models;
+
+namespace SystemTelefonicznyGY.Tests
+{
+    [TestClass]
+    public class AdministratorControllerTests
+    {
+        private class FakeSession : HttpSessionStateBase
+        {
+            private readonly Dictionary<string, object> _store = new Dictionary<string, object>();
+            public override object this[string name]
+            {
+                get => _store.ContainsKey(name) ? _store[name] : null;
+                set => _store[name] = value;
+            }
+        }
+
+        private class FakeHttpContext : HttpContextBase
+        {
+            private readonly HttpSessionStateBase _session = new FakeSession();
+            public override HttpSessionStateBase Session => _session;
+        }
+
+        [TestMethod]
+        public void Index_NotAdmin_RedirectsToLogin()
+        {
+            var mockPr = new Mock<IPracownikService>();
+            var mockDz = new Mock<IDzialyService>();
+            var mockBi = new Mock<IBilingService>();
+            var mockZa = new Mock<IZasobyService>();
+
+            var controller = new AdministratorController(mockPr.Object, mockDz.Object, mockBi.Object, mockZa.Object);
+            controller.ControllerContext = new ControllerContext(new FakeHttpContext(), new RouteData(), controller);
+
+            var result = controller.Index();
+
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            var redir = (RedirectToRouteResult)result;
+            Assert.AreEqual("Login", redir.RouteValues["action"]);
+            Assert.AreEqual("Konto", redir.RouteValues["controller"]);
+        }
+
+        [TestMethod]
+        public void Index_Admin_ReturnsViewWithStats()
+        {
+            var mockPr = new Mock<IPracownikService>();
+            var mockDz = new Mock<IDzialyService>();
+            var mockBi = new Mock<IBilingService>();
+            var mockZa = new Mock<IZasobyService>();
+
+            mockPr.Setup(s => s.PobierzListęPracownikow(It.IsAny<string>())).Returns(new List<Pracownik> { new Pracownik(1, "A", "B", "User", 1, "login", 1) });
+            mockBi.Setup(s => s.PobierzSumeKosztow(It.IsAny<int>(), It.IsAny<int>())).Returns(123.45m);
+
+            var controller = new AdministratorController(mockPr.Object, mockDz.Object, mockBi.Object, mockZa.Object);
+            var http = new FakeHttpContext();
+            http.Session["RolaPracownika"] = "Admin";
+            controller.ControllerContext = new ControllerContext(http, new RouteData(), controller);
+
+            var result = controller.Index();
+
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            Assert.AreEqual(123.45m, controller.ViewBag.SumaBilingow);
+        }
+
+        [TestMethod]
+        public void Pracownicy_NotAdmin_RedirectsToLogin()
+        {
+            var mockPr = new Mock<IPracownikService>();
+            var mockDz = new Mock<IDzialyService>();
+            var mockBi = new Mock<IBilingService>();
+            var mockZa = new Mock<IZasobyService>();
+
+            var controller = new AdministratorController(mockPr.Object, mockDz.Object, mockBi.Object, mockZa.Object);
+            controller.ControllerContext = new ControllerContext(new FakeHttpContext(), new RouteData(), controller);
+
+            var result = controller.Pracownicy();
+
+            Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
+            var redir = (RedirectToRouteResult)result;
+            Assert.AreEqual("Login", redir.RouteValues["action"]);
+            Assert.AreEqual("Konto", redir.RouteValues["controller"]);
+        }
+
+        [TestMethod]
+        public void Pracownicy_Admin_ReturnsViewWithModel()
+        {
+            var mockPr = new Mock<IPracownikService>();
+            var mockDz = new Mock<IDzialyService>();
+            var mockBi = new Mock<IBilingService>();
+            var mockZa = new Mock<IZasobyService>();
+
+            var lista = new List<Pracownik> { new Pracownik(1, "A", "B", "User", 1, "login", 1) };
+            mockPr.Setup(s => s.PobierzListęPracownikow(It.IsAny<string>())).Returns(lista);
+
+            var controller = new AdministratorController(mockPr.Object, mockDz.Object, mockBi.Object, mockZa.Object);
+            var http = new FakeHttpContext();
+            http.Session["RolaPracownika"] = "Admin";
+            controller.ControllerContext = new ControllerContext(http, new RouteData(), controller);
+
+            var result = controller.Pracownicy();
+
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            var view = (ViewResult)result;
+            Assert.AreEqual(lista, view.Model);
+        }
+    }
+}
+
+
+
+
+
+
+
+//namespace SystemTelefonicznyGY.Tests
+//{
+//    [TestClass]
+//    public sealed class Test1
+//    {
+//        [TestMethod]
+//        public void TestMethod1()
+//        {
+//        }
+//    }
+//}

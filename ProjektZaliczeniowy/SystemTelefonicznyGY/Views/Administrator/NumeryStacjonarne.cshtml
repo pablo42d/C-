@@ -1,0 +1,65 @@
+﻿@using System.Data
+@model DataTable
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2><i class="fas fa-phone-alt"></i> Numery Stacjonarne Goodyear</h2>
+        <a href="@Url.Action("EdytujNumerStacjonarny", "Administrator")" class="btn btn-success shadow-sm">
+            <i class="fas fa-plus"></i> Dodaj Nowy
+        </a>
+    </div>
+
+    <form method="get" class="row g-3 my-4 p-3 bg-light rounded shadow-sm">
+        <div class="col-md-10">
+            <input type="text" name="szukanaFraza" value="@ViewBag.OstatniaFraza"
+                   class="form-control" placeholder="Szukaj po numerze, typie linii, opisie, statusie COR..." />
+        </div>
+        <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary">Filtruj</button>
+        </div>
+    </form>
+
+    <div class="table-responsive shadow">
+        <table class="table table-bordered table-hover bg-white mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Pełny Numer</th>
+                    <th>Typ Linii</th>
+                    <th>Status COR</th>
+                    <th>Użytkownik / Lokalizacja</th>
+                    <th class="text-center" style="min-width: 180px;">Zarządzaj</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td class="align-middle"><strong>@row["PrefiksKraj"] (@row["PrefiksMiasto"]) @row["Numer"]</strong></td>
+                        <td class="align-middle text-center"><span class="badge bg-secondary">@row["LiniaTyp"]</span></td>
+                        <td class="align-middle text-center">
+                            @{
+                                var cor = row["StatusCOR"].ToString();
+                                var badge = cor == "międzynarodowe" ? "bg-success" : cor == "nie aktywny" ? "bg-danger" : "bg-info text-dark";
+                            }
+                            <span class="badge @badge">@cor</span>
+                        </td>
+                        <td class="align-middle">
+                            @(row["PrzypisanyPracownik"] != DBNull.Value ? row["PrzypisanyPracownik"] : "---")<br />
+                            <small class="text-muted">@row["Opis"]</small>
+                        </td>
+                        <td class="text-center align-middle">
+                            <div class="btn-group">
+                                <a href="@Url.Action("EdytujNumerStacjonarny", "Administrator", new { id = row["ID"] })"
+                                   class="btn btn-warning btn-sm py-1 px-2"><i class="fas fa-edit"></i> Edytuj</a>
+                                <a href="@Url.Action("DezaktywujStacjonarny", "Administrator", new { id = row["ID"] })"
+                                   class="btn btn-danger btn-sm py-1 px-2" onclick="return confirm('Wycofać numer?')">
+                                    <i class="fas fa-power-off"></i> Wycofaj
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

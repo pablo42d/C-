@@ -3,32 +3,7 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy\\logika\\interfejsy\\izasobyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\interfejsy\\izasobyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\logika\\interfejsy\\ibilingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\interfejsy\\ibilingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\logika\\interfejsy\\idzialyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\interfejsy\\idzialyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\logika\\bilingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:logika\\bilingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\models\\logowaniemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:models\\logowaniemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\controllers\\paneluzytkownikacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|solutionrelative:controllers\\paneluzytkownikacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4F168E8-A9F1-48B8-AB68-AB1B5E63A51C}|..\\SystemTelefonicznyGY.Tests\\SystemTelefonicznyGY.Tests.csproj|e:\\git_project\\c-\\nc#\\c-\\systemtelefonicznygy.tests\\kontocontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9BC4ABB1-4AF0-44ED-8A36-5212220BE504}|SystemTelefonicznyGY.csproj|E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\controllers\\kontocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -52,7 +27,7 @@
         },
         {
           "DockedWidth": 121,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -63,107 +38,33 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IZasobyService.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IZasobyService.cs",
-              "RelativeDocumentMoniker": "Logika\\Interfejsy\\IZasobyService.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IZasobyService.cs",
-              "RelativeToolTip": "Logika\\Interfejsy\\IZasobyService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "KontoControllerTests.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
+              "RelativeDocumentMoniker": "..\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
+              "RelativeToolTip": "..\\SystemTelefonicznyGY.Tests\\KontoControllerTests.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAADwv4AAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T20:46:18.734Z",
+              "WhenOpened": "2026-01-19T21:51:37.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IBilingService.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IBilingService.cs",
-              "RelativeDocumentMoniker": "Logika\\Interfejsy\\IBilingService.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IBilingService.cs",
-              "RelativeToolTip": "Logika\\Interfejsy\\IBilingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T20:46:15.518Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IDzialyService.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IDzialyService.cs",
-              "RelativeDocumentMoniker": "Logika\\Interfejsy\\IDzialyService.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\Interfejsy\\IDzialyService.cs",
-              "RelativeToolTip": "Logika\\Interfejsy\\IDzialyService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T20:46:12.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdministratorController.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdministratorController.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\AdministratorController.cs",
-              "RelativeToolTip": "Controllers\\AdministratorController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T20:40:17.64Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "KontoController.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\KontoController.cs",
               "RelativeDocumentMoniker": "Controllers\\KontoController.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\KontoController.cs",
               "RelativeToolTip": "Controllers\\KontoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwBYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-11T18:54:14.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PanelUzytkownikaController.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\PanelUzytkownikaController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PanelUzytkownikaController.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Controllers\\PanelUzytkownikaController.cs",
-              "RelativeToolTip": "Controllers\\PanelUzytkownikaController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T18:53:48.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "LogowanieModel.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\LogowanieModel.cs",
-              "RelativeDocumentMoniker": "Models\\LogowanieModel.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Models\\LogowanieModel.cs",
-              "RelativeToolTip": "Models\\LogowanieModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T18:53:03.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BilingService.cs",
-              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\BilingService.cs",
-              "RelativeDocumentMoniker": "Logika\\BilingService.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemTelefonicznyGY\\Logika\\BilingService.cs",
-              "RelativeToolTip": "Logika\\BilingService.cs",
-              "ViewState": "AgIAACQBAAAAAAAAAAAqwEwBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-11T18:06:55.3Z",
               "EditorCaption": ""
             }
           ]

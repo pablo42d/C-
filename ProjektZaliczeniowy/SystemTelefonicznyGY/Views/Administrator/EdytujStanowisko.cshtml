@@ -1,0 +1,63 @@
+﻿@using System.Data
+@model DataRow
+
+@{
+    ViewBag.Title = Model == null ? "Nowy Pracownik / Stanowisko" : "Edytuj Stanowisko";
+    // Pobieramy ID działu z modelu lub z ViewBag (jeśli dodajemy nowe)
+    var wybraneIdDzialu = Model != null ? Convert.ToInt32(Model["ID_Dzialu"]) : (ViewBag.IdDzialu ?? 0);
+}
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="@Url.Action("Dzialy")">Słownik</a></li>
+            <li class="breadcrumb-item active">@ViewBag.Title</li>
+        </ol>
+    </nav>
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="fas fa-briefcase"></i> @ViewBag.Title</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ZapiszStanowisko", "Administrator", FormMethod.Post))
+            {
+                <input type="hidden" name="Id" value="@(Model != null ? Model["ID"] : 0)" />
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Nazwa Stanowiska</label>
+                        <input type="text" name="NazwaStanowiska" class="form-control"
+                               value="@(Model != null ? Model["NazwaStanowiska"] : "")"
+                               placeholder="np. Młodszy Specjalista" required />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Przypisz do Działu</label>
+                        <select name="ID_Dzialu" class="form-select" required>
+                            <option value="">-- Wybierz dział --</option>
+                            @if (ViewBag.ListaDzialow != null)
+                            {
+                                foreach (DataRow dzial in (ViewBag.ListaDzialow as DataTable).Rows)
+                                {
+                                    <option value="@dzial["ID"]" @(Convert.ToInt32(dzial["ID"]) == wybraneIdDzialu ? "selected" : "")>
+                                        @dzial["NazwaDzialu"] (@dzial["SkroconaNazwa"])
+                                    </option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-top pt-3">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="fas fa-save"></i> Zapisz Stanowisko
+                    </button>
+                    <a href="@Url.Action("Dzialy")" class="btn btn-secondary px-4">
+                        <i class="fas fa-times"></i> Anuluj
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../SystemTelefonicznyGY.Tests/SystemTelefonicznyGY.Tests.csproj" Id="a4f168e8-a9f1-48b8-ab68-ab1b5e63a51c" />
+  <Project Path="SystemTelefonicznyGY.csproj" Id="9bc4abb1-4af0-44ed-8a36-5212220be504" />
+</Solution>

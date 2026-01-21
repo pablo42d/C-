@@ -1,0 +1,65 @@
+﻿
+@using System.Data
+@model SystemTelefonicznyGY.Models.PodsumowaniePracownikaModel
+
+@{
+    ViewBag.Title = "Mój Panel - Goodyear";
+}
+
+<main>
+     <h2>Panel Pracownika: @(Session["ImiePracownika"] + " " + Session["NazwiskoPracownika"] ?? "Użytkownik")</h2>
+     <div class="row" style="margin-top:20px;">
+        <div class="col-md-4">
+            <div class="alert alert-info">
+                <h4>Suma wszystkich kosztów za połączenia (Komórkowe)</h4>
+                <p style="font-size: 24px;"><strong>@Model.SumaKomorkowe.ToString("0.00") zł</strong></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-warning">
+                <h4>Suma wszystkich kosztów za połączenia (Stacjonarne)</h4>
+                <p style="font-size: 24px;"><strong>@Model.SumaStacjonarne.ToString("0.00") zł</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Moje Urządzenia</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Aparat</th>
+                <th>Model</th>
+                <th>Numer Seryjny</th>
+                <th>Status</th>
+            </tr>
+        </thead>       
+        <tbody>
+            @if (Model.MojeUrzadzenia != null && Model.MojeUrzadzenia.Any())
+            {
+                foreach (var urz in Model.MojeUrzadzenia)
+                {
+                    <tr>
+                        <td>@urz.Aparat</td>
+                        <td>@urz.Model</td>
+                        <td>@urz.SN</td>
+                        <td><span class="badge text-bg-primary">@urz.Status</span></td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="4" class="text-center">Brak przypisanych urządzeń.</td></tr>
+            }
+        </tbody>
+    </table>
+
+    <hr />
+
+    <div class="row mt-4">
+        <div class="col-12">
+            @Html.Partial("_FormularzHasla", new SystemTelefonicznyGY.Models.ZmianaHaslaModel { IdPracownika = Model.IdPracownika })
+        </div>
+    </div>
+</main>

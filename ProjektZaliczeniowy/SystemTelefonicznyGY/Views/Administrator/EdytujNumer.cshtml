@@ -1,0 +1,65 @@
+﻿@using System.Data
+@model DataRow
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h4><i class="fas fa-sim-card"></i> @(Model == null ? "Dodaj Nowy Numer" : "Edycja Numeru: " + Model["Numer"])</h4>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("ZapiszNumer", "Administrator", FormMethod.Post))
+            {
+                <input type="hidden" name="ID" value="@(Model != null ? Model["ID"] : 0)" />
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label>Numer Telefonu</label>
+                        <input type="text" name="Numer" class="form-control" value="@(Model != null ? Model["Numer"] : "")" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Numer Karty SIM</label>
+                        <input type="text" name="NumerKarty" class="form-control" value="@(Model != null ? Model["NumerKarty"] : "")" />
+                    </div>
+                    <div class="col-md-2">
+                        <label>PIN</label>
+                        <input type="text" name="PIN" class="form-control" value="@(Model != null ? Model["PIN"] : "")" />
+                    </div>
+                    <div class="col-md-2">
+                        <label>PUK</label>
+                        <input type="text" name="PUK" class="form-control" value="@(Model != null ? Model["PUK"] : "")" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label>Plan Taryfowy</label>
+                        <input type="text" name="PlanOpis" class="form-control" value="@(Model != null ? Model["PlanOpis"] : "")" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Status Numeru</label>
+                        <select name="Status" class="form-select">
+                            <option value="aktywny" @(Model != null && Model["Status"].ToString() == "aktywny" ? "selected" : "")>Aktywny</option>
+                            <option value="nie aktywny" @(Model != null && Model["Status"].ToString() == "nie aktywny" ? "selected" : "")>Nie aktywny</option>
+                            <option value="prepaid" @(Model != null && Model["Status"].ToString() == "prepaid" ? "selected" : "")>Prepaid</option>
+                            <option value="nie przypisany" @(Model != null && Model["Status"].ToString() == "nie przypisany" ? "selected" : "")>Rezerwa (nie przypisany)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Użytkownik (Pracownik)</label>
+                        <select name="ID_Pracownika" class="form-select">
+                            <option value="">-- Rezerwa --</option>
+                            @foreach (DataRow p in (ViewBag.ListaPracownikow as DataTable).Rows)
+                            {
+                                <option value="@p["ID"]" @(Model != null && Model["ID_Pracownika"].ToString() == p["ID"].ToString() ? "selected" : "")>
+                                    @p["Nazwa"]
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Zapisz Dane</button>
+                <a href="@Url.Action("NumeryKomorkowe")" class="btn btn-secondary">Anuluj</a>
+            }
+        </div>
+    </div>
+</div>
