@@ -1,0 +1,15 @@
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\bin\Debug\net10.0\SystemPowiadomien.exe
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\bin\Debug\net10.0\SystemPowiadomien.deps.json
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\bin\Debug\net10.0\SystemPowiadomien.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\bin\Debug\net10.0\SystemPowiadomien.dll
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\bin\Debug\net10.0\SystemPowiadomien.pdb
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.sourcelink.json
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.dll
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\refint\SystemPowiadomien.dll
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.pdb
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\SystemPowiadomien.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\SystemPowiadomien\obj\Debug\net10.0\ref\SystemPowiadomien.dll
