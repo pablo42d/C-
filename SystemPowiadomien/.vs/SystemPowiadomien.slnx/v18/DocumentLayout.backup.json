@@ -5,6 +5,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|e:\\git_project\\c-\\nc#\\c-\\systempowiadomien\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|e:\\git_project\\c-\\nc#\\c-\\systempowiadomien\\ioutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|solutionrelative:ioutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|e:\\git_project\\c-\\nc#\\c-\\systempowiadomien\\smsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|solutionrelative:smsoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|e:\\git_project\\c-\\nc#\\c-\\systempowiadomien\\emailoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B18E105-0D9C-4BC1-9FF7-68CD07506E9A}|SystemPowiadomien.csproj|solutionrelative:emailoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 279,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,13 +34,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IOutput.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\IOutput.cs",
+              "RelativeDocumentMoniker": "IOutput.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\IOutput.cs*",
+              "RelativeToolTip": "IOutput.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T20:22:25.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SmsOutput.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\SmsOutput.cs",
+              "RelativeDocumentMoniker": "SmsOutput.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\SmsOutput.cs*",
+              "RelativeToolTip": "SmsOutput.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T20:21:48.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailOutput.cs",
+              "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\EmailOutput.cs",
+              "RelativeDocumentMoniker": "EmailOutput.cs",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\EmailOutput.cs*",
+              "RelativeToolTip": "EmailOutput.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T20:21:12.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\SystemPowiadomien\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-31T20:10:46.667Z",
               "EditorCaption": ""
