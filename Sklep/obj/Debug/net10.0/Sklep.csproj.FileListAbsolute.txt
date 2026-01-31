@@ -1,0 +1,15 @@
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.sourcelink.json
+E:\Git_Project\C-\NC#\C-\Sklep\bin\Debug\net10.0\Sklep.exe
+E:\Git_Project\C-\NC#\C-\Sklep\bin\Debug\net10.0\Sklep.deps.json
+E:\Git_Project\C-\NC#\C-\Sklep\bin\Debug\net10.0\Sklep.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\Sklep\bin\Debug\net10.0\Sklep.dll
+E:\Git_Project\C-\NC#\C-\Sklep\bin\Debug\net10.0\Sklep.pdb
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.dll
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\refint\Sklep.dll
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.pdb
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\Sklep.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\Sklep\obj\Debug\net10.0\ref\Sklep.dll
