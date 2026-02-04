@@ -1,0 +1,15 @@
+E:\Git_Project\C-\NC#\C-\EgzaminLab\bin\Debug\net10.0\EgzaminLab.exe
+E:\Git_Project\C-\NC#\C-\EgzaminLab\bin\Debug\net10.0\EgzaminLab.deps.json
+E:\Git_Project\C-\NC#\C-\EgzaminLab\bin\Debug\net10.0\EgzaminLab.runtimeconfig.json
+E:\Git_Project\C-\NC#\C-\EgzaminLab\bin\Debug\net10.0\EgzaminLab.dll
+E:\Git_Project\C-\NC#\C-\EgzaminLab\bin\Debug\net10.0\EgzaminLab.pdb
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.AssemblyInfoInputs.cache
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.AssemblyInfo.cs
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.csproj.CoreCompileInputs.cache
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.sourcelink.json
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.dll
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\refint\EgzaminLab.dll
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.pdb
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\EgzaminLab.genruntimeconfig.cache
+E:\Git_Project\C-\NC#\C-\EgzaminLab\obj\Debug\net10.0\ref\EgzaminLab.dll

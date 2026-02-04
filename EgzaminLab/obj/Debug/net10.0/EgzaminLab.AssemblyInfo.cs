@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EgzaminLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5de67e0d65a456361ae5337a02c5aa6f8e77260a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67b47758e8a9a5ba6a2c63c25cb7cc55655eee26")]
 [assembly: System.Reflection.AssemblyProductAttribute("EgzaminLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EgzaminLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
