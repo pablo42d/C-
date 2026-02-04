@@ -14,7 +14,7 @@ namespace SystemTelefonicznyGY.Controllers
     public class AdministratorController : Controller
     {
         // --- WSTRZYKIWANIE SERWISÓW ---
-        // Instancje klas z folderu Logika, które wykonują "brudną robotę" (SQL, obliczenia)
+        // Instancje klas z folderu Logika, które wykonują (SQL, obliczenia)
         private readonly IPracownikService _pracownikService = new PracownikService();
         private readonly IDzialyService _dzialyService = new DzialyService();
         private readonly IBilingService _bilingService = new BilingService();
@@ -28,14 +28,14 @@ namespace SystemTelefonicznyGY.Controllers
         // Ten konstruktor jest używany przez UNIT TESTY do wstrzykiwania Mocków.
         public AdministratorController(IPracownikService pracownikService, IDzialyService dzialyService, IBilingService bilingService, IZasobyService zasobyService)
         {
-            // Zabezpieczenie (opcjonalne, ale dobrej praktyki)
+            // Zabezpieczenie (opcjonalne, dobre praktyki)
             _pracownikService = pracownikService ?? throw new ArgumentNullException(nameof(pracownikService));
             _dzialyService = dzialyService ?? throw new ArgumentNullException(nameof(dzialyService));
             _bilingService = bilingService ?? throw new ArgumentNullException(nameof(bilingService));
             _zasobyService = zasobyService ?? throw new ArgumentNullException(nameof(zasobyService));
         }
 
-        // Metoda pomocnicza sprawdzająca uprawnienia (korzysta z Sesji, więc zostaje w Kontrolerze)
+        // Metoda pomocnicza sprawdzająca uprawnienia (korzysta z Sesji)
         private bool CzyAdmin()
         {
             return Session["RolaPracownika"] != null && Session["RolaPracownika"].ToString() == "Admin";
@@ -48,22 +48,22 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Statystyki pobieramy używając serwisu (np. pobieramy listę i liczymy elementy)
-            // 1. Pobieramy liczbę pracowników 
+            // Statystyki pobieramy używając serwisu (np. pobiera listę i liczymy elementy)
+            // 1. Pobiera liczbę pracowników 
             var listaPracownikow = _pracownikService.PobierzListęPracownikow("");
             ViewBag.LiczbaPracownikow = listaPracownikow.Count;
 
-            // 2. Ustalamy datę dla statystyk (np. poprzedni miesiąc, bo wtedy przychodzą faktury)
+            // 2. Ustala datę dla statystyk (np. poprzedni miesiąc, bo wtedy przychodzą faktury)
             DateTime dataRaportu = DateTime.Now.AddMonths(-1);
             string nazwaMiesiaca = dataRaportu.ToString("MMMM yyyy");
 
-            // 3. Pobieramy sumę kosztów z serwisu 
+            // 3. Pobiera sumę kosztów z serwisu 
             decimal suma = _bilingService.PobierzSumeKosztow(dataRaportu.Month, dataRaportu.Year);
 
-            // 4. Przekazujemy dane do Widoku
-            ViewBag.OstatniMiesiac = nazwaMiesiaca; // To było wcześniej
-            ViewBag.OstatniMiesiacNazwa = nazwaMiesiaca; // Twój widok używa też tej nazwy (zobaczyłem w błędzie)
-            ViewBag.SumaBilingow = suma; // <--- To jest kluczowe dla naprawy błędu!
+            // 4. Przekazuje dane do Widoku
+            ViewBag.OstatniMiesiac = nazwaMiesiaca; 
+            ViewBag.OstatniMiesiacNazwa = nazwaMiesiaca; 
+            ViewBag.SumaBilingow = suma; 
 
             return View();
         }
@@ -75,7 +75,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Pobieramy listę z serwisu. Brak SQL w kontrolerze.
+            // Pobieram listę z serwisu. Brak SQL w kontrolerze.
             var lista = _pracownikService.PobierzListęPracownikow("");
             return View(lista);
         }
@@ -85,13 +85,13 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Pobieramy dane słownikowe z serwisów do dropdownów
+            // Pobiera dane słownikowe z serwisów do dropdownów
             ViewBag.ListaDzialow = _dzialyService.PobierzWszystkieDzialy();
             ViewBag.ListaStanowiska = _dzialyService.PobierzStanowiskaZDzialem();
 
             if (id.HasValue)
             {
-                // Pobieramy konkretnego pracownika przez Serwis
+                // Pobiera konkretnego pracownika przez Serwis
                 var p = _pracownikService.PobierzPracownikaPoId(id.Value);
                 if (p != null) return View(p);
             }
@@ -107,7 +107,7 @@ namespace SystemTelefonicznyGY.Controllers
 
             try
             {
-                // Przekazujemy dane do serwisu. Serwis decyduje czy to INSERT czy UPDATE.
+                // Przekazuje dane do serwisu. Serwis decyduje czy to INSERT czy UPDATE.
                 _pracownikService.ZapiszPracownika(Id, Imie, Nazwisko, Login, IdDzialu, Rola, IdStanowiska, Haslo);
                 TempData["Sukces"] = "Dane zostały pomyślnie zapisane.";
             }
@@ -125,7 +125,7 @@ namespace SystemTelefonicznyGY.Controllers
 
             try
             {
-                // Delegujemy usuwanie do serwisu
+                // Delegujey usuwanie do serwisu
                 _pracownikService.UsunPracownika(id);
                 TempData["Sukces"] = "Pracownik został usunięty.";
             }
@@ -144,7 +144,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Pobieramy dane z serwisu DzialyService
+            // Pobiera dane z serwisu DzialyService
             DataTable dtDzialy = _dzialyService.PobierzWszystkieDzialy();
             ViewBag.WszystkieStanowiska = _dzialyService.PobierzWszystkieStanowiska();
 
@@ -173,7 +173,7 @@ namespace SystemTelefonicznyGY.Controllers
 
             if (id.HasValue)
             {
-                // Pobieramy listę i filtrujemy lokalnie (lub dodaj metodę PobierzDzialPoId w serwisie)
+                // Pobiera listę i filtrujemy lokalnie (lub dodaj metodę PobierzDzialPoId w serwisie)
                 DataTable dt = _dzialyService.PobierzWszystkieDzialy();
                 DataRow row = dt.Select($"ID = {id.Value}").FirstOrDefault();
                 if (row != null) return View(row);
@@ -254,7 +254,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Korzystamy z nowego serwisu ZasobyService
+            // Korzysta z serwisu ZasobyService
             DataTable dt = _zasobyService.PobierzUrzadzenia(szukanaFraza);
 
             ViewBag.OstatniaFraza = szukanaFraza;
@@ -266,7 +266,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return RedirectToAction("Login", "Konto");
 
-            // Pobieramy listę pracowników do dropdowna (PracownikService)            
+            // Pobiera listę pracowników do dropdowna (PracownikService)            
             ViewBag.ListaPracownikow = _pracownikService.PobierzPracownikowDoDropdown();
 
             if (id.HasValue)
@@ -410,7 +410,7 @@ namespace SystemTelefonicznyGY.Controllers
 
             if (plikBilingowy != null && plikBilingowy.ContentLength > 0)
             {                
-                // Sprawdzam, czy nazwa pliku kończy się na ".csv" (wielkość liter nie ma znaczenia)
+                // Sprawdza, czy nazwa pliku kończy się na ".csv" (wielkość liter nie ma znaczenia)
                 if (!plikBilingowy.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
                 {
                     TempData["Blad"] = "Niedozwolony format pliku! Proszę wgrać plik z rozszerzeniem .csv";
@@ -471,13 +471,13 @@ namespace SystemTelefonicznyGY.Controllers
             // 3. Pobieranie danych z Serwisu (Z PAGINACJĄ)
             int rozmiarStrony = 50;
 
-            // Liczymy rekordy do paginacji
+            // Liczy rekordy do paginacji
             int iloscRekordow = _bilingService.PoliczRekordy(miesiac.Value, rok.Value, fraza, nrFaktury, dzialId, manager, od, doDaty);
             ViewBag.LiczbaStron = (int)Math.Ceiling((double)iloscRekordow / rozmiarStrony);
             ViewBag.AktualnaStrona = strona;
             ViewBag.LiczbaWierszy = iloscRekordow;
 
-            // Pobieramy paczkę danych
+            // Pobiera paczkę danych
             DataTable dt = _bilingService.PobierzRaport(miesiac.Value, rok.Value, fraza, nrFaktury, dzialId, manager, od, doDaty, strona, rozmiarStrony);
 
             return View(dt);
@@ -515,7 +515,7 @@ namespace SystemTelefonicznyGY.Controllers
         {
             if (!CzyAdmin()) return;
 
-            // Pobieramy wszystkie dane 
+            // Pobiera wszystkie dane 
             // Tutaj dla prostoty pobieramy "wszystko" i grupujemy w pamięci (Linq to DataTable)
             // W środowisku produkcyjnym lepiej zrobić GROUP BY w SQL wewnątrz BilingService
             var dt = _bilingService.PobierzWszystkieBilingi();

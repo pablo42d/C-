@@ -11,10 +11,10 @@ namespace SystemTelefonicznyGY.Controllers
 
         public ActionResult Index(string szukanaFraza)
         {
-            // Pobieramy gotową listę obiektów z serwisu. Zero SQL tutaj!
+            // Pobiera gotową listę obiektów z serwisu.
             var listaPracownikow = _pracownikService.PobierzListęPracownikow(szukanaFraza);
 
-            // Sortowanie możemy zostawić tutaj (logika prezentacji) lub przenieść do serwisu.
+            // Sortowanie
             var posortowanaLista = listaPracownikow.OrderBy(p => p.Nazwisko).ToList();
 
             return View(posortowanaLista);

@@ -33,7 +33,7 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
             pole.style.backgroundColor = "#fff3cd";
         }
 
-        // Automatycznie ustawiamy pierwsze pasujące stanowisko po zmianie działu
+        // Automatycznie ustawia pierwsze pasujące stanowisko po zmianie działu
         if (pierwszeDostepne) {
             selectStanowisko.value = pierwszeDostepne;
         }
@@ -44,7 +44,7 @@ Wydajność: Filtrowanie odbywa się po stronie przeglądarki (klienta), więc n
 </script>
 
 
-<!-- Układ strony czytelniejszy niż poprzednia wersja -->
+
 
 <div class="card-body">
     @using (Html.BeginForm("Zapisz", "Administrator", FormMethod.Post))

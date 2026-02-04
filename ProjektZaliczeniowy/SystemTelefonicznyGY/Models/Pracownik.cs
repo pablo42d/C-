@@ -17,10 +17,10 @@ namespace SystemTelefonicznyGY.Models
         public int IdStanowiska { get; private set; }
         public int IdDzialu { get; private set; }
 
-        // Właściwość obliczana (Expression-bodied member)
+        
         public string PelneNazwisko => $"{Imie} {Nazwisko}";
 
-        // Pozostałe pola dla widoku pozostają bez zmian
+        
         public string NazwaStanowiska { get; set; }
         public string Dzial { get; set; }
         public string NrStacjonarny { get; set; }

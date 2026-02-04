@@ -8,7 +8,7 @@ namespace SystemTelefonicznyGY.Controllers
 {
     public class KontoController : Controller
     {
-        // Używamy serwisu - pełna separacja od SQL
+        // Używa serwisu - pełna separacja od SQL
         private readonly IPracownikService _pracownikService = new PracownikService();
 
         // Konstruktor do wstrzykiwania serwisu (ułatwia testowanie)

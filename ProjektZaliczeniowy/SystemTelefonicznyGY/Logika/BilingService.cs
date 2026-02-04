@@ -33,7 +33,7 @@ namespace SystemTelefonicznyGY.Logika
 
             using (var reader = new StreamReader(strumienPliku))
             {
-                reader.ReadLine(); // Pomijamy nagłówek
+                reader.ReadLine(); // Pomija nagłówek
 
                 while (!reader.EndOfStream)
                 {
@@ -321,10 +321,10 @@ namespace SystemTelefonicznyGY.Logika
         // Metoda dla Raportu Księgowego - pobiera wszystko jak leci (1=1)
         public DataTable PobierzWszystkieBilingi()
         {
-            // Używamy istniejącego generatora SQL z warunkiem zawsze prawdziwym
+            // Używa istniejącego generatora SQL z warunkiem zawsze prawdziwym
             string sqlBazowy = GenerujSqlBazowy("1=1");
 
-            // Zwracamy wszystko
+            // Zwraca wszystko
             string sql = $@"SELECT * FROM ({sqlBazowy}) AS Zbiorcze ORDER BY DataPolaczenia DESC";
 
             return _baza.PobierzDane(sql);

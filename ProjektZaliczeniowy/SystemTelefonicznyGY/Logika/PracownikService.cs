@@ -27,7 +27,7 @@ namespace SystemTelefonicznyGY.Logika
         // Metoda pomocnicza do sprawdzania, czy podane hasło jest poprawne dla danego ID
         public bool WeryfikujHaslo(int idPracownika, string stareHaslo)
         {
-            // Pobieramy hasło z bazy dla danego ID
+            // Pobiera hasło z bazy dla danego ID
             DataTable dt = _baza.PobierzDane($"SELECT Haslo FROM Pracownicy WHERE ID = {idPracownika}");
             return dt.Rows.Count > 0 && dt.Rows[0]["Haslo"].ToString() == stareHaslo;
         }
@@ -35,7 +35,7 @@ namespace SystemTelefonicznyGY.Logika
         // Metoda do zmiany hasła
         public void ZmienHaslo(int idPracownika, string noweHaslo)
         {
-            // Wykonujemy UPDATE w bazie
+            // Wykonuje UPDATE w bazie
             _baza.WykonajPolecenie($"UPDATE Pracownicy SET Haslo = '{noweHaslo}' WHERE ID = {idPracownika}");
         }
 
@@ -122,7 +122,7 @@ namespace SystemTelefonicznyGY.Logika
             // ID > 0 oznacza edycję istniejącego (UPDATE)
             else
             {
-                // Aktualizujemy dane podstawowe
+                // Aktualizuje dane podstawowe
                 sql = $@"UPDATE Pracownicy SET 
                          Imie = '{imie}', 
                          Nazwisko = '{nazwisko}', 
@@ -131,7 +131,7 @@ namespace SystemTelefonicznyGY.Logika
                          ID_Dzialu = {idDzialu}, 
                          ID_Stanowiska = {idStanowiska}";
 
-                // Aktualizujemy hasło TYLKO, jeśli zostało wpisane (nie jest puste)
+                // Aktualizuje hasło TYLKO, jeśli zostało wpisane (nie jest puste)
                 if (!string.IsNullOrEmpty(haslo))
                 {
                     sql += $", Haslo = '{haslo}'";

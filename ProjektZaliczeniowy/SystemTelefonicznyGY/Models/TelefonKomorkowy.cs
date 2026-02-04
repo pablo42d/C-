@@ -7,12 +7,12 @@ namespace SystemTelefonicznyGY.Models
 {
     public class TelefonKomorkowy : Urzadzenie
     {
-        // Pola prywatne
+        
         private string _imei;
         private string _numerKartySim;
         private string _pin;
         private string _puk;
-        // Właściwości publiczne
+        
         public string Imei { get { return _imei; } set { _imei = value; } }
         public string NumerKartySim { get { return _numerKartySim; } set { _numerKartySim = value; } }
         public string Pin { get { return _pin; } set { _pin = value; } }

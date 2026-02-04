@@ -19,14 +19,6 @@ namespace SystemTelefonicznyGY.Models
 
         public string Aparat { get; internal set; }
 
-        /// <summary>
-        /// Inicjalizuje nową instancję klasy Urzadzenie z podanymi wartościami. 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="model"></param>
-        /// <param name="sn"></param>
-        /// <param name="status"></param>
-        /// <param name="idPracownika"></param>
         public Urzadzenie(int id, string model, string sn, string status, int idPracownika) : base(id)
         {
             _model = model;

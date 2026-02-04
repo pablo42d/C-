@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = Model == null ? "Nowy Pracownik / Stanowisko" : "Edytuj Stanowisko";
-    // Pobieramy ID działu z modelu lub z ViewBag (jeśli dodajemy nowe)
+    // Pobiera ID działu z modelu lub z ViewBag (jeśli dodajemy nowe)
     var wybraneIdDzialu = Model != null ? Convert.ToInt32(Model["ID_Dzialu"]) : (ViewBag.IdDzialu ?? 0);
 }
 

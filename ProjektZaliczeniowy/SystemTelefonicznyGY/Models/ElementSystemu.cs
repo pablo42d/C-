@@ -20,7 +20,7 @@ namespace SystemTelefonicznyGY.Models
 
         /// Właściwości tylko do odczytu
         public int Id { get { return _id; } }
-        public DateTime DataDodaniaWpisu { get { return _dataDodaniaWpisu; } }
+        public DateTime DataDodaniaWpisu { get { return _dataDodaniaWpisu; } } // Obecnie nieużywane
 
         public ElementSystemu(int id)
         {
@@ -29,4 +29,3 @@ namespace SystemTelefonicznyGY.Models
         }
     }
 }
-// Koniec pliku ElementSystemu.cs

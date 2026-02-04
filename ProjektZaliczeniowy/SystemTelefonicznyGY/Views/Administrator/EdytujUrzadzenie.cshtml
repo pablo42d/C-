@@ -43,8 +43,8 @@
                             <option value="W użyciu" @(Model != null && Model["Status"].ToString() == "W użyciu" ? "selected" : "")>W użyciu</option>
                             <option value="Magazyn" @(Model != null && Model["Status"].ToString() == "Magazyn" ? "selected" : "")>Magazyn</option>
                             <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "Wycofany" ? "selected" : "")>Wycofany</option>
-                            <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "Uszkodzony" ? "selected" : "")>Uszkodzony</option>
-                            <option value="Wycofany" @(Model != null && Model["Status"].ToString() == "W naprawie" ? "selected" : "")>W naprawie</option>
+                            <option value="Uszkodzony" @(Model != null && Model["Status"].ToString() == "Uszkodzony" ? "selected" : "")>Uszkodzony</option>
+                            <option value="W naprawie" @(Model != null && Model["Status"].ToString() == "W naprawie" ? "selected" : "")>W naprawie</option>
                         </select>
                     </div>
                     <div class="col-md-4">

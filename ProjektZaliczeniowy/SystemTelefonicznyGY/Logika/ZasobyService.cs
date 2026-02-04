@@ -12,7 +12,6 @@ namespace SystemTelefonicznyGY.Logika
     // Klasa serwisowa grupująca logikę zarządzania "zasobami" firmy: Urządzenia, Numery Komórkowe, Numery Stacjonarne
     public class ZasobyService : IZasobyService
     {
-        // Prywatne pole instancji bazy danych - służy do komunikacji z SQL
         private readonly BazaDanych _baza = new BazaDanych();
 
 
@@ -40,14 +39,14 @@ namespace SystemTelefonicznyGY.Logika
                            OR p.Nazwisko LIKE '%{szukanaFraza}%'";
             }
 
-            // Wykonujemy zapytanie i zwracamy tabelę danych gotową do wyświetlenia w Widoku
+            // Wykonuje zapytanie i zwraca tabelę danych gotową do wyświetlenia w Widoku
             return _baza.PobierzDane(sql);
         }
 
         // Metoda pobiera dane jednego urządzenia do edycji na podstawie jego ID
         public DataRow PobierzUrzadzeniePoId(int id)
         {
-            // Pobieramy wszystkie kolumny dla konkretnego ID
+            // Pobiera wszystkie kolumny dla konkretnego ID
             DataTable dt = _baza.PobierzDane($"SELECT * FROM Urzadzenia WHERE ID = {id}");
 
             // Jeśli znaleziono rekord, zwracamy pierwszy wiersz. Jeśli nie - null.
@@ -57,19 +56,19 @@ namespace SystemTelefonicznyGY.Logika
         // Metoda obsługuje zarówno dodawanie NOWEGO (INSERT) jak i edycję ISTNIEJĄCEGO (UPDATE) urządzenia
         public void ZapiszUrzadzenie(int id, string aparat, string model, string imeiMac, string sn, string nrInwentarzowy, string status, int? idPracownika)
         {
-            // Logika obsługi wartości NULL dla SQL. Jeśli idPracownika to null, wstawiamy string "NULL", inaczej wstawiamy liczbę (ID).
+            // Logika obsługi wartości NULL dla SQL. Jeśli idPracownika to null, wstawia string "NULL", inaczej wstawia liczbę (ID).
             string pracownikVal = idPracownika.HasValue ? idPracownika.Value.ToString() : "NULL";
             string sql;
 
             if (id == 0)
             {
-                // ID = 0 oznacza, że to nowy rekord -> używamy INSERT
+                // ID = 0 oznacza, że to nowy rekord -> używa INSERT
                 sql = $@"INSERT INTO Urzadzenia (Aparat, Model, IMEI_MAC, SN, Status, NrInwentarzowy, ID_Pracownika) 
                          VALUES ('{aparat}', '{model}', '{imeiMac}', '{sn}', '{status}', '{nrInwentarzowy}', {pracownikVal})";
             }
             else
             {
-                // ID > 0 oznacza edycję istniejącego rekordu -> używamy UPDATE
+                // ID > 0 oznacza edycję istniejącego rekordu -> używa UPDATE
                 sql = $@"UPDATE Urzadzenia SET 
                          Aparat='{aparat}', Model='{model}', IMEI_MAC='{imeiMac}', SN='{sn}', 
                          Status='{status}', NrInwentarzowy='{nrInwentarzowy}', ID_Pracownika={pracownikVal} 
@@ -106,7 +105,7 @@ namespace SystemTelefonicznyGY.Logika
                 {
                     Aparat = row["Aparat"].ToString()
                 }                ;
-                //u.Aparat = row["Aparat"].ToString(); // Uzupełniamy pole Aparat
+                
                 lista.Add(u);
             }
 

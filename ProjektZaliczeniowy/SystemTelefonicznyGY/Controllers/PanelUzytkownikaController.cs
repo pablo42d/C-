@@ -11,7 +11,7 @@ namespace SystemTelefonicznyGY.Controllers
 {
     public class PanelUzytkownikaController : Controller
     {
-        // Wstrzykujemy serwisy (readonly dla bezpieczeństwa i wydajności)
+        // Wstrzykuje serwisy (readonly dla bezpieczeństwa i wydajności)
         private readonly IBilingService _bilingService = new BilingService();
         private readonly IZasobyService _zasobyService = new ZasobyService();
 
@@ -26,19 +26,19 @@ namespace SystemTelefonicznyGY.Controllers
                 IdPracownika = idPracownika
             };
 
-            // 1. Pobieramy datę (jeśli użytkownik nie wybrał, bierzemy ostatnią dostępną)
+            // 1. Pobiera datę (jeśli użytkownik nie wybrał, bierze ostatnią dostępną)
             var (m, r) = (miesiac.HasValue && rok.HasValue)
                 ? (miesiac.Value, rok.Value)
                 : _bilingService.PobierzDateOstatniegoBilinguPracownika(idPracownika);
 
-            // Przekazujemy wybraną datę do widoku (np. do nagłówka)
+            // Przekazuje wybraną datę do widoku (np. do nagłówka)
             ViewBag.WybranyMiesiac = m;
             ViewBag.WybranyRok = r;
 
-            // 2. Pobieramy Urządzenia (korzystając z ZasobyService)
+            // 2. Pobiera Urządzenia (korzystając z ZasobyService)
             model.MojeUrzadzenia = _zasobyService.PobierzUrzadzeniaPracownika(idPracownika);
 
-            // 3. Pobieramy Bilingi Komórkowe i liczymy sumę
+            // 3. Pobiera Bilingi Komórkowe i liczy sumę 
             DataTable dtKom = _bilingService.PobierzBilingiPracownika(idPracownika, m, r, "kom");
             foreach (DataRow row in dtKom.Rows)
             {
@@ -46,7 +46,7 @@ namespace SystemTelefonicznyGY.Controllers
                 model.SumaKomorkowe += Convert.ToDecimal(row["KwotaBrutto"]);
             }
 
-            // 4. Pobieramy Bilingi Stacjonarne i liczymy sumę
+            // 4. Pobiera Bilingi Stacjonarne i liczy sumę
             DataTable dtStac = _bilingService.PobierzBilingiPracownika(idPracownika, m, r, "stac");
             foreach (DataRow row in dtStac.Rows)
             {
@@ -95,7 +95,7 @@ namespace SystemTelefonicznyGY.Controllers
 
             var (m, r) = _bilingService.PobierzDateOstatniegoBilinguPracownika(id);
 
-            // Pobieramy dane (typ "kom" lub inna wartość oznacza stacjonarny)
+            // Pobiera dane (typ "kom" lub inna wartość oznacza stacjonarny)
             DataTable dt = _bilingService.PobierzBilingiPracownika(id, m, r, typ);
 
             // Generowanie pliku CSV
@@ -114,7 +114,7 @@ namespace SystemTelefonicznyGY.Controllers
             }
 
             Response.Clear();
-            Response.AddHeader("content-disposition", "attachment;filename=Moj_Biling_" + typ + ".csv");
+            Response.AddHeader("content-disposition", "attachment;filename=Moj_Biling_" + typ + ".csv"); // Nazwa pobieranego pliku
             Response.ContentType = "text/csv";
             Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Write('\uFEFF'); // BOM dla Excela

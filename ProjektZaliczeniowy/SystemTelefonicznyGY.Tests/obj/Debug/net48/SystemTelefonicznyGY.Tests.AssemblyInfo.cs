@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SystemTelefonicznyGY.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c029f800c554df82b69a6ac8a0f70f63c5aded8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2959364b726b85037aaa24623c471b9976f14a8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SystemTelefonicznyGY.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SystemTelefonicznyGY.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

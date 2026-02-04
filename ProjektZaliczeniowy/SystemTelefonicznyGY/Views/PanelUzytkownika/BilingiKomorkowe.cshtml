@@ -58,23 +58,3 @@ else
         W tej chwili brak szczegółowych bilingów **@typ** za miesiąc **@miesiac**.
     </div>
 }
-
-
-@*Old version for reference
-    <h3>Szczegółowy biling połączeń komórkowych</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr><th>Data</th><th>Numer Wybierany</th><th>Czas (sek)</th><th>Koszt Brutto</th></tr>
-        </thead>
-        <tbody>
-            @foreach (DataRow row in Model.Rows)
-            {
-                <tr>
-                    <td>@row["DataPolaczenia"]</td>
-                    <td>@row["NumerWybierany"]</td>
-                    <td>@row["CzasTrwania"]</td>
-                    <td>@row["KwotaBrutto"] zł</td>
-                </tr>
-            }
-        </tbody>
-    </table>*@

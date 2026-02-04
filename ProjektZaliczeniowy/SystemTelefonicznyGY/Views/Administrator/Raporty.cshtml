@@ -168,7 +168,7 @@
         // JavaScript pobiera wszystkie parametry z paska adresu
         // Dzięki temu eksportuje DOKŁADNIE to, co wybrał użytkownik (filtry)
         const urlParams = new URLSearchParams(window.location.search);
-        // Wywołujemy akcję EksportujRaport - kontroler zadba, by pobrać WSZYSTKIE strony
+        // Wywołuje akcję EksportujRaport - kontroler zadba, by pobrać WSZYSTKIE strony
         const url = `@Url.Action("EksportujRaport", "Administrator")?` + urlParams.toString();
         window.location.href = url;
     }
