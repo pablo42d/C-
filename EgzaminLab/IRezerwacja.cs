@@ -11,8 +11,8 @@ namespace EgzaminLab
     }
     abstract class RezerwacjaBase : IRezerwacja
     {
-        public string IdRezerwacji { get; set; }
-        public string Zasob { get; set; }
+        public string? IdRezerwacji { get; set; }
+        public string? Zasob { get; set; }
 
         public abstract void Wyswietl();
     }

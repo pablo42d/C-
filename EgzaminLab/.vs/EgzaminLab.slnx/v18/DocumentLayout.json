@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\irejestrrezerwacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:irejestrrezerwacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacjalaboratorium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacjalaboratorium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacjasprzetu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacjasprzetu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacjasali.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacjasali.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\irezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:irezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacjasprzetu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacjasprzetu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rejestrrezerwacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,6 +21,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacja.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\rezerwacjasali.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:rezerwacjasali.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|e:\\git_project\\c-\\nc#\\c-\\egzaminlab\\irejestrrezerwacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ACBF594-C037-3584-4F2E-47862C4D56F2}|EgzaminLab.csproj|solutionrelative:irejestrrezerwacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 279,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "IRejestrRezerwacji.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\IRejestrRezerwacji.cs",
               "RelativeDocumentMoniker": "IRejestrRezerwacji.cs",
@@ -63,13 +63,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RezerwacjaLaboratorium.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaLaboratorium.cs",
               "RelativeDocumentMoniker": "RezerwacjaLaboratorium.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaLaboratorium.cs",
-              "RelativeToolTip": "RezerwacjaLaboratorium.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaLaboratorium.cs*",
+              "RelativeToolTip": "RezerwacjaLaboratorium.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T15:44:23.847Z",
               "EditorCaption": ""
@@ -80,16 +80,16 @@
               "Title": "RezerwacjaSprzetu.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaSprzetu.cs",
               "RelativeDocumentMoniker": "RezerwacjaSprzetu.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaSprzetu.cs",
-              "RelativeToolTip": "RezerwacjaSprzetu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaSprzetu.cs*",
+              "RelativeToolTip": "RezerwacjaSprzetu.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T15:43:27.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "RezerwacjaSali.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RezerwacjaSali.cs",
               "RelativeDocumentMoniker": "RezerwacjaSali.cs",
@@ -102,26 +102,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "IRezerwacja.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\IRezerwacja.cs",
               "RelativeDocumentMoniker": "IRezerwacja.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\IRezerwacja.cs",
-              "RelativeToolTip": "IRezerwacja.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\IRezerwacja.cs*",
+              "RelativeToolTip": "IRezerwacja.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T15:37:10.561Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "RejestrRezerwacji.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RejestrRezerwacji.cs",
               "RelativeDocumentMoniker": "RejestrRezerwacji.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RejestrRezerwacji.cs",
-              "RelativeToolTip": "RejestrRezerwacji.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAvAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\RejestrRezerwacji.cs*",
+              "RelativeToolTip": "RejestrRezerwacji.cs*",
+              "ViewState": "AgIAABsAAAAAAAAAAAAjwD0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T14:35:28.324Z",
               "EditorCaption": ""
@@ -134,20 +134,20 @@
               "RelativeDocumentMoniker": "Rezerwacja.cs",
               "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\Rezerwacja.cs",
               "RelativeToolTip": "Rezerwacja.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T14:34:47.774Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "ToolTip": "E:\\Git_Project\\C-\\NC#\\C-\\EgzaminLab\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-31T20:35:37.461Z",
               "EditorCaption": ""

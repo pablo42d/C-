@@ -6,7 +6,7 @@ namespace EgzaminLab
 {
     internal class RezerwacjaSprzetu : RezerwacjaBase
     {
-        public string TypSprzetu { get; set; }
+        public string? TypSprzetu { get; set; }
         public override void Wyswietl()
         {
             Console.WriteLine($"[SPRZĘT: {TypSprzetu}] ID: {IdRezerwacji}, Zasób: {Zasob}");

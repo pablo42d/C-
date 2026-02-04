@@ -6,23 +6,31 @@ namespace EgzaminLab
 {
     internal class RejestrRezerwacji
     {
-        public List<Rezerwacja> rezerwacje;
+        public List<IRezerwacja> rezerwacje;
+        // public List<Rezerwacja> rezerwacje;
         public RejestrRezerwacji()
         {
-            rezerwacje = new List<Rezerwacja>();
+            //rezerwacje = new List<Rezerwacja>();
+            rezerwacje = new List<IRezerwacja>();
         }
-        public void DodajRezerwacje(Rezerwacja nowaRezerwacja)
+        public void DodajRezerwacje(IRezerwacja nowaRezerwacja)
         {
             rezerwacje.Add(nowaRezerwacja);
         }
-       
+        //public void DodajRezerwacje(Rezerwacja nowaRezerwacja)
+        //{
+        //    rezerwacje.Add(nowaRezerwacja);
+        //}
+
 
         public void UsunRezerwacje(string id)
         {
-            Rezerwacja? znaleziona = null;
+            //Rezerwacja? znaleziona = null;
+            IRezerwacja? znaleziona = null;
             foreach (var r in rezerwacje)
             {
-                if (r.PobierzId() == id)
+                //if (r.PobierzId() == id)
+                if (r.IdRezerwacji == id)
                 {
                     znaleziona = r;
                     break;
@@ -50,7 +58,8 @@ namespace EgzaminLab
         {
             foreach (var r in rezerwacje)
             {
-                if (r.PobierzId() == id)
+                //if (r.PobierzId() == id)
+                if (r.IdRezerwacji == id)
                 {
                     r.Wyswietl();
                     return;
