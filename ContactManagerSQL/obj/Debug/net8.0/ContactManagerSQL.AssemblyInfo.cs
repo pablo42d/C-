@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactManagerSQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ba810def2c33941e201cc25d30e372e994177be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66f1efd50c29c2176d7116229b526e10bed84f13")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactManagerSQL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactManagerSQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

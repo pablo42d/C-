@@ -1,0 +1,3 @@
+2026-02-04 19:40:26 [ERROR] GetAll FAILED: Wystąpił błąd związany z siecią lub wystąpieniem podczas nawiązywania połączenia z programem SQL Server. Nie znaleziono serwera lub był on niedostępny. Sprawdź, czy nazwa wystąpienia jest poprawna i czy program SQL Server jest skonfigurowany do zezwalania na połączenia zdalne. (provider: Dostawca nazwanych potoków, error: 40 - Nie można otworzyć połączenia z programem SQL Server)
+2026-02-04 19:51:23 [ERROR] GetAll FAILED: Połączenie z serwerem zostało pomyślnie ustanowione, ale wystąpił błąd podczas procesu logowania. (provider: Dostawca SSL:, error: 0 - Łańcuch certyfikatów został wystawiony przez urząd, którego nie jest zaufany.)
+2026-02-04 19:54:05 [INFO] GetAll OK (count=2)
